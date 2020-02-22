@@ -2,7 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://anne416wu.github.io/2020/02/16/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A5%E9%97%A8/</loc>
+    <loc>http://anne416wu.github.io/2020/01/20/mac-command/</loc>
+    
+    <lastmod>2020-02-22T20:46:57.698Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://anne416wu.github.io/2019/12/13/anaconda-management/</loc>
+    
+    <lastmod>2020-02-22T20:37:45.493Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://anne416wu.github.io/2020/02/16/hexo-blog-build/</loc>
     
     <lastmod>2020-02-22T18:33:36.693Z</lastmod>
     
@@ -16,16 +30,9 @@
   </url>
   
   <url>
-    <loc>http://anne416wu.github.io/2020/02/20/install-haskell-onMac/</loc>
+    <loc>http://anne416wu.github.io/2020/02/20/install-haskell-on-Mac/</loc>
     
     <lastmod>2020-02-22T17:11:41.157Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://anne416wu.github.io/2019/12/13/Anaconda%E7%9A%84%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/</loc>
-    
-    <lastmod>2020-02-22T16:09:45.490Z</lastmod>
     
   </url>
   
@@ -37,35 +44,28 @@
   </url>
   
   <url>
-    <loc>http://anne416wu.github.io/2020/02/16/hexo-theme/</loc>
+    <loc>http://anne416wu.github.io/2020/02/16/hexo-theme-compare/</loc>
     
     <lastmod>2020-02-22T16:09:31.496Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://anne416wu.github.io/2019/08/27/Linux-bash/</loc>
+    <loc>http://anne416wu.github.io/2019/08/27/Linux-command/</loc>
     
     <lastmod>2020-02-22T16:09:27.248Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://anne416wu.github.io/2020/02/20/mac-commandLine/</loc>
-    
-    <lastmod>2020-02-22T16:09:24.599Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://anne416wu.github.io/2020/01/17/markdown-skill/</loc>
+    <loc>http://anne416wu.github.io/2020/01/17/markdown-advanced-skill/</loc>
     
     <lastmod>2020-02-22T16:09:21.655Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://anne416wu.github.io/2020/02/09/VPS-shadowsocks/</loc>
+    <loc>http://anne416wu.github.io/2020/02/09/VPS_shadowsocks/</loc>
     
     <lastmod>2020-02-22T16:09:19.000Z</lastmod>
     

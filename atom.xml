@@ -18,8 +18,8 @@
   
   <entry>
     <title>Mac上Haskell的安装环境搭建</title>
-    <link href="http://anne416wu.github.io/2020/02/20/install-haskell-onMac/"/>
-    <id>http://anne416wu.github.io/2020/02/20/install-haskell-onMac/</id>
+    <link href="http://anne416wu.github.io/2020/02/20/install-haskell-on-Mac/"/>
+    <id>http://anne416wu.github.io/2020/02/20/install-haskell-on-Mac/</id>
     <published>2020-02-19T16:00:00.000Z</published>
     <updated>2020-02-22T17:11:41.157Z</updated>
     
@@ -42,38 +42,9 @@
   </entry>
   
   <entry>
-    <title>mac快捷键和常用命令行</title>
-    <link href="http://anne416wu.github.io/2020/02/20/mac-commandLine/"/>
-    <id>http://anne416wu.github.io/2020/02/20/mac-commandLine/</id>
-    <published>2020-02-19T16:00:00.000Z</published>
-    <updated>2020-02-22T16:09:24.599Z</updated>
-    
-    <content type="html"><![CDATA[<p>mac常用命令行</p><a id="more"></a><h2 id="隐藏文件"><a href="#隐藏文件" class="headerlink" title="隐藏文件"></a>隐藏文件</h2><ul><li>显示隐藏文件：</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.Finder AppleShowAllFiles YES</span><br><span class="line">KillAll Finder</span><br></pre></td></tr></table></figure><ul><li>不显示隐藏文件：</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.Finder AppleShowAllFiles NO</span><br><span class="line">KillAll Finder</span><br></pre></td></tr></table></figure><ul><li>快捷键方式：<code>command+shift+.</code></li></ul><h2 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h2><ul><li>修改截图默认文件名</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture name &quot;Screenshot&quot;</span><br><span class="line">killall SystemUIServer</span><br></pre></td></tr></table></figure><ul><li>更换默认截图路径</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture location ~&#x2F;Desktop&#x2F;屏幕截图</span><br><span class="line">killall SystemUIServer</span><br></pre></td></tr></table></figure><ul><li>去掉窗口截图的阴影</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture disable-shadow -bool true</span><br><span class="line">killall SystemUIServer</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;mac常用命令行&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Code" scheme="http://anne416wu.github.io/categories/Code/"/>
-    
-      <category term="Other" scheme="http://anne416wu.github.io/categories/Code/Other/"/>
-    
-    
-      <category term="mac" scheme="http://anne416wu.github.io/tags/mac/"/>
-    
-      <category term="bash" scheme="http://anne416wu.github.io/tags/bash/"/>
-    
-      <category term="hot key" scheme="http://anne416wu.github.io/tags/hot-key/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Hexo博客搭建入门</title>
-    <link href="http://anne416wu.github.io/2020/02/16/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A5%E9%97%A8/"/>
-    <id>http://anne416wu.github.io/2020/02/16/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A5%E9%97%A8/</id>
+    <link href="http://anne416wu.github.io/2020/02/16/hexo-blog-build/"/>
+    <id>http://anne416wu.github.io/2020/02/16/hexo-blog-build/</id>
     <published>2020-02-15T16:00:00.000Z</published>
     <updated>2020-02-22T18:33:36.693Z</updated>
     
@@ -99,8 +70,8 @@
   
   <entry>
     <title>hexo的主题比较</title>
-    <link href="http://anne416wu.github.io/2020/02/16/hexo-theme/"/>
-    <id>http://anne416wu.github.io/2020/02/16/hexo-theme/</id>
+    <link href="http://anne416wu.github.io/2020/02/16/hexo-theme-compare/"/>
+    <id>http://anne416wu.github.io/2020/02/16/hexo-theme-compare/</id>
     <published>2020-02-15T16:00:00.000Z</published>
     <updated>2020-02-22T16:09:31.496Z</updated>
     
@@ -126,8 +97,8 @@
   
   <entry>
     <title>VPS 配置</title>
-    <link href="http://anne416wu.github.io/2020/02/09/VPS-shadowsocks/"/>
-    <id>http://anne416wu.github.io/2020/02/09/VPS-shadowsocks/</id>
+    <link href="http://anne416wu.github.io/2020/02/09/VPS_shadowsocks/"/>
+    <id>http://anne416wu.github.io/2020/02/09/VPS_shadowsocks/</id>
     <published>2020-02-08T16:00:00.000Z</published>
     <updated>2020-02-22T16:09:19.000Z</updated>
     
@@ -150,9 +121,38 @@
   </entry>
   
   <entry>
+    <title>mac快捷键和常用命令行</title>
+    <link href="http://anne416wu.github.io/2020/01/20/mac-command/"/>
+    <id>http://anne416wu.github.io/2020/01/20/mac-command/</id>
+    <published>2020-01-19T16:00:00.000Z</published>
+    <updated>2020-02-22T20:46:57.698Z</updated>
+    
+    <content type="html"><![CDATA[<p>mac常用命令行</p><a id="more"></a><h2 id="隐藏文件"><a href="#隐藏文件" class="headerlink" title="隐藏文件"></a>隐藏文件</h2><ul><li>显示隐藏文件：</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.Finder AppleShowAllFiles YES</span><br><span class="line">KillAll Finder</span><br></pre></td></tr></table></figure><ul><li>不显示隐藏文件：</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.Finder AppleShowAllFiles NO</span><br><span class="line">KillAll Finder</span><br></pre></td></tr></table></figure><ul><li>快捷键方式：<code>command+shift+.</code></li></ul><h2 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h2><ul><li>修改截图默认文件名</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture name &quot;Screenshot&quot;</span><br><span class="line">killall SystemUIServer</span><br></pre></td></tr></table></figure><ul><li>更换默认截图路径</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture location ~&#x2F;Desktop&#x2F;屏幕截图</span><br><span class="line">killall SystemUIServer</span><br></pre></td></tr></table></figure><ul><li>去掉窗口截图的阴影</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture disable-shadow -bool true</span><br><span class="line">killall SystemUIServer</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;mac常用命令行&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Code" scheme="http://anne416wu.github.io/categories/Code/"/>
+    
+      <category term="Other" scheme="http://anne416wu.github.io/categories/Code/Other/"/>
+    
+    
+      <category term="mac" scheme="http://anne416wu.github.io/tags/mac/"/>
+    
+      <category term="bash" scheme="http://anne416wu.github.io/tags/bash/"/>
+    
+      <category term="hot key" scheme="http://anne416wu.github.io/tags/hot-key/"/>
+    
+  </entry>
+  
+  <entry>
     <title>markdown进阶使用技巧</title>
-    <link href="http://anne416wu.github.io/2020/01/17/markdown-skill/"/>
-    <id>http://anne416wu.github.io/2020/01/17/markdown-skill/</id>
+    <link href="http://anne416wu.github.io/2020/01/17/markdown-advanced-skill/"/>
+    <id>http://anne416wu.github.io/2020/01/17/markdown-advanced-skill/</id>
     <published>2020-01-16T16:00:00.000Z</published>
     <updated>2020-02-22T16:09:21.655Z</updated>
     
@@ -178,10 +178,10 @@
   
   <entry>
     <title>Anaconda的环境管理</title>
-    <link href="http://anne416wu.github.io/2019/12/13/Anaconda%E7%9A%84%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/"/>
-    <id>http://anne416wu.github.io/2019/12/13/Anaconda%E7%9A%84%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/</id>
+    <link href="http://anne416wu.github.io/2019/12/13/anaconda-management/"/>
+    <id>http://anne416wu.github.io/2019/12/13/anaconda-management/</id>
     <published>2019-12-12T16:00:00.000Z</published>
-    <updated>2020-02-22T16:09:45.490Z</updated>
+    <updated>2020-02-22T20:37:45.493Z</updated>
     
     <content type="html"><![CDATA[<p>Anaconda的环境管理</p><a id="more"></a><h1 id="Conda的环境管理"><a href="#Conda的环境管理" class="headerlink" title="Conda的环境管理"></a>Conda的环境管理</h1><p>Conda的环境管理功能允许我们同时安装若干不同版本的Python，并能自由切换。对于上述安装过程，假设我们采用的是Python 2.7对应的安装包，那么Python 2.7就是默认的环境（默认名字是root注意这个root不是超级管理员的意思）。<br>假设我们需要安装Python 3.4，此时，我们需要做的操作如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本）</span><br><span class="line">conda create —name python34 python&#x3D;3.4</span><br><span class="line"></span><br><span class="line"># 安装好后，使用activate激活某个环境</span><br><span class="line">activate python34 # for Windows</span><br><span class="line">source activate python34 # for Linux &amp; Mac</span><br><span class="line"># 激活后，会发现terminal输入的地方多了python34的字样，实际上，此时系统做的事情就是把默认2.7环境从PATH中去除，再把3.4对应的命令加入PATH</span><br><span class="line"></span><br><span class="line"># 此时，再次输入</span><br><span class="line">python —version</span><br><span class="line"># 可以得到&#96;Python 3.4.5 :: Anaconda 4.1.1 (64-bit)&#96;，即系统已经切换到了3.4的环境</span><br><span class="line"></span><br><span class="line"># 如果想返回默认的python 2.7环境，运行</span><br><span class="line">deactivate python34 # for Windows</span><br><span class="line">source deactivate python34 # for Linux </span><br><span class="line">conda deactivate python34 # for mac</span><br><span class="line"></span><br><span class="line"># 删除一个已有的环境</span><br><span class="line">conda remove —name python34 —all</span><br></pre></td></tr></table></figure><blockquote><p>用户安装的不同python环境都会被放在目录~/anaconda/envs<br>下，可以在命令中运行<br>conda info -e<br>查看已安装的环境，当前被激活的环境会显示有一个星号或者括号。<br>说明：有些用户可能经常使用python 3.4环境，因此直接把<br>~/anaconda/envs/python34<br>下面的bin或者Scripts加入PATH，去除anaconda对应的那个bin目录。这个办法，怎么说呢，也是可以的，但总觉得不是那么elegant……<br>如果直接按上面说的这么改PATH，你会发现conda命令又找不到了（当然找不到啦，因为conda在<br>~/anaconda/bin<br>里呢），这时候怎么办呢？方法有二：1. 显式地给出conda的绝对地址 2. 在python34环境中也安装conda工具（推荐）。</p></blockquote><h1 id="Conda的包管理"><a href="#Conda的包管理" class="headerlink" title="Conda的包管理"></a>Conda的包管理</h1><blockquote><p>Conda的包管理就比较好理解了，这部分功能与<br>pip<br>类似。<br>例如，如果需要安装scipy：</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"># 安装scipy</span><br><span class="line">conda install scipy</span><br><span class="line"># conda会从从远程搜索scipy的相关信息和依赖项目，对于python 3.4，conda会同时安装numpy和mkl（运算加速的库）</span><br><span class="line"># 查看已经安装的packages</span><br><span class="line">conda list</span><br><span class="line"># 最新版的conda是从site-packages文件夹中搜索已经安装的包，不依赖于pip，因此可以显示出通过各种方式安装的包</span><br><span class="line"># 安装scipy</span><br><span class="line">conda install scipy</span><br><span class="line"># conda会从从远程搜索scipy的相关信息和依赖项目，对于python 3.4，conda会同时安装numpy和mkl（运算加速的库）</span><br><span class="line"># 查看已经安装的packages</span><br><span class="line">conda list</span><br><span class="line"># 最新版的conda是从site-packages文件夹中搜索已经安装的包，不依赖于pip，因此可以显示出通过各种方式安装的包</span><br><span class="line">### conda的一些常用操作如下：</span><br><span class="line"># 查看当前环境下已安装的包</span><br><span class="line">conda list</span><br><span class="line"># 查看某个指定环境的已安装包</span><br><span class="line">conda list -n python34</span><br><span class="line"># 查找package信息</span><br><span class="line">conda search numpy</span><br><span class="line"># 安装package</span><br><span class="line">conda install -n python34 numpy</span><br><span class="line"># 如果不用-n指定环境名称，则被安装在当前活跃环境</span><br><span class="line"># 也可以通过-c指定通过某个channel安装</span><br><span class="line"># 更新package</span><br><span class="line">conda update -n python34 numpy</span><br><span class="line"># 删除package</span><br><span class="line">conda remove -n python34 numpy</span><br><span class="line"># 查看当前环境下已安装的包</span><br><span class="line">conda list</span><br><span class="line"># 查看某个指定环境的已安装包</span><br><span class="line">conda list -n python34</span><br><span class="line"># 查找package信息</span><br><span class="line">conda search numpy</span><br><span class="line"># 安装package</span><br><span class="line">conda install -n python34 numpy</span><br><span class="line"># 如果不用-n指定环境名称，则被安装在当前活跃环境</span><br><span class="line"># 也可以通过-c指定通过某个channel安装</span><br><span class="line"># 更新package</span><br><span class="line">conda update -n python34 numpy</span><br><span class="line"># 删除package</span><br><span class="line">conda remove -n python34 numpy</span><br><span class="line">### 前面已经提到，conda将conda、python等都视为package，因此，完全可以使用conda来管理conda和python的版本，例如</span><br><span class="line"># 更新conda，保持conda最新</span><br><span class="line">conda update conda</span><br><span class="line"># 更新anaconda</span><br><span class="line">conda update anaconda</span><br><span class="line"># 更新python</span><br><span class="line">conda update python</span><br><span class="line"># 假设当前环境是python 3.4, conda会将python升级为3.4.x系列的当前最新版本</span><br><span class="line">### 补充：如果创建新的python环境，比如3.4，运行</span><br><span class="line">### conda create -n python34 python&#x3D;3.4</span><br><span class="line">### 之后，conda仅安装python 3.4相关的必须项，如python, pip等，如果希望该环境像默认环境那样，安装anaconda集合包，只需要：</span><br><span class="line"># 在当前环境下安装anaconda包集合</span><br><span class="line">conda install anaconda</span><br><span class="line"># 结合创建环境的命令，以上操作可以合并为</span><br><span class="line">conda create -n python34 python&#x3D;3.4 anaconda</span><br><span class="line"># 也可以不用全部安装，根据需求安装自己需要的package即可</span><br><span class="line"># 在当前环境下安装anaconda包集合</span><br><span class="line">conda install anaconda</span><br><span class="line"># 结合创建环境的命令，以上操作可以合并为</span><br><span class="line">conda create -n python34 python&#x3D;3.4 anaconda</span><br><span class="line"># 也可以不用全部安装，根据需求安装自己需要的package即可</span><br><span class="line"># 设置国内镜像</span><br><span class="line">### 如果需要安装很多packages，你会发现conda下载的速度经常很慢，因为Anaconda.org的服务器在国外。所幸的是，清华TUNA镜像源有Anaconda仓库的镜像，我们将其加入conda的配置即可：</span><br><span class="line"># 添加Anaconda的TUNA镜像</span><br><span class="line">conda config —add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;free&#x2F;</span><br><span class="line"># TUNA的help中镜像地址加有引号，需要去掉</span><br><span class="line"># 设置搜索时显示通道地址</span><br><span class="line">conda config —set show_channel_urls yes</span><br><span class="line"># 添加Anaconda的TUNA镜像</span><br><span class="line">conda config —add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;free&#x2F;</span><br><span class="line"># TUNA的help中镜像地址加有引号，需要去掉</span><br><span class="line"># 设置搜索时显示通道地址</span><br><span class="line">conda config —set show_channel_urls yes</span><br></pre></td></tr></table></figure><blockquote><p>执行完上述命令后，会生成<br>~/.condarc<br>(Linux/Mac)或<br>C:UsersUSER_NAME.condarc<br>文件，记录着我们对conda的配置，直接手动创建、编辑该文件是相同的效果。</p></blockquote>]]></content>
     
@@ -197,14 +197,14 @@
       <category term="Note" scheme="http://anne416wu.github.io/categories/Code/Note/"/>
     
     
-      <category term="python" scheme="http://anne416wu.github.io/tags/python/"/>
+      <category term="python anaconda" scheme="http://anne416wu.github.io/tags/python-anaconda/"/>
     
   </entry>
   
   <entry>
     <title>Linux的基本终端命令</title>
-    <link href="http://anne416wu.github.io/2019/08/27/Linux-bash/"/>
-    <id>http://anne416wu.github.io/2019/08/27/Linux-bash/</id>
+    <link href="http://anne416wu.github.io/2019/08/27/Linux-command/"/>
+    <id>http://anne416wu.github.io/2019/08/27/Linux-command/</id>
     <published>2019-08-26T16:00:00.000Z</published>
     <updated>2020-02-22T16:09:27.248Z</updated>
     
