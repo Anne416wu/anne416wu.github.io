@@ -7,20 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>markdown进阶使用技巧 - Anne416Wu</title>
+<title>Hexo博客搭建入门 - Anne416Wu</title>
 
 
-    <meta name="description" content="markdown中的mermaid作图, html结合等进阶使用的handbook">
+    <meta name="description" content="使用基于Nodejs的Hexo博客框架, 结合github.io页面, 快速搭建个人博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="markdown进阶使用技巧">
-<meta property="og:url" content="http://anne416wu.github.io/2020/01/17/markdown_skill/index.html">
+<meta property="og:title" content="Hexo博客搭建入门">
+<meta property="og:url" content="http://anne416wu.github.io/2020/02/16/hexo-blog/index.html">
 <meta property="og:site_name" content="Anne416Wu">
-<meta property="og:description" content="markdown中的mermaid作图, html结合等进阶使用的handbook">
+<meta property="og:description" content="使用基于Nodejs的Hexo博客框架, 结合github.io页面, 快速搭建个人博客">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://anne416wu.github.io/images/og_image.png">
-<meta property="article:published_time" content="2020-01-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-18T09:50:44.034Z">
+<meta property="article:published_time" content="2020-02-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-02-22T16:14:40.120Z">
 <meta property="article:author" content="Anne wu">
-<meta property="article:tag" content="markdown js 前端 博客">
+<meta property="article:tag" content="hexo js 前端 博客">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://anne416wu.github.io/images/og_image.png">
 
@@ -80,7 +81,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="markdown进阶使用技巧" height="28">
+                <img src="/images/logo.svg" alt="Hexo博客搭建入门" height="50">
             
             </a>
         </div>
@@ -122,8 +123,12 @@
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
-                <a class="navbar-item search" title="Suche" href="javascript:;">
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -142,17 +147,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-01-16T16:00:00.000Z">2020-01-17</time>
+                <time class="level-item has-text-grey" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
+                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute lesen (Über 172 Worte)
+                    9 分钟 读完 (大约 1377 个字)
                 </span>
                 
                 
@@ -161,46 +166,132 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                markdown进阶使用技巧
+                Hexo博客搭建入门
             
         </h1>
         <div class="content">
-            <p>markdown中的mermaid作图, html结合等进阶使用的handbook</p>
+            <p>使用基于Nodejs的Hexo博客框架, 结合github.io页面, 快速搭建个人博客</p>
 <a id="more"></a>
 
+<h2 id="1-工具准备"><a href="#1-工具准备" class="headerlink" title="1 工具准备"></a>1 工具准备</h2><h3 id="1-GITHUB仓库创建"><a href="#1-GITHUB仓库创建" class="headerlink" title="1 GITHUB仓库创建"></a>1 GITHUB仓库创建</h3><p>​    创建新repository，名为<code>username.github.io</code>(username与github用户名一致)</p>
+<h3 id="2-安装相关工具"><a href="#2-安装相关工具" class="headerlink" title="2 安装相关工具"></a>2 安装相关工具</h3><ol>
+<li><p><a href="https://www.cnblogs.com/kaiye/p/4937191.html">安装node管理工具nvm</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用brew安装</span></span><br><span class="line">brew install nvm</span><br><span class="line"><span class="comment"># 添加进终端配置文件（.zshrc或.bash_profile)</span></span><br><span class="line"><span class="built_in">export</span> NVM_DIR=~/.nvm</span><br><span class="line">[ -s <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> ] &amp;&amp; \. <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span></span><br></pre></td></tr></table></figure>
 
-
-<h2 id="link_in_page">页内跳转</h2>
-
-<p><span id = "jumptoexample"> 两种方法究其根本都是md中html语法的应用</span></p>
-<h3 id="link_in_page.1">1.生成目录方法</h3>
-
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>[<span class="string">页内跳转</span>](<span class="link">#link_in_page</span>)</span><br><span class="line"><span class="bullet">  * </span>[<span class="string">1生成目录的方法</span>](<span class="link">#link_in_page.1</span>)</span><br><span class="line"><span class="bullet">  * </span>[<span class="string">2html标签实现</span>](<span class="link">#link_in_page.2</span>)</span><br></pre></td></tr></table></figure>
-
-<p>生成效果:</p>
-<ul>
-<li><a href="#link_in_page">页内跳转</a><ul>
-<li><a href="#link_in_page.1">1.生成目录的方法</a></li>
-<li><a href="#link_in_page.2">2.html标签实现</a></li>
-</ul>
+<blockquote>
+<p>此处有个坑: nvm官方并不建议使用brew安装</p>
+<p><code>Homebrew installation is not supported. If you have issues with homebrew-installed nvm, please brew uninstall it, and install it using the instructions below, before filing an issue.</code></p>
+<p>如果使用Homebrew安装，因为安装路径等原因, 在.nvm中会缺少nvm-exec和nvm.sh两个文件。导致每次启动终端都需要输入<code>source $(brew --prefix nvm)/nvm.sh</code>才能使当前终端使用nvm命令</p>
+<p>解决方法有2</p>
+<ol>
+<li><p>简单粗暴：在.zshrc（终端配置文件）中加入<code>source $(brew --prefix nvm)/nvm.sh</code></p>
 </li>
+<li><p>曲线救国：(注意此方法curl命令可能被墙, 具体见<a href="https://github.com/nvm-sh/nvm">nvm项目github</a>)</p>
+<ol>
+<li><p>卸载使用brew安装的nvm<code>brew uninstall nvm</code></p>
+</li>
+<li><p>使用curl命令下载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>终端配置文件加入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">"<span class="variable">$HOME</span>/.nvm"</span></span><br><span class="line">[ -s <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> ] &amp;&amp; \. <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span>  <span class="comment"># This loads nvm</span></span><br><span class="line">[ -s <span class="string">"<span class="variable">$NVM_DIR</span>/bash_completion"</span> ] &amp;&amp; \. <span class="string">"<span class="variable">$NVM_DIR</span>/bash_completion"</span>  <span class="comment"># This loads nvm bash_completion</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+</blockquote>
+</li>
+<li><p>安装nodejs</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install stable</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p> 网上很多过期教程会建议使用 <code>nvm install 4</code> , <code>nvm install 6</code>  , 实际安装后, node版本在7以下的都会抛出异常, 建议一步到位安装最新稳定版node</p>
+<p> nvm/npm常用命令:</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 切换nvm版本至 &lt;number&gt;开头的默认版本</span></span><br><span class="line">nvm use &lt;number&gt; </span><br><span class="line"><span class="comment">#设置默认 node 版本为 0.12.7</span></span><br><span class="line">nvm <span class="built_in">alias</span> default 0.12.7 </span><br><span class="line"><span class="comment"># 使用.nvmrc文件配置项目所使用的node版本</span></span><br><span class="line"><span class="built_in">cd</span> &lt;项目根目录&gt;  <span class="comment">#进入项目根目录</span></span><br><span class="line"><span class="built_in">echo</span> &lt;number&gt; &gt; .nvmrc <span class="comment">#添加 .nvmrc 文件</span></span><br><span class="line">nvm use <span class="comment">#无需指定版本号，会自动使用 .nvmrc 文件中配置的版本</span></span><br><span class="line">node -v <span class="comment">#查看 node 是否切换为对应版本</span></span><br><span class="line"><span class="comment">#安装 &lt;module-name&gt; 模块至全局目录，安装完成的路径是 /Users/&lt;username&gt;/.nvm/versions/node/&lt;nvm-version&gt;/lib/&lt;module-name&gt;</span></span><br><span class="line">npm install -g &lt;module-name&gt;</span><br></pre></td></tr></table></figure>
+
+<p> nvm与n的区别</p>
+<ul>
+<li>node 版本管理工具还有一个是 <a href="https://github.com/tj/n">TJ 大神的 n</a> 命令，n 命令是作为一个 node 的模块而存在，而 nvm 是一个独立于 node/npm 的外部 shell 脚本，因此 n 命令相比 nvm 更加局限。</li>
+<li>由于 npm 安装的模块路径均为 /usr/local/lib/node_modules ，当使用 n 切换不同的 node 版本时，实际上会共用全局的 node/npm 目录。 因此不能很好的满足『按不同 node 版本使用不同全局 node 模块』的需求。</li>
 </ul>
-<p>在正文中对应的地方, 加入章节标题对应id</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">'link_in_page'</span>&gt;</span></span>业内跳转<span class="xml"><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><a href="https://hexo.io/zh-cn/">安装Hexo</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 
-<h3 id="link_in_page.2">2.html标签实现</h3>
+</li>
+</ol>
+<h2 id="2-hexo的使用入门"><a href="#2-hexo的使用入门" class="headerlink" title="2 hexo的使用入门"></a>2 <a href="https://hexo.io/zh-cn/">hexo的使用入门</a></h2><ol>
+<li><p>创建博客和基础配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init username.github.io <span class="comment"># 博客根目录&lt;folder_name&gt;</span></span><br><span class="line"><span class="built_in">cd</span> username.github.io</span><br></pre></td></tr></table></figure>
 
-<p>定义一个锚在跳转的目的地    <code>&lt;span id = &quot;jumptoexample&quot;&gt;页内跳转&lt;/span&gt;</code> </p>
-<p>在要需要跳转的地方使用md语法的超链接 <code>[ 点击跳转 ](#jumptoexample)</code></p>
-<p><a href="#jumptoexample"> 点击跳转 </a></p>
 
+</li>
+</ol>
+<p>更改博客根目录下的_config.yml文件</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span></span><br><span class="line"><span class="attr">author:</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-Hans</span> <span class="comment">#中文</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">landscape</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">	<span class="attr">type:</span> <span class="string">git</span> </span><br><span class="line">	<span class="attr">repo:</span> <span class="string">https://github.com/username/username.github.io.git</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>更换主题</p>
+<blockquote>
+<p>主题测评见另一篇文章<a href="../hexo_theme">hexo的主题比较</a> </p>
+<p>hexo初始化中自带landscape主题</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 此处以next主题为例</span></span><br><span class="line">   git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+
+<p>进入themes/next, 打开_config.yml, 按照文件中的说明即可对主题进行基础配置</p>
+<p>同时更改博客根目录中_config.yml文件的<code>theme: next</code></p>
+</li>
+<li><p>写文章</p>
+<p>博客根目录username.github.io下的source文件夹保存所有博客, 默认使用md语法</p>
+<blockquote>
+<p><a href="https://hexo.io/zh-cn/docs/writing.html">hexo写作命令</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo博客搭建入门</span><br><span class="line">date: 2020-02-16</span><br><span class="line">tags: hexo js</span><br><span class="line">categories:</span><br><span class="line"><span class="bullet">  - </span>Code</span><br><span class="line"><span class="bullet">  - </span>Guide</span><br><span class="line">keywords: hexo js 前端 博客</span><br><span class="line">---</span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试<code>hexo s</code></p>
+</li>
+<li><p>安装使用hexo-deployer-git](<a href="https://link.jianshu.com/?t=https://github.com/hexojs/hexo-deployer-git)自动部署发布工具">https://link.jianshu.com/?t=https://github.com/hexojs/hexo-deployer-git)自动部署发布工具</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+
+
+
+</li>
+</ol>
+<h2 id="hexo的使用进阶"><a href="#hexo的使用进阶" class="headerlink" title="hexo的使用进阶"></a>hexo的使用进阶</h2><h3 id="图片"><a href="#图片" class="headerlink" title=" 图片 "></a><a href="https://hexo.io/zh-cn/docs/asset-folders.html"> 图片 </a></h3><ol>
+<li><p>资源文件夹 : 最简单的方法就是将它们放在 <code>source/images</code> 文件夹中。然后通过类似于 <code>![](/images/image.jpg)</code> 的方法访问它们。</p>
+</li>
+<li><p>组织化资源管理方式 : 通过将 <code>config.yml</code> 文件中的 <code>post_asset_folder</code> 选项设为 <code>true</code> 来打开, 当资源文件管理功能打开后，Hexo将会在你每一次通过 <code>hexo new [layout]</code> 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个文章文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">图片名称</span>](<span class="link">图片名称.jpg</span>)</span><br></pre></td></tr></table></figure>
+
+<p>需要注意, 使用md时,在首页显示会出现错误, 使用标签插件可以解决</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img 图片名称.jpg This is an example image %&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>tips</p>
+<ol>
+<li><p>在typora的设置中进行以下修改可以与hexo同步：</p>
+<p><img src="typoraimg_setting.jpg" alt="typoraimg_setting"></p>
+</li>
+<li><p>组织化资源管理的两种方式都会使图片失去本地编辑器上的可读性</p>
+</li>
+</ol>
+<div class="tip">
+3. 实际使用中会遇到部分主题对标签插件渲染出现莫名其妙的错误(vexo)，或者主题不支持(terminal)，所以除非需要在首页的展示缩略图，建议使用markdown语法的方式。
+</div>
+</blockquote>
+</li>
+</ol>
+<h3 id="block"><a href="#block" class="headerlink" title="block"></a>block</h3><h1 id="Hexo-Built-in-Tag-Helpers"><a href="#Hexo-Built-in-Tag-Helpers" class="headerlink" title="Hexo Built-in Tag Helpers"></a><a href="https://blog.zhangruipeng.me/hexo-theme-icarus/Configuration/Posts/hexo-built-in-tag-helpers/">Hexo Built-in Tag Helpers</a></h1>
         </div>
         
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/html/" rel="tag">html</a>, <a class="has-link-grey -link" href="/tags/markdown/" rel="tag">markdown</a>
+                    <a class="has-link-grey -link" href="/tags/hexo/" rel="tag">hexo</a>, <a class="has-link-grey -link" href="/tags/js/" rel="tag">js</a>
                 </div>
             </div>
         </div>
@@ -214,7 +305,7 @@
 
 <div class="card">
     <div class="card-content">
-        <h3 class="menu-label has-text-centered">Gefällt Ihnen der Artikel? Unterstützen Sie den Autor mit</h3>
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
         <div class="buttons is-centered">
             
                 
@@ -222,8 +313,8 @@
     <span class="icon is-small">
         <i class="fab fa-alipay"></i>
     </span>
-    <span>Alipay</span>
-    <div class="qrcode"><img src="/images/Alipay.jpg" alt="Alipay"></div>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/Alipay.jpg" alt="支付宝"></div>
 </a>
 
                 
@@ -232,22 +323,9 @@
     <span class="icon is-small">
         <i class="fab fa-weixin"></i>
     </span>
-    <span>Wechat</span>
-    <div class="qrcode"><img src="/images/Wechat.png" alt="Wechat"></div>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/Wechat.png" alt="微信"></div>
 </a>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<div class="notification is-danger">
-    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
-</div>
 
                 
         </div>
@@ -260,16 +338,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/02/09/VPS_shadowsocks/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/02/20/mac-commandLine/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">VPS 配置</span>
+                <span class="level-item">mac快捷键和常用命令行</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/12/13/conda/">
-                <span class="level-item">Anaconda的环境管理</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/02/16/hexo-theme/">
+                <span class="level-item">hexo的主题比较</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -281,7 +359,7 @@
 
 <div class="card">
     <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">Kommentare</h3>
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
         
 <div id="valine-thread" class="content"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
@@ -340,11 +418,11 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        文章
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            10
+                            9
                         </p>
                     </a>
                 </div>
@@ -352,11 +430,11 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Kategorien
+                        分类
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            7
+                            6
                         </p>
                     </a>
                 </div>
@@ -364,11 +442,11 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        标签
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            13
+                            12
                         </p>
                     </a>
                 </div>
@@ -377,7 +455,7 @@
         
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener">
-                Folgen</a>
+                关注我</a>
         </div>
         
         
@@ -392,23 +470,23 @@
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Facebook" href="https://facebook.com">
+                title="Weibo" href="http://weibo.com/5204863560">
                 
-                <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Twitter" href="https://twitter.com">
-                
-                <i class="fab fa-twitter"></i>
+                <i class="fab fa-weibo"></i>
                 
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Dribbble" href="https://dribbble.com">
+                title="Zhihu" href="https://www.zhihu.com/people/ec8245550575110d33e79f3537e1408c">
                 
-                <i class="fab fa-dribbble"></i>
+                <i class="fab fa-zhihu"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Douban" href="https://www.douban.com/people/129687090">
+                
+                <i class="fab fa-stack-1x fa-inverse"></i>
                 
             </a>
             
@@ -425,49 +503,11 @@
 </div>
     
         
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            Links
-        </h3>
-        <ul class="menu-list">
-        
-            <li>
-                <a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener">
-                    <span class="level-left">
-                        <span class="level-item">Hexo</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">hexo.io</span>
-                    </span>
-                </a>
-            </li>
-        
-            <li>
-                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank" rel="noopener">
-                    <span class="level-left">
-                        <span class="level-item">PPOffice</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">github.com</span>
-                    </span>
-                </a>
-            </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-
-    
-        
 <div class="card widget">
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Kategorien
+                分类
             </h3>
             <ul class="menu-list">
             <li>
@@ -476,7 +516,7 @@
                 <span class="level-item">Code</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">9</span>
+                <span class="level-item tag">8</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/Code/Guide/">
@@ -501,14 +541,6 @@
             </span>
             <span class="level-end">
                 <span class="level-item tag">3</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Code/report/">
-            <span class="level-start">
-                <span class="level-item">report</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
             </span>
         </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/Life/">
@@ -535,33 +567,30 @@
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            标签云
         </h3>
-        <a href="/tags/Compilation/" style="font-size: 10px;">Compilation</a> <a href="/tags/Haskell/" style="font-size: 10px;">Haskell</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 10px;">VPS</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/hot-key/" style="font-size: 10px;">hot key</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
+        <a href="/tags/Haskell/" style="font-size: 10px;">Haskell</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 10px;">VPS</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/hot-key/" style="font-size: 10px;">hot key</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
     </div>
 </div>
     
-    
-        <div class="column-right-shadow is-hidden-widescreen ">
-        
-            <div class="card widget">
+        <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Letzte Einträge
+            最新文章
         </h3>
         
         <article class="media">
             
-            <a href="/2020/02/20/2020-02-20-Mac%E4%B8%8AHaskell%E7%9A%84%E5%AE%89%E8%A3%85/" class="media-left">
+            <a href="/2020/02/20/Mac%E4%B8%8AHaskell%E7%9A%84%E5%AE%89%E8%A3%85/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Mac上Haskell的安装环境搭建">
+                    <img class="thumbnail" src="/gallery/thumbnails/haskell.png" alt="Mac上Haskell的安装环境搭建">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
-                    <a href="/2020/02/20/2020-02-20-Mac%E4%B8%8AHaskell%E7%9A%84%E5%AE%89%E8%A3%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
+                    <a href="/2020/02/20/Mac%E4%B8%8AHaskell%E7%9A%84%E5%AE%89%E8%A3%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -571,26 +600,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/20/Compilation_Lab1_20200220/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab1-语言认知实验">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
-                    <a href="/2020/02/20/Compilation_Lab1_20200220/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab1-语言认知实验</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/report/">report</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/02/20/mac_commandLine/" class="media-left">
+            <a href="/2020/02/20/mac-commandLine/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="mac快捷键和常用命令行">
                 </p>
@@ -599,7 +609,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
-                    <a href="/2020/02/20/mac_commandLine/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
+                    <a href="/2020/02/20/mac-commandLine/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -609,7 +619,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo_blog/" class="media-left">
+            <a href="/2020/02/16/hexo-blog/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Hexo博客搭建入门">
                 </p>
@@ -618,7 +628,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo_blog/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
+                    <a href="/2020/02/16/hexo-blog/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -628,7 +638,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo_theme/" class="media-left">
+            <a href="/2020/02/16/hexo-theme/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="hexo的主题比较">
                 </p>
@@ -637,7 +647,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo_theme/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
+                    <a href="/2020/02/16/hexo-theme/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -645,24 +655,43 @@
             </div>
         </article>
         
+        <article class="media">
+            
+            <a href="/2020/02/09/VPS-shadowsocks/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="VPS 配置">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-08T16:00:00.000Z">2020-02-09</time></div>
+                    <a href="/2020/02/09/VPS-shadowsocks/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
-        
-            <div class="card widget">
+    
+        <div class="card widget">
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archive
+            归档
         </h3>
         <ul class="menu-list">
         
         <li>
             <a class="level is-marginless" href="/archives/2020/02/">
                 <span class="level-start">
-                    <span class="level-item">February 2020</span>
+                    <span class="level-item">二月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -670,7 +699,7 @@
         <li>
             <a class="level is-marginless" href="/archives/2020/01/">
                 <span class="level-start">
-                    <span class="level-item">January 2020</span>
+                    <span class="level-item">一月 2020</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -681,7 +710,7 @@
         <li>
             <a class="level is-marginless" href="/archives/2019/12/">
                 <span class="level-start">
-                    <span class="level-item">December 2019</span>
+                    <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -692,7 +721,7 @@
         <li>
             <a class="level is-marginless" href="/archives/2019/08/">
                 <span class="level-start">
-                    <span class="level-item">August 2019</span>
+                    <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -703,7 +732,7 @@
         <li>
             <a class="level is-marginless" href="/archives/2018/07/">
                 <span class="level-start">
-                    <span class="level-item">July 2018</span>
+                    <span class="level-item">七月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -715,21 +744,63 @@
         </div>
     </div>
 </div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
+        
+            
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-工具准备">
+        <span class="has-mr-6">1.1</span>
+        <span>1 工具准备</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-GITHUB仓库创建">
+        <span class="has-mr-6">1.1.1</span>
+        <span>1 GITHUB仓库创建</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-安装相关工具">
+        <span class="has-mr-6">1.1.2</span>
+        <span>2 安装相关工具</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#2-hexo的使用入门">
+        <span class="has-mr-6">1.2</span>
+        <span>2 hexo的使用入门</span>
+        </a></li><li>
+        <a class="is-flex" href="#hexo的使用进阶">
+        <span class="has-mr-6">1.3</span>
+        <span>hexo的使用进阶</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#图片">
+        <span class="has-mr-6">1.3.1</span>
+        <span> 图片 </span>
+        </a></li><li>
+        <a class="is-flex" href="#block">
+        <span class="has-mr-6">1.3.2</span>
+        <span>block</span>
+        </a></li></ul></li></ul><li>
+        <a class="is-flex" href="#Hexo-Built-in-Tag-Helpers">
+        <span class="has-mr-6">2</span>
+        <span>Hexo Built-in Tag Helpers</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
         
             <div class="card widget">
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Compilation/">
-                        <span class="tag">Compilation</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Haskell/">
@@ -829,194 +900,61 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
     
-        <div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            Letzte Einträge
-        </h3>
         
-        <article class="media">
-            
-            <a href="/2020/02/20/2020-02-20-Mac%E4%B8%8AHaskell%E7%9A%84%E5%AE%89%E8%A3%85/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Mac上Haskell的安装环境搭建">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
-                    <a href="/2020/02/20/2020-02-20-Mac%E4%B8%8AHaskell%E7%9A%84%E5%AE%89%E8%A3%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
-                    </p>
-                </div>
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-工具准备">
+        <span class="has-mr-6">1.1</span>
+        <span>1 工具准备</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-GITHUB仓库创建">
+        <span class="has-mr-6">1.1.1</span>
+        <span>1 GITHUB仓库创建</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-安装相关工具">
+        <span class="has-mr-6">1.1.2</span>
+        <span>2 安装相关工具</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#2-hexo的使用入门">
+        <span class="has-mr-6">1.2</span>
+        <span>2 hexo的使用入门</span>
+        </a></li><li>
+        <a class="is-flex" href="#hexo的使用进阶">
+        <span class="has-mr-6">1.3</span>
+        <span>hexo的使用进阶</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#图片">
+        <span class="has-mr-6">1.3.1</span>
+        <span> 图片 </span>
+        </a></li><li>
+        <a class="is-flex" href="#block">
+        <span class="has-mr-6">1.3.2</span>
+        <span>block</span>
+        </a></li></ul></li></ul><li>
+        <a class="is-flex" href="#Hexo-Built-in-Tag-Helpers">
+        <span class="has-mr-6">2</span>
+        <span>Hexo Built-in Tag Helpers</span>
+        </a></li></ul>
             </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/02/20/Compilation_Lab1_20200220/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab1-语言认知实验">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
-                    <a href="/2020/02/20/Compilation_Lab1_20200220/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab1-语言认知实验</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/report/">report</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/02/20/mac_commandLine/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="mac快捷键和常用命令行">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
-                    <a href="/2020/02/20/mac_commandLine/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/02/16/hexo_blog/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hexo博客搭建入门">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo_blog/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/02/16/hexo_theme/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="hexo的主题比较">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo_theme/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            Archive
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/02/">
-                <span class="level-start">
-                    <span class="level-item">February 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/01/">
-                <span class="level-start">
-                    <span class="level-item">January 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/12/">
-                <span class="level-start">
-                    <span class="level-item">December 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/08/">
-                <span class="level-start">
-                    <span class="level-item">August 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/07/">
-                <span class="level-start">
-                    <span class="level-item">July 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
         </div>
     </div>
-</div>
+
     
         <div class="card widget">
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Compilation/">
-                        <span class="tag">Compilation</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Haskell/">
@@ -1119,7 +1057,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="markdown进阶使用技巧" height="28">
+                    <img src="/images/logo.svg" alt="Hexo博客搭建入门" height="28">
                 
                 </a>
                 <p class="is-size-7">
@@ -1165,7 +1103,7 @@
 </footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
-<script>moment.locale("zh-Hans");</script>
+<script>moment.locale("zh-CN");</script>
 
 
 <script>
@@ -1242,7 +1180,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+<a id="back-to-top" title="回到顶端" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -1266,7 +1204,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Tippen Sie etwas..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -1278,11 +1216,11 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Seiten',
-                CATEGORIES: 'Kategorien',
-                TAGS: 'Tags',
-                UNTITLED: '(Unbenannt)',
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
             },
             CONTENT_URL: '/content.json',
         };
