@@ -6,22 +6,23 @@
 <meta name="generator" content="Hexo 4.2.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="baidu-site-verification" content="dCyQphZGOq" />
 
-<title>Anaconda的环境管理 - Anne416Wu</title>
+<title>Hexo博客搭建入门 - Anne416Wu</title>
 
 
-    <meta name="description" content="Anaconda的环境管理">
+    <meta name="description" content="使用基于Nodejs的Hexo博客框架, 结合github.io页面, 快速搭建个人博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Anaconda的环境管理">
-<meta property="og:url" content="http://anne416wu.github.io/2019/12/13/anaconda-management/index.html">
+<meta property="og:title" content="Hexo博客搭建入门">
+<meta property="og:url" content="http://anne416wu.github.io/posts/2727/index.html">
 <meta property="og:site_name" content="Anne416Wu">
-<meta property="og:description" content="Anaconda的环境管理">
+<meta property="og:description" content="使用基于Nodejs的Hexo博客框架, 结合github.io页面, 快速搭建个人博客">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://anne416wu.github.io/images/og_image.png">
-<meta property="article:published_time" content="2019-12-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-22T20:37:45.493Z">
+<meta property="article:published_time" content="2020-02-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-02-23T07:56:39.324Z">
 <meta property="article:author" content="Anne wu">
-<meta property="article:tag" content="anaconda python">
+<meta property="article:tag" content="hexo js 前端 博客">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://anne416wu.github.io/images/og_image.png">
 
@@ -31,7 +32,7 @@
 
 
 
-<link rel="alternative" href="atom.xml" title="Anaconda的环境管理" type="application/atom+xml">
+<link rel="alternative" href="atom.xml" title="Hexo博客搭建入门" type="application/atom+xml">
 
 
 
@@ -85,7 +86,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Anaconda的环境管理" height="28">
+                <img src="/images/logo.svg" alt="Hexo博客搭建入门" height="28">
             
             </a>
         </div>
@@ -116,7 +117,7 @@
             <div class="navbar-end">
                 
                     
-                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/anne416wu">
+                    <a class="navbar-item" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/anne416wu">
                         
                         <i class="fab fa-github"></i>
                         
@@ -124,12 +125,12 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="搜索" href="javascript:;">
+                <a class="navbar-item search" title="搜索" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -150,17 +151,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-12-12T16:00:00.000Z">2019-12-13</time>
+                <time class="level-item has-text-grey" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Note/">Note</a>
+                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    10 分钟 读完 (大约 1533 个字)
+                    9 分钟 读完 (大约 1377 个字)
                 </span>
                 
                 
@@ -174,34 +175,132 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Anaconda的环境管理
+                Hexo博客搭建入门
             
         </h1>
         <div class="content">
-            <p>Anaconda的环境管理</p>
+            <p>使用基于Nodejs的Hexo博客框架, 结合github.io页面, 快速搭建个人博客</p>
 <a id="more"></a>
 
-<h1 id="Conda的环境管理"><a href="#Conda的环境管理" class="headerlink" title="Conda的环境管理"></a>Conda的环境管理</h1><p>Conda的环境管理功能允许我们同时安装若干不同版本的Python，并能自由切换。对于上述安装过程，假设我们采用的是Python 2.7对应的安装包，那么Python 2.7就是默认的环境（默认名字是root注意这个root不是超级管理员的意思）。<br>假设我们需要安装Python 3.4，此时，我们需要做的操作如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本）</span><br><span class="line">conda create —name python34 python&#x3D;3.4</span><br><span class="line"></span><br><span class="line"># 安装好后，使用activate激活某个环境</span><br><span class="line">activate python34 # for Windows</span><br><span class="line">source activate python34 # for Linux &amp; Mac</span><br><span class="line"># 激活后，会发现terminal输入的地方多了python34的字样，实际上，此时系统做的事情就是把默认2.7环境从PATH中去除，再把3.4对应的命令加入PATH</span><br><span class="line"></span><br><span class="line"># 此时，再次输入</span><br><span class="line">python —version</span><br><span class="line"># 可以得到&#96;Python 3.4.5 :: Anaconda 4.1.1 (64-bit)&#96;，即系统已经切换到了3.4的环境</span><br><span class="line"></span><br><span class="line"># 如果想返回默认的python 2.7环境，运行</span><br><span class="line">deactivate python34 # for Windows</span><br><span class="line">source deactivate python34 # for Linux </span><br><span class="line">conda deactivate python34 # for mac</span><br><span class="line"></span><br><span class="line"># 删除一个已有的环境</span><br><span class="line">conda remove —name python34 —all</span><br></pre></td></tr></table></figure>
+<h2 id="1-工具准备"><a href="#1-工具准备" class="headerlink" title="1 工具准备"></a>1 工具准备</h2><h3 id="1-GITHUB仓库创建"><a href="#1-GITHUB仓库创建" class="headerlink" title="1 GITHUB仓库创建"></a>1 GITHUB仓库创建</h3><p>​    创建新repository，名为<code>username.github.io</code>(username与github用户名一致)</p>
+<h3 id="2-安装相关工具"><a href="#2-安装相关工具" class="headerlink" title="2 安装相关工具"></a>2 安装相关工具</h3><ol>
+<li><p><a href="https://www.cnblogs.com/kaiye/p/4937191.html" rel="external nofollow noreferrer">安装node管理工具nvm</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用brew安装</span></span><br><span class="line">brew install nvm</span><br><span class="line"><span class="comment"># 添加进终端配置文件（.zshrc或.bash_profile)</span></span><br><span class="line"><span class="built_in">export</span> NVM_DIR=~/.nvm</span><br><span class="line">[ -s <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> ] &amp;&amp; \. <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>用户安装的不同python环境都会被放在目录~/anaconda/envs<br>下，可以在命令中运行<br>conda info -e<br>查看已安装的环境，当前被激活的环境会显示有一个星号或者括号。<br>说明：有些用户可能经常使用python 3.4环境，因此直接把<br>~/anaconda/envs/python34<br>下面的bin或者Scripts加入PATH，去除anaconda对应的那个bin目录。这个办法，怎么说呢，也是可以的，但总觉得不是那么elegant……<br>如果直接按上面说的这么改PATH，你会发现conda命令又找不到了（当然找不到啦，因为conda在<br>~/anaconda/bin<br>里呢），这时候怎么办呢？方法有二：1. 显式地给出conda的绝对地址 2. 在python34环境中也安装conda工具（推荐）。</p>
+<p>此处有个坑: nvm官方并不建议使用brew安装</p>
+<p><code>Homebrew installation is not supported. If you have issues with homebrew-installed nvm, please brew uninstall it, and install it using the instructions below, before filing an issue.</code></p>
+<p>如果使用Homebrew安装，因为安装路径等原因, 在.nvm中会缺少nvm-exec和nvm.sh两个文件。导致每次启动终端都需要输入<code>source $(brew --prefix nvm)/nvm.sh</code>才能使当前终端使用nvm命令</p>
+<p>解决方法有2</p>
+<ol>
+<li><p>简单粗暴：在.zshrc（终端配置文件）中加入<code>source $(brew --prefix nvm)/nvm.sh</code></p>
+</li>
+<li><p>曲线救国：(注意此方法curl命令可能被墙, 具体见<a href="https://github.com/nvm-sh/nvm" rel="external nofollow noreferrer">nvm项目github</a>)</p>
+<ol>
+<li><p>卸载使用brew安装的nvm<code>brew uninstall nvm</code></p>
+</li>
+<li><p>使用curl命令下载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>终端配置文件加入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">"<span class="variable">$HOME</span>/.nvm"</span></span><br><span class="line">[ -s <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> ] &amp;&amp; \. <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span>  <span class="comment"># This loads nvm</span></span><br><span class="line">[ -s <span class="string">"<span class="variable">$NVM_DIR</span>/bash_completion"</span> ] &amp;&amp; \. <span class="string">"<span class="variable">$NVM_DIR</span>/bash_completion"</span>  <span class="comment"># This loads nvm bash_completion</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
 </blockquote>
-<h1 id="Conda的包管理"><a href="#Conda的包管理" class="headerlink" title="Conda的包管理"></a>Conda的包管理</h1><blockquote>
-<p>Conda的包管理就比较好理解了，这部分功能与<br>pip<br>类似。<br>例如，如果需要安装scipy：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"># 安装scipy</span><br><span class="line">conda install scipy</span><br><span class="line"># conda会从从远程搜索scipy的相关信息和依赖项目，对于python 3.4，conda会同时安装numpy和mkl（运算加速的库）</span><br><span class="line"># 查看已经安装的packages</span><br><span class="line">conda list</span><br><span class="line"># 最新版的conda是从site-packages文件夹中搜索已经安装的包，不依赖于pip，因此可以显示出通过各种方式安装的包</span><br><span class="line"># 安装scipy</span><br><span class="line">conda install scipy</span><br><span class="line"># conda会从从远程搜索scipy的相关信息和依赖项目，对于python 3.4，conda会同时安装numpy和mkl（运算加速的库）</span><br><span class="line"># 查看已经安装的packages</span><br><span class="line">conda list</span><br><span class="line"># 最新版的conda是从site-packages文件夹中搜索已经安装的包，不依赖于pip，因此可以显示出通过各种方式安装的包</span><br><span class="line">### conda的一些常用操作如下：</span><br><span class="line"># 查看当前环境下已安装的包</span><br><span class="line">conda list</span><br><span class="line"># 查看某个指定环境的已安装包</span><br><span class="line">conda list -n python34</span><br><span class="line"># 查找package信息</span><br><span class="line">conda search numpy</span><br><span class="line"># 安装package</span><br><span class="line">conda install -n python34 numpy</span><br><span class="line"># 如果不用-n指定环境名称，则被安装在当前活跃环境</span><br><span class="line"># 也可以通过-c指定通过某个channel安装</span><br><span class="line"># 更新package</span><br><span class="line">conda update -n python34 numpy</span><br><span class="line"># 删除package</span><br><span class="line">conda remove -n python34 numpy</span><br><span class="line"># 查看当前环境下已安装的包</span><br><span class="line">conda list</span><br><span class="line"># 查看某个指定环境的已安装包</span><br><span class="line">conda list -n python34</span><br><span class="line"># 查找package信息</span><br><span class="line">conda search numpy</span><br><span class="line"># 安装package</span><br><span class="line">conda install -n python34 numpy</span><br><span class="line"># 如果不用-n指定环境名称，则被安装在当前活跃环境</span><br><span class="line"># 也可以通过-c指定通过某个channel安装</span><br><span class="line"># 更新package</span><br><span class="line">conda update -n python34 numpy</span><br><span class="line"># 删除package</span><br><span class="line">conda remove -n python34 numpy</span><br><span class="line">### 前面已经提到，conda将conda、python等都视为package，因此，完全可以使用conda来管理conda和python的版本，例如</span><br><span class="line"># 更新conda，保持conda最新</span><br><span class="line">conda update conda</span><br><span class="line"># 更新anaconda</span><br><span class="line">conda update anaconda</span><br><span class="line"># 更新python</span><br><span class="line">conda update python</span><br><span class="line"># 假设当前环境是python 3.4, conda会将python升级为3.4.x系列的当前最新版本</span><br><span class="line">### 补充：如果创建新的python环境，比如3.4，运行</span><br><span class="line">### conda create -n python34 python&#x3D;3.4</span><br><span class="line">### 之后，conda仅安装python 3.4相关的必须项，如python, pip等，如果希望该环境像默认环境那样，安装anaconda集合包，只需要：</span><br><span class="line"># 在当前环境下安装anaconda包集合</span><br><span class="line">conda install anaconda</span><br><span class="line"># 结合创建环境的命令，以上操作可以合并为</span><br><span class="line">conda create -n python34 python&#x3D;3.4 anaconda</span><br><span class="line"># 也可以不用全部安装，根据需求安装自己需要的package即可</span><br><span class="line"># 在当前环境下安装anaconda包集合</span><br><span class="line">conda install anaconda</span><br><span class="line"># 结合创建环境的命令，以上操作可以合并为</span><br><span class="line">conda create -n python34 python&#x3D;3.4 anaconda</span><br><span class="line"># 也可以不用全部安装，根据需求安装自己需要的package即可</span><br><span class="line"># 设置国内镜像</span><br><span class="line">### 如果需要安装很多packages，你会发现conda下载的速度经常很慢，因为Anaconda.org的服务器在国外。所幸的是，清华TUNA镜像源有Anaconda仓库的镜像，我们将其加入conda的配置即可：</span><br><span class="line"># 添加Anaconda的TUNA镜像</span><br><span class="line">conda config —add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;free&#x2F;</span><br><span class="line"># TUNA的help中镜像地址加有引号，需要去掉</span><br><span class="line"># 设置搜索时显示通道地址</span><br><span class="line">conda config —set show_channel_urls yes</span><br><span class="line"># 添加Anaconda的TUNA镜像</span><br><span class="line">conda config —add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;free&#x2F;</span><br><span class="line"># TUNA的help中镜像地址加有引号，需要去掉</span><br><span class="line"># 设置搜索时显示通道地址</span><br><span class="line">conda config —set show_channel_urls yes</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>执行完上述命令后，会生成<br>~/.condarc<br>(Linux/Mac)或<br>C:UsersUSER_NAME.condarc<br>文件，记录着我们对conda的配置，直接手动创建、编辑该文件是相同的效果。</p>
-</blockquote>
+</li>
+<li><p>安装nodejs</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install stable</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p> 网上很多过期教程会建议使用 <code>nvm install 4</code> , <code>nvm install 6</code>  , 实际安装后, node版本在7以下的都会抛出异常, 建议一步到位安装最新稳定版node</p>
+<p> nvm/npm常用命令:</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 切换nvm版本至 &lt;number&gt;开头的默认版本</span></span><br><span class="line">nvm use &lt;number&gt; </span><br><span class="line"><span class="comment">#设置默认 node 版本为 0.12.7</span></span><br><span class="line">nvm <span class="built_in">alias</span> default 0.12.7 </span><br><span class="line"><span class="comment"># 使用.nvmrc文件配置项目所使用的node版本</span></span><br><span class="line"><span class="built_in">cd</span> &lt;项目根目录&gt;  <span class="comment">#进入项目根目录</span></span><br><span class="line"><span class="built_in">echo</span> &lt;number&gt; &gt; .nvmrc <span class="comment">#添加 .nvmrc 文件</span></span><br><span class="line">nvm use <span class="comment">#无需指定版本号，会自动使用 .nvmrc 文件中配置的版本</span></span><br><span class="line">node -v <span class="comment">#查看 node 是否切换为对应版本</span></span><br><span class="line"><span class="comment">#安装 &lt;module-name&gt; 模块至全局目录，安装完成的路径是 /Users/&lt;username&gt;/.nvm/versions/node/&lt;nvm-version&gt;/lib/&lt;module-name&gt;</span></span><br><span class="line">npm install -g &lt;module-name&gt;</span><br></pre></td></tr></table></figure>
+
+<p> nvm与n的区别</p>
+<ul>
+<li>node 版本管理工具还有一个是 <a href="https://github.com/tj/n" rel="external nofollow noreferrer">TJ 大神的 n</a> 命令，n 命令是作为一个 node 的模块而存在，而 nvm 是一个独立于 node/npm 的外部 shell 脚本，因此 n 命令相比 nvm 更加局限。</li>
+<li>由于 npm 安装的模块路径均为 /usr/local/lib/node_modules ，当使用 n 切换不同的 node 版本时，实际上会共用全局的 node/npm 目录。 因此不能很好的满足『按不同 node 版本使用不同全局 node 模块』的需求。</li>
+</ul>
+</blockquote>
+</li>
+<li><p><a href="https://hexo.io/zh-cn/" rel="external nofollow noreferrer">安装Hexo</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="2-hexo的使用入门"><a href="#2-hexo的使用入门" class="headerlink" title="2 hexo的使用入门"></a>2 <a href="https://hexo.io/zh-cn/" rel="external nofollow noreferrer">hexo的使用入门</a></h2><ol>
+<li><p>创建博客和基础配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init username.github.io <span class="comment"># 博客根目录&lt;folder_name&gt;</span></span><br><span class="line"><span class="built_in">cd</span> username.github.io</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<p>更改博客根目录下的_config.yml文件</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span></span><br><span class="line"><span class="attr">author:</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-Hans</span> <span class="comment">#中文</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">landscape</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">	<span class="attr">type:</span> <span class="string">git</span> </span><br><span class="line">	<span class="attr">repo:</span> <span class="string">https://github.com/username/username.github.io.git</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>更换主题</p>
+<blockquote>
+<p>主题测评见另一篇文章<a href="../hexo_theme">hexo的主题比较</a> </p>
+<p>hexo初始化中自带landscape主题</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 此处以next主题为例</span></span><br><span class="line">   git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+
+<p>进入themes/next, 打开_config.yml, 按照文件中的说明即可对主题进行基础配置</p>
+<p>同时更改博客根目录中_config.yml文件的<code>theme: next</code></p>
+</li>
+<li><p>写文章</p>
+<p>博客根目录username.github.io下的source文件夹保存所有博客, 默认使用md语法</p>
+<blockquote>
+<p><a href="https://hexo.io/zh-cn/docs/writing.html" rel="external nofollow noreferrer">hexo写作命令</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo博客搭建入门</span><br><span class="line">date: 2020-02-16</span><br><span class="line">tags: hexo js</span><br><span class="line">categories:</span><br><span class="line"><span class="bullet">  - </span>Code</span><br><span class="line"><span class="bullet">  - </span>Guide</span><br><span class="line">keywords: hexo js 前端 博客</span><br><span class="line">---</span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试<code>hexo s</code></p>
+</li>
+<li><p>安装使用hexo-deployer-git](<a href="https://link.jianshu.com/?t=https://github.com/hexojs/hexo-deployer-git)自动部署发布工具" rel="external nofollow noreferrer">https://link.jianshu.com/?t=https://github.com/hexojs/hexo-deployer-git)自动部署发布工具</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+
+
+
+</li>
+</ol>
+<h2 id="hexo的使用进阶"><a href="#hexo的使用进阶" class="headerlink" title="hexo的使用进阶"></a>hexo的使用进阶</h2><h3 id="图片"><a href="#图片" class="headerlink" title=" 图片 "></a><a href="https://hexo.io/zh-cn/docs/asset-folders.html" rel="external nofollow noreferrer"> 图片 </a></h3><ol>
+<li><p>资源文件夹 : 最简单的方法就是将它们放在 <code>source/images</code> 文件夹中。然后通过类似于 <code>![](/images/image.jpg)</code> 的方法访问它们。</p>
+</li>
+<li><p>组织化资源管理方式 : 通过将 <code>config.yml</code> 文件中的 <code>post_asset_folder</code> 选项设为 <code>true</code> 来打开, 当资源文件管理功能打开后，Hexo将会在你每一次通过 <code>hexo new [layout]</code> 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个文章文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">图片名称</span>](<span class="link">图片名称.jpg</span>)</span><br></pre></td></tr></table></figure>
+
+<p>需要注意, 使用md时,在首页显示会出现错误, 使用标签插件可以解决</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img 图片名称.jpg This is an example image %&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>tips</p>
+<ol>
+<li><p>在typora的设置中进行以下修改可以与hexo同步：</p>
+<p><img src="typoraimg_setting.jpg" alt="typoraimg_setting"></p>
+</li>
+<li><p>组织化资源管理的两种方式都会使图片失去本地编辑器上的可读性</p>
+</li>
+</ol>
+<div class="tip">
+3. 实际使用中会遇到部分主题对标签插件渲染出现莫名其妙的错误(vexo)，或者主题不支持(terminal)，所以除非需要在首页的展示缩略图，建议使用markdown语法的方式。
+</div>
+</blockquote>
+</li>
+</ol>
+<h3 id="block"><a href="#block" class="headerlink" title="block"></a>block</h3><h1 id="Hexo-Built-in-Tag-Helpers"><a href="#Hexo-Built-in-Tag-Helpers" class="headerlink" title="Hexo Built-in Tag Helpers"></a><a href="https://blog.zhangruipeng.me/hexo-theme-icarus/Configuration/Posts/hexo-built-in-tag-helpers/" rel="external nofollow noreferrer">Hexo Built-in Tag Helpers</a></h1>
         </div>
         
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/python-anaconda/" rel="tag">python anaconda</a>
+                    <a class="has-link-grey -link" href="/tags/hexo/" rel="tag">hexo</a>, <a class="has-link-grey -link" href="/tags/js/" rel="tag">js</a>
                 </div>
             </div>
         </div>
@@ -248,16 +347,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/01/17/markdown-advanced-skill/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/32573/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">markdown进阶使用技巧</span>
+                <span class="level-item">Mac上Haskell的安装环境搭建</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/27/Linux-command/">
-                <span class="level-item">Linux的基本终端命令</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/27751/">
+                <span class="level-item">hexo的主题比较</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -303,14 +402,38 @@
                 <h3 class="menu-label">
                     目录
                 </h3>
-                <ul class="menu-list"><li>
-        <a class="is-flex" href="#Conda的环境管理">
-        <span class="has-mr-6">1</span>
-        <span>Conda的环境管理</span>
+                <ul class="menu-list"><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-工具准备">
+        <span class="has-mr-6">1.1</span>
+        <span>1 工具准备</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-GITHUB仓库创建">
+        <span class="has-mr-6">1.1.1</span>
+        <span>1 GITHUB仓库创建</span>
         </a></li><li>
-        <a class="is-flex" href="#Conda的包管理">
+        <a class="is-flex" href="#2-安装相关工具">
+        <span class="has-mr-6">1.1.2</span>
+        <span>2 安装相关工具</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#2-hexo的使用入门">
+        <span class="has-mr-6">1.2</span>
+        <span>2 hexo的使用入门</span>
+        </a></li><li>
+        <a class="is-flex" href="#hexo的使用进阶">
+        <span class="has-mr-6">1.3</span>
+        <span>hexo的使用进阶</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#图片">
+        <span class="has-mr-6">1.3.1</span>
+        <span> 图片 </span>
+        </a></li><li>
+        <a class="is-flex" href="#block">
+        <span class="has-mr-6">1.3.2</span>
+        <span>block</span>
+        </a></li></ul></li></ul><li>
+        <a class="is-flex" href="#Hexo-Built-in-Tag-Helpers">
         <span class="has-mr-6">2</span>
-        <span>Conda的包管理</span>
+        <span>Hexo Built-in Tag Helpers</span>
         </a></li></ul>
             </div>
         </div>
@@ -335,7 +458,7 @@
         <ul class="menu-list">
         
             <li>
-                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41844395" target="_blank" rel="noopener">
+                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41844395" target="_blank" rel="noopener external nofollow noreferrer">
                     <span class="level-left">
                         <span class="level-item">CSDN</span>
                     </span>
@@ -427,7 +550,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener external nofollow noreferrer">
                 关注我</a>
         </div>
         
@@ -483,7 +606,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/20/install-haskell-on-Mac/" class="media-left">
+            <a href="/posts/32573/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/gallery/thumbnails/haskell.png" alt="Mac上Haskell的安装环境搭建">
                 </p>
@@ -492,7 +615,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
-                    <a href="/2020/02/20/install-haskell-on-Mac/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
+                    <a href="/posts/32573/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -502,7 +625,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-blog-build/" class="media-left">
+            <a href="/posts/2727/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Hexo博客搭建入门">
                 </p>
@@ -511,7 +634,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-blog-build/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
+                    <a href="/posts/2727/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -521,7 +644,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-theme-compare/" class="media-left">
+            <a href="/posts/27751/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="hexo的主题比较">
                 </p>
@@ -530,7 +653,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-theme-compare/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
+                    <a href="/posts/27751/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -540,7 +663,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/09/VPS_shadowsocks/" class="media-left">
+            <a href="/posts/9931/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="VPS 配置">
                 </p>
@@ -549,7 +672,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-08T16:00:00.000Z">2020-02-09</time></div>
-                    <a href="/2020/02/09/VPS_shadowsocks/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
+                    <a href="/posts/9931/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -559,7 +682,7 @@
         
         <article class="media">
             
-            <a href="/2020/01/20/mac-command/" class="media-left">
+            <a href="/posts/8410/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="mac快捷键和常用命令行">
                 </p>
@@ -568,7 +691,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-19T16:00:00.000Z">2020-01-20</time></div>
-                    <a href="/2020/01/20/mac-command/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
+                    <a href="/posts/8410/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -818,7 +941,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener external nofollow noreferrer">
                 关注我</a>
         </div>
         
@@ -874,7 +997,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/20/install-haskell-on-Mac/" class="media-left">
+            <a href="/posts/32573/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/gallery/thumbnails/haskell.png" alt="Mac上Haskell的安装环境搭建">
                 </p>
@@ -883,7 +1006,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
-                    <a href="/2020/02/20/install-haskell-on-Mac/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
+                    <a href="/posts/32573/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -893,7 +1016,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-blog-build/" class="media-left">
+            <a href="/posts/2727/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Hexo博客搭建入门">
                 </p>
@@ -902,7 +1025,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-blog-build/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
+                    <a href="/posts/2727/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -912,7 +1035,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-theme-compare/" class="media-left">
+            <a href="/posts/27751/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="hexo的主题比较">
                 </p>
@@ -921,7 +1044,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-theme-compare/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
+                    <a href="/posts/27751/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -931,7 +1054,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/09/VPS_shadowsocks/" class="media-left">
+            <a href="/posts/9931/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="VPS 配置">
                 </p>
@@ -940,7 +1063,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-08T16:00:00.000Z">2020-02-09</time></div>
-                    <a href="/2020/02/09/VPS_shadowsocks/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
+                    <a href="/posts/9931/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -950,7 +1073,7 @@
         
         <article class="media">
             
-            <a href="/2020/01/20/mac-command/" class="media-left">
+            <a href="/posts/8410/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="mac快捷键和常用命令行">
                 </p>
@@ -959,7 +1082,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-19T16:00:00.000Z">2020-01-20</time></div>
-                    <a href="/2020/01/20/mac-command/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
+                    <a href="/posts/8410/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -1141,12 +1264,12 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Anaconda的环境管理" height="28">
+                    <img src="/images/logo.svg" alt="Hexo博客搭建入门" height="28">
                 
                 </a>
                 <p class="is-size-7">
                 &copy; 2020 Anne wu&nbsp;
-                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener external nofollow noreferrer">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
                 
                 <br>
@@ -1161,7 +1284,7 @@
                 <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Creative Commons" href="https://creativecommons.org/">
                         
                         <i class="fab fa-creative-commons"></i>
                         
@@ -1170,7 +1293,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
                         
                         <i class="fab fa-creative-commons-by"></i>
                         
@@ -1179,7 +1302,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
                         
                         <i class="fab fa-github"></i>
                         
@@ -1233,7 +1356,7 @@ var IcarusThemeSettings = {
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noreferrer">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -1273,7 +1396,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="回到顶端" href="javascript:;">
+<a id="back-to-top" title="回到顶端" href="javascript:;" rel="external nofollow noreferrer">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

@@ -6,24 +6,25 @@
 <meta name="generator" content="Hexo 4.2.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="baidu-site-verification" content="dCyQphZGOq" />
 
-<title>Hexo博客搭建入门 - Anne416Wu</title>
+<title>Mac上Haskell的安装环境搭建 - Anne416Wu</title>
 
 
-    <meta name="description" content="使用基于Nodejs的Hexo博客框架, 结合github.io页面, 快速搭建个人博客">
+    <meta name="description" content="Haskell作为一门不太大众的语言，国内安装遇到的坑尤其多。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客搭建入门">
-<meta property="og:url" content="http://anne416wu.github.io/2020/02/16/hexo-blog-build/index.html">
+<meta property="og:title" content="Mac上Haskell的安装环境搭建">
+<meta property="og:url" content="http://anne416wu.github.io/posts/32573/index.html">
 <meta property="og:site_name" content="Anne416Wu">
-<meta property="og:description" content="使用基于Nodejs的Hexo博客框架, 结合github.io页面, 快速搭建个人博客">
+<meta property="og:description" content="Haskell作为一门不太大众的语言，国内安装遇到的坑尤其多。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://anne416wu.github.io/images/og_image.png">
-<meta property="article:published_time" content="2020-02-15T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-22T18:33:36.693Z">
+<meta property="og:image" content="http://anne416wu.github.io/gallery/thumbnails/haskell.png">
+<meta property="article:published_time" content="2020-02-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-02-23T07:56:39.326Z">
 <meta property="article:author" content="Anne wu">
-<meta property="article:tag" content="hexo js 前端 博客">
+<meta property="article:tag" content="Haskell">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://anne416wu.github.io/images/og_image.png">
+<meta name="twitter:image" content="http://anne416wu.github.io/gallery/thumbnails/haskell.png">
 
 
 
@@ -31,7 +32,7 @@
 
 
 
-<link rel="alternative" href="atom.xml" title="Hexo博客搭建入门" type="application/atom+xml">
+<link rel="alternative" href="atom.xml" title="Mac上Haskell的安装环境搭建" type="application/atom+xml">
 
 
 
@@ -85,7 +86,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hexo博客搭建入门" height="28">
+                <img src="/images/logo.svg" alt="Mac上Haskell的安装环境搭建" height="28">
             
             </a>
         </div>
@@ -116,7 +117,7 @@
             <div class="navbar-end">
                 
                     
-                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/anne416wu">
+                    <a class="navbar-item" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/anne416wu">
                         
                         <i class="fab fa-github"></i>
                         
@@ -124,12 +125,12 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="搜索" href="javascript:;">
+                <a class="navbar-item search" title="搜索" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -146,11 +147,17 @@
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
 <div class="card">
     
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/gallery/thumbnails/haskell.png" alt="Mac上Haskell的安装环境搭建">
+        </span>
+    </div>
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time>
+                <time class="level-item has-text-grey" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
@@ -160,7 +167,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    9 分钟 读完 (大约 1377 个字)
+                    6 分钟 读完 (大约 906 个字)
                 </span>
                 
                 
@@ -174,132 +181,70 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Hexo博客搭建入门
+                Mac上Haskell的安装环境搭建
             
         </h1>
         <div class="content">
-            <p>使用基于Nodejs的Hexo博客框架, 结合github.io页面, 快速搭建个人博客</p>
+            <p>Haskell作为一门不太大众的语言，国内安装遇到的坑尤其多。</p>
 <a id="more"></a>
 
-<h2 id="1-工具准备"><a href="#1-工具准备" class="headerlink" title="1 工具准备"></a>1 工具准备</h2><h3 id="1-GITHUB仓库创建"><a href="#1-GITHUB仓库创建" class="headerlink" title="1 GITHUB仓库创建"></a>1 GITHUB仓库创建</h3><p>​    创建新repository，名为<code>username.github.io</code>(username与github用户名一致)</p>
-<h3 id="2-安装相关工具"><a href="#2-安装相关工具" class="headerlink" title="2 安装相关工具"></a>2 安装相关工具</h3><ol>
-<li><p><a href="https://www.cnblogs.com/kaiye/p/4937191.html">安装node管理工具nvm</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用brew安装</span></span><br><span class="line">brew install nvm</span><br><span class="line"><span class="comment"># 添加进终端配置文件（.zshrc或.bash_profile)</span></span><br><span class="line"><span class="built_in">export</span> NVM_DIR=~/.nvm</span><br><span class="line">[ -s <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> ] &amp;&amp; \. <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span></span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p>此处有个坑: nvm官方并不建议使用brew安装</p>
-<p><code>Homebrew installation is not supported. If you have issues with homebrew-installed nvm, please brew uninstall it, and install it using the instructions below, before filing an issue.</code></p>
-<p>如果使用Homebrew安装，因为安装路径等原因, 在.nvm中会缺少nvm-exec和nvm.sh两个文件。导致每次启动终端都需要输入<code>source $(brew --prefix nvm)/nvm.sh</code>才能使当前终端使用nvm命令</p>
-<p>解决方法有2</p>
-<ol>
-<li><p>简单粗暴：在.zshrc（终端配置文件）中加入<code>source $(brew --prefix nvm)/nvm.sh</code></p>
-</li>
-<li><p>曲线救国：(注意此方法curl命令可能被墙, 具体见<a href="https://github.com/nvm-sh/nvm">nvm项目github</a>)</p>
-<ol>
-<li><p>卸载使用brew安装的nvm<code>brew uninstall nvm</code></p>
-</li>
-<li><p>使用curl命令下载</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>终端配置文件加入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">"<span class="variable">$HOME</span>/.nvm"</span></span><br><span class="line">[ -s <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> ] &amp;&amp; \. <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span>  <span class="comment"># This loads nvm</span></span><br><span class="line">[ -s <span class="string">"<span class="variable">$NVM_DIR</span>/bash_completion"</span> ] &amp;&amp; \. <span class="string">"<span class="variable">$NVM_DIR</span>/bash_completion"</span>  <span class="comment"># This loads nvm bash_completion</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-</ol>
+<p>参考文章：<a href="https://www.jianshu.com/p/d86fec07856d" rel="external nofollow noreferrer">vscode搭建haskell环境</a></p>
+<p>文章针对的是旧版本的stack，无脑照抄会出问题</p>
 </blockquote>
+<h2 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h2><blockquote>
+<p><a href="https://docs.haskellstack.org/en/stable/README/" rel="external nofollow noreferrer">stack官方安装指导</a></p>
+<p>Installing GHC automatically, in an isolated location.<br>Installing packages needed for your project.<br>Building your project.<br>Testing your project.<br>Benchmarking your project</p>
+</blockquote>
+<p>正如官网所说，直接安装stack的好处是它自带Haskell的编译器GHC和Cabal(a system for building and packaging Haskell libraries and programs)等Heskell运行需要文件(个人觉得stack类似anaconda，环境管理+包管理工具)。但是国内安装不换源的话，搭建之路会很不顺利</p>
+<ol>
+<li><p>使用brew安装stack</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew search haskell</span><br></pre></td></tr></table></figure>
+
+<p>可以看到brew返回了两个结果，一个是Formulae下的haskell-brew，另一个是Cask类型下的<a href="http://haskellformac.com" rel="external nofollow noreferrer">haskell-for-mac</a>，后者是个IDE，使用<code>brew cask install haskell-for-mac</code>下载，但是下载的过程太长，不知道到底是什么样，我们还是按照教程里的方法下载stack</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install haskell-stack</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装nodejs</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install stable</span><br></pre></td></tr></table></figure>
+<li><p>换源</p>
+<p>这个时候如果按照stack官网的指示</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">stack new my-project</span><br><span class="line"><span class="built_in">cd</span> my-project</span><br><span class="line">stack setup</span><br><span class="line">stack build</span><br><span class="line">stack <span class="built_in">exec</span> my-project-exe</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p> 网上很多过期教程会建议使用 <code>nvm install 4</code> , <code>nvm install 6</code>  , 实际安装后, node版本在7以下的都会抛出异常, 建议一步到位安装最新稳定版node</p>
-<p> nvm/npm常用命令:</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 切换nvm版本至 &lt;number&gt;开头的默认版本</span></span><br><span class="line">nvm use &lt;number&gt; </span><br><span class="line"><span class="comment">#设置默认 node 版本为 0.12.7</span></span><br><span class="line">nvm <span class="built_in">alias</span> default 0.12.7 </span><br><span class="line"><span class="comment"># 使用.nvmrc文件配置项目所使用的node版本</span></span><br><span class="line"><span class="built_in">cd</span> &lt;项目根目录&gt;  <span class="comment">#进入项目根目录</span></span><br><span class="line"><span class="built_in">echo</span> &lt;number&gt; &gt; .nvmrc <span class="comment">#添加 .nvmrc 文件</span></span><br><span class="line">nvm use <span class="comment">#无需指定版本号，会自动使用 .nvmrc 文件中配置的版本</span></span><br><span class="line">node -v <span class="comment">#查看 node 是否切换为对应版本</span></span><br><span class="line"><span class="comment">#安装 &lt;module-name&gt; 模块至全局目录，安装完成的路径是 /Users/&lt;username&gt;/.nvm/versions/node/&lt;nvm-version&gt;/lib/&lt;module-name&gt;</span></span><br><span class="line">npm install -g &lt;module-name&gt;</span><br></pre></td></tr></table></figure>
-
-<p> nvm与n的区别</p>
+<p>很可能卡在setup步骤</p>
+<p>第一种错误是返回Connection Failure，开全局VPN也没用那种。根据我在stackOverflow查到的信息，主要原因可能是路由器认为该地址是不良链接，拒绝了访问，无脑解决方法是直接手机开热点</p>
+<p>第二种错误是执行stack setup之后一直卡在<code>ghc-8.8.2: dowanload has begun</code>其实就是原本的下载源在国外，所以下载速度起不来，所以我们要换<a href="https://mirrors.tuna.tsinghua.edu.cn/help/stackage/" rel="external nofollow noreferrer">清华的镜像源</a></p>
+<p>要换的源涉及两个文件：<code>~/.cable/config</code> <code>~/.stack/config.yaml</code></p>
+<p>首先换stack(<a href="https://mirrors.tuna.tsinghua.edu.cn/help/stackage/" rel="external nofollow noreferrer">stackage镜像使用帮助</a>)和stack setup(<a href="https://mirrors.tuna.tsinghua.edu.cn/help/hackage/" rel="external nofollow noreferrer">hackage镜像使用帮助</a>)的源，stack版本在2.1.1以上和以下不一样，这里只写2.1.1以上版本：</p>
 <ul>
-<li>node 版本管理工具还有一个是 <a href="https://github.com/tj/n">TJ 大神的 n</a> 命令，n 命令是作为一个 node 的模块而存在，而 nvm 是一个独立于 node/npm 的外部 shell 脚本，因此 n 命令相比 nvm 更加局限。</li>
-<li>由于 npm 安装的模块路径均为 /usr/local/lib/node_modules ，当使用 n 切换不同的 node 版本时，实际上会共用全局的 node/npm 目录。 因此不能很好的满足『按不同 node 版本使用不同全局 node 模块』的需求。</li>
+<li><p>打开~/.stack/config.yaml，加上：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">setup-info:</span> <span class="string">"http://mirrors.tuna.tsinghua.edu.cn/stackage/stack-setup.yaml"</span></span><br><span class="line"><span class="attr">urls:</span></span><br><span class="line">  <span class="attr">latest-snapshot:</span> <span class="string">http://mirrors.tuna.tsinghua.edu.cn/stackage/snapshots.json</span></span><br><span class="line"><span class="attr">package-indices:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">download-prefix:</span> <span class="string">http://mirrors.tuna.tsinghua.edu.cn/hackage/</span></span><br><span class="line">    <span class="attr">hackage-security:</span></span><br><span class="line">        <span class="attr">keyids:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">0a5c7ea47cd1b15f01f5f51a33adda7e655bc0f0b0615baa8e271f4c3351e21d</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">1ea9ba32c526d1cc91ab5e5bd364ec5e9e8cb67179a471872f6e26f0ae773d42</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">280b10153a522681163658cb49f632cde3f38d768b736ddbc901d99a1a772833</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">2a96b1889dc221c17296fcc2bb34b908ca9734376f0f361660200935916ef201</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">2c6c3627bd6c982990239487f1abd02e08a02e6cf16edb105a8012d444d870c3</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">51f0161b906011b52c6613376b1ae937670da69322113a246a09f807c62f6921</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">772e9f4c7db33d251d5c6e357199c819e569d130857dc225549b40845ff0890d</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">aa315286e6ad281ad61182235533c41e806e5a787e0b6d1e7eef3f09d137d2e9</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">fe331502606802feac15e514d9b9ea83fee8b6ffef71335479a2e68d84adc6b0</span></span><br><span class="line">        <span class="attr">key-threshold:</span> <span class="number">3</span> <span class="comment"># number of keys required</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># ignore expiration date, see https://github.com/commercialhaskell/stack/pull/4614</span></span><br><span class="line">        <span class="attr">ignore-expiry:</span> <span class="literal">no</span></span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
-</blockquote>
+<p>现在换cabal的源</p>
+<ul>
+<li><p>在终端执行<code>cabal update</code>后<code>Ctrl+C</code>停止, 然后进行下一步。报错没关系，这一步的目的是生成<code>~/.cabal/config</code>配置文件</p>
 </li>
-<li><p><a href="https://hexo.io/zh-cn/">安装Hexo</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<li><p>打开<code>~/.cabal/config</code> ，加入</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">repository</span> <span class="string">mirrors.tuna.tsinghua.edu.cn</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">http://mirrors.tuna.tsinghua.edu.cn/hackage</span></span><br></pre></td></tr></table></figure>
 
+<p>为了速度，可以将官方仓库注释掉。实际有朋友反应他的配置文件中本身就没有官方仓库这一行</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">--</span> <span class="string">repository</span> <span class="string">hackage.haskell.org</span></span><br><span class="line"> <span class="string">--</span> <span class="attr">url:</span> <span class="string">http://hackage.haskell.org/</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>现在可以愉快地按照<a href="https://docs.haskellstack.org/en/stable/README/" rel="external nofollow noreferrer">stack官方安装指导</a> 中的步骤继续了</p>
 </li>
 </ol>
-<h2 id="2-hexo的使用入门"><a href="#2-hexo的使用入门" class="headerlink" title="2 hexo的使用入门"></a>2 <a href="https://hexo.io/zh-cn/">hexo的使用入门</a></h2><ol>
-<li><p>创建博客和基础配置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init username.github.io <span class="comment"># 博客根目录&lt;folder_name&gt;</span></span><br><span class="line"><span class="built_in">cd</span> username.github.io</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<p>更改博客根目录下的_config.yml文件</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span></span><br><span class="line"><span class="attr">author:</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-Hans</span> <span class="comment">#中文</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">landscape</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">	<span class="attr">type:</span> <span class="string">git</span> </span><br><span class="line">	<span class="attr">repo:</span> <span class="string">https://github.com/username/username.github.io.git</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><p>更换主题</p>
 <blockquote>
-<p>主题测评见另一篇文章<a href="../hexo_theme">hexo的主题比较</a> </p>
-<p>hexo初始化中自带landscape主题</p>
+<p><a href="https://www.w3cschool.cn/hsriti/" rel="external nofollow noreferrer">https://www.w3cschool.cn/hsriti/</a></p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 此处以next主题为例</span></span><br><span class="line">   git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
 
-<p>进入themes/next, 打开_config.yml, 按照文件中的说明即可对主题进行基础配置</p>
-<p>同时更改博客根目录中_config.yml文件的<code>theme: next</code></p>
-</li>
-<li><p>写文章</p>
-<p>博客根目录username.github.io下的source文件夹保存所有博客, 默认使用md语法</p>
-<blockquote>
-<p><a href="https://hexo.io/zh-cn/docs/writing.html">hexo写作命令</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo博客搭建入门</span><br><span class="line">date: 2020-02-16</span><br><span class="line">tags: hexo js</span><br><span class="line">categories:</span><br><span class="line"><span class="bullet">  - </span>Code</span><br><span class="line"><span class="bullet">  - </span>Guide</span><br><span class="line">keywords: hexo js 前端 博客</span><br><span class="line">---</span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>测试<code>hexo s</code></p>
-</li>
-<li><p>安装使用hexo-deployer-git](<a href="https://link.jianshu.com/?t=https://github.com/hexojs/hexo-deployer-git)自动部署发布工具">https://link.jianshu.com/?t=https://github.com/hexojs/hexo-deployer-git)自动部署发布工具</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-
-
-
-
-</li>
-</ol>
-<h2 id="hexo的使用进阶"><a href="#hexo的使用进阶" class="headerlink" title="hexo的使用进阶"></a>hexo的使用进阶</h2><h3 id="图片"><a href="#图片" class="headerlink" title=" 图片 "></a><a href="https://hexo.io/zh-cn/docs/asset-folders.html"> 图片 </a></h3><ol>
-<li><p>资源文件夹 : 最简单的方法就是将它们放在 <code>source/images</code> 文件夹中。然后通过类似于 <code>![](/images/image.jpg)</code> 的方法访问它们。</p>
-</li>
-<li><p>组织化资源管理方式 : 通过将 <code>config.yml</code> 文件中的 <code>post_asset_folder</code> 选项设为 <code>true</code> 来打开, 当资源文件管理功能打开后，Hexo将会在你每一次通过 <code>hexo new [layout]</code> 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个文章文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">图片名称</span>](<span class="link">图片名称.jpg</span>)</span><br></pre></td></tr></table></figure>
-
-<p>需要注意, 使用md时,在首页显示会出现错误, 使用标签插件可以解决</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img 图片名称.jpg This is an example image %&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>tips</p>
-<ol>
-<li><p>在typora的设置中进行以下修改可以与hexo同步：</p>
-<p><img src="typoraimg_setting.jpg" alt="typoraimg_setting"></p>
-</li>
-<li><p>组织化资源管理的两种方式都会使图片失去本地编辑器上的可读性</p>
-</li>
-</ol>
-<div class="tip">
-3. 实际使用中会遇到部分主题对标签插件渲染出现莫名其妙的错误(vexo)，或者主题不支持(terminal)，所以除非需要在首页的展示缩略图，建议使用markdown语法的方式。
-</div>
-</blockquote>
-</li>
-</ol>
-<h3 id="block"><a href="#block" class="headerlink" title="block"></a>block</h3><h1 id="Hexo-Built-in-Tag-Helpers"><a href="#Hexo-Built-in-Tag-Helpers" class="headerlink" title="Hexo Built-in Tag Helpers"></a><a href="https://blog.zhangruipeng.me/hexo-theme-icarus/Configuration/Posts/hexo-built-in-tag-helpers/">Hexo Built-in Tag Helpers</a></h1>
         </div>
         
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/hexo/" rel="tag">hexo</a>, <a class="has-link-grey -link" href="/tags/js/" rel="tag">js</a>
+                    <a class="has-link-grey -link" href="/tags/Haskell/" rel="tag">Haskell</a>
                 </div>
             </div>
         </div>
@@ -345,17 +290,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/02/20/install-haskell-on-Mac/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Mac上Haskell的安装环境搭建</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/02/16/hexo-theme-compare/">
-                <span class="level-item">hexo的主题比较</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/2727/">
+                <span class="level-item">Hexo博客搭建入门</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -401,38 +339,10 @@
                 <h3 class="menu-label">
                     目录
                 </h3>
-                <ul class="menu-list"><ul class="menu-list"><li>
-        <a class="is-flex" href="#1-工具准备">
-        <span class="has-mr-6">1.1</span>
-        <span>1 工具准备</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#1-GITHUB仓库创建">
-        <span class="has-mr-6">1.1.1</span>
-        <span>1 GITHUB仓库创建</span>
-        </a></li><li>
-        <a class="is-flex" href="#2-安装相关工具">
-        <span class="has-mr-6">1.1.2</span>
-        <span>2 安装相关工具</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#2-hexo的使用入门">
-        <span class="has-mr-6">1.2</span>
-        <span>2 hexo的使用入门</span>
-        </a></li><li>
-        <a class="is-flex" href="#hexo的使用进阶">
-        <span class="has-mr-6">1.3</span>
-        <span>hexo的使用进阶</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#图片">
-        <span class="has-mr-6">1.3.1</span>
-        <span> 图片 </span>
-        </a></li><li>
-        <a class="is-flex" href="#block">
-        <span class="has-mr-6">1.3.2</span>
-        <span>block</span>
-        </a></li></ul></li></ul><li>
-        <a class="is-flex" href="#Hexo-Built-in-Tag-Helpers">
-        <span class="has-mr-6">2</span>
-        <span>Hexo Built-in Tag Helpers</span>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#stack">
+        <span class="has-mr-6">1</span>
+        <span>stack</span>
         </a></li></ul>
             </div>
         </div>
@@ -457,7 +367,7 @@
         <ul class="menu-list">
         
             <li>
-                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41844395" target="_blank" rel="noopener">
+                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41844395" target="_blank" rel="noopener external nofollow noreferrer">
                     <span class="level-left">
                         <span class="level-item">CSDN</span>
                     </span>
@@ -549,7 +459,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener external nofollow noreferrer">
                 关注我</a>
         </div>
         
@@ -605,7 +515,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/20/install-haskell-on-Mac/" class="media-left">
+            <a href="/posts/32573/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/gallery/thumbnails/haskell.png" alt="Mac上Haskell的安装环境搭建">
                 </p>
@@ -614,7 +524,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
-                    <a href="/2020/02/20/install-haskell-on-Mac/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
+                    <a href="/posts/32573/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -624,7 +534,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-blog-build/" class="media-left">
+            <a href="/posts/2727/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Hexo博客搭建入门">
                 </p>
@@ -633,7 +543,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-blog-build/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
+                    <a href="/posts/2727/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -643,7 +553,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-theme-compare/" class="media-left">
+            <a href="/posts/27751/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="hexo的主题比较">
                 </p>
@@ -652,7 +562,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-theme-compare/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
+                    <a href="/posts/27751/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -662,7 +572,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/09/VPS_shadowsocks/" class="media-left">
+            <a href="/posts/9931/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="VPS 配置">
                 </p>
@@ -671,7 +581,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-08T16:00:00.000Z">2020-02-09</time></div>
-                    <a href="/2020/02/09/VPS_shadowsocks/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
+                    <a href="/posts/9931/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -681,7 +591,7 @@
         
         <article class="media">
             
-            <a href="/2020/01/20/mac-command/" class="media-left">
+            <a href="/posts/8410/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="mac快捷键和常用命令行">
                 </p>
@@ -690,7 +600,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-19T16:00:00.000Z">2020-01-20</time></div>
-                    <a href="/2020/01/20/mac-command/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
+                    <a href="/posts/8410/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -940,7 +850,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener external nofollow noreferrer">
                 关注我</a>
         </div>
         
@@ -996,7 +906,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/20/install-haskell-on-Mac/" class="media-left">
+            <a href="/posts/32573/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/gallery/thumbnails/haskell.png" alt="Mac上Haskell的安装环境搭建">
                 </p>
@@ -1005,7 +915,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
-                    <a href="/2020/02/20/install-haskell-on-Mac/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
+                    <a href="/posts/32573/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -1015,7 +925,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-blog-build/" class="media-left">
+            <a href="/posts/2727/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Hexo博客搭建入门">
                 </p>
@@ -1024,7 +934,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-blog-build/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
+                    <a href="/posts/2727/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -1034,7 +944,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-theme-compare/" class="media-left">
+            <a href="/posts/27751/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="hexo的主题比较">
                 </p>
@@ -1043,7 +953,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-theme-compare/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
+                    <a href="/posts/27751/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -1053,7 +963,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/09/VPS_shadowsocks/" class="media-left">
+            <a href="/posts/9931/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="VPS 配置">
                 </p>
@@ -1062,7 +972,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-08T16:00:00.000Z">2020-02-09</time></div>
-                    <a href="/2020/02/09/VPS_shadowsocks/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
+                    <a href="/posts/9931/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -1072,7 +982,7 @@
         
         <article class="media">
             
-            <a href="/2020/01/20/mac-command/" class="media-left">
+            <a href="/posts/8410/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="mac快捷键和常用命令行">
                 </p>
@@ -1081,7 +991,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-19T16:00:00.000Z">2020-01-20</time></div>
-                    <a href="/2020/01/20/mac-command/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
+                    <a href="/posts/8410/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -1263,12 +1173,12 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hexo博客搭建入门" height="28">
+                    <img src="/images/logo.svg" alt="Mac上Haskell的安装环境搭建" height="28">
                 
                 </a>
                 <p class="is-size-7">
                 &copy; 2020 Anne wu&nbsp;
-                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener external nofollow noreferrer">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
                 
                 <br>
@@ -1283,7 +1193,7 @@
                 <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Creative Commons" href="https://creativecommons.org/">
                         
                         <i class="fab fa-creative-commons"></i>
                         
@@ -1292,7 +1202,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
                         
                         <i class="fab fa-creative-commons-by"></i>
                         
@@ -1301,7 +1211,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
                         
                         <i class="fab fa-github"></i>
                         
@@ -1355,7 +1265,7 @@ var IcarusThemeSettings = {
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noreferrer">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -1395,7 +1305,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="回到顶端" href="javascript:;">
+<a id="back-to-top" title="回到顶端" href="javascript:;" rel="external nofollow noreferrer">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

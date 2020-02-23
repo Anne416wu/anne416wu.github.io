@@ -6,22 +6,22 @@
 <meta name="generator" content="Hexo 4.2.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="baidu-site-verification" content="dCyQphZGOq" />
 
-<title>VPS 配置 - Anne416Wu</title>
+<title>Dudes - Anne416Wu</title>
 
 
-    <meta name="description" content="VPS服务器的创建、Shadowsocks的配置">
+    <meta name="description" content="有些想法就顺便记录一点当你把笔放下天黑请闭眼">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VPS 配置">
-<meta property="og:url" content="http://anne416wu.github.io/2020/02/09/VPS_shadowsocks/index.html">
+<meta property="og:title" content="Dudes">
+<meta property="og:url" content="http://anne416wu.github.io/posts/27073/index.html">
 <meta property="og:site_name" content="Anne416Wu">
-<meta property="og:description" content="VPS服务器的创建、Shadowsocks的配置">
+<meta property="og:description" content="有些想法就顺便记录一点当你把笔放下天黑请闭眼">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://anne416wu.github.io/images/og_image.png">
-<meta property="article:published_time" content="2020-02-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-22T16:09:19.000Z">
+<meta property="article:published_time" content="2018-06-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-02-23T07:56:39.328Z">
 <meta property="article:author" content="Anne wu">
-<meta property="article:tag" content="vps vpn 服务器 科学上网 shadowsocks">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://anne416wu.github.io/images/og_image.png">
 
@@ -31,7 +31,7 @@
 
 
 
-<link rel="alternative" href="atom.xml" title="VPS 配置" type="application/atom+xml">
+<link rel="alternative" href="atom.xml" title="Dudes" type="application/atom+xml">
 
 
 
@@ -85,7 +85,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="VPS 配置" height="28">
+                <img src="/images/logo.svg" alt="Dudes" height="28">
             
             </a>
         </div>
@@ -116,7 +116,7 @@
             <div class="navbar-end">
                 
                     
-                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/anne416wu">
+                    <a class="navbar-item" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/anne416wu">
                         
                         <i class="fab fa-github"></i>
                         
@@ -124,12 +124,8 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
-                    <i class="fas fa-list-ul"></i>
-                </a>
                 
-                
-                <a class="navbar-item search" title="搜索" href="javascript:;">
+                <a class="navbar-item search" title="搜索" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -150,17 +146,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-02-08T16:00:00.000Z">2020-02-09</time>
+                <time class="level-item has-text-grey" datetime="2018-06-30T16:00:00.000Z">2018-07-01</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
+                <a class="has-link-grey -link" href="/categories/Life/">Life</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Life/Fragments/">Fragments</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 1072 个字)
+                    12 分钟 读完 (大约 1778 个字)
                 </span>
                 
                 
@@ -174,126 +170,25 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                VPS 配置
+                Dudes
             
         </h1>
         <div class="content">
-            <p>VPS服务器的创建、Shadowsocks的配置</p>
+            <hr>
+<blockquote>
+<p>有些想法就顺便记录一点<br>当你把笔放下<br>天黑请闭眼</p>
+</blockquote>
+<hr>
 <a id="more"></a>
-<script src="https://cdn1.lncld.net/static/js/av-mini-0.6.10.js"></script>
-<script src="http://jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.2.0.js"></script>
 
-<blockquote>
-<p>参考网址</p>
-<ul>
-<li>基本ssh安装配置：<a href="https://jerryzou.com/posts/shadowsocks-and-digitalocean/">https://jerryzou.com/posts/shadowsocks-and-digitalocean/</a></li>
-<li>进阶使用：<a href="https://www.itrhx.com/2020/01/10/A61-build-a-SSR-server-with-VPS/">https://www.itrhx.com/2020/01/10/A61-build-a-SSR-server-with-VPS/</a></li>
-</ul>
-</blockquote>
-<h2 id="1-注册和创建Droplets"><a href="#1-注册和创建Droplets" class="headerlink" title="1 注册和创建Droplets"></a>1 注册和创建Droplets</h2><blockquote>
-<p>VPS-Digital Ocean - CentOS 7 x64 - Enable IPV6</p>
-<p>非CentOS7可能导致后续出现python等缺失</p>
-</blockquote>
-<ol>
-<li><p>创建SSH key</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看本地的SSH key</span></span><br><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line">ls *.pub</span><br><span class="line"><span class="comment">#创建新的SSH key</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"email@example.com"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将公钥添加到账号</p>
-</li>
-<li><p>远程登录服务器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@IP地址</span><br></pre></td></tr></table></figure>
-<p>退出服务器     <code>exit</code></p>
-<blockquote>
-<p>附加：vim的安装和配置</p>
-<ol>
-<li><p>安装vim</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install vim</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置vim</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.vimrc</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>vim配置文件参考</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">" Configuration file for vim</span></span><br><span class="line"><span class="string">set modelines=0		"</span> CVE-2007-2438</span><br><span class="line"></span><br><span class="line"><span class="string">" Normally we use vim-extensions. If you want true vi-compatibility</span></span><br><span class="line"><span class="string">"</span> remove change the following statements</span><br><span class="line"><span class="built_in">set</span> nocompatible	<span class="string">" Use Vim defaults instead of 100% vi compatibility</span></span><br><span class="line"><span class="string">set backspace=2		"</span> more powerful backspacing</span><br><span class="line"></span><br><span class="line"><span class="string">" Don't write backup file if vim is being called by "</span>crontab -e<span class="string">"</span></span><br><span class="line"><span class="string">au BufWrite /private/tmp/crontab.* set nowritebackup nobackup</span></span><br><span class="line"><span class="string">"</span> Don<span class="string">'t write backup file if vim is being called by "chpass"</span></span><br><span class="line"><span class="string">au BufWrite /private/etc/pw.* set nowritebackup nobackup</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">let skip_defaults_vim=0</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">syntax on</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">autocmd InsertLeave * se nocul</span></span><br><span class="line"><span class="string">autocmd InsertEnter * se cul</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set tabstop=4</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set softtabstop=4</span></span><br><span class="line"><span class="string">set shiftwidth=4</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set number</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">colorscheme pablo</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set ruler</span></span><br><span class="line"><span class="string">set scrolloff=3</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set rtp+=/usr/local/opt/fzf</span></span><br></pre></td></tr></table></figure>
+<h2 id="lt-0-gt"><a href="#lt-0-gt" class="headerlink" title="&lt;0&gt;"></a>&lt;0&gt;</h2><p>军棋，其人身高普通，国字脸，满脸写满了”啊我又怎么了“的无辜神情。<br>要是让我想一些关于他的画面，满脑子只有他半张着嘴，露出”啊？“的表情。<br>如果说我是思想上的矮子行动上的地精逻辑上的杠精，那么军棋便是思想上的巨人行动上的普通人逻辑上曾经的杠精，曾经一起互相杠的日子已经一去不复返很久了，现在大部分时候他更乐意用“啊那不是好棒棒”“🐂🍺”等等无聊的句式来断绝被我拉入互杠大战的可能性。<br>大一军棋是班长，我是团支书。<br>大二都“卸任”，套用其人原话：“当班委？留级当吗？”<br>军棋的发小勇哥是隔壁班班长。<br>勇哥是年级第一，军棋年级二十名左右。<br>我是我们院倒数二十名左右。<br>分数这个东西，一开始差距特别大还反复比较仔细分析患得患失自怨自艾，时间久了也就自我习惯自我接受了。只是偶尔还是会冒出“都是平时一起吹水的兄弟为什么别人那么优秀”的想法。<br>说句老实话，在我们这样的工科强校，只有成绩好的人会告诉无知懵懂的高中孩子成绩这东西没啥重要的，学酥学渣如我之流只会咬牙切齿的历数成绩好能享受到的种种优势：两千软妹币中欧交流的机会只属于成绩5%的佼佼者，学院的暑期集训只收年级前15%的优秀者……不胜枚举，失去的多了也就麻木了。<br>在大一结束的假期，2018世界杯的赛季，巴西踢墨西哥。彼时我等学渣已经放假逃之夭夭回家当咸鱼了，优秀的人比如军棋和勇哥耗在学校等着再晚一个星期享受两千软妹币的欧洲半月游，勇哥选了去法国，军棋选了去波兰。先是零点军棋给我发了一串“学校网络断了去小南门的酒吧了”“这酒有意思叫今晚不回家”“哇靠这酒有点烈啊”“今晚不回家啊哈哈哈哈”“我缓过来了缓过来了”“哎哟还是昏的”。我听着没啥大碍也就没仔细问，看着球赛插科打诨几句就准备睡了。睡前瞅见微信里勇哥也发了几句“军棋喝今晚不回家遭了””他好像有点不正常“没来得及理就堕入梦乡。<br>第二天十点起来军旗的消息30+，1:00：”勇哥这个畜生不是人，拉着小姐姐就走了留我一个人“，2:45：”我一个人在小南门晃来晃起真开心“”发现了个通宵网吧哈哈哈哈“，3:00：”没带身份证网吧不让进“”我一个人流落街头好惨“，3:45：”勇哥真的不是朋友““不想回去吵醒阿姨给我开门”……7:45：“回宿舍睡觉了”。<br>14:45，我：“哈哈哈哈哈哈哈哈哈哈哈哈哈哈哦。”<br>我以为这场一时兴起的小南门青春徘徊剧场差不多就结束了，直到下午我刷知乎看见勇哥的问题关注track：<br>“<br>43分钟前——‘已经有女朋友了，但又遇到更喜欢的对象怎么办？’<br>40分钟前——‘你错过了哪些异性对你的暗示？你的哪些暗示没有被异性理解？’<br>36分钟前——‘男生什么状态才体现出他已经爱上你了？’<br>35分钟前——‘有多少人从大学恋爱到结婚，你们幸福吗？’”<br>有感情方面的track，其实我很能理解，上半学期我想暗示Chris的时候，疯狂的在知乎收藏“什么时候应该表白？”“知道没有结果的感情还有没有必要继续”……可是这个情况完全不一样啊，这是先绿现任再去许下天长地久的大型三观崩塌现场啊！军旗勇哥和我三个人做了一学期数学建模校内赛写了三篇水论文共度清明端午劳动三个小长假，我多多少少的还是知道勇哥此人曾是个浪子，高中情债无数，<br>当下我就截屏存图，去问军旗头天晚上在他和勇哥身上到底发生了什么。<br>军旗：“我那么可怜我身上能发生什么？你还不如问我看到了什么。”<br>“那你目睹了啥子哟？”<br>“不过是抛弃朋友，<br>和小姐姐操场看星，<br>凌晨四点吵醒阿姨。”<br>至于勇哥，在微信上满口“你冤枉我了我不记得我关注过这些我不是我没有你别瞎说”之后，骂了一句“军旗真的不够朋友”</p>
+<p>我从来不觉得军棋会有什么心理上的问题————朋友之间太熟悉了大概会习惯性忽略他们近来的内心感受，而且大部分聊天的时候我们很少谈比较本质的最近心情怎么样这种话题，大部分时候是很具像化的“后门外卖的小龙虾不要点，一宿舍三个人拉肚子了”“哇靠你赶紧看一下今年wwdc的评价2018newipad买吧买吧”“新看个网飞的剧赛博朋克风格超好的”“靠我在看书你不要发消息诱惑我玩手机”……<br>晚上我刷知乎，看见他关注了“抑郁是种什么样的体验”。<br>一时无言。<br>有意无意问了几句，他倒是心态成熟而态度敷衍，“很正常啊”，“哦哦嗯嗯就那样”。<br>我也觉得颇为无趣，便不再调解。<br>却没想到从那之后到现在再难有只言片语交流。</p>
+<p>开学听媛媛媛说了一句话，才知道其实谁都知道。</p>
+<p>“军旗要是再高一点再帅一点，你们早就在一起了。”</p>
+<p>&lt;1&gt;<br>Chris Chen<br>&lt;2&gt;<br>Mikey Yang<br>&lt;3&gt;<br>宇航、机车和亮亮们<br>&lt;4&gt;<br>195<br>&lt;5&gt;<br>Beijing spider-man<br>&lt;6&gt;<br>Cute KM boy finally found his golden-girl</p>
+<p>&lt;7&gt;<br>Hekla</p>
+<p>&lt;8&gt;</p>
 
-</li>
-</ol>
-</blockquote>
-</li>
-</ol>
-<h2 id="2-Shadowsocks"><a href="#2-Shadowsocks" class="headerlink" title="2 Shadowsocks"></a>2 Shadowsocks</h2><ol>
-<li><p>安装<br>CentOS7自带python2.7，所以直接安装pip</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/shadowsocks.json</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置文件内容：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//普通配置</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>:<span class="string">"服务器ip地址"</span>,</span><br><span class="line">    <span class="attr">"server_port"</span>:<span class="number">8388</span>,</span><br><span class="line">    <span class="attr">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="attr">"local_port"</span>:<span class="number">1080</span>,</span><br><span class="line">    <span class="attr">"password"</span>:<span class="string">"你设置的密码"</span>,</span><br><span class="line">    <span class="attr">"timeout"</span>:<span class="number">300</span>,</span><br><span class="line">    <span class="attr">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"fast_open"</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 多端口配置</span></span><br><span class="line"><span class="comment">// 即把server_port和password两项替换为port_password</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>: <span class="string">"服务器ip地址"</span>,</span><br><span class="line">    <span class="attr">"server_ipv6"</span>: <span class="string">"::"</span>,</span><br><span class="line">    <span class="attr">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="attr">"local_port"</span>: <span class="number">1081</span>,</span><br><span class="line">    <span class="attr">"port_password"</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"8686"</span>:<span class="string">"你设置的密码"</span>,</span><br><span class="line">        <span class="attr">"8687"</span>:<span class="string">"你设置的密码"</span>,</span><br><span class="line">        <span class="attr">"8688"</span>:<span class="string">"你设置的密码"</span>,</span><br><span class="line">        <span class="attr">"8689"</span>:<span class="string">"你设置的密码"</span>,</span><br><span class="line">        <span class="attr">"8690"</span>:<span class="string">"你设置的密码"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"timeout"</span>: <span class="number">120</span>,</span><br><span class="line">    <span class="attr">"udp_timeout"</span>: <span class="number">60</span>,</span><br><span class="line">    <span class="attr">"method"</span>: <span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"protocol"</span>: <span class="string">"auth_sha1_v4_compatible"</span>,</span><br><span class="line">    <span class="attr">"protocol_param"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="attr">"obfs"</span>: <span class="string">"http_simple_compatible"</span>,</span><br><span class="line">    <span class="attr">"obfs_param"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="attr">"dns_ipv6"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"connect_verbose_info"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"redirect"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="attr">"fast_open"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"workers"</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>ssh服务器启动</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json</span><br><span class="line"><span class="comment"># 或者在后台运行</span></span><br><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br><span class="line">ssserver -c /etc/shadowsocks.json -d stop</span><br><span class="line"><span class="comment"># 日志</span></span><br><span class="line">ssserver -c /etc/shadowsocks.json --<span class="built_in">log</span>-file /tmp/ss.log -d start</span><br><span class="line">tail -f /tmp/ss.log</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="3-速度升级和安全性"><a href="#3-速度升级和安全性" class="headerlink" title="3 速度升级和安全性"></a>3 速度升级和安全性</h2><ul>
-<li><p>下载锐速服务（建议直接使用下一条四合一脚本）</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  对于centOS7 需要先下载需要的固件20140911</span></span><br><span class="line">  rpm -ivh ftp://ftp.pbone.net/mirror/ftp.scientificlinux.org/linux/scientific/7.0/x86_64/updates/security/linux-firmware-20140911-0.1.git365e80c.el7.noarch.rpm</span><br><span class="line"><span class="comment"># 更换内核</span></span><br><span class="line">wget --no-check-certificate -O rskernel.sh https://raw.githubusercontent.com/hombo125/doubi/master/rskernel.sh &amp;&amp; bash rskernel.sh</span><br><span class="line"><span class="comment"># 内核更换完后显示Success后需要重新连接到服务器</span></span><br><span class="line">ssh root@IP地址</span><br><span class="line"><span class="comment"># 查看当前内核版本</span></span><br><span class="line">uname -r</span><br><span class="line"><span class="comment"># 下载锐速，一路回车安装</span></span><br><span class="line">yum install net-tools -y &amp;&amp; wget --no-check-certificate -O appex.sh https://raw.githubusercontent.com/0oVicero0/serverSpeeder_Install/master/appex.sh &amp;&amp; bash appex.sh install</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p><a href="https://www.hostloc.com/thread-508015-1-1.html"><strong>bbr 原版/魔改/plus+锐速 四合一脚本</strong></a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载脚本</span></span><br><span class="line">wget <span class="string">"https://github.com/cx9208/Linux-NetSpeed/raw/master/tcp.sh"</span> &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br><span class="line"><span class="comment"># 如果证书错误的话</span></span><br><span class="line">apt-get -y install ca-certificates</span><br><span class="line">yum -y install ca-certificates</span><br><span class="line"><span class="comment"># 1-3中选择切换内核，自动重启，如果出现是否删除Configuring image,选择no</span></span><br><span class="line"><span class="comment"># 调用脚本</span></span><br><span class="line">./tcp.sh</span><br><span class="line"><span class="comment"># 在4-8中选择要开的加速</span></span><br><span class="line">   <span class="string">"1. 安装 BBR/BBR魔改版内核"</span>        对应4,5,6（原版，魔改，暴力魔改）</span><br><span class="line">   <span class="string">"2. 安装 BBRplus版内核 "</span>                对应7（plus）</span><br><span class="line">   <span class="string">"3. 安装 Lotserver(锐速)内核"</span>        对应8（锐速）</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p><a href="https://www.oldking.net/tag/speedtest/">服务器测速 speedtest</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 断链接</span></span><br><span class="line">wget -qO- git.io/superbench.sh | bash</span><br><span class="line"><span class="comment"># 使用参数</span></span><br><span class="line">wget -qO- git.io/superbench.sh | bash -s info</span><br><span class="line">wget -qO- git.io/superbench.sh | bash -s io</span><br><span class="line">wget -qO- git.io/superbench.sh | bash -s speed</span><br><span class="line">wget -qO- git.io/superbench.sh | bash -s fast</span><br><span class="line">wget -qO- git.io/superbench.sh | bash -s share</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置防火墙（可能到处后续安装锐速服务后出现模块缺失）</p>
-<ol>
-<li><p>配置防火墙文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/firewalld/zones/public.xml</span><br></pre></td></tr></table></figure>
-
-<p> 一个端口对应两个</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">zone</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">short</span>&gt;</span>Public<span class="tag">&lt;/<span class="name">short</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">service</span> <span class="attr">name</span>=<span class="string">"dhcpv6-client"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">service</span> <span class="attr">name</span>=<span class="string">"ssh"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">port</span> <span class="attr">protocol</span>=<span class="string">"tcp"</span> <span class="attr">port</span>=<span class="string">"8686"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">port</span> <span class="attr">protocol</span>=<span class="string">"udp"</span> <span class="attr">port</span>=<span class="string">"8686"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">port</span> <span class="attr">protocol</span>=<span class="string">"tcp"</span> <span class="attr">port</span>=<span class="string">"8687"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">port</span> <span class="attr">protocol</span>=<span class="string">"udp"</span> <span class="attr">port</span>=<span class="string">"8687"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">port</span> <span class="attr">protocol</span>=<span class="string">"tcp"</span> <span class="attr">port</span>=<span class="string">"8688"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">port</span> <span class="attr">protocol</span>=<span class="string">"udp"</span> <span class="attr">port</span>=<span class="string">"8688"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">port</span> <span class="attr">protocol</span>=<span class="string">"tcp"</span> <span class="attr">port</span>=<span class="string">"8689"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">port</span> <span class="attr">protocol</span>=<span class="string">"udp"</span> <span class="attr">port</span>=<span class="string">"8689"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">port</span> <span class="attr">protocol</span>=<span class="string">"tcp"</span> <span class="attr">port</span>=<span class="string">"8690"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">port</span> <span class="attr">protocol</span>=<span class="string">"udp"</span> <span class="attr">port</span>=<span class="string">"8690"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">port</span> <span class="attr">protocol</span>=<span class="string">"tcp"</span> <span class="attr">port</span>=<span class="string">"8691"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">port</span> <span class="attr">protocol</span>=<span class="string">"udp"</span> <span class="attr">port</span>=<span class="string">"8691"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">zone</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-</li>
-</ul>
-<ol start="2">
-<li><p>重启shadowsocks，重启防火墙</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重启防火墙</span></span><br><span class="line">systemctl restart firewalld.service</span><br><span class="line"><span class="comment"># 如果没有firewalld-cmd命令</span></span><br><span class="line">yum install firewalld</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>firewalld的基本使用</p>
-<p>启动： systemctl start firewalld</p>
-<p>关闭： systemctl stop firewalld</p>
-<p>查看状态： systemctl status firewalld</p>
-<p>开机禁用 ： systemctl disable firewalld</p>
-<p>开机启用 ： systemctl enable firewalld</p>
-<p>查看开放的端口：firewall-cmd –list-ports</p>
-<p>添加端口：firewall-cmd –add-port=8080/tcp –permanent （–permanent永久生效，没有此参数重启后失效）<br>————————————————<br>原文链接：<a href="https://blog.csdn.net/qq_27751535/article/details/89633138">https://blog.csdn.net/qq_27751535/article/details/89633138</a></p>
-</blockquote>
-</li>
-</ol>
-
-        </div>
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/VPS/" rel="tag">VPS</a>
-                </div>
-            </div>
         </div>
         
         
@@ -338,19 +233,12 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/02/16/hexo-theme-compare/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/55266/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">hexo的主题比较</span>
+                <span class="level-item">Linux的基本终端命令</span>
             </a>
         </div>
         
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/20/mac-command/">
-                <span class="level-item">mac快捷键和常用命令行</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
         
     </div>
 </div>
@@ -386,30 +274,6 @@
 <div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">    
     
         
-
-    <div class="card widget" id="toc">
-        <div class="card-content">
-            <div class="menu">
-                <h3 class="menu-label">
-                    目录
-                </h3>
-                <ul class="menu-list"><li>
-        <a class="is-flex" href="#1-注册和创建Droplets">
-        <span class="has-mr-6">1</span>
-        <span>1 注册和创建Droplets</span>
-        </a></li><li>
-        <a class="is-flex" href="#2-Shadowsocks">
-        <span class="has-mr-6">2</span>
-        <span>2 Shadowsocks</span>
-        </a></li><li>
-        <a class="is-flex" href="#3-速度升级和安全性">
-        <span class="has-mr-6">3</span>
-        <span>3 速度升级和安全性</span>
-        </a></li></ul>
-            </div>
-        </div>
-    </div>
-
     
         <div class="card widget">
     <div class="card-content">
@@ -429,7 +293,7 @@
         <ul class="menu-list">
         
             <li>
-                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41844395" target="_blank" rel="noopener">
+                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41844395" target="_blank" rel="noopener external nofollow noreferrer">
                     <span class="level-left">
                         <span class="level-item">CSDN</span>
                     </span>
@@ -521,7 +385,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener external nofollow noreferrer">
                 关注我</a>
         </div>
         
@@ -577,7 +441,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/20/install-haskell-on-Mac/" class="media-left">
+            <a href="/posts/32573/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/gallery/thumbnails/haskell.png" alt="Mac上Haskell的安装环境搭建">
                 </p>
@@ -586,7 +450,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
-                    <a href="/2020/02/20/install-haskell-on-Mac/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
+                    <a href="/posts/32573/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -596,7 +460,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-blog-build/" class="media-left">
+            <a href="/posts/2727/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Hexo博客搭建入门">
                 </p>
@@ -605,7 +469,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-blog-build/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
+                    <a href="/posts/2727/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -615,7 +479,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-theme-compare/" class="media-left">
+            <a href="/posts/27751/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="hexo的主题比较">
                 </p>
@@ -624,7 +488,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-theme-compare/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
+                    <a href="/posts/27751/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -634,7 +498,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/09/VPS_shadowsocks/" class="media-left">
+            <a href="/posts/9931/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="VPS 配置">
                 </p>
@@ -643,7 +507,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-08T16:00:00.000Z">2020-02-09</time></div>
-                    <a href="/2020/02/09/VPS_shadowsocks/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
+                    <a href="/posts/9931/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -653,7 +517,7 @@
         
         <article class="media">
             
-            <a href="/2020/01/20/mac-command/" class="media-left">
+            <a href="/posts/8410/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="mac快捷键和常用命令行">
                 </p>
@@ -662,7 +526,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-19T16:00:00.000Z">2020-01-20</time></div>
-                    <a href="/2020/01/20/mac-command/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
+                    <a href="/posts/8410/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -912,7 +776,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener external nofollow noreferrer">
                 关注我</a>
         </div>
         
@@ -968,7 +832,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/20/install-haskell-on-Mac/" class="media-left">
+            <a href="/posts/32573/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/gallery/thumbnails/haskell.png" alt="Mac上Haskell的安装环境搭建">
                 </p>
@@ -977,7 +841,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
-                    <a href="/2020/02/20/install-haskell-on-Mac/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
+                    <a href="/posts/32573/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -987,7 +851,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-blog-build/" class="media-left">
+            <a href="/posts/2727/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Hexo博客搭建入门">
                 </p>
@@ -996,7 +860,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-blog-build/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
+                    <a href="/posts/2727/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -1006,7 +870,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-theme-compare/" class="media-left">
+            <a href="/posts/27751/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="hexo的主题比较">
                 </p>
@@ -1015,7 +879,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-theme-compare/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
+                    <a href="/posts/27751/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -1025,7 +889,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/09/VPS_shadowsocks/" class="media-left">
+            <a href="/posts/9931/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="VPS 配置">
                 </p>
@@ -1034,7 +898,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-08T16:00:00.000Z">2020-02-09</time></div>
-                    <a href="/2020/02/09/VPS_shadowsocks/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
+                    <a href="/posts/9931/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -1044,7 +908,7 @@
         
         <article class="media">
             
-            <a href="/2020/01/20/mac-command/" class="media-left">
+            <a href="/posts/8410/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="mac快捷键和常用命令行">
                 </p>
@@ -1053,7 +917,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-19T16:00:00.000Z">2020-01-20</time></div>
-                    <a href="/2020/01/20/mac-command/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
+                    <a href="/posts/8410/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -1235,12 +1099,12 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="VPS 配置" height="28">
+                    <img src="/images/logo.svg" alt="Dudes" height="28">
                 
                 </a>
                 <p class="is-size-7">
                 &copy; 2020 Anne wu&nbsp;
-                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener external nofollow noreferrer">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
                 
                 <br>
@@ -1255,7 +1119,7 @@
                 <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Creative Commons" href="https://creativecommons.org/">
                         
                         <i class="fab fa-creative-commons"></i>
                         
@@ -1264,7 +1128,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
                         
                         <i class="fab fa-creative-commons-by"></i>
                         
@@ -1273,7 +1137,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
                         
                         <i class="fab fa-github"></i>
                         
@@ -1327,7 +1191,7 @@ var IcarusThemeSettings = {
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noreferrer">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -1367,7 +1231,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="回到顶端" href="javascript:;">
+<a id="back-to-top" title="回到顶端" href="javascript:;" rel="external nofollow noreferrer">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

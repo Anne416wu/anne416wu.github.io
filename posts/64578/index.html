@@ -6,22 +6,23 @@
 <meta name="generator" content="Hexo 4.2.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="baidu-site-verification" content="dCyQphZGOq" />
 
-<title>hexo的主题比较 - Anne416Wu</title>
+<title>markdown进阶使用技巧 - Anne416Wu</title>
 
 
-    <meta name="description" content="hexo各个主题的比较, 以及部分主题的修改心得">
+    <meta name="description" content="markdown中的mermaid作图, html结合等进阶使用的handbook">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo的主题比较">
-<meta property="og:url" content="http://anne416wu.github.io/2020/02/16/hexo-theme-compare/index.html">
+<meta property="og:title" content="markdown进阶使用技巧">
+<meta property="og:url" content="http://anne416wu.github.io/posts/64578/index.html">
 <meta property="og:site_name" content="Anne416Wu">
-<meta property="og:description" content="hexo各个主题的比较, 以及部分主题的修改心得">
+<meta property="og:description" content="markdown中的mermaid作图, html结合等进阶使用的handbook">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://anne416wu.github.io/images/og_image.png">
-<meta property="article:published_time" content="2020-02-15T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-22T16:09:31.496Z">
+<meta property="article:published_time" content="2020-01-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-02-23T07:56:39.321Z">
 <meta property="article:author" content="Anne wu">
-<meta property="article:tag" content="hexo js 前端 博客">
+<meta property="article:tag" content="markdown js 前端 博客">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://anne416wu.github.io/images/og_image.png">
 
@@ -31,7 +32,7 @@
 
 
 
-<link rel="alternative" href="atom.xml" title="hexo的主题比较" type="application/atom+xml">
+<link rel="alternative" href="atom.xml" title="markdown进阶使用技巧" type="application/atom+xml">
 
 
 
@@ -85,7 +86,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="hexo的主题比较" height="28">
+                <img src="/images/logo.svg" alt="markdown进阶使用技巧" height="28">
             
             </a>
         </div>
@@ -116,7 +117,7 @@
             <div class="navbar-end">
                 
                     
-                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/anne416wu">
+                    <a class="navbar-item" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/anne416wu">
                         
                         <i class="fab fa-github"></i>
                         
@@ -124,12 +125,12 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="搜索" href="javascript:;">
+                <a class="navbar-item search" title="搜索" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -150,7 +151,7 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time>
+                <time class="level-item has-text-grey" datetime="2020-01-16T16:00:00.000Z">2020-01-17</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
@@ -160,7 +161,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6 分钟 读完 (大约 960 个字)
+                    1 分钟 读完 (大约 172 个字)
                 </span>
                 
                 
@@ -174,87 +175,38 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                hexo的主题比较
+                markdown进阶使用技巧
             
         </h1>
         <div class="content">
-            <p>hexo各个主题的比较, 以及部分主题的修改心得</p>
+            <p>markdown中的mermaid作图, html结合等进阶使用的handbook</p>
 <a id="more"></a>
 
-<h2 id="1-我的需求"><a href="#1-我的需求" class="headerlink" title="1 我的需求"></a>1 我的需求</h2><blockquote>
-<p>目的：记录开发中遇到的坑，形成自己的handbook</p>
-</blockquote>
-<ol>
-<li>功能：<ul>
-<li>🔍站内搜索LeanCloud统计</li>
-<li>🤥<a href="#valine_comment"> Valine的评论服务 </a></li>
-<li>较为友好的代码高亮</li>
-<li>有展示GitHub project（接入GitHub的API）的project页面</li>
-<li>seo支持</li>
-</ul>
-</li>
-<li>界面：<ul>
-<li>首页tagCloud和categories的Widget</li>
-<li>首页的index展示文章的tag和category标签</li>
-<li>单篇博文内有随页面变化的目录widget</li>
-<li>archive展示时间轴 </li>
-</ul>
-</li>
-</ol>
-<h2 id="2-各个theme评价"><a href="#2-各个theme评价" class="headerlink" title="2 各个theme评价"></a>2 各个theme评价</h2><h3 id="1-基于jade-pug-开发的主题"><a href="#1-基于jade-pug-开发的主题" class="headerlink" title="1 基于jade ( pug )开发的主题"></a>1 基于jade ( pug )开发的主题</h3><blockquote>
-<p>Jade 是一个高性能的模板引擎，它深受 <a href="http://haml-lang.com/">Haml</a> 影响，它是用 JavaScript 实现的，并且可以供 <a href="http://nodejs.org/">Node</a> 使用，后来由于商标的原因，改为Pug  </p>
-<div class="tip">
- 以下列举的主题都仍然使用hexo-renderer-jade插件，npm会提示插件已被废弃，运行时会显示错误提示。首先要替换hexo-renderer-jade插件为hexo-renderer-pug，下载命令为npm install hexo-renderer-pug --save；然后将主题layout文件夹中的所有.jade文件替换为.pug文件
-</div>
-入门指南：[pug中文文档](https://pugjs.org/zh-cn/api/getting-started.html)
-</blockquote>
-<ol>
-<li><p><a href="https://github.com/pinggod/hexo-theme-apollo">Apollo</a></p>
-<p>博客首页<br><img src="apollo_homepage.png" alt="apollo_homepage"><br>博客归档页<br><img src="apollo_archivepage.png" alt="apollo_archivepage"></p>
+
+
+<h2 id="link_in_page">页内跳转</h2>
+
+<p><span id = "jumptoexample"> 两种方法究其根本都是md中html语法的应用</span></p>
+<h3 id="link_in_page.1">1.生成目录方法</h3>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>[<span class="string">页内跳转</span>](<span class="link">#link_in_page</span>)</span><br><span class="line"><span class="bullet">  * </span>[<span class="string">1生成目录的方法</span>](<span class="link">#link_in_page.1</span>)</span><br><span class="line"><span class="bullet">  * </span>[<span class="string">2html标签实现</span>](<span class="link">#link_in_page.2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>生成效果:</p>
 <ul>
-<li>界面干净，多个theme都基于apollo开发，如<a href="https://github.com/MikeCoder/hexo-theme-Gandalfr">Gandalfr</a>  <a href="https://github.com/claymcleod/hexo-theme-hermes">Hermes</a>  <a href="https://github.com/Dreyer/hexo-theme-artemis">artemis</a> <a href="https://github.com/bulandent/hexo-theme-bubuzou">bubuzou</a> <a href="https://github.com/lyndonoc/hexo-theme-pandollo">pandollo</a></li>
-<li>缺点: 功能缺乏，需要自己接入评论、目录、搜索、Widget等功能；</li>
+<li><a href="#link_in_page">页内跳转</a><ul>
+<li><a href="#link_in_page.1">1.生成目录的方法</a></li>
+<li><a href="#link_in_page.2">2.html标签实现</a></li>
 </ul>
 </li>
-<li><p><a href="https://github.com/bulandent/hexo-theme-bubuzou">bubuzou</a></p>
-<p>博客首页<br><img src="bubuzou_archieve_page.png" alt="bubuzou_archieve_page"><br>博文底部<br><img src="bubuzou_post_page.png" alt="bubuzou_post_page"></p>
-<ul>
-<li><p>基于apollo开发, 补充大量apollo缺乏的功能，如评论、目录、搜索、Widget；评论支持Valine评论；</p>
-</li>
-<li><p>首页 css页面适配存在缺陷（缩放时borden过小），代码高亮有缺陷，个别博文底部不会出现评论窗口(奇奇怪怪的bug)</p>
-</li>
-<li><p>实际使用的时候发现leancloud的访问量统计功能有缺点，留个坑；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">p.visit</span><br><span class="line">	i(class&#x3D;&quot;article-timer&quot;, data-identity&#x3D;item.path)</span><br><span class="line">   span 次访问</span><br><span class="line">   if (is_home())</span><br><span class="line">   	i(data-hk-page&#x3D;&#39;http:&#x2F;&#x2F;anne416wu.github.io&#39;+url_for(item.path)) -</span><br><span class="line">   else </span><br><span class="line">   	i(data-hk-page&#x3D;&quot;current&quot;)</span><br></pre></td></tr></table></figure>
-</li>
 </ul>
-</li>
-<li><p><a href="https://github.com/MikeCoder/hexo-theme-Gandalfr">Gandalfr</a></p>
-<ul>
-<li>不放图了，这玩意儿bug挺多。有意思的是作者写了个tagCloud的辅助插件，给TagCloud加上了动画效果。界面上较bubuzou更贴近apollo。</li>
-<li>有时间的可以把Gandalfr的界面和bubuzou的功能结合一下。</li>
-</ul>
-</li>
-</ol>
-<h3 id="2-基于ejs开发的主题"><a href="#2-基于ejs开发的主题" class="headerlink" title="2 基于ejs开发的主题"></a>2 基于ejs开发的主题</h3><blockquote>
-<p> ejs是一套简单的模板语言，利用普通的 JavaScript 代码生成 HTML 页面，相比上面使用jade，修改更为方便。个人体验感觉ejs性能的确不如jade。</p>
-</blockquote>
-<ol>
-<li><p><a href="https://github.com/yanm1ng/hexo-theme-vexo">Vexo</a><br>博客首页<br><img src="vexo_homepage.png" alt="vexo_homepage"><br>博文开头<br><img src="vexo_postpage.png" alt="vexo_postpage"><br>归档页<br><img src="vexo_archievepage.png" alt="vexo_archivepage"><br>项目页<br><img src="vexo_projectpage.png" alt="vexo_projectpage"></p>
-<ul>
-<li>满足对界面的一切幻想(对界面的幻想都是这个主题惯出来的)，支持多种代码高亮</li>
-<li>缺点：未接入搜索功能，仅支持gitment评论，无首页CLoudTag的Widget等</li>
-<li>本地运行存在bug。使用<code>hexo s</code>预览时，如果文章资源读取出现错误，整个博客页面会显示空白</li>
-</ul>
-</li>
-<li><p><a href="https://github.com/probberechts/hexo-theme-cactus">Cactus</a></p>
-<p>博客首页<br><img src="cactus_homepage.png" alt="cactus_homepage"><br>博文开头<br><img src="cactus_postpage.png" alt="cactus_postpage"><br>归档页<br><img src="cactus_archievepage.png" alt="cactus_archivepage"></p>
-<ul>
-<li>界面干净，支持多种代码高亮</li>
-<li>因为是国外开发的，对本地化的支持较少；</li>
-</ul>
-<p>&lt;未完待续&gt;</p>
-</li>
-</ol>
+<p>在正文中对应的地方, 加入章节标题对应id</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">'link_in_page'</span>&gt;</span></span>业内跳转<span class="xml"><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="link_in_page.2">2.html标签实现</h3>
+
+<p>定义一个锚在跳转的目的地    <code>&lt;span id = &quot;jumptoexample&quot;&gt;页内跳转&lt;/span&gt;</code> </p>
+<p>在要需要跳转的地方使用md语法的超链接 <code>[ 点击跳转 ](#jumptoexample)</code></p>
+<p><a href="#jumptoexample"> 点击跳转 </a></p>
 
         </div>
         
@@ -262,7 +214,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/hexo/" rel="tag">hexo</a>, <a class="has-link-grey -link" href="/tags/js/" rel="tag">js</a>
+                    <a class="has-link-grey -link" href="/tags/html/" rel="tag">html</a>, <a class="has-link-grey -link" href="/tags/markdown/" rel="tag">markdown</a>
                 </div>
             </div>
         </div>
@@ -309,16 +261,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/02/16/hexo-blog-build/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/8410/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Hexo博客搭建入门</span>
+                <span class="level-item">mac快捷键和常用命令行</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/02/09/VPS_shadowsocks/">
-                <span class="level-item">VPS 配置</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/52525/">
+                <span class="level-item">Anaconda的环境管理</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -365,21 +317,17 @@
                     目录
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#1-我的需求">
+        <a class="is-flex" href="#link_in_page">
         <span class="has-mr-6">1</span>
-        <span>1 我的需求</span>
-        </a></li><li>
-        <a class="is-flex" href="#2-各个theme评价">
-        <span class="has-mr-6">2</span>
-        <span>2 各个theme评价</span>
+        <span>页内跳转</span>
         </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#1-基于jade-pug-开发的主题">
-        <span class="has-mr-6">2.1</span>
-        <span>1 基于jade ( pug )开发的主题</span>
+        <a class="is-flex" href="#link_in_page.1">
+        <span class="has-mr-6">1.1</span>
+        <span>1.生成目录方法</span>
         </a></li><li>
-        <a class="is-flex" href="#2-基于ejs开发的主题">
-        <span class="has-mr-6">2.2</span>
-        <span>2 基于ejs开发的主题</span>
+        <a class="is-flex" href="#link_in_page.2">
+        <span class="has-mr-6">1.2</span>
+        <span>2.html标签实现</span>
         </a></li></ul></li></ul>
             </div>
         </div>
@@ -404,7 +352,7 @@
         <ul class="menu-list">
         
             <li>
-                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41844395" target="_blank" rel="noopener">
+                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41844395" target="_blank" rel="noopener external nofollow noreferrer">
                     <span class="level-left">
                         <span class="level-item">CSDN</span>
                     </span>
@@ -496,7 +444,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener external nofollow noreferrer">
                 关注我</a>
         </div>
         
@@ -552,7 +500,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/20/install-haskell-on-Mac/" class="media-left">
+            <a href="/posts/32573/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/gallery/thumbnails/haskell.png" alt="Mac上Haskell的安装环境搭建">
                 </p>
@@ -561,7 +509,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
-                    <a href="/2020/02/20/install-haskell-on-Mac/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
+                    <a href="/posts/32573/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -571,7 +519,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-blog-build/" class="media-left">
+            <a href="/posts/2727/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Hexo博客搭建入门">
                 </p>
@@ -580,7 +528,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-blog-build/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
+                    <a href="/posts/2727/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -590,7 +538,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-theme-compare/" class="media-left">
+            <a href="/posts/27751/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="hexo的主题比较">
                 </p>
@@ -599,7 +547,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-theme-compare/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
+                    <a href="/posts/27751/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -609,7 +557,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/09/VPS_shadowsocks/" class="media-left">
+            <a href="/posts/9931/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="VPS 配置">
                 </p>
@@ -618,7 +566,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-08T16:00:00.000Z">2020-02-09</time></div>
-                    <a href="/2020/02/09/VPS_shadowsocks/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
+                    <a href="/posts/9931/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -628,7 +576,7 @@
         
         <article class="media">
             
-            <a href="/2020/01/20/mac-command/" class="media-left">
+            <a href="/posts/8410/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="mac快捷键和常用命令行">
                 </p>
@@ -637,7 +585,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-19T16:00:00.000Z">2020-01-20</time></div>
-                    <a href="/2020/01/20/mac-command/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
+                    <a href="/posts/8410/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -887,7 +835,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener external nofollow noreferrer">
                 关注我</a>
         </div>
         
@@ -943,7 +891,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/20/install-haskell-on-Mac/" class="media-left">
+            <a href="/posts/32573/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/gallery/thumbnails/haskell.png" alt="Mac上Haskell的安装环境搭建">
                 </p>
@@ -952,7 +900,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
-                    <a href="/2020/02/20/install-haskell-on-Mac/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
+                    <a href="/posts/32573/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -962,7 +910,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-blog-build/" class="media-left">
+            <a href="/posts/2727/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Hexo博客搭建入门">
                 </p>
@@ -971,7 +919,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-blog-build/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
+                    <a href="/posts/2727/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -981,7 +929,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-theme-compare/" class="media-left">
+            <a href="/posts/27751/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="hexo的主题比较">
                 </p>
@@ -990,7 +938,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-theme-compare/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
+                    <a href="/posts/27751/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -1000,7 +948,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/09/VPS_shadowsocks/" class="media-left">
+            <a href="/posts/9931/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="VPS 配置">
                 </p>
@@ -1009,7 +957,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-08T16:00:00.000Z">2020-02-09</time></div>
-                    <a href="/2020/02/09/VPS_shadowsocks/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
+                    <a href="/posts/9931/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -1019,7 +967,7 @@
         
         <article class="media">
             
-            <a href="/2020/01/20/mac-command/" class="media-left">
+            <a href="/posts/8410/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="mac快捷键和常用命令行">
                 </p>
@@ -1028,7 +976,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-19T16:00:00.000Z">2020-01-20</time></div>
-                    <a href="/2020/01/20/mac-command/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
+                    <a href="/posts/8410/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -1210,12 +1158,12 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="hexo的主题比较" height="28">
+                    <img src="/images/logo.svg" alt="markdown进阶使用技巧" height="28">
                 
                 </a>
                 <p class="is-size-7">
                 &copy; 2020 Anne wu&nbsp;
-                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener external nofollow noreferrer">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
                 
                 <br>
@@ -1230,7 +1178,7 @@
                 <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Creative Commons" href="https://creativecommons.org/">
                         
                         <i class="fab fa-creative-commons"></i>
                         
@@ -1239,7 +1187,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
                         
                         <i class="fab fa-creative-commons-by"></i>
                         
@@ -1248,7 +1196,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
                         
                         <i class="fab fa-github"></i>
                         
@@ -1302,7 +1250,7 @@ var IcarusThemeSettings = {
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noreferrer">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -1342,7 +1290,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="回到顶端" href="javascript:;">
+<a id="back-to-top" title="回到顶端" href="javascript:;" rel="external nofollow noreferrer">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

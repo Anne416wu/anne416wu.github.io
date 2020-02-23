@@ -6,21 +6,23 @@
 <meta name="generator" content="Hexo 4.2.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="baidu-site-verification" content="dCyQphZGOq" />
 
-<title>Dudes - Anne416Wu</title>
+<title>Linux的基本终端命令 - Anne416Wu</title>
 
 
-    <meta name="description" content="有些想法就顺便记录一点当你把笔放下天黑请闭眼">
+    <meta name="description" content="Linux终端的基本命令 (Unix下基本一致)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Dudes">
-<meta property="og:url" content="http://anne416wu.github.io/2018/07/01/Dudes/index.html">
+<meta property="og:title" content="Linux的基本终端命令">
+<meta property="og:url" content="http://anne416wu.github.io/posts/55266/index.html">
 <meta property="og:site_name" content="Anne416Wu">
-<meta property="og:description" content="有些想法就顺便记录一点当你把笔放下天黑请闭眼">
+<meta property="og:description" content="Linux终端的基本命令 (Unix下基本一致)">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://anne416wu.github.io/images/og_image.png">
-<meta property="article:published_time" content="2018-06-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-22T16:09:42.978Z">
+<meta property="article:published_time" content="2019-08-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-02-23T07:56:39.318Z">
 <meta property="article:author" content="Anne wu">
+<meta property="article:tag" content="Linux bash">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://anne416wu.github.io/images/og_image.png">
 
@@ -30,7 +32,7 @@
 
 
 
-<link rel="alternative" href="atom.xml" title="Dudes" type="application/atom+xml">
+<link rel="alternative" href="atom.xml" title="Linux的基本终端命令" type="application/atom+xml">
 
 
 
@@ -84,7 +86,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Dudes" height="28">
+                <img src="/images/logo.svg" alt="Linux的基本终端命令" height="28">
             
             </a>
         </div>
@@ -115,7 +117,7 @@
             <div class="navbar-end">
                 
                     
-                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/anne416wu">
+                    <a class="navbar-item" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/anne416wu">
                         
                         <i class="fab fa-github"></i>
                         
@@ -123,8 +125,12 @@
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" rel="external nofollow noreferrer">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
-                <a class="navbar-item search" title="搜索" href="javascript:;">
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -145,17 +151,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-06-30T16:00:00.000Z">2018-07-01</time>
+                <time class="level-item has-text-grey" datetime="2019-08-26T16:00:00.000Z">2019-08-27</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Life/">Life</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Life/Fragments/">Fragments</a>
+                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Note/">Note</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    12 分钟 读完 (大约 1778 个字)
+                    20 分钟 读完 (大约 3064 个字)
                 </span>
                 
                 
@@ -169,25 +175,333 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Dudes
+                Linux的基本终端命令
             
         </h1>
         <div class="content">
-            <hr>
-<blockquote>
-<p>有些想法就顺便记录一点<br>当你把笔放下<br>天黑请闭眼</p>
-</blockquote>
-<hr>
+            <p>Linux终端的基本命令 (Unix下基本一致)</p>
 <a id="more"></a>
 
-<h2 id="lt-0-gt"><a href="#lt-0-gt" class="headerlink" title="&lt;0&gt;"></a>&lt;0&gt;</h2><p>军棋，其人身高普通，国字脸，满脸写满了”啊我又怎么了“的无辜神情。<br>要是让我想一些关于他的画面，满脑子只有他半张着嘴，露出”啊？“的表情。<br>如果说我是思想上的矮子行动上的地精逻辑上的杠精，那么军棋便是思想上的巨人行动上的普通人逻辑上曾经的杠精，曾经一起互相杠的日子已经一去不复返很久了，现在大部分时候他更乐意用“啊那不是好棒棒”“🐂🍺”等等无聊的句式来断绝被我拉入互杠大战的可能性。<br>大一军棋是班长，我是团支书。<br>大二都“卸任”，套用其人原话：“当班委？留级当吗？”<br>军棋的发小勇哥是隔壁班班长。<br>勇哥是年级第一，军棋年级二十名左右。<br>我是我们院倒数二十名左右。<br>分数这个东西，一开始差距特别大还反复比较仔细分析患得患失自怨自艾，时间久了也就自我习惯自我接受了。只是偶尔还是会冒出“都是平时一起吹水的兄弟为什么别人那么优秀”的想法。<br>说句老实话，在我们这样的工科强校，只有成绩好的人会告诉无知懵懂的高中孩子成绩这东西没啥重要的，学酥学渣如我之流只会咬牙切齿的历数成绩好能享受到的种种优势：两千软妹币中欧交流的机会只属于成绩5%的佼佼者，学院的暑期集训只收年级前15%的优秀者……不胜枚举，失去的多了也就麻木了。<br>在大一结束的假期，2018世界杯的赛季，巴西踢墨西哥。彼时我等学渣已经放假逃之夭夭回家当咸鱼了，优秀的人比如军棋和勇哥耗在学校等着再晚一个星期享受两千软妹币的欧洲半月游，勇哥选了去法国，军棋选了去波兰。先是零点军棋给我发了一串“学校网络断了去小南门的酒吧了”“这酒有意思叫今晚不回家”“哇靠这酒有点烈啊”“今晚不回家啊哈哈哈哈”“我缓过来了缓过来了”“哎哟还是昏的”。我听着没啥大碍也就没仔细问，看着球赛插科打诨几句就准备睡了。睡前瞅见微信里勇哥也发了几句“军棋喝今晚不回家遭了””他好像有点不正常“没来得及理就堕入梦乡。<br>第二天十点起来军旗的消息30+，1:00：”勇哥这个畜生不是人，拉着小姐姐就走了留我一个人“，2:45：”我一个人在小南门晃来晃起真开心“”发现了个通宵网吧哈哈哈哈“，3:00：”没带身份证网吧不让进“”我一个人流落街头好惨“，3:45：”勇哥真的不是朋友““不想回去吵醒阿姨给我开门”……7:45：“回宿舍睡觉了”。<br>14:45，我：“哈哈哈哈哈哈哈哈哈哈哈哈哈哈哦。”<br>我以为这场一时兴起的小南门青春徘徊剧场差不多就结束了，直到下午我刷知乎看见勇哥的问题关注track：<br>“<br>43分钟前——‘已经有女朋友了，但又遇到更喜欢的对象怎么办？’<br>40分钟前——‘你错过了哪些异性对你的暗示？你的哪些暗示没有被异性理解？’<br>36分钟前——‘男生什么状态才体现出他已经爱上你了？’<br>35分钟前——‘有多少人从大学恋爱到结婚，你们幸福吗？’”<br>有感情方面的track，其实我很能理解，上半学期我想暗示Chris的时候，疯狂的在知乎收藏“什么时候应该表白？”“知道没有结果的感情还有没有必要继续”……可是这个情况完全不一样啊，这是先绿现任再去许下天长地久的大型三观崩塌现场啊！军旗勇哥和我三个人做了一学期数学建模校内赛写了三篇水论文共度清明端午劳动三个小长假，我多多少少的还是知道勇哥此人曾是个浪子，高中情债无数，<br>当下我就截屏存图，去问军旗头天晚上在他和勇哥身上到底发生了什么。<br>军旗：“我那么可怜我身上能发生什么？你还不如问我看到了什么。”<br>“那你目睹了啥子哟？”<br>“不过是抛弃朋友，<br>和小姐姐操场看星，<br>凌晨四点吵醒阿姨。”<br>至于勇哥，在微信上满口“你冤枉我了我不记得我关注过这些我不是我没有你别瞎说”之后，骂了一句“军旗真的不够朋友”</p>
-<p>我从来不觉得军棋会有什么心理上的问题————朋友之间太熟悉了大概会习惯性忽略他们近来的内心感受，而且大部分聊天的时候我们很少谈比较本质的最近心情怎么样这种话题，大部分时候是很具像化的“后门外卖的小龙虾不要点，一宿舍三个人拉肚子了”“哇靠你赶紧看一下今年wwdc的评价2018newipad买吧买吧”“新看个网飞的剧赛博朋克风格超好的”“靠我在看书你不要发消息诱惑我玩手机”……<br>晚上我刷知乎，看见他关注了“抑郁是种什么样的体验”。<br>一时无言。<br>有意无意问了几句，他倒是心态成熟而态度敷衍，“很正常啊”，“哦哦嗯嗯就那样”。<br>我也觉得颇为无趣，便不再调解。<br>却没想到从那之后到现在再难有只言片语交流。</p>
-<p>开学听媛媛媛说了一句话，才知道其实谁都知道。</p>
-<p>“军旗要是再高一点再帅一点，你们早就在一起了。”</p>
-<p>&lt;1&gt;<br>Chris Chen<br>&lt;2&gt;<br>Mikey Yang<br>&lt;3&gt;<br>宇航、机车和亮亮们<br>&lt;4&gt;<br>195<br>&lt;5&gt;<br>Beijing spider-man<br>&lt;6&gt;<br>Cute KM boy finally found his golden-girl</p>
-<p>&lt;7&gt;<br>Hekla</p>
-<p>&lt;8&gt;</p>
+<blockquote>
+<ul>
+<li>shell 提示符<br><code>username@hostname:direction$</code></li>
+<li>shell命令格式<br><code>command [option] [arguments]</code><blockquote>
+<p>按一次tab补全文件名<br>按两次tab补全命令<br>单击右键粘贴</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><ul>
+<li><p>帮助命令</p>
+<ul>
+<li>man 查看man手册</li>
+<li>info 查看info手册</li>
+<li>—help </li>
+</ul>
+</li>
+<li><p>目录</p>
+<ul>
+<li>根目录 /</li>
+<li>.代表目录自己 ..代表目录的父目录，对于根目录.和..都代表自己</li>
+<li>pwd 查询当前目录路径</li>
+<li>～ 引用当前用户的主目录</li>
+<li>绝对路径<code>/home/hxy/hello.txt</code></li>
+<li>相对路径<code>./hello.txt</code></li>
+</ul>
+</li>
+<li><p>文件与目录相关命令</p>
+<ul>
+<li><p>ls 显示目录内容</p>
+<ul>
+<li>ls -la 列出所有文件，包括隐含文件</li>
+<li>ls -dl 仅查看目录属性</li>
+<li>ls -R 递归显示子目录的文件</li>
+<li>ls 文件名/文件夹名 查看文件信息</li>
+<li>ls -l 详细结果<blockquote>
+<p>详细结果：<code>drwx------ 14 student student 409611...</code><br>第一个字符表示文件类型：-普通文件 d目录 l符号链接 b块设备文件 c字符设备文件<br>后面9个字符表示文件的访问权限：</p>
+<ul>
+<li>第一组表示文件属主的权限</li>
+<li>第二组表示同组用户的权限</li>
+<li>第三组表示其他用户的权限<br>各权限如下</li>
+<li>r 读</li>
+<li>w 写</li>
+<li>x 执行，对于目录表示进入</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>cd 切换工作目录</p>
+<ul>
+<li>cd .. 进入上一级目录</li>
+<li>cd ~ 或 cd 进入用户主目录</li>
+</ul>
+</li>
+<li><p>mv [options] 源文件/文件夹 目标文件/文件夹</p>
+</li>
+<li><p>cp 复制文件或目录</p>
+<ul>
+<li>cp -a 拷贝目录，保留一切链接和属性</li>
+<li>cp -f 覆盖已经存在的目标文件而不提示</li>
+<li>cp -R 递归复制目录下的所有字目录和文件</li>
+</ul>
+</li>
+<li><p>mkdir 创建一个目录</p>
+<ul>
+<li>mkdir -m 对新建目录设置存取权限（chmod）</li>
+<li>mkdir -p 自动补全不存在的上级目录</li>
+</ul>
+</li>
+<li><p>rmdir 删除空目录</p>
+<ul>
+<li>rmdir -p 递归删除目录</li>
+</ul>
+</li>
+<li><p>rm 删除</p>
+<ul>
+<li>rm -r 递归删除（等同rmdir）</li>
+<li>rm -i 删除一个文件</li>
+<li>rm -f 不询问，直接删除</li>
+</ul>
+</li>
+<li><p>file 确定文件类型</p>
+</li>
+<li><p>cat 链接或显示文件内容</p>
+<ul>
+<li>带行数 cat -n 等价于nl</li>
+</ul>
+</li>
+<li><p>tac  从最后一行开始显示文件内容</p>
+</li>
+<li><p>more/less</p>
+</li>
+<li><p>head/tail</p>
+</li>
+<li><p>touch 新建文件</p>
+</li>
+<li><p>nl 按输出行号的方式显示文件</p>
+</li>
+<li><p>ln 为一个文件在另一个位置建立符号链接</p>
+<ul>
+<li><code>ln -s 目标 目录</code> 软连接，<a href="">一个指向源文件名的连接文件</a>，类似快捷方式</li>
+<li><code>ln 目标 目录</code> 硬连接 类似指针</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>字符</p>
+<ul>
+<li>grep 定位字符信息</li>
+<li>wc 统计字符信息</li>
+<li>sort 排序字符信息</li>
+</ul>
+</li>
+<li><p>打包/压缩文件</p>
+<ul>
+<li>打包：把所有文件合并在一个tar文件里</li>
+<li>压缩 使用gzip(tar.gz/tgz)或biz2(tar.bz2)压缩<br><em>.gz比较快，压缩率不如bz2</em></li>
+<li>-c 创建tar文件 -f将文件打包生成到一个文件</li>
+<li><code>tar -cf new.tar ./home/se</code></li>
+<li><code>tar -xf new.tar</code> 解包</li>
+<li>对于zip格式：tar cvzf 打包 tar xvzf解包</li>
+<li>对于biz2格式： tar cvjf 打包 tar xvjf解包</li>
+</ul>
+</li>
+</ul>
+<h2 id="用户管理及网络设置"><a href="#用户管理及网络设置" class="headerlink" title="用户管理及网络设置"></a>用户管理及网络设置</h2><h2 id="GCC编译器"><a href="#GCC编译器" class="headerlink" title="GCC编译器"></a>GCC编译器</h2><p><strong>gcc支持的源码格式：</strong>.c .cpp .m（Objective-C源程序） .i（预处理后的c文件） .ii（预处理后的c++文件） .s/.S（汇编语言源程序） .h（预处理器文件） .o（目标文件）</p>
+<h4 id="单个源码"><a href="#单个源码" class="headerlink" title="单个源码"></a>单个源码</h4><ul>
+<li><p><code>gcc hello.c -o hello</code> 把hello.c编译成一个可执行程序hello（一次性完成四步）</p>
+</li>
+<li><p><code>gcc hello.c</code>不指定输出名，生成一个a.out</p>
+</li>
+<li><p>源文件到可执行文件的编译过程：</p>
+<ul>
+<li><p>预处理 <code>gcc -E hello.c -o hello.i</code></p>
+</li>
+<li><p>编译：将源代码编译成汇编代码 <code>gcc -S hello.i -o hello.s</code></p>
+</li>
+<li><p>汇编：将汇编代码汇编成目标文件 <code>gcc -c hello.s -o hello.o</code></p>
+</li>
+<li><p>链接：将目标代码和所需要库链成一个完整的应用程序 <code>gcc hello.o -o hello</code></p>
+<blockquote>
+<p>gcc的结果输出于后缀名，只和输出参数有关</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="多个源码"><a href="#多个源码" class="headerlink" title="多个源码"></a>多个源码</h4><ul>
+<li>一般先将源代码编译成目标代码，最后一次链接成可执行程序</li>
+<li>对于有头文件在多个目录，需要在编译时多次使用-I参数加入头文件所在目录<br>例如a.c需要用到/usr，当前目录/home<br><code>gcc -I -I/usr -I/home -c a.c</code></li>
+<li>对于多个源文件组成的程序。可以把多个文件在一句里编译，但建议不这样做，建议使用makefile脚本来调用gcc构造，见下一节<br><code>gcc a.c b.c d.c -o test</code></li>
+</ul>
+<h4 id="gcc的选项"><a href="#gcc的选项" class="headerlink" title="gcc的选项"></a>gcc的选项</h4><ul>
+<li>宏macro<ul>
+<li>-Dmacro <code>gcc test.c -DPRINTF=printf -o test</code></li>
+<li>-Dmacro=defn <code>gcc test.c -DNUM=10 -o test</code></li>
+</ul>
+</li>
+<li><code>gcc -Wall a.c -o a</code>打开所有编译警告</li>
+<li><code>gcc -Wall -Werror a.c -o a</code>将警告视作错误，出现任何警告就放弃编译</li>
+<li><code>gcc -w</code>禁止输出警告</li>
+</ul>
+<h4 id="gcc使用的第三方库"><a href="#gcc使用的第三方库" class="headerlink" title="gcc使用的第三方库"></a>gcc使用的第三方库</h4><h2 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h2><h4 id="make的调用"><a href="#make的调用" class="headerlink" title="make的调用"></a>make的调用</h4><ul>
+<li><p>直接执行make，自动查找当前目录下名为makefile的文件，并自动从第一个target开始执行</p>
+</li>
+<li><p>如果makefile脚本名称不是缺省名称，使用-f参数来表示<br><code>make -f hello.mk</code></p>
+</li>
+<li><p>如果需要make查找其他目录下的makefile，使用-C参数<br><code>make -C /home</code></p>
+</li>
+<li><p>在makefile中以target表示不同的编译部分，可以在命令行直接写target名称，用于一个活多个target的编译<br><code>make install</code><br><code>make target1 target2</code></p>
+</li>
+</ul>
+<blockquote>
+<h4 id="makefile的格式"><a href="#makefile的格式" class="headerlink" title="makefile的格式"></a>makefile的格式</h4><p>makefile由由一组依赖关系和规则构成</p>
+<p>每个依赖关系由一个目标（即将要创建的文件）和它依赖的源文件组成</p>
+<p>规则描述了怎样从源文件创建出目标文件</p>
+<p><strong>规则也称为target</strong></p>
+<ul>
+<li><p>规则 <code>目标名称：[依赖对象]&lt;tab&gt;命令列表</code></p>
+<ul>
+<li>目标名称是需要创建的结果的名称</li>
+<li>依赖对象表示创建这个目标之前必须预先创建的其他目标，可以是另一个规则的名称，也可以是基本文件的名称</li>
+<li>命令列表表示为了创建这个目标，需要执行那些shell命令可以是一行或多行shell命令，每一行命令行的行首必须是一个tab</li>
+<li>行首必须是tab不能是空格，否则makefile出错</li>
+<li>如果命令行过长，可用\分行，新行无需tab打头<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 要想生成hello.o目标，必须先有hello.c，然后调用gcc编译生成hello.o，依赖对象hello.c可以省略</span></span><br><span class="line"><span class="section">hello.o: hello.c</span></span><br><span class="line">	gcc -c hello.c -o hello.o</span><br><span class="line"><span class="comment"># 要想生成执行程序hello，必须先执行规则hello.o，然后调用命令行gcc连接生成hello</span></span><br><span class="line"><span class="section">hello: hello.o</span></span><br><span class="line">	gcc hello.o -o hello</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>makefile里规则的前后顺序不太重要，实际调用顺序取决目标之间的依赖关系，因此make采用逆推的方式来判断和执行目标*</p>
+</li>
+<li><p>伪目标phony target：一般的目标最终是为了生成一个文件，但有一些目标可以不生成结果文件，只是为了调用命令或依赖对象，具体动作需要需要开发者自行编写</p>
+<ul>
+<li>all 编译所有目标</li>
+<li>clean 清楚项目生成的中间文件和最终生成文件</li>
+<li>install 项目如何安装</li>
+<li>uninstall 项目如何卸载</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="makefile基本结构"><a href="#makefile基本结构" class="headerlink" title="makefile基本结构"></a>makefile基本结构</h4><p>makefile一般包含：</p>
+<ul>
+<li>需要由make工具创建的项目，通常是目标文件和可执行文件，它们一般被称为target</li>
+<li>要创建的目标依赖于哪些文件</li>
+<li>创建每个目标时需要运行的的命令，命令之间用tab打头</li>
+<li>通常包含的固定伪目标</li>
+<li>#表示注释行<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Makefile for exp2</span></span><br><span class="line"><span class="section">main: main.o add.o del.o modify.o</span></span><br><span class="line">	gcc -o main main.o add.o del.o modify.o</span><br><span class="line"><span class="section">main.o: main.c</span></span><br><span class="line">	gcc -c main.c</span><br><span class="line"><span class="section">add.o: add.c</span></span><br><span class="line">	gcc -c add.c</span><br><span class="line"><span class="section">del.o: del.c</span></span><br><span class="line">	gcc -c del.c</span><br><span class="line"><span class="section">modify.o: modify.c</span></span><br><span class="line">	gcc -c modify.c</span><br></pre></td></tr></table></figure>
 
+</li>
+</ul>
+<h4 id="makefile扩展用法"><a href="#makefile扩展用法" class="headerlink" title="makefile扩展用法"></a>makefile扩展用法</h4><ul>
+<li>变量（宏）：利用简单的变量定义冗长的编译选项，引用时需要添加$符号<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Define macros for name of compiler </span></span><br><span class="line">CC = gcc</span><br><span class="line"><span class="comment"># Define a macro for the CC flags </span></span><br><span class="line">CCFLAGS = -D_DEBUG -g -m486</span><br><span class="line"><span class="comment"># A rule for building a object file </span></span><br><span class="line"><span class="section">test.o: test.c test.h</span></span><br><span class="line">	<span class="variable">$(CC)</span> -c <span class="variable">$(CCFLAGS)</span> test.c</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>makefile变量定义，=两边一定要有空格</p>
+<p>makefile的变量定义要独立在规则之外，一般在最前</p>
+</blockquote>
+</li>
+<li>GNU make的预定义变量<ul>
+<li>$&lt; 第一个依赖文件的名称</li>
+<li>$@ 目标的完整名称</li>
+<li>$^ 所有的依赖文件，以空格分开，不包含重复的</li>
+<li>AR 归档维护程序的名称，默认值ar ARFLAGS 归档维护程序的选项</li>
+<li>AS 汇编程序的名称，默认值as ASGLAGS 汇编程序的选项</li>
+<li>CC c编译器的名称，默认值cc CCFLAGS c编译器的选项 <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#makefile2 for exp</span></span><br><span class="line"><span class="section">main: main.o add.o del.o modify.o</span></span><br><span class="line">	gcc -o <span class="variable">$@</span> <span class="variable">$^</span></span><br><span class="line"><span class="section">main.o: main.c</span></span><br><span class="line">	gcc -c <span class="variable">$&lt;</span></span><br><span class="line"><span class="section">add.o: add.c</span></span><br><span class="line">	gcc -c <span class="variable">$&lt;</span></span><br><span class="line"><span class="section">del.o: del.c</span></span><br><span class="line">	gcc -c <span class="variable">$&lt;</span></span><br><span class="line"><span class="section">modify.o: modify.c</span></span><br><span class="line">	gcc -c <span class="variable">$&lt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>自动化变量使用<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#makefile2 for exp</span></span><br><span class="line"><span class="section">main: main.o add.o del.o modify.o</span></span><br><span class="line">	gcc -o <span class="variable">$@</span> <span class="variable">$^</span></span><br><span class="line"><span class="section">.c.0:</span></span><br><span class="line">	gcc -c <span class="variable">$&lt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="隐含规则"><a href="#隐含规则" class="headerlink" title="隐含规则"></a>隐含规则</h4><p>GNU make的一些内置的隐含规则定义了如何从不同依赖文件建立特定类型的目标文件</p>
+<ul>
+<li>后缀规则suffix rule<br>将一个具有某个后缀的文件转换为具有另一后缀的文件<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">.c.0:</span></span><br><span class="line">	<span class="variable">$(CC)</span> <span class="variable">$(CCFLAGS)</span> -c -o <span class="variable">$@</span> <span class="variable">$&lt;</span></span><br></pre></td></tr></table></figure></li>
+<li>模式规则pattern rules<br>在目标的前面多一个%，同时可用来定义目标和依赖文件之间的关系<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">%.o:%.c:</span></span><br><span class="line">	<span class="variable">$(CC)</span> <span class="variable">$(CCFLAGS)</span> -c -o <span class="variable">$@</span> <span class="variable">$&lt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="makefile目标编译"><a href="#makefile目标编译" class="headerlink" title="makefile目标编译"></a>makefile目标编译</h4><p>如果不指定目标，make会默认第一个target<br>规范的makefile文件有以下常见的几个目标：</p>
+<ul>
+<li>make all 编译所有目标</li>
+<li>make clean 在编译结束后删除.o文件</li>
+<li>make install 编译结束后将最终的可执行文件安装到系统的某一个位置<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#makefile for example</span></span><br><span class="line"><span class="section">example: example.o add.o modify.o delete.o</span></span><br><span class="line">	<span class="variable">$(CC)</span> -o <span class="variable">$@</span> <span class="variable">$^</span></span><br><span class="line"><span class="section">.c.o:</span></span><br><span class="line">	<span class="variable">$(CC)</span> -c <span class="variable">$&lt;</span></span><br><span class="line"><span class="section">all: example</span></span><br><span class="line"><span class="section">clean: all</span></span><br><span class="line">	rm -f *.o</span><br><span class="line"><span class="section">install: clean</span></span><br><span class="line">	cp example /usr/local/bin</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="GDB调试器和调试方法"><a href="#GDB调试器和调试方法" class="headerlink" title="GDB调试器和调试方法"></a>GDB调试器和调试方法</h2><h4 id="gdb的使用"><a href="#gdb的使用" class="headerlink" title="gdb的使用"></a>gdb的使用</h4><p>为使程序能被调试，需要gcc编译时用-g选项为程序编译时添加调试信息<br><code>gcc -g -o helloworld helloworld.c</code><br>然后在命令行键入gdb并回车就可以运行了</p>
+<h4 id="gdb命令"><a href="#gdb命令" class="headerlink" title="gdb命令"></a>gdb命令</h4><ul>
+<li><p>file 装入想要调试的可执行文件。</p>
+</li>
+<li><p>kill 终止正在调试的程序。</p>
+</li>
+<li><p>list 列出产生执行文件的源代码的一部分。</p>
+</li>
+<li><p>next 执行一行源代码但不进入函数内部。</p>
+</li>
+<li><p>step 执行一行源代码而且进入函数内部。</p>
+</li>
+<li><p>run 执行当前被调试的程序。</p>
+</li>
+<li><p>c 继续运行程序。</p>
+</li>
+<li><p>quit 终止gdb。</p>
+</li>
+<li><p>watch 使你能监视一个变量的值而不管它何时被改变。</p>
+</li>
+<li><p>backtrace 栈跟踪，查出代码被谁调用。</p>
+</li>
+<li><p>print 查看变量的值。</p>
+</li>
+<li><p>make 使你能不退出gdb就可以重新产生可执行文件。</p>
+</li>
+<li><p>shell  使你能不离开gdb就执行UNIX shell命令。</p>
+</li>
+<li><p>whatis 显示变量或函数类型。</p>
+</li>
+<li><p>break 在代码里设断点，这将使程序执行到这里时被挂起。</p>
+<ul>
+<li>break linenum 根据行号设置断点</li>
+<li>break funcname 根据函数名设置断电</li>
+<li>break filename:linenum/funcname 执行非当前源文件的某行或某函数的时候停止执行</li>
+<li>break linenum/funcname if expr 根据条件停止程序执行</li>
+</ul>
+</li>
+<li><p>info break 显示当前断点清单，包括到达断点处的次数等。</p>
+</li>
+<li><p>info files 显示被调试文件的详细信息。</p>
+</li>
+<li><p>info func 显示所有的函数名称。</p>
+</li>
+<li><p>info local 显示当函数中的局部变量信息。</p>
+</li>
+<li><p>info prog 显示被调试程序的执行状态。</p>
+</li>
+<li><p>delete [n] 删除第n个断点。</p>
+</li>
+<li><p>disable[n] 关闭第n个断点。</p>
+</li>
+<li><p>enable[n] 开启第n个断点。</p>
+</li>
+<li><p>ptype 显示结构定义。</p>
+</li>
+<li><p>set variable 设置变量的值。</p>
+</li>
+<li><p>call name(args)  调用并执行名为name，参数为args的函数。</p>
+</li>
+<li><p>Finish 终止当前函数并输出返回值。</p>
+</li>
+<li><p>return value 停止当前函数并返回value给调用者。</p>
+</li>
+</ul>
+<h1 id="GTK"><a href="#GTK" class="headerlink" title="GTK"></a>GTK</h1>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Linux/" rel="tag">Linux</a>, <a class="has-link-grey -link" href="/tags/Terminal/" rel="tag">Terminal</a>
+                </div>
+            </div>
         </div>
         
         
@@ -232,12 +546,19 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/08/27/Linux-command/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/52525/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Linux的基本终端命令</span>
+                <span class="level-item">Anaconda的环境管理</span>
             </a>
         </div>
         
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/27073/">
+                <span class="level-item">Dudes</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
         
     </div>
 </div>
@@ -273,6 +594,90 @@
 <div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">    
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><ul class="menu-list"><li>
+        <a class="is-flex" href="#基本命令">
+        <span class="has-mr-6">1.1</span>
+        <span>基本命令</span>
+        </a></li><li>
+        <a class="is-flex" href="#用户管理及网络设置">
+        <span class="has-mr-6">1.2</span>
+        <span>用户管理及网络设置</span>
+        </a></li><li>
+        <a class="is-flex" href="#GCC编译器">
+        <span class="has-mr-6">1.3</span>
+        <span>GCC编译器</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#单个源码">
+        <span class="has-mr-6">1.3.1</span>
+        <span>单个源码</span>
+        </a></li><li>
+        <a class="is-flex" href="#多个源码">
+        <span class="has-mr-6">1.3.2</span>
+        <span>多个源码</span>
+        </a></li><li>
+        <a class="is-flex" href="#gcc的选项">
+        <span class="has-mr-6">1.3.3</span>
+        <span>gcc的选项</span>
+        </a></li><li>
+        <a class="is-flex" href="#gcc使用的第三方库">
+        <span class="has-mr-6">1.3.4</span>
+        <span>gcc使用的第三方库</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Makefile">
+        <span class="has-mr-6">1.4</span>
+        <span>Makefile</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#make的调用">
+        <span class="has-mr-6">1.4.1</span>
+        <span>make的调用</span>
+        </a></li><li>
+        <a class="is-flex" href="#makefile的格式">
+        <span class="has-mr-6">1.4.2</span>
+        <span>makefile的格式</span>
+        </a></li><li>
+        <a class="is-flex" href="#makefile基本结构">
+        <span class="has-mr-6">1.4.3</span>
+        <span>makefile基本结构</span>
+        </a></li><li>
+        <a class="is-flex" href="#makefile扩展用法">
+        <span class="has-mr-6">1.4.4</span>
+        <span>makefile扩展用法</span>
+        </a></li><li>
+        <a class="is-flex" href="#隐含规则">
+        <span class="has-mr-6">1.4.5</span>
+        <span>隐含规则</span>
+        </a></li><li>
+        <a class="is-flex" href="#makefile目标编译">
+        <span class="has-mr-6">1.4.6</span>
+        <span>makefile目标编译</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#GDB调试器和调试方法">
+        <span class="has-mr-6">1.5</span>
+        <span>GDB调试器和调试方法</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#gdb的使用">
+        <span class="has-mr-6">1.5.1</span>
+        <span>gdb的使用</span>
+        </a></li><li>
+        <a class="is-flex" href="#gdb命令">
+        <span class="has-mr-6">1.5.2</span>
+        <span>gdb命令</span>
+        </a></li></ul></li></ul><li>
+        <a class="is-flex" href="#GTK">
+        <span class="has-mr-6">2</span>
+        <span>GTK</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
@@ -292,7 +697,7 @@
         <ul class="menu-list">
         
             <li>
-                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41844395" target="_blank" rel="noopener">
+                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41844395" target="_blank" rel="noopener external nofollow noreferrer">
                     <span class="level-left">
                         <span class="level-item">CSDN</span>
                     </span>
@@ -384,7 +789,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener external nofollow noreferrer">
                 关注我</a>
         </div>
         
@@ -440,7 +845,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/20/install-haskell-on-Mac/" class="media-left">
+            <a href="/posts/32573/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/gallery/thumbnails/haskell.png" alt="Mac上Haskell的安装环境搭建">
                 </p>
@@ -449,7 +854,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
-                    <a href="/2020/02/20/install-haskell-on-Mac/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
+                    <a href="/posts/32573/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -459,7 +864,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-blog-build/" class="media-left">
+            <a href="/posts/2727/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Hexo博客搭建入门">
                 </p>
@@ -468,7 +873,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-blog-build/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
+                    <a href="/posts/2727/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -478,7 +883,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-theme-compare/" class="media-left">
+            <a href="/posts/27751/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="hexo的主题比较">
                 </p>
@@ -487,7 +892,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-theme-compare/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
+                    <a href="/posts/27751/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -497,7 +902,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/09/VPS_shadowsocks/" class="media-left">
+            <a href="/posts/9931/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="VPS 配置">
                 </p>
@@ -506,7 +911,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-08T16:00:00.000Z">2020-02-09</time></div>
-                    <a href="/2020/02/09/VPS_shadowsocks/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
+                    <a href="/posts/9931/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -516,7 +921,7 @@
         
         <article class="media">
             
-            <a href="/2020/01/20/mac-command/" class="media-left">
+            <a href="/posts/8410/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="mac快捷键和常用命令行">
                 </p>
@@ -525,7 +930,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-19T16:00:00.000Z">2020-01-20</time></div>
-                    <a href="/2020/01/20/mac-command/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
+                    <a href="/posts/8410/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -775,7 +1180,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener external nofollow noreferrer">
                 关注我</a>
         </div>
         
@@ -831,7 +1236,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/20/install-haskell-on-Mac/" class="media-left">
+            <a href="/posts/32573/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/gallery/thumbnails/haskell.png" alt="Mac上Haskell的安装环境搭建">
                 </p>
@@ -840,7 +1245,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
-                    <a href="/2020/02/20/install-haskell-on-Mac/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
+                    <a href="/posts/32573/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -850,7 +1255,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-blog-build/" class="media-left">
+            <a href="/posts/2727/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Hexo博客搭建入门">
                 </p>
@@ -859,7 +1264,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-blog-build/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
+                    <a href="/posts/2727/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客搭建入门</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -869,7 +1274,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/16/hexo-theme-compare/" class="media-left">
+            <a href="/posts/27751/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="hexo的主题比较">
                 </p>
@@ -878,7 +1283,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time></div>
-                    <a href="/2020/02/16/hexo-theme-compare/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
+                    <a href="/posts/27751/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo的主题比较</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -888,7 +1293,7 @@
         
         <article class="media">
             
-            <a href="/2020/02/09/VPS_shadowsocks/" class="media-left">
+            <a href="/posts/9931/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="VPS 配置">
                 </p>
@@ -897,7 +1302,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-08T16:00:00.000Z">2020-02-09</time></div>
-                    <a href="/2020/02/09/VPS_shadowsocks/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
+                    <a href="/posts/9931/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VPS 配置</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
                     </p>
@@ -907,7 +1312,7 @@
         
         <article class="media">
             
-            <a href="/2020/01/20/mac-command/" class="media-left">
+            <a href="/posts/8410/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="mac快捷键和常用命令行">
                 </p>
@@ -916,7 +1321,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-19T16:00:00.000Z">2020-01-20</time></div>
-                    <a href="/2020/01/20/mac-command/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
+                    <a href="/posts/8410/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mac快捷键和常用命令行</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
                     </p>
@@ -1098,12 +1503,12 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Dudes" height="28">
+                    <img src="/images/logo.svg" alt="Linux的基本终端命令" height="28">
                 
                 </a>
                 <p class="is-size-7">
                 &copy; 2020 Anne wu&nbsp;
-                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener external nofollow noreferrer">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
                 
                 <br>
@@ -1118,7 +1523,7 @@
                 <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Creative Commons" href="https://creativecommons.org/">
                         
                         <i class="fab fa-creative-commons"></i>
                         
@@ -1127,7 +1532,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
                         
                         <i class="fab fa-creative-commons-by"></i>
                         
@@ -1136,7 +1541,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
                         
                         <i class="fab fa-github"></i>
                         
@@ -1190,7 +1595,7 @@ var IcarusThemeSettings = {
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noreferrer">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -1230,7 +1635,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="回到顶端" href="javascript:;">
+<a id="back-to-top" title="回到顶端" href="javascript:;" rel="external nofollow noreferrer">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
