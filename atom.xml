@@ -5,9 +5,9 @@
   <subtitle>Coding and Life Blog</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://anne416wu.github.io/"/>
+  <link href="http://annewqx.top/"/>
   <updated>2020-02-24T07:26:57.390Z</updated>
-  <id>http://anne416wu.github.io/</id>
+  <id>http://annewqx.top/</id>
   
   <author>
     <name>Anne wu</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>deploy-hexo-blog-to-vps</title>
-    <link href="http://anne416wu.github.io/posts/52540/"/>
-    <id>http://anne416wu.github.io/posts/52540/</id>
+    <link href="http://annewqx.top/posts/52540/"/>
+    <id>http://annewqx.top/posts/52540/</id>
     <published>2020-02-24T06:36:23.000Z</published>
     <updated>2020-02-24T07:26:57.390Z</updated>
     
@@ -32,23 +32,23 @@
     </summary>
     
     
-      <category term="Code" scheme="http://anne416wu.github.io/categories/Code/"/>
+      <category term="Code" scheme="http://annewqx.top/categories/Code/"/>
     
-      <category term="Guide" scheme="http://anne416wu.github.io/categories/Code/Guide/"/>
+      <category term="Guide" scheme="http://annewqx.top/categories/Code/Guide/"/>
     
     
-      <category term="VPS" scheme="http://anne416wu.github.io/tags/VPS/"/>
+      <category term="VPS" scheme="http://annewqx.top/tags/VPS/"/>
     
-      <category term="hexo" scheme="http://anne416wu.github.io/tags/hexo/"/>
+      <category term="hexo" scheme="http://annewqx.top/tags/hexo/"/>
     
-      <category term="nginx" scheme="http://anne416wu.github.io/tags/nginx/"/>
+      <category term="nginx" scheme="http://annewqx.top/tags/nginx/"/>
     
   </entry>
   
   <entry>
     <title>Mac上Haskell的安装环境搭建</title>
-    <link href="http://anne416wu.github.io/posts/32573/"/>
-    <id>http://anne416wu.github.io/posts/32573/</id>
+    <link href="http://annewqx.top/posts/32573/"/>
+    <id>http://annewqx.top/posts/32573/</id>
     <published>2020-02-19T16:00:00.000Z</published>
     <updated>2020-02-23T07:56:39.326Z</updated>
     
@@ -61,19 +61,19 @@
     </summary>
     
     
-      <category term="Code" scheme="http://anne416wu.github.io/categories/Code/"/>
+      <category term="Code" scheme="http://annewqx.top/categories/Code/"/>
     
-      <category term="Guide" scheme="http://anne416wu.github.io/categories/Code/Guide/"/>
+      <category term="Guide" scheme="http://annewqx.top/categories/Code/Guide/"/>
     
     
-      <category term="Haskell" scheme="http://anne416wu.github.io/tags/Haskell/"/>
+      <category term="Haskell" scheme="http://annewqx.top/tags/Haskell/"/>
     
   </entry>
   
   <entry>
     <title>Hexo博客搭建入门</title>
-    <link href="http://anne416wu.github.io/posts/2727/"/>
-    <id>http://anne416wu.github.io/posts/2727/</id>
+    <link href="http://annewqx.top/posts/2727/"/>
+    <id>http://annewqx.top/posts/2727/</id>
     <published>2020-02-15T16:00:00.000Z</published>
     <updated>2020-02-23T07:56:39.324Z</updated>
     
@@ -86,21 +86,21 @@
     </summary>
     
     
-      <category term="Code" scheme="http://anne416wu.github.io/categories/Code/"/>
+      <category term="Code" scheme="http://annewqx.top/categories/Code/"/>
     
-      <category term="Guide" scheme="http://anne416wu.github.io/categories/Code/Guide/"/>
+      <category term="Guide" scheme="http://annewqx.top/categories/Code/Guide/"/>
     
     
-      <category term="hexo" scheme="http://anne416wu.github.io/tags/hexo/"/>
+      <category term="hexo" scheme="http://annewqx.top/tags/hexo/"/>
     
-      <category term="js" scheme="http://anne416wu.github.io/tags/js/"/>
+      <category term="js" scheme="http://annewqx.top/tags/js/"/>
     
   </entry>
   
   <entry>
     <title>hexo的主题比较</title>
-    <link href="http://anne416wu.github.io/posts/27751/"/>
-    <id>http://anne416wu.github.io/posts/27751/</id>
+    <link href="http://annewqx.top/posts/27751/"/>
+    <id>http://annewqx.top/posts/27751/</id>
     <published>2020-02-15T16:00:00.000Z</published>
     <updated>2020-02-23T07:56:39.325Z</updated>
     
@@ -113,21 +113,21 @@
     </summary>
     
     
-      <category term="Code" scheme="http://anne416wu.github.io/categories/Code/"/>
+      <category term="Code" scheme="http://annewqx.top/categories/Code/"/>
     
-      <category term="Other" scheme="http://anne416wu.github.io/categories/Code/Other/"/>
+      <category term="Other" scheme="http://annewqx.top/categories/Code/Other/"/>
     
     
-      <category term="hexo" scheme="http://anne416wu.github.io/tags/hexo/"/>
+      <category term="hexo" scheme="http://annewqx.top/tags/hexo/"/>
     
-      <category term="js" scheme="http://anne416wu.github.io/tags/js/"/>
+      <category term="js" scheme="http://annewqx.top/tags/js/"/>
     
   </entry>
   
   <entry>
     <title>VPS 配置</title>
-    <link href="http://anne416wu.github.io/posts/9931/"/>
-    <id>http://anne416wu.github.io/posts/9931/</id>
+    <link href="http://annewqx.top/posts/9931/"/>
+    <id>http://annewqx.top/posts/9931/</id>
     <published>2020-02-08T16:00:00.000Z</published>
     <updated>2020-02-23T07:56:39.322Z</updated>
     
@@ -140,19 +140,19 @@
     </summary>
     
     
-      <category term="Code" scheme="http://anne416wu.github.io/categories/Code/"/>
+      <category term="Code" scheme="http://annewqx.top/categories/Code/"/>
     
-      <category term="Guide" scheme="http://anne416wu.github.io/categories/Code/Guide/"/>
+      <category term="Guide" scheme="http://annewqx.top/categories/Code/Guide/"/>
     
     
-      <category term="VPS" scheme="http://anne416wu.github.io/tags/VPS/"/>
+      <category term="VPS" scheme="http://annewqx.top/tags/VPS/"/>
     
   </entry>
   
   <entry>
     <title>mac快捷键和常用命令行</title>
-    <link href="http://anne416wu.github.io/posts/8410/"/>
-    <id>http://anne416wu.github.io/posts/8410/</id>
+    <link href="http://annewqx.top/posts/8410/"/>
+    <id>http://annewqx.top/posts/8410/</id>
     <published>2020-01-19T16:00:00.000Z</published>
     <updated>2020-02-23T07:56:39.322Z</updated>
     
@@ -165,23 +165,23 @@
     </summary>
     
     
-      <category term="Code" scheme="http://anne416wu.github.io/categories/Code/"/>
+      <category term="Code" scheme="http://annewqx.top/categories/Code/"/>
     
-      <category term="Other" scheme="http://anne416wu.github.io/categories/Code/Other/"/>
+      <category term="Other" scheme="http://annewqx.top/categories/Code/Other/"/>
     
     
-      <category term="mac" scheme="http://anne416wu.github.io/tags/mac/"/>
+      <category term="mac" scheme="http://annewqx.top/tags/mac/"/>
     
-      <category term="bash" scheme="http://anne416wu.github.io/tags/bash/"/>
+      <category term="bash" scheme="http://annewqx.top/tags/bash/"/>
     
-      <category term="hot key" scheme="http://anne416wu.github.io/tags/hot-key/"/>
+      <category term="hot key" scheme="http://annewqx.top/tags/hot-key/"/>
     
   </entry>
   
   <entry>
     <title>markdown进阶使用技巧</title>
-    <link href="http://anne416wu.github.io/posts/64578/"/>
-    <id>http://anne416wu.github.io/posts/64578/</id>
+    <link href="http://annewqx.top/posts/64578/"/>
+    <id>http://annewqx.top/posts/64578/</id>
     <published>2020-01-16T16:00:00.000Z</published>
     <updated>2020-02-23T07:56:39.321Z</updated>
     
@@ -194,21 +194,21 @@
     </summary>
     
     
-      <category term="Code" scheme="http://anne416wu.github.io/categories/Code/"/>
+      <category term="Code" scheme="http://annewqx.top/categories/Code/"/>
     
-      <category term="Other" scheme="http://anne416wu.github.io/categories/Code/Other/"/>
+      <category term="Other" scheme="http://annewqx.top/categories/Code/Other/"/>
     
     
-      <category term="markdown" scheme="http://anne416wu.github.io/tags/markdown/"/>
+      <category term="markdown" scheme="http://annewqx.top/tags/markdown/"/>
     
-      <category term="html" scheme="http://anne416wu.github.io/tags/html/"/>
+      <category term="html" scheme="http://annewqx.top/tags/html/"/>
     
   </entry>
   
   <entry>
     <title>Anaconda的环境管理</title>
-    <link href="http://anne416wu.github.io/posts/52525/"/>
-    <id>http://anne416wu.github.io/posts/52525/</id>
+    <link href="http://annewqx.top/posts/52525/"/>
+    <id>http://annewqx.top/posts/52525/</id>
     <published>2019-12-12T16:00:00.000Z</published>
     <updated>2020-02-23T07:56:39.319Z</updated>
     
@@ -221,19 +221,19 @@
     </summary>
     
     
-      <category term="Code" scheme="http://anne416wu.github.io/categories/Code/"/>
+      <category term="Code" scheme="http://annewqx.top/categories/Code/"/>
     
-      <category term="Note" scheme="http://anne416wu.github.io/categories/Code/Note/"/>
+      <category term="Note" scheme="http://annewqx.top/categories/Code/Note/"/>
     
     
-      <category term="python anaconda" scheme="http://anne416wu.github.io/tags/python-anaconda/"/>
+      <category term="python anaconda" scheme="http://annewqx.top/tags/python-anaconda/"/>
     
   </entry>
   
   <entry>
     <title>Linux的基本终端命令</title>
-    <link href="http://anne416wu.github.io/posts/55266/"/>
-    <id>http://anne416wu.github.io/posts/55266/</id>
+    <link href="http://annewqx.top/posts/55266/"/>
+    <id>http://annewqx.top/posts/55266/</id>
     <published>2019-08-26T16:00:00.000Z</published>
     <updated>2020-02-23T07:56:39.318Z</updated>
     
@@ -246,21 +246,21 @@
     </summary>
     
     
-      <category term="Code" scheme="http://anne416wu.github.io/categories/Code/"/>
+      <category term="Code" scheme="http://annewqx.top/categories/Code/"/>
     
-      <category term="Note" scheme="http://anne416wu.github.io/categories/Code/Note/"/>
+      <category term="Note" scheme="http://annewqx.top/categories/Code/Note/"/>
     
     
-      <category term="Terminal" scheme="http://anne416wu.github.io/tags/Terminal/"/>
+      <category term="Terminal" scheme="http://annewqx.top/tags/Terminal/"/>
     
-      <category term="Linux" scheme="http://anne416wu.github.io/tags/Linux/"/>
+      <category term="Linux" scheme="http://annewqx.top/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>Dudes</title>
-    <link href="http://anne416wu.github.io/posts/27073/"/>
-    <id>http://anne416wu.github.io/posts/27073/</id>
+    <link href="http://annewqx.top/posts/27073/"/>
+    <id>http://annewqx.top/posts/27073/</id>
     <published>2018-06-30T16:00:00.000Z</published>
     <updated>2020-02-23T07:56:39.328Z</updated>
     
@@ -277,9 +277,9 @@
     </summary>
     
     
-      <category term="Life" scheme="http://anne416wu.github.io/categories/Life/"/>
+      <category term="Life" scheme="http://annewqx.top/categories/Life/"/>
     
-      <category term="Fragments" scheme="http://anne416wu.github.io/categories/Life/Fragments/"/>
+      <category term="Fragments" scheme="http://annewqx.top/categories/Life/Fragments/"/>
     
     
   </entry>
