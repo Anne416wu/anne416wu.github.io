@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://anne416wu.github.io/"/>
-  <updated>2020-02-23T07:56:39.326Z</updated>
+  <updated>2020-02-24T06:40:58.154Z</updated>
   <id>http://anne416wu.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>deploy-hexo-blog-to-vps</title>
+    <link href="http://anne416wu.github.io/posts/52540/"/>
+    <id>http://anne416wu.github.io/posts/52540/</id>
+    <published>2020-02-24T06:36:23.000Z</published>
+    <updated>2020-02-24T06:40:58.154Z</updated>
+    
+    <content type="html"><![CDATA[<p>在VPS上</p><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在VPS上&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Code" scheme="http://anne416wu.github.io/categories/Code/"/>
+    
+      <category term="Guide" scheme="http://anne416wu.github.io/categories/Code/Guide/"/>
+    
+    
+      <category term="VPS" scheme="http://anne416wu.github.io/tags/VPS/"/>
+    
+      <category term="hexo" scheme="http://anne416wu.github.io/tags/hexo/"/>
+    
+      <category term="nginx" scheme="http://anne416wu.github.io/tags/nginx/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac上Haskell的安装环境搭建</title>
