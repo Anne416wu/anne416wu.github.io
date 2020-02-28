@@ -208,8 +208,6 @@ img.thumbnail {
   max-width: 50%;
   font-size: 1.15rem;
   position: relative;
-}
-.article .content a {
   word-wrap: break-word;
 }
 .rtl {
@@ -366,6 +364,12 @@ img.thumbnail {
 /* ---------------------------------
  *        Fix content elements
  * --------------------------------- */
+.content a {
+  color: #22a2c9;
+  font-weight: 600;
+  padding: 0 2px;
+  text-decoration: none;
+}
 .content h1,
 .content h2,
 .content h3,
@@ -376,18 +380,30 @@ img.thumbnail {
 }
 .content h1 {
   font-size: 1.75em;
+  padding-bottom: 0.4rem;
+  line-height: 1.3;
 }
 .content h2 {
-  font-size: 1.5em;
+  font-size: 1.5rem;
+  ine-height: 1.225;
+  margin: 35px 0 15px;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #ddd;
 }
 .content h3 {
-  font-size: 1.25em;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin: 20px 0 7px;
 }
 .content h4 {
-  font-size: 1.125em;
+  font-size: 1.125rem;
 }
 .content h5 {
   font-size: 1em;
+}
+.content h6 {
+  font-size: 1rem;
+  color: #777;
 }
 .content code,
 .content pre {
@@ -397,13 +413,17 @@ img.thumbnail {
   font-size: 0.85em;
 }
 .content code {
-  padding: 0;
-  background: transparent;
+  padding: 0 2px 0 2px;
+  background: #f8f8f8;
 }
 .content > code,
 .content :not(pre) > code {
   font-size: 0.85em;
-  color: #ff3860;
+  color: #e96900;
+}
+.content blockquote {
+  color: #777;
+  background: #f3f4f4;
 }
 .content blockquote footer strong + cite {
   margin-left: 0.5em;
