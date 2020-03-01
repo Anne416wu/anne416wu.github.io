@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>nginx-to-caddy</title>
+      <link href="/posts/2335/"/>
+      <url>/posts/2335/</url>
+      
+        <content type="html"><![CDATA[<a id="more"></a>]]></content>
+      
+      
+      <categories>
+          
+          <category> Code </category>
+          
+          <category> Guide </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> blog </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ssr to v2ray</title>
       <link href="/posts/30155/"/>
       <url>/posts/30155/</url>
@@ -172,6 +201,35 @@
     
     
     <entry>
+      <title>deploy-hexo-blog-to-VPS</title>
+      <link href="/posts/7973/"/>
+      <url>/posts/7973/</url>
+      
+        <content type="html"><![CDATA[<a id="more"></a>]]></content>
+      
+      
+      <categories>
+          
+          <category> Code </category>
+          
+          <category> Guide </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> VPS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>mac快捷键和常用命令行</title>
       <link href="/posts/8410/"/>
       <url>/posts/8410/</url>
@@ -282,6 +340,8 @@
         </tags>
       
     </entry>
+    
+    
     
     
   
