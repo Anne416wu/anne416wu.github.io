@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://annewqx.top/gallery/thumbnails/Nginx.jpg">
 <meta property="article:published_time" content="2020-02-24T05:53:24.000Z">
-<meta property="article:modified_time" content="2020-03-02T14:29:59.120Z">
+<meta property="article:modified_time" content="2020-03-02T14:37:20.012Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="hexo deploy vps 博客 部署 服务器 域名">
 <meta name="twitter:card" content="summary">
@@ -195,7 +195,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    11 分钟 读完 (大约 1671 个字)
+                    12 分钟 读完 (大约 1736 个字)
                 </span>
                 
                 
@@ -261,7 +261,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su root		<span class="comment"># 或者exit也可以退出到root用户</span></span><br><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
 
 <p>验证git用户能否使用ssh免密登录服务器：在本地终端，输入<code>ssh git@IP</code></p>
-<p>如果不行的的话，可能是权限问题</p>
+<p>如果出现<code>permission denied</code>的的话，可能是权限问题</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 700 ~/.ssh</span><br><span class="line">chmod 600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
 
 </li>
@@ -298,8 +298,17 @@
 </ul>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="comment"># github.io</span></span><br><span class="line"><span class="bullet">-</span>  <span class="attr">type:</span> <span class="string">'git'</span></span><br><span class="line">   <span class="attr">repo:</span> <span class="string">https://github.com/anne416wu/anne416wu.github.io.git</span> </span><br><span class="line"><span class="comment"># VPS</span></span><br><span class="line"><span class="string">-</span>	 <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">	 <span class="attr">repo:</span> <span class="string">git@VPS的IP:blog.git</span></span><br><span class="line">   <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
 
-<p>至此,重新生成推送就可以把博客部署到vps了。可以在浏览器输入服务器的IP地址查看。</p>
+<p>至此,hexo三联就可以把博客部署到vps了。可以在浏览器输入服务器的IP地址查看。</p>
 <p>如果想要通过域名访问,则需要自己在域名管理那里修改解析的线路使得域名解析指向vps服务器的ip</p>
+<blockquote>
+<p>git 配置完SSH 以后，push 或者pull 的时候每次都提示Enter passphrase for key ‘/Users/Username/.ssh/id_rsa’可以这样解决</p>
+<ul>
+<li><p>一次性：终端输入<code>eval ssh-agent</code>，<code>ssh-add</code></p>
+</li>
+<li><p>永久生效：终端输入ssh-add -k /Users/m/.ssh/id_rsa</p>
+</li>
+</ul>
+</blockquote>
 <h2 id="域名配置-非必须"><a href="#域名配置-非必须" class="headerlink" title="域名配置(非必须)"></a>域名配置(非必须)</h2><blockquote>
 <p>参考文章：</p>
 <ul>
