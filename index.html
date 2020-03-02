@@ -405,25 +405,6 @@
         
         <article class="media">
             
-            <a href="/posts/53125/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab1-语言认知实验">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
-                    <a href="/posts/53125/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab1-语言认知实验</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/report/">report</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
             <a href="/posts/32573/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/gallery/thumbnails/haskell.png" alt="Mac上Haskell的安装环境搭建">
@@ -436,6 +417,25 @@
                     <a href="/posts/32573/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/53125/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab1-语言认知实验">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
+                    <a href="/posts/53125/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab1-语言认知实验</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/report/">report</a>
                     </p>
                 </div>
             </div>
@@ -758,7 +758,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    11 分钟 读完 (大约 1713 个字)
+                    11 分钟 读完 (大约 1712 个字)
                 </span>
                 
                 
@@ -771,119 +771,20 @@
             
         </h1>
         <div class="content">
-            <a id="more"></a>
-
-<hr>
+            <hr>
 <blockquote>
 <p>Caddy的使用真的太傻瓜了! </p>
 </blockquote>
-<!--more-->
-
-<blockquote>
-<p>参考文章：</p>
-<ul>
-<li><a href="https://dengxiaolong.com/caddy/zh/" rel="external nofollow noreferrer">Caddy中文文档</a></li>
-<li><a href="https://3mile.github.io/archives/118/" rel="external nofollow noreferrer">3mile：如何在CentOS 7上安装和配置Caddy</a></li>
-<li><a href="https://liuzhichao.com/2018/caddy/" rel="external nofollow noreferrer">liuzhichao：替换 Nginx 使用 Caddy 作为博客静态服务器</a></li>
-</ul>
-<p>本博客基于<a href="https://dengxiaolong.com/caddy/zh/beginner.html" rel="external nofollow noreferrer">Caddy中文文档的新手入门</a>，结合其他文章进行介绍，上接本博客博文<a href="https://www.annewqx.top/posts/65182/" rel="external nofollow noreferrer">把hexo博客部署到VPS服务器</a>，请注意，这次你需要一个域名。</p>
-</blockquote>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>为什么要用 <a href="https://caddyserver.com/" rel="external nofollow noreferrer">Caddy</a> 替换掉 Nginx ？最主要的原因是 <strong><a href="https://caddyserver.com/" rel="external nofollow noreferrer">Caddy</a> 能让网站自动支持 HTTPS</strong>。同样是使用 Let’s Encrypt，换成 Nginx 我们就必须手工操作，并且还需要设置三个月更新证书的计划任务。而且默认还支持 http/2，很多事情都不需要我们再配置了。另外它的配置文件也比 Nginx 的要简单很多，几十行的 Nginx 配置文件 <a href="https://caddyserver.com/" rel="external nofollow noreferrer">Caddy</a> 仅需要几行就可以搞定了。</p>
-<h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><ul>
-<li>一个搭载CentOS 7 x64的VPS服务器</li>
-<li>一个域名<code>example.com</code>已被配置为指向<code>VPS IP</code>，具体方法参见<a href="https://www.annewqx.top/posts/65182/" rel="external nofollow noreferrer">把hexo博客部署到VPS服务器</a> 域名部分</li>
-<li>已经利用git把hexo博客部署到VPS的<code>/var/www/blog</code>文件夹</li>
-</ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在Linux，Mac或BSD操作系统上，使用以下命令安装Caddy最新稳定的系统特定版本：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://getcaddy.com | bash</span><br></pre></td></tr></table></figure>
-
-<p>Caddy二进制文件将被安装到该<code>/usr/local/bin</code>目录。使用以下命令确认：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> caddy</span><br></pre></td></tr></table></figure>
-
-<p>输出应该是：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/bin/caddy</span><br></pre></td></tr></table></figure>
-
-<p>为了安全起见，<strong>切勿</strong>以root身份运行Caddy二进制文件为了让Caddy能够以非root用户的身份绑定到特权端口（例如80,443），您需要<code>setcap</code>按如下所示运行该命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">setcap</span> <span class="string">'cap_net_bind_service=+ep'</span> /usr/<span class="built_in">local</span>/bin/caddy</span><br></pre></td></tr></table></figure>
-
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>默认情况下，Caddy使用当前目录（执行命令的目录，而不是caddy二进制文件所在目录）作为网站根目录，因此运行本地站点非常方便。</p>
-<p>使用终端或者命令行，切换到站点目录所在：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> path/to/my/site		<span class="comment"># 在我们的服务器上是/var/www/blog</span></span><br></pre></td></tr></table></figure>
-
-<p>浏览器打开<a href="http://localhost:2015/，如果出现404页面，说明caddy运行正常，但是网站缺少默认页面。" rel="external nofollow noreferrer">http://localhost:2015/，如果出现404页面，说明caddy运行正常，但是网站缺少默认页面。</a></p>
-<p>你可以使用<code>Ctrl+C</code>退出，caddy将尽可能优雅中断。</p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="方案1：官方指导的快速开始"><a href="#方案1：官方指导的快速开始" class="headerlink" title="方案1：官方指导的快速开始"></a>方案1：官方指导的快速开始</h3><blockquote>
-<p>如果服务器设置了防火墙，则打开80和443端口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo firewall-cmd --permanent --zone=public --add-service=http </span><br><span class="line">sudo firewall-cmd --permanent --zone=public --add-service=https</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-
-<p>请确保你的域名能解析到你的服务器，具体方法参见<a href="https://www.annewqx.top/posts/65182/" rel="external nofollow noreferrer">把hexo博客部署到VPS服务器</a> 最后一部分</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo caddy -host example.com</span><br></pre></td></tr></table></figure>
-
-<p>当第一次使用一个真正的域名（不是localhost）运行Caddy时，会出现提示要求输入你的email地址。这是因为Caddy需要验证你的域名，并将验证信息安全地存储在硬盘上。</p>
-<p>Caddy必须将40和443端口绑定到一个真正的站点，这需要root或者Administrator的权限</p>
-<p>现在你可以打开你的网站了!</p>
-<p>&lt;全文完&gt;</p>
-<hr>
-<p>&lt;其实并不，Caddy可以很简单的开始，但总有高阶玩家可以把简单的事情变得更复杂，当然，也更安全&gt;</p>
-<h3 id="方案2：安全的开始"><a href="#方案2：安全的开始" class="headerlink" title="方案2：安全的开始"></a>方案2：安全的开始</h3><p>创建一个专门的系统用户：<code>caddy</code> 和一组同名的Caddy：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd -r -d /var/www -M -s /sbin/nologin caddy</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意</strong>：<em>此处创建**的用户caddy只能用于管理Caddy服务，不能用于登录。</em></p>
-<p><code>/var/www</code>为Caddy Web服务器创建主目录，并<code>/var/www/blog</code>为您的站点创建主目录：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /var/www/blog</span><br><span class="line">sudo chown -R caddy:caddy /var/www</span><br></pre></td></tr></table></figure>
-
-<p>创建一个目录来存储SSL证书：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /etc/ssl/caddy</span><br><span class="line">sudo chown -R caddy:root /etc/ssl/caddy</span><br><span class="line">sudo chmod 0770 /etc/ssl/caddy</span><br></pre></td></tr></table></figure>
-
-<p>创建专用目录来存储Caddy配置文件<code>Caddyfile</code>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /etc/caddy</span><br><span class="line">sudo chown -R root:caddy /etc/caddy</span><br></pre></td></tr></table></figure>
-
-<p>创建名为的Caddy配置文件<code>Caddyfile</code> 以下仅是一个普通配置，详细的配置参见本文<a href="#Caddyfile">Caddyfile部分</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo touch /etc/caddy/Caddyfile</span><br><span class="line">sudo chown caddy:caddy /etc/caddy/Caddyfile</span><br><span class="line">sudo chmod 444 /etc/caddy/Caddyfile</span><br><span class="line">cat &lt;&lt;EOF | sudo tee -a /etc/caddy/Caddyfile</span><br><span class="line">example.com &#123;</span><br><span class="line">    root /var/www/blog</span><br><span class="line">    gzip</span><br><span class="line">    tls 邮箱账号</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-
-<p>为了方便Caddy的操作，您可以<code>systemd</code>为Caddy 设置一个单元文件，然后用它<code>systemd</code>来管理Caddy。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -s https://raw.githubusercontent.com/mholt/caddy/master/dist/init/linux-systemd/caddy.service -o /etc/systemd/system/caddy.service  <span class="comment"># 从 github 下载 systemd 配置文件</span></span><br><span class="line">chown root:root /etc/systemd/system/caddy.service   <span class="comment"># 配置权限</span></span><br><span class="line">chmod 744 /etc/systemd/system/caddy.service</span><br></pre></td></tr></table></figure>
-
-<p>启动Caddy服务并使其在系统引导时自动启动：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl start caddy.service</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> caddy.service</span><br></pre></td></tr></table></figure>
-
-<p>最后，将您的网页浏览器指向<code>http://example.com</code>或<code>https://example.com</code>。您应该看到博客运行的样子</p>
-<span id = "Caddyfile">
-
-<h2 id="Caddyfile"><a href="#Caddyfile" class="headerlink" title="Caddyfile"></a>Caddyfile</h2></span>
-**Caddyfile**用来告诉Caddy如何提供服务的文本文件。他通常和网站放在一起。
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> path/to/site</span><br><span class="line"><span class="built_in">echo</span> example.com &gt; Caddyfile</span><br><span class="line">caddy</span><br></pre></td></tr></table></figure>
-
-<p>Caddy的结构如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">www.mysite.com &#123;</span><br><span class="line">    redir https:<span class="comment">//mysite.com&#123;uri&#125;</span></span><br><span class="line">&#125;</span><br><span class="line">mysite.com &#123;</span><br><span class="line">        root /var/www/blog</span><br><span class="line">        <span class="built_in">log</span> / /var/<span class="built_in">log</span>/caddy/mysite.<span class="built_in">log</span> <span class="string">"&#123;remote&#125; &#123;when&#125; &#123;method&#125; &#123;uri&#125; &#123;proto&#125; &#123;status&#125; &#123;size&#125; &#123;&gt;User-Agent&#125; &#123;latency&#125;"</span></span><br><span class="line">        tls 邮箱账号</span><br><span class="line">        header / Strict-Transport-Security <span class="string">"max-age=31536000"</span></span><br><span class="line">        gzip</span><br><span class="line">        errors &#123;</span><br><span class="line">         <span class="number">404</span> <span class="number">404.</span>html</span><br><span class="line">         <span class="number">403</span> <span class="number">403.</span>html</span><br><span class="line">       &#125;</span><br><span class="line">       expires &#123;</span><br><span class="line">         match .css$ <span class="number">1</span>m</span><br><span class="line">         match .js$ <span class="number">1</span>m</span><br><span class="line">         match .png$ <span class="number">1</span>m</span><br><span class="line">         match .jpg$ <span class="number">1</span>m</span><br><span class="line">      &#125;</span><br><span class="line">      ipfilter / &#123;</span><br><span class="line">        rule  block</span><br><span class="line">        blockpage /var/www/liuzhichao.com/<span class="number">403.</span>html</span><br><span class="line">        ip <span class="number">148.251</span><span class="number">.8</span><span class="number">.250</span> <span class="number">136.243</span><span class="number">.37</span><span class="number">.219</span> <span class="number">144.76</span><span class="number">.38</span><span class="number">.40</span> <span class="number">69.197</span><span class="number">.177</span><span class="number">.50</span> <span class="number">199.58</span><span class="number">.86</span><span class="number">.211</span> <span class="number">5.9</span><span class="number">.97</span><span class="number">.200</span> <span class="number">144.76</span><span class="number">.91</span><span class="number">.79</span></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">     rewrite &#123;</span><br><span class="line">        <span class="keyword">if</span> &#123;&gt;User-agent&#125; has <span class="string">"MJ12bot"</span></span><br><span class="line">        to /forbidden</span><br><span class="line">    &#125;</span><br><span class="line">     status <span class="number">403</span> /forbidden</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>说明：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">www.mysite.com &#123;</span><br><span class="line">    redir https://mysite.com&#123;uri&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>是将 www 跳转到非 www 的域名。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tls mail@mysite.com</span><br></pre></td></tr></table></figure>
-
-<p>tls后面改为你的邮箱地址，会自动配置 https。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header / Strict-Transport-Security <span class="string">"max-age=31536000"</span></span><br></pre></td></tr></table></figure>
-
-<p>是一条 https 的优化配置，加上之后，在<a href="https://www.ssllabs.com/ssltest/analyze.html?d=liuzhichao.com&hideResults=on" rel="external nofollow noreferrer">SSLLabs</a>上测试评分可以拿到A+,想想之前使用 Nginx 的时候，网络上找了各种配置参考都只优化到了 A，所以 Caddy 的自动 Https 功能确实还是很方便的。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">errors &#123;</span><br><span class="line">        404 404.html</span><br><span class="line">        403 403.html</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>是自定义错误页面配置。确保你网站的根目录有相应的文件，不然启动服务会报错。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">expires &#123;</span><br><span class="line">        match .css$ 1m</span><br><span class="line">        match .js$ 1m</span><br><span class="line">        match .png$ 1m</span><br><span class="line">        match .jpg$ 1m</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
-
-<p>expires 是控制页面的缓存，上面的配置是将 css,js,png,jpg 这样的静态资源缓存1个月。此配置依赖http.expires这个插件，如果你没有安装，配置后启动 caddy 会出错。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ipfilter / &#123;</span><br><span class="line">        rule  block</span><br><span class="line">        blockpage /var/www/liuzhichao.com/403.html</span><br><span class="line">        ip 148.251.8.250 136.243.37.219 144.76.38.40 69.197.177.50 199.58.86.211 5.9.97.200 144.76.91.79</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
-
-<p>ipfilter是根据配置过滤到一些非正常的 IP，可以查看访问log，经常会有一些爬虫频繁的访问网站，没有任何用处反而加大服务器的负载，对于这样的 IP 可以直接过滤掉。blockpage是配置这些 IP 访问网址时显示的页面，依赖http.ipfilter插件。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rewrite &#123;</span><br><span class="line">       <span class="keyword">if</span> &#123;&gt;User-agent&#125; has <span class="string">"MJ12bot"</span></span><br><span class="line">       to /forbidden</span><br><span class="line">   &#125;</span><br><span class="line">   status 403 /forbidden</span><br></pre></td></tr></table></figure>
-
-<p>与上面的ipfilter功能类似，都是过滤掉一些非正常的访问用户，不同的是ipfilter是屏蔽 IP，这段配置则是根据<code>User-agent</code> block掉一些爬虫。</p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2210/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -920,7 +821,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    10 分钟 读完 (大约 1549 个字)
+                    13 分钟 读完 (大约 1924 个字)
                 </span>
                 
                 
@@ -1025,63 +926,6 @@
     
 <div class="card">
     
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time> -->
-                <span class="level-item has-text-grey">2020-02-20</span>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/report/">report</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    18 分钟 读完 (大约 2734 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/posts/53125/">编译原理与设计-Lab1-语言认知实验</a>
-            
-        </h1>
-        <div class="content">
-            <hr>
-<blockquote>
-<p>分别使用 C/C++、Java、Python 和 Haskell 实现快速排序和归并排序算法，对采用这几种语言实现的编程效率，程序的规模，程序的运行效率进行对比分析。</p>
-</blockquote>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/posts/53125/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
     <div class="card-image">
         <a href="/posts/32573/" class="image is-7by1">
             <img class="thumbnail" src="/gallery/thumbnails/haskell.png" alt="Mac上Haskell的安装环境搭建">
@@ -1127,6 +971,63 @@
             <div class="level-start">
                 <div class="level-item">
                 <a class="button is-size-7 is-light" href="/posts/32573/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time> -->
+                <span class="level-item has-text-grey">2020-02-20</span>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/report/">report</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    18 分钟 读完 (大约 2734 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/53125/">编译原理与设计-Lab1-语言认知实验</a>
+            
+        </h1>
+        <div class="content">
+            <hr>
+<blockquote>
+<p>分别使用 C/C++、Java、Python 和 Haskell 实现快速排序和归并排序算法，对采用这几种语言实现的编程效率，程序的规模，程序的运行效率进行对比分析。</p>
+</blockquote>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/53125/#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -1274,7 +1175,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    9 分钟 读完 (大约 1309 个字)
+                    9 分钟 读完 (大约 1322 个字)
                 </span>
                 
                 
@@ -1428,25 +1329,180 @@
 
 
 
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2019-12-12T16:00:00.000Z">2019-12-13</time> -->
+                <span class="level-item has-text-grey">2019-12-13</span>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Note/">Note</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    10 分钟 读完 (大约 1535 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/52525/">Anaconda的环境管理</a>
+            
+        </h1>
+        <div class="content">
+            <hr>
+<blockquote>
+<p>常用的Conda命令</p>
+</blockquote>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/52525/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
 
     
-<div class="card card-transparent">
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <div class="pagination-previous is-invisible is-hidden-mobile">
-            <a class="is-flex-grow has-text-black-ter" href="/page/0/">上一页</a>
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/55266/" class="image is-7by1">
+            <img class="thumbnail" src="/gallery/thumbnails/Linux.png" alt="Linux的基本终端命令">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2019-08-26T16:00:00.000Z">2019-08-27</time> -->
+                <span class="level-item has-text-grey">2019-08-27</span>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Note/">Note</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    20 分钟 读完 (大约 3064 个字)
+                </span>
+                
+                
+            </div>
         </div>
-        <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/page/2/">下一页</a>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/55266/">Linux的基本终端命令</a>
+            
+        </h1>
+        <div class="content">
+            <hr>
+<blockquote>
+<p>Linux终端的基本命令 (Unix下基本一致)</p>
+</blockquote>
         </div>
-        <ul class="pagination-list is-hidden-mobile">
-            
-            <li><a class="pagination-link is-current" href="/">1</a></li>
-            
-            <li><a class="pagination-link has-text-black-ter" href="/page/2/">2</a></li>
-            
-        </ul>
-    </nav>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/55266/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
 </div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2018-06-30T16:00:00.000Z">2018-07-01</time> -->
+                <span class="level-item has-text-grey">2018-07-01</span>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Life/">Life</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Life/Fragments/">Fragments</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    12 分钟 读完 (大约 1778 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/27073/">Dudes</a>
+            
+        </h1>
+        <div class="content">
+            <blockquote>有些想法就顺便记录一点<br>当你把笔放下，天黑请闭眼</blockquote>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/27073/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
 </div>
                 
                 
