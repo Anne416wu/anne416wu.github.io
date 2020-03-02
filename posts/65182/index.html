@@ -12,16 +12,16 @@
 <title>把hexo部署到VPS服务器 - Annewqx</title>
 
 
-    <meta name="description" content="通过创建远端git仓库，将本地的hexo博客部署到远端服务器并通过Nginx服务运行，以及域名绑定的相关设置">
+    <meta name="description" content="通过创建远端git仓库，将本地的hexo博客部署到远端服务器并通过Nginx服务运行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="把hexo部署到VPS服务器">
 <meta property="og:url" content="http://annewqx.top/posts/65182/index.html">
 <meta property="og:site_name" content="Annewqx">
-<meta property="og:description" content="通过创建远端git仓库，将本地的hexo博客部署到远端服务器并通过Nginx服务运行，以及域名绑定的相关设置">
+<meta property="og:description" content="通过创建远端git仓库，将本地的hexo博客部署到远端服务器并通过Nginx服务运行">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://annewqx.top/gallery/thumbnails/Nginx.jpg">
 <meta property="article:published_time" content="2020-02-24T05:53:24.000Z">
-<meta property="article:modified_time" content="2020-03-02T14:37:20.012Z">
+<meta property="article:modified_time" content="2020-03-02T15:12:33.487Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="hexo deploy vps 博客 部署 服务器 域名">
 <meta name="twitter:card" content="summary">
@@ -195,7 +195,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    12 分钟 读完 (大约 1736 个字)
+                    11 分钟 读完 (大约 1683 个字)
                 </span>
                 
                 
@@ -215,11 +215,11 @@
         <div class="content">
             <hr>
 <blockquote>
-<p>通过创建远端git仓库，将本地的hexo博客部署到远端服务器并通过Nginx服务运行，以及域名绑定的相关设置</p>
+<p>通过创建远端git仓库，将本地的hexo博客部署到远端服务器并通过Nginx服务运行</p>
 </blockquote>
 <a id="more"></a>
 
-<h2 id="0-操作环境"><a href="#0-操作环境" class="headerlink" title="0 操作环境"></a>0 操作环境</h2><ul>
+<h2 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h2><ul>
 <li>本地macOS Catalina</li>
 <li>DigitalOcean vps centOS7</li>
 <li>参考文档：<a href="https://ihaoming.top/archives/c9c37af.html" rel="external nofollow noreferrer">芒果浩明</a></li>
@@ -271,7 +271,7 @@
 </blockquote>
 <ol>
 <li><p>root用户身份登录到服务器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加nginx到yum源</span></span><br><span class="line">sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</span><br><span class="line"><span class="comment"># 安装nginx</span></span><br><span class="line">sudo yum install -y nginx</span><br><span class="line"><span class="comment"># 启动nginx</span></span><br><span class="line">sudo systemctl start nginx.service</span><br><span class="line"><span class="comment"># 设置开机启动</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> nginx.service</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加nginx到yum源</span></span><br><span class="line">sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</span><br><span class="line"><span class="comment"># 安装nginx</span></span><br><span class="line">sudo yum install -y nginx</span><br><span class="line"><span class="comment"># 启动nginx</span></span><br><span class="line">sudo systemctl start nginx.service</span><br><span class="line"><span class="comment"># 设置开机启动</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> -n nginx.service</span><br></pre></td></tr></table></figure>
 <p>在浏览器输入服务器IP地址，如果出现403 FORBIDDEN页面则说明nginx启动成功；</p>
 <p>如果浏览器提示无法链接，请检查防火墙是否开启，如果开启</p>
 <ul>
@@ -281,7 +281,7 @@
 </ul>
 <blockquote>
 <p>nginx常用命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动</span></span><br><span class="line">service nginx start</span><br><span class="line"><span class="comment">#停止</span></span><br><span class="line">nginx -s stop</span><br><span class="line"><span class="comment">#查看nginx进程</span></span><br><span class="line">ps -ef | grep nginx</span><br><span class="line"><span class="comment">#平滑启动nginx</span></span><br><span class="line">nginx -s reload <span class="comment">#平滑启动的意思是在不停止nginx的情况下，重启nginx，重新加载配置文件，启动新的工作线程，完美停止旧的工作线程</span></span><br><span class="line"><span class="comment">#强制停止nginx</span></span><br><span class="line">pkill -9 nginx</span><br><span class="line"><span class="comment">#检查对nginx.conf文件的修改是否正确</span></span><br><span class="line">nginx -t -c /etc/nginx/nginx.conf</span><br><span class="line">or </span><br><span class="line">nginx -t</span><br><span class="line"><span class="comment">#查看版本</span></span><br><span class="line">nginx -v</span><br><span class="line">or</span><br><span class="line">nginx -V</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动</span></span><br><span class="line">service nginx start</span><br><span class="line"><span class="comment">#停止</span></span><br><span class="line">nginx -s stop</span><br><span class="line"><span class="comment">#查看nginx进程</span></span><br><span class="line">ps -ef | grep nginx</span><br><span class="line"><span class="comment">#平滑启动nginx</span></span><br><span class="line">nginx -s reload </span><br><span class="line"><span class="comment">#强制停止nginx</span></span><br><span class="line">pkill -9 nginx</span><br><span class="line"><span class="comment">#检查对nginx.conf文件的修改是否正确</span></span><br><span class="line">nginx -t -c /etc/nginx/nginx.conf</span><br><span class="line">nginx -t</span><br><span class="line"><span class="comment">#查看版本</span></span><br><span class="line">nginx -v</span><br><span class="line"><span class="comment"># 关闭开机启动</span></span><br><span class="line">sudo systemctl <span class="built_in">disable</span> -n nginx.service</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 <li><p>配置nginx</p>
@@ -317,7 +317,7 @@
 </ul>
 <p>博客已经搭好了，但是叫朋友看</p>
 </blockquote>
-<h4 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h4><ol>
+<h3 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h3><ol>
 <li><p>注册并激活NameSilo账号</p>
 </li>
 <li><p>搜索并购买想要注册的域名，使用优惠码<code>go2think</code>或<code>okoff</code>可减$1</p>
@@ -329,7 +329,7 @@
 </blockquote>
 </li>
 </ol>
-<h4 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h4><ol>
+<h3 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h3><ol>
 <li><p>打开域名管理页面，选择option栏下的蓝地球(DNS管理)按钮</p>
 </li>
 <li><p>删除原本的四个park解析记录</p>
@@ -459,9 +459,9 @@
                     目录
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#0-操作环境">
+        <a class="is-flex" href="#操作环境">
         <span class="has-mr-6">1</span>
-        <span>0 操作环境</span>
+        <span>操作环境</span>
         </a></li><li>
         <a class="is-flex" href="#服务器配置">
         <span class="has-mr-6">2</span>
@@ -490,15 +490,15 @@
         <a class="is-flex" href="#域名配置-非必须">
         <span class="has-mr-6">4</span>
         <span>域名配置(非必须)</span>
-        </a><ul class="menu-list"><ul class="menu-list"><li>
+        </a><ul class="menu-list"><li>
         <a class="is-flex" href="#购买域名">
-        <span class="has-mr-6">4.1.1</span>
+        <span class="has-mr-6">4.1</span>
         <span>购买域名</span>
         </a></li><li>
         <a class="is-flex" href="#域名解析">
-        <span class="has-mr-6">4.1.2</span>
+        <span class="has-mr-6">4.2</span>
         <span>域名解析</span>
-        </a></li></ul></ul></li></ul>
+        </a></li></ul></li></ul>
             </div>
         </div>
     </div>

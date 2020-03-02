@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://annewqx.top/gallery/thumbnails/v2ray.jpeg">
 <meta property="article:published_time" content="2020-03-01T11:05:16.000Z">
-<meta property="article:modified_time" content="2020-03-02T14:27:25.043Z">
+<meta property="article:modified_time" content="2020-03-02T15:17:19.286Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="vps vpn 服务器 科学上网 V2Ray">
 <meta name="twitter:card" content="summary">
@@ -195,7 +195,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 1089 个字)
+                    10 分钟 读完 (大约 1549 个字)
                 </span>
                 
                 
@@ -235,7 +235,20 @@
 <p>V2Ray 是一个于 Shadowsocks 之后非常好用的代理软件，但是由于 V2Ray 的配置略复杂，GUI 客户端不完善，所以 V2Ray 并没有像 Shadowsocks 在科学上网人群之中那么流行。</p>
 <p>但目前来看ssr的服务越发不稳定，所以我们需要换用v2ray</p>
 </blockquote>
-<h2 id="1-服务端配置"><a href="#1-服务端配置" class="headerlink" title="1 服务端配置"></a>1 服务端配置</h2><ol>
+<h2 id="1-服务端配置"><a href="#1-服务端配置" class="headerlink" title="1 服务端配置"></a>1 服务端配置</h2><blockquote>
+<p>如果已经使用其他方式安装v2ray，想要换为脚本，删除方法如下：</p>
+<ul>
+<li><p>卸载：其中 systemd 和 sysv 二选一，取决于你的系统</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#停用并卸载服务（systemd）：</span></span><br><span class="line">systemctl stop v2ray</span><br><span class="line">systemctl <span class="built_in">disable</span> v2ray</span><br><span class="line"></span><br><span class="line"><span class="comment">#停用并卸载服务（sysv）：</span></span><br><span class="line">service v2ray stop</span><br><span class="line">update-rc.d -f v2ray remove</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除残留文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /etc/v2ray/*  <span class="comment">#(配置文件)</span></span><br><span class="line">rm -rf /usr/bin/v2ray/*  <span class="comment">#(程序)</span></span><br><span class="line">rm -rf /var/<span class="built_in">log</span>/v2ray/*  <span class="comment">#(日志)</span></span><br><span class="line">rm -rf /lib/systemd/system/v2ray.service  <span class="comment">#(systemd 启动项)</span></span><br><span class="line">rm -rf /etc/init.d/v2ray  <span class="comment">#(sysv 启动项)</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>参考：<a href="https://github.com/v2ray/v2ray-core/issues/187" rel="external nofollow noreferrer">v2ray-core/issues/187</a></p>
+</blockquote>
+<ol>
 <li><p>ssh登陆到服务器root用户，使用<a href="https://github.com/233boy/v2ray" rel="external nofollow noreferrer">一键式脚本安装</a></p>
 <p><code>bash &lt;(curl -s -L https://git.io/v2ray.sh)</code></p>
 </li>
@@ -264,7 +277,14 @@
 </blockquote>
 </li>
 </ol>
-<h2 id="2-客户端配置"><a href="#2-客户端配置" class="headerlink" title="2 客户端配置"></a>2 客户端配置</h2><ul>
+<h2 id="2-客户端配置"><a href="#2-客户端配置" class="headerlink" title="2 客户端配置"></a>2 客户端配置</h2><blockquote>
+<p>可选用的脚本(来源：<a href="https://v2raycn.com/" rel="external nofollow noreferrer">V2Ray中文网</a> » <a href="https://v2raycn.com/176.html" rel="external nofollow noreferrer">好用的 V2Ray 一键脚本整理与分享</a></p>
+<h3 id="V2Ray-官方一键脚本"><a href="#V2Ray-官方一键脚本" class="headerlink" title="V2Ray 官方一键脚本"></a>V2Ray 官方一键脚本</h3><p>V2Ray 官方提供 V2Ray 一键脚本，新手可以非常方便的在自己的 VPS 上一键搭建 V2Ray，详细介绍参考：<a href="https://v2raycn.com/46.html" rel="external nofollow noreferrer">V2Ray 官方教程：V2Ray 官方一键脚本搭建与配置文件生成</a>。</p>
+<h3 id="233-V2Ray-一键脚本"><a href="#233-V2Ray-一键脚本" class="headerlink" title="233 V2Ray 一键脚本"></a>233 V2Ray 一键脚本</h3><p>233 V2Ray 一键脚本是由 233boy 开发并维护的一个 V2Ray 脚本，是目前用的比较广泛的 V2Ray 一键脚本，自带管理面板与加速功能，详细介绍参考：<a href="https://v2raycn.com/89.html" rel="external nofollow noreferrer">233 V2Ray 一键脚本，自带管理与加速功能，v2ray.sh</a>。</p>
+<h3 id="V2ray-Fun-一键脚本"><a href="#V2ray-Fun-一键脚本" class="headerlink" title="V2ray.Fun 一键脚本"></a>V2ray.Fun 一键脚本</h3><p>V2ray.Fun 是一个比较常用的 V2Ray 一键脚本，由 FunctionClub 开发并维护，这个脚本自带 Web 可视化控制面板，详细介绍参考：<a href="https://v2raycn.com/111.html" rel="external nofollow noreferrer">V2Ray 一键脚本，自带 Web 可视化控制板面板，V2ray.Fun</a></p>
+</blockquote>
+<p>我选用的是233boy的脚本</p>
+<ul>
 <li><p>打开客户端-服务器设置-左上服务器列表中‘+’-右侧url后复制粘贴刚刚得到的vmess URL即可</p>
 <p>或者打开刚刚得到的二维码链接，直接在菜单中选择扫描屏幕上的二维码</p>
 </li>
@@ -406,7 +426,19 @@
         <a class="is-flex" href="#2-客户端配置">
         <span class="has-mr-6">2</span>
         <span>2 客户端配置</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#V2Ray-官方一键脚本">
+        <span class="has-mr-6">2.1</span>
+        <span>V2Ray 官方一键脚本</span>
         </a></li><li>
+        <a class="is-flex" href="#233-V2Ray-一键脚本">
+        <span class="has-mr-6">2.2</span>
+        <span>233 V2Ray 一键脚本</span>
+        </a></li><li>
+        <a class="is-flex" href="#V2ray-Fun-一键脚本">
+        <span class="has-mr-6">2.3</span>
+        <span>V2ray.Fun 一键脚本</span>
+        </a></li></ul></li><li>
         <a class="is-flex" href="#多用户配置">
         <span class="has-mr-6">3</span>
         <span>多用户配置</span>
