@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://annewqx.top/images/og_image.png">
 <meta property="article:published_time" content="2020-02-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-03-02T08:57:46.390Z">
+<meta property="article:modified_time" content="2020-03-02T14:15:04.645Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="vps vpn 服务器 科学上网 shadowsocks">
 <meta name="twitter:card" content="summary">
@@ -189,7 +189,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    9 分钟 读完 (大约 1326 个字)
+                    9 分钟 读完 (大约 1305 个字)
                 </span>
                 
                 
@@ -313,14 +313,14 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重启防火墙</span></span><br><span class="line">systemctl restart firewalld.service</span><br><span class="line"><span class="comment"># 如果没有firewalld-cmd命令</span></span><br><span class="line">yum install firewalld</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>firewalld的基本使用</p>
+<p><a href="https://blog.csdn.net/qq_27751535/article/details/89633138" rel="external nofollow noreferrer">firewalld的基本使用</a></p>
 <p>启动： systemctl start firewalld</p>
 <p>关闭： systemctl stop firewalld</p>
 <p>查看状态： systemctl status firewalld</p>
 <p>开机禁用 ： systemctl disable firewalld</p>
 <p>开机启用 ： systemctl enable firewalld</p>
 <p>查看开放的端口：firewall-cmd –list-ports</p>
-<p>添加端口：firewall-cmd –add-port=8080/tcp –permanent （–permanent永久生效，没有此参数重启后失效）<br>————————————————<br>原文链接：<a href="https://blog.csdn.net/qq_27751535/article/details/89633138" rel="external nofollow noreferrer">https://blog.csdn.net/qq_27751535/article/details/89633138</a></p>
+<p>添加端口：firewall-cmd –add-port=80/tcp –permanent （–permanent永久生效，没有此参数重启后失效）</p>
 </blockquote>
 </li>
 </ol>
