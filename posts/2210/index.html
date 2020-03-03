@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.annewqx.top/images/og_image.png">
 <meta property="article:published_time" content="2020-03-02T05:54:39.000Z">
-<meta property="article:modified_time" content="2020-03-02T18:03:00.116Z">
+<meta property="article:modified_time" content="2020-03-03T06:53:44.247Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="Caddy hexo 博客">
 <meta name="twitter:card" content="summary">
@@ -189,7 +189,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    11 分钟 读完 (大约 1712 个字)
+                    12 分钟 读完 (大约 1740 个字)
                 </span>
                 
                 
@@ -229,7 +229,7 @@
 <li>已经利用git把hexo博客部署到VPS的<code>/var/www/blog</code>文件夹</li>
 </ul>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在Linux，Mac或BSD操作系统上，使用以下命令安装Caddy最新稳定的系统特定版本：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://getcaddy.com | bash</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://getcaddy.com | bash -s personal</span><br></pre></td></tr></table></figure>
 
 <p>Caddy二进制文件将被安装到该<code>/usr/local/bin</code>目录。使用以下命令确认：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> caddy</span><br></pre></td></tr></table></figure>
@@ -260,7 +260,10 @@
 <p>&lt;全文完&gt;</p>
 <hr>
 <p>&lt;其实并不，Caddy可以很简单的开始，但总有高阶玩家可以把简单的事情变得更复杂，当然，也更安全&gt;</p>
-<h3 id="方案2：安全的开始"><a href="#方案2：安全的开始" class="headerlink" title="方案2：安全的开始"></a>方案2：安全的开始</h3><p>创建一个专门的系统用户：<code>caddy</code> 和一组同名的Caddy：</p>
+<h3 id="方案2：使用caddy-service-此部分有缺陷，未完成"><a href="#方案2：使用caddy-service-此部分有缺陷，未完成" class="headerlink" title="方案2：使用caddy.service(此部分有缺陷，未完成)"></a>方案2：使用caddy.service(此部分有缺陷，未完成)</h3><blockquote>
+<p>github: <a href="https://github.com/caddyserver/caddy/tree/master/dist/init/linux-systemd" rel="external nofollow noreferrer">systemd Service Unit for Caddy</a></p>
+</blockquote>
+<p>创建一个专门的系统用户：<code>caddy</code> 和一组同名的Caddy：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd -r -d /var/www -M -s /sbin/nologin caddy</span><br></pre></td></tr></table></figure>
 
 <p><strong>注意</strong>：<em>此处创建**的用户caddy只能用于管理Caddy服务，不能用于登录。</em></p>
@@ -464,9 +467,9 @@
         <span class="has-mr-6">5.1</span>
         <span>方案1：官方指导的快速开始</span>
         </a></li><li>
-        <a class="is-flex" href="#方案2：安全的开始">
+        <a class="is-flex" href="#方案2：使用caddy-service-此部分有缺陷，未完成">
         <span class="has-mr-6">5.2</span>
-        <span>方案2：安全的开始</span>
+        <span>方案2：使用caddy.service(此部分有缺陷，未完成)</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#Caddyfile">
         <span class="has-mr-6">6</span>
