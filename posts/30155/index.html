@@ -15,21 +15,21 @@
     <meta name="description" content="三月一日到了，成熟的小孩要学会自己换梯子的协议了">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ssr to v2ray">
-<meta property="og:url" content="http://annewqx.top/posts/30155/index.html">
+<meta property="og:url" content="https://annewqx.top/posts/30155/index.html">
 <meta property="og:site_name" content="Annewqx">
 <meta property="og:description" content="三月一日到了，成熟的小孩要学会自己换梯子的协议了">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://annewqx.top/gallery/thumbnails/v2ray.jpeg">
+<meta property="og:image" content="https://annewqx.top/gallery/thumbnails/v2ray.jpeg">
 <meta property="article:published_time" content="2020-03-01T11:05:16.000Z">
-<meta property="article:modified_time" content="2020-03-02T18:02:19.369Z">
+<meta property="article:modified_time" content="2020-03-03T02:56:40.134Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="vps vpn 服务器 科学上网 V2Ray">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://annewqx.top/gallery/thumbnails/v2ray.jpeg">
+<meta name="twitter:image" content="https://annewqx.top/gallery/thumbnails/v2ray.jpeg">
 
 
 
-<link rel="canonical" href="http://www.annewqx.top/" />
+<link rel="canonical" href="https://www.annewqx.top/" />
 
 
 
@@ -195,7 +195,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    13 分钟 读完 (大约 1924 个字)
+                    13 分钟 读完 (大约 1928 个字)
                 </span>
                 
                 
@@ -220,7 +220,6 @@
 <a id="more"></a>
 
 <blockquote>
-<p>本文前导文章为 <a href="http://www.annewqx.top/posts/9931/" rel="external nofollow noreferrer">VPS和Shadowsocks配置</a></p>
 <p>引用连接：</p>
 <ul>
 <li>官方GitHub：<a href="https://github.com/v2ray/v2ray-core" rel="external nofollow noreferrer">v2ray/<em>v2ray</em>-core</a> </li>
@@ -234,8 +233,11 @@
 </ul>
 <p>V2Ray 是一个于 Shadowsocks 之后非常好用的代理软件，但是由于 V2Ray 的配置略复杂，GUI 客户端不完善，所以 V2Ray 并没有像 Shadowsocks 在科学上网人群之中那么流行。</p>
 <p>但目前来看ssr的服务越发不稳定，所以我们需要换用v2ray</p>
-<p>开了firewalld防火墙的话请自行添加对应端口</p>
 </blockquote>
+<h2 id="0-先决条件"><a href="#0-先决条件" class="headerlink" title="0 先决条件"></a>0 先决条件</h2><ul>
+<li>本文前导文章为 <a href="http://www.annewqx.top/posts/9931/" rel="external nofollow noreferrer">VPS和Shadowsocks配置</a></li>
+<li>开了firewalld防火墙的话请自行添加对应端口</li>
+</ul>
 <h2 id="1-服务端配置"><a href="#1-服务端配置" class="headerlink" title="1 服务端配置"></a>1 服务端配置</h2><blockquote>
 <p>如果已经使用其他方式安装v2ray，想要换为脚本，删除方法如下：</p>
 <ul>
@@ -373,6 +375,21 @@
 </a>
 
                 
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
+    <span class="icon is-small">
+        <i class="fab fa-paypal"></i>
+    </span>
+    <span>Paypal</span>
+</a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form">
+    <input type="hidden" name="cmd" value="_donations" />
+    <input type="hidden" name="business" value="86BR8FGECVEYE" />
+    <input type="hidden" name="currency_code" value="USD" />
+</form>
+
+                
         </div>
     </div>
 </div>
@@ -446,40 +463,44 @@
                     目录
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#1-服务端配置">
+        <a class="is-flex" href="#0-先决条件">
         <span class="has-mr-6">1</span>
+        <span>0 先决条件</span>
+        </a></li><li>
+        <a class="is-flex" href="#1-服务端配置">
+        <span class="has-mr-6">2</span>
         <span>1 服务端配置</span>
         </a><ul class="menu-list"><ul class="menu-list"><li>
         <a class="is-flex" href="#V2Ray-官方一键脚本">
-        <span class="has-mr-6">1.1.1</span>
+        <span class="has-mr-6">2.1.1</span>
         <span>V2Ray 官方一键脚本</span>
         </a></li><li>
         <a class="is-flex" href="#233-V2Ray-一键脚本">
-        <span class="has-mr-6">1.1.2</span>
+        <span class="has-mr-6">2.1.2</span>
         <span>233 V2Ray 一键脚本</span>
         </a></li><li>
         <a class="is-flex" href="#V2ray-Fun-一键脚本">
-        <span class="has-mr-6">1.1.3</span>
+        <span class="has-mr-6">2.1.3</span>
         <span>V2ray.Fun 一键脚本</span>
         </a></li></ul></ul></li><li>
         <a class="is-flex" href="#2-客户端配置">
-        <span class="has-mr-6">2</span>
+        <span class="has-mr-6">3</span>
         <span>2 客户端配置</span>
         </a></li><li>
         <a class="is-flex" href="#多用户配置">
-        <span class="has-mr-6">3</span>
+        <span class="has-mr-6">4</span>
         <span>多用户配置</span>
         </a></li><li>
         <a class="is-flex" href="#PAC设置">
-        <span class="has-mr-6">4</span>
+        <span class="has-mr-6">5</span>
         <span>PAC设置</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#从GFW-LIST地址更新PAC文件">
-        <span class="has-mr-6">4.1</span>
+        <span class="has-mr-6">5.1</span>
         <span>从GFW LIST地址更新PAC文件</span>
         </a></li><li>
         <a class="is-flex" href="#手动编写PAC文件">
-        <span class="has-mr-6">4.2</span>
+        <span class="has-mr-6">5.2</span>
         <span>手动编写PAC文件</span>
         </a></li></ul></li></ul>
             </div>
@@ -492,7 +513,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Caddy/" style="font-size: 10px;">Caddy</a> <a href="/tags/Compilation/" style="font-size: 10px;">Compilation</a> <a href="/tags/Haskell/" style="font-size: 10px;">Haskell</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 15px;">VPS</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">mac使用技巧</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/python-anaconda/" style="font-size: 10px;">python anaconda</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 15px;">科学上网</a>
+        <a href="/tags/Caddy/" style="font-size: 10px;">Caddy</a> <a href="/tags/Compilation/" style="font-size: 10px;">Compilation</a> <a href="/tags/Haskell/" style="font-size: 10px;">Haskell</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 15px;">VPS</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">mac使用技巧</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/python-anaconda/" style="font-size: 10px;">python anaconda</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 15px;">科学上网</a>
     </div>
 </div>
     
@@ -577,7 +598,7 @@
 <script>
 var IcarusThemeSettings = {
     site: {
-        url: 'http://annewqx.top',
+        url: 'https://annewqx.top',
         external_link: {"enable":true,"exclude":[]}
     },
     article: {

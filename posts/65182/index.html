@@ -15,21 +15,21 @@
     <meta name="description" content="通过创建远端git仓库，将本地的hexo博客部署到远端服务器并通过Nginx服务运行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="把hexo博客部署到VPS服务器">
-<meta property="og:url" content="http://annewqx.top/posts/65182/index.html">
+<meta property="og:url" content="https://annewqx.top/posts/65182/index.html">
 <meta property="og:site_name" content="Annewqx">
 <meta property="og:description" content="通过创建远端git仓库，将本地的hexo博客部署到远端服务器并通过Nginx服务运行">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://annewqx.top/gallery/thumbnails/Nginx.jpg">
+<meta property="og:image" content="https://annewqx.top/gallery/thumbnails/Nginx.jpg">
 <meta property="article:published_time" content="2020-02-24T05:53:24.000Z">
-<meta property="article:modified_time" content="2020-03-02T15:46:48.837Z">
+<meta property="article:modified_time" content="2020-03-03T03:31:02.977Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="hexo deploy vps 博客 部署 服务器 域名">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://annewqx.top/gallery/thumbnails/Nginx.jpg">
+<meta name="twitter:image" content="https://annewqx.top/gallery/thumbnails/Nginx.jpg">
 
 
 
-<link rel="canonical" href="http://www.annewqx.top/" />
+<link rel="canonical" href="https://www.annewqx.top/" />
 
 
 
@@ -195,7 +195,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    11 分钟 读完 (大约 1683 个字)
+                    12 分钟 读完 (大约 1813 个字)
                 </span>
                 
                 
@@ -219,10 +219,12 @@
 </blockquote>
 <a id="more"></a>
 
-<h2 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h2><ul>
+<blockquote>
+<p>参考文章：<a href="https://ihaoming.top/archives/c9c37af.html" rel="external nofollow noreferrer">芒果浩明</a></p>
+</blockquote>
+<h2 id="操作环境及先决条件"><a href="#操作环境及先决条件" class="headerlink" title="操作环境及先决条件"></a>操作环境及先决条件</h2><ul>
 <li>本地macOS Catalina</li>
-<li>DigitalOcean vps centOS7</li>
-<li>参考文档：<a href="https://ihaoming.top/archives/c9c37af.html" rel="external nofollow noreferrer">芒果浩明</a></li>
+<li>centOS 7的VPS</li>
 <li>本地需要的相关环境：git、nodejs、hexo、ssh-key，相关文章见<a href="https://www.annewqx.top/posts/2727/" rel="external nofollow noreferrer">hexo博客搭建入门</a></li>
 </ul>
 <h2 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h2><p>使用root身份登录服务器<code>ssh root@IP</code></p>
@@ -249,11 +251,20 @@
 <p>保存退出，执行<code>chmod +x post-receive</code>赋予可执行权限</p>
 </li>
 </ol>
-<h3 id="配置ssh免密登录"><a href="#配置ssh免密登录" class="headerlink" title="配置ssh免密登录"></a>配置ssh免密登录</h3><ol>
-<li><p>配置ssh秘钥登录(<strong>这一步可以省略，如果省略之后git部署的时候输入用户密码即可</strong>)</p>
+<h3 id="配置ssh免密登录"><a href="#配置ssh免密登录" class="headerlink" title="配置ssh免密登录"></a>配置ssh免密登录</h3><p><strong>这一步可以省略，如果省略之后git部署的时候输入git的用户密码即可</strong></p>
+<ol>
+<li><p>本地电脑创建SSH key（已有则跳过此步骤）</p>
+<blockquote>
+<p>ssh key是让我们每次登陆的时候无需输入密码，通过本机机器码验证的方式</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment"># 查看本地的SSH key</span></span><br><span class="line">   <span class="built_in">cd</span> ~/.ssh</span><br><span class="line">ls *.pub</span><br><span class="line">   <span class="comment"># 创建新的SSH key</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"email@example.com"</span></span><br><span class="line">   <span class="comment"># 将key加入用户列表，否则每次都会需要验证电脑登录密码</span></span><br><span class="line">ssh-add -k /Users/apple(Username)/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>复制<code>cat ~/.ssh/id_rsa.pub</code>的内容</p>
+</li>
+<li><p>ssh连接到服务器，配置ssh秘钥登录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/git				<span class="comment"># 切换到git用户目录</span></span><br><span class="line">mkdir .ssh				  <span class="comment"># 创建.ssh目录</span></span><br><span class="line">sudo vim .ssh/authorized_keys</span><br></pre></td></tr></table></figure>
 
-<p>将本地公钥(<code>cat ~/.ssh/id_rsa.pub</code>得到的内容)复制到<code>authorized_keys</code>文件中</p>
+<p>将复制的本地公钥粘贴到到<code>authorized_keys</code>文件中，</p>
 <p>编辑登录配置<code>sudo vim /etc/ssh/sshd_config</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#禁用密码验证</span></span><br><span class="line">PasswordAuthentication no</span><br><span class="line"><span class="comment">#启用密钥验证</span></span><br><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br></pre></td></tr></table></figure>
 
@@ -386,6 +397,21 @@
 </a>
 
                 
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
+    <span class="icon is-small">
+        <i class="fab fa-paypal"></i>
+    </span>
+    <span>Paypal</span>
+</a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form">
+    <input type="hidden" name="cmd" value="_donations" />
+    <input type="hidden" name="business" value="86BR8FGECVEYE" />
+    <input type="hidden" name="currency_code" value="USD" />
+</form>
+
+                
         </div>
     </div>
 </div>
@@ -404,8 +430,8 @@
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/posts/32573/">
-                <span class="level-item">Mac上Haskell的安装环境搭建</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/53125/">
+                <span class="level-item">编译原理与设计-Lab1-语言认知实验</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -459,9 +485,9 @@
                     目录
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#操作环境">
+        <a class="is-flex" href="#操作环境及先决条件">
         <span class="has-mr-6">1</span>
-        <span>操作环境</span>
+        <span>操作环境及先决条件</span>
         </a></li><li>
         <a class="is-flex" href="#服务器配置">
         <span class="has-mr-6">2</span>
@@ -509,7 +535,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Caddy/" style="font-size: 10px;">Caddy</a> <a href="/tags/Compilation/" style="font-size: 10px;">Compilation</a> <a href="/tags/Haskell/" style="font-size: 10px;">Haskell</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 15px;">VPS</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">mac使用技巧</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/python-anaconda/" style="font-size: 10px;">python anaconda</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 15px;">科学上网</a>
+        <a href="/tags/Caddy/" style="font-size: 10px;">Caddy</a> <a href="/tags/Compilation/" style="font-size: 10px;">Compilation</a> <a href="/tags/Haskell/" style="font-size: 10px;">Haskell</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 15px;">VPS</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">mac使用技巧</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/python-anaconda/" style="font-size: 10px;">python anaconda</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 15px;">科学上网</a>
     </div>
 </div>
     
@@ -594,7 +620,7 @@
 <script>
 var IcarusThemeSettings = {
     site: {
-        url: 'http://annewqx.top',
+        url: 'https://annewqx.top',
         external_link: {"enable":true,"exclude":[]}
     },
     article: {

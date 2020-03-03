@@ -15,21 +15,21 @@
     <meta name="description" content="VPS服务器的创建、Shadowsocks的配置  最新文章ss to v2ray中，建议更换ss为v2ray">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VPS和Shadowsocks配置">
-<meta property="og:url" content="http://annewqx.top/posts/9931/index.html">
+<meta property="og:url" content="https://annewqx.top/posts/9931/index.html">
 <meta property="og:site_name" content="Annewqx">
 <meta property="og:description" content="VPS服务器的创建、Shadowsocks的配置  最新文章ss to v2ray中，建议更换ss为v2ray">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://annewqx.top/images/og_image.png">
+<meta property="og:image" content="https://annewqx.top/images/og_image.png">
 <meta property="article:published_time" content="2020-02-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-03-02T17:41:00.363Z">
+<meta property="article:modified_time" content="2020-03-03T03:27:19.918Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="vps vpn 服务器 科学上网 shadowsocks">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://annewqx.top/images/og_image.png">
+<meta name="twitter:image" content="https://annewqx.top/images/og_image.png">
 
 
 
-<link rel="canonical" href="http://www.annewqx.top/" />
+<link rel="canonical" href="https://www.annewqx.top/" />
 
 
 
@@ -189,7 +189,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    9 分钟 读完 (大约 1322 个字)
+                    9 分钟 读完 (大约 1414 个字)
                 </span>
                 
                 
@@ -217,8 +217,8 @@
 <blockquote>
 <p>参考网址</p>
 <ul>
-<li>基本ssh安装配置：<a href="https://jerryzou.com/posts/shadowsocks-and-digitalocean/" rel="external nofollow noreferrer">Jerryzhou</a></li>
-<li>进阶使用：<a href="https://www.itrhx.com/2020/01/10/A61-build-a-SSR-server-with-VPS/" rel="external nofollow noreferrer">itrhx</a></li>
+<li><a href="https://jerryzou.com/posts/shadowsocks-and-digitalocean/" rel="external nofollow noreferrer">Jerryzhou-shadowsocks的基本安装配置</a></li>
+<li><a href="https://www.itrhx.com/2020/01/10/A61-build-a-SSR-server-with-VPS/" rel="external nofollow noreferrer">itrhs-进阶使用</a></li>
 </ul>
 </blockquote>
 <h2 id="1-注册和创建Droplets"><a href="#1-注册和创建Droplets" class="headerlink" title="1 注册和创建Droplets"></a>1 注册和创建Droplets</h2><blockquote>
@@ -228,21 +228,24 @@
 <p>非CentOS7可能导致后续出现python等缺失</p>
 </blockquote>
 <ol>
-<li><p>本地创建SSH key（已有就跳过）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看本地的SSH key</span></span><br><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line">ls *.pub</span><br><span class="line"><span class="comment">#创建新的SSH key</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"email@example.com"</span></span><br></pre></td></tr></table></figure>
+<li><p>本地创建SSH key（已有则跳过此步骤）</p>
+<blockquote>
+<p>ssh key是让我们每次登陆的时候无需输入密码，通过本机机器码验证的方式</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看本地的SSH key</span></span><br><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line">ls *.pub</span><br><span class="line"><span class="comment"># 创建新的SSH key</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"email@example.com"</span></span><br><span class="line"><span class="comment"># 将key加入用户列表，否则每次都会需要验证电脑登录密码</span></span><br><span class="line">ssh-add -k /Users/m/.ssh/id_rsa</span><br><span class="line"><span class="comment"># 复制本地公钥</span></span><br><span class="line">cat  ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>将公钥添加到DO账号Security中</p>
 </li>
-<li><p>这个时候可以本机公钥即可远程登录服务器，当然不配置也可以使用密码登录的方式</p>
+<li><p>这个时候使用本机公钥即可远程登录服务器，当然不配置也可以使用密码登录的方式</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@IP地址</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>修改密钥登陆为密码登陆的方法：</p>
-<ol>
-<li>编辑ssh配置文件 <code>vi /etc/ssh/sshd_config</code></li>
-<li>允许根用户登录 <code>PermitRootLogin yes</code></li>
-<li>打开密码登录 <code>PasswordAuthentication no</code></li>
-<li>重启ssh服务 <code>service sshd restart</code></li>
-</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑ssh配置文件 </span></span><br><span class="line">vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+
+<p>找到以下字段，并修改为：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">PermitRootLogin</span> <span class="literal">yes</span>  		<span class="comment"># 允许根用户登录</span></span><br><span class="line"><span class="string">PasswordAuthentication</span> <span class="literal">no</span>	 <span class="comment"># 打开密码登录</span></span><br></pre></td></tr></table></figure>
+
+<p>重启ssh服务<code>service sshd restart</code></p>
 </blockquote>
 </li>
 </ol>
@@ -324,7 +327,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/VPS/" rel="tag">VPS</a>, <a class="has-link-grey -link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a>
+                    <a class="has-link-grey -link" href="/tags/VPS/" rel="tag">VPS</a>, <a class="has-link-grey -link" href="/tags/ssh/" rel="tag">ssh</a>, <a class="has-link-grey -link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a>
                 </div>
             </div>
         </div>
@@ -359,6 +362,21 @@
     <span>微信</span>
     <div class="qrcode"><img src="/images/wechatpay.jpg" alt="微信"></div>
 </a>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
+    <span class="icon is-small">
+        <i class="fab fa-paypal"></i>
+    </span>
+    <span>Paypal</span>
+</a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form">
+    <input type="hidden" name="cmd" value="_donations" />
+    <input type="hidden" name="business" value="86BR8FGECVEYE" />
+    <input type="hidden" name="currency_code" value="USD" />
+</form>
 
                 
         </div>
@@ -456,7 +474,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Caddy/" style="font-size: 10px;">Caddy</a> <a href="/tags/Compilation/" style="font-size: 10px;">Compilation</a> <a href="/tags/Haskell/" style="font-size: 10px;">Haskell</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 15px;">VPS</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">mac使用技巧</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/python-anaconda/" style="font-size: 10px;">python anaconda</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 15px;">科学上网</a>
+        <a href="/tags/Caddy/" style="font-size: 10px;">Caddy</a> <a href="/tags/Compilation/" style="font-size: 10px;">Compilation</a> <a href="/tags/Haskell/" style="font-size: 10px;">Haskell</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 15px;">VPS</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/mac%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">mac使用技巧</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/python-anaconda/" style="font-size: 10px;">python anaconda</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 15px;">科学上网</a>
     </div>
 </div>
     
@@ -541,7 +559,7 @@
 <script>
 var IcarusThemeSettings = {
     site: {
-        url: 'http://annewqx.top',
+        url: 'https://annewqx.top',
         external_link: {"enable":true,"exclude":[]}
     },
     article: {
