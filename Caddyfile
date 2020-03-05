@@ -1,0 +1,14 @@
+annewqx.top{
+redir https://annewqx.top{uri}
+}
+annewqx.top {
+    root /var/www/annewqx.top
+    gzip
+    tls annewqx@outlook.com
+    header / Strict-Transport-Security "max-age=31536000"
+    gzip
+    errors {
+       404 404.html
+       403 403.html
+     } 
+}
