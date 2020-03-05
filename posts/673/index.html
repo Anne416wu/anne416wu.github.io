@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.annewqx.top/images/og_image.png">
 <meta property="article:published_time" content="2020-03-03T10:02:04.000Z">
-<meta property="article:modified_time" content="2020-03-05T18:24:11.213Z">
+<meta property="article:modified_time" content="2020-03-05T18:37:01.241Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="编译原理 编译器 gcc clang llvm">
 <meta name="twitter:card" content="summary">
@@ -243,7 +243,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -fdump-tree-all hello.c</span><br></pre></td></tr></table></figure>
 
 <p>生成的文件列表，使用<code>ls -ltr</code> 查看(按生成顺序倒序排列)</p>
-<img src="Screenshot2020-03-0321.36.26.png" alt="执行命令后产生的文件列表" style="zoom: 33%;" />
+<img src="Screenshot2020-03-0321.36.26.png" alt="执行命令后产生的文件列表" />
 
 <p>查看中间代码生成结果</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -fdump-rtl-all hello.c</span><br></pre></td></tr></table></figure>
@@ -277,7 +277,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang -ccc-print-phases test.c -c</span><br></pre></td></tr></table></figure>
 
 <p>终端的输出：</p>
-<img src="Screenshot2020-03-0321.59.14.png" alt="终端的输出" style="zoom:50%;" />
+<img src="Screenshot2020-03-0321.59.14.png" alt="终端的输出"  />
 </li>
 <li><p>查看词法分析结果</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang test.c -fsyntax-only -Xclang -dump-tokens</span><br></pre></td></tr></table></figure>
@@ -286,31 +286,31 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang test.c  -fsyntax-only -Xclang -dump-raw-tokens</span><br></pre></td></tr></table></figure>
 
 <p>生成的结果：</p>
-<img src="Screenshot2020-03-0322.43.03.png" alt="终端的输出" style="zoom:33%;" />
+<img src="Screenshot2020-03-0322.43.03.png" alt="终端的输出"  />
 </li>
 <li><p>查看语义分析结果</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clang test.c -Xclang -ast-dump <span class="comment"># error link</span></span><br><span class="line">clang -fsyntax-only -Xclang -ast-dump test.c</span><br></pre></td></tr></table></figure>
 
 <p>部分结果：</p>
-<img src="Screenshot2020-03-0322.44.20.png" alt="终端输出的末尾" style="zoom:20%;" />
+<img src="Screenshot2020-03-0322.44.20.png" alt="终端输出的末尾"  />
 </li>
 <li><p>查看语义分析结果 2</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clang test.c -Xclang -ast-view    <span class="comment"># clang: error: linker command failed with exit code 1 </span></span><br><span class="line">clang test.c -fsyntax-only -Xclang -ast-view  <span class="comment"># 因为缺乏gv环境 此命令未能得到成功结果</span></span><br></pre></td></tr></table></figure>
 
 <p>部分结果：</p>
-<img src="Screenshot2020-03-0322.51.40.png" alt="终端的输出" style="zoom:20%;" />
+<img src="Screenshot2020-03-0322.51.40.png" alt="终端的输出"  />
 </li>
 <li><p>查看编译优化的结果:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang test.c -S -mllvm -<span class="built_in">print</span>-after-all</span><br></pre></td></tr></table></figure>
 
 <p>部分结果：</p>
-<img src="Screenshot2020-03-0323.03.18.png" alt="终端输出的末尾" style="zoom:20%;" />
+<img src="Screenshot2020-03-0323.03.18.png" alt="终端输出的末尾"  />
 </li>
 <li><p>查看生成的目标代码结果 Target code generation</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang –S test.c</span><br></pre></td></tr></table></figure>
 
 <p>生成的目标代码文件开头：</p>
-<img src="Screenshot2020-03-0323.07.04.png" alt="test.s文件" style="zoom:30%;" />
+<img src="Screenshot2020-03-0323.07.04.png" alt="test.s文件"  />
 
 </li>
 </ul>
@@ -332,7 +332,7 @@
 </ul>
 <h4 id="语法分析树"><a href="#语法分析树" class="headerlink" title="语法分析树"></a>语法分析树</h4><ul>
 <li><p>运行<code>gcc -fdump-tree-all hello.c</code>后，一共生成了22个文件，其命名格式均为<code>filename.c.&lt;num&gt;t.name</code></p>
-  <img src="Screenshot2020-03-0522.08.47-3423784.png" alt="Screenshot2020-03-0522.08.47" style="zoom: 30%;" />
+  <img src="Screenshot2020-03-0522.08.47-3423784.png" alt="Screenshot2020-03-0522.08.47"  />
 </li>
 <li><p>分析这22个文件内容(顺序为生成的先后顺序)：</p>
 <ul>
@@ -395,7 +395,7 @@
 <p>考虑到平台的通用性，gcc生成了一套通用的RTL结构，将在RTL的基础上转化为目标代码</p>
 </blockquote>
 <p>使用<code>gcc -fdump-tree-all hello.c</code> 查看生成的中间结果</p>
-<img src="Screenshot2020-03-0522.36.09.png" alt="Screenshot2020-03-0522.36.09" style="zoom:30%;" />
+<img src="Screenshot2020-03-0522.36.09.png" alt="Screenshot2020-03-0522.36.09"  />
 
 <ul>
 <li><p>生成RTL</p>
@@ -476,10 +476,10 @@
 <p>优化编译测试文件采用<a href="https://www.annewqx.top/posts/53125/">Lab1</a>中的快速排序代码</p>
 <h3 id="GCC优化编译"><a href="#GCC优化编译" class="headerlink" title="GCC优化编译"></a>GCC优化编译</h3><ul>
 <li><p>规模为50000的1000000以内的不重复随机数(算法效率$O(log_n))$</p>
-<img src="Screenshot2020-03-0523.55.03.png" alt="Screenshot2020-03-0523.55.03" style="zoom:50%;" />
+<img src="Screenshot2020-03-0523.55.03.png" alt="Screenshot2020-03-0523.55.03"  />
 </li>
 <li><p>规模为50000的逆序排列(算法效率$O(n^2)$)</p>
-<img src="Screenshot2020-03-0523.57.14.png" alt="Screenshot2020-03-0523.57.14" style="zoom:50%;" />
+<img src="Screenshot2020-03-0523.57.14.png" alt="Screenshot2020-03-0523.57.14"  />
 </li>
 <li><p>每组实验重复5次，最后运行时间取平均数，单位为ms</p>
 <table>
@@ -517,10 +517,10 @@
 </ul>
 <h3 id="LLVM优化编译"><a href="#LLVM优化编译" class="headerlink" title="LLVM优化编译"></a>LLVM优化编译</h3><ul>
 <li><p>规模为50000的1000000以内的不重复随机数</p>
-<img src="Screenshot2020-03-0523.58.45.png" alt="Screenshot2020-03-0523.58.45" style="zoom:50%;" />
+<img src="Screenshot2020-03-0523.58.45.png" alt="Screenshot2020-03-0523.58.45"  />
 </li>
 <li><p>规模为50000的逆序排列</p>
-<img src="Screenshot2020-03-0600.00.30.png" alt="Screenshot2020-03-0600.00.30" style="zoom:50%;" />
+<img src="Screenshot2020-03-0600.00.30.png" alt="Screenshot2020-03-0600.00.30"  />
 </li>
 <li><p>每组实验重复5次，最后运行时间取平均数，单位为ms</p>
 <table>
