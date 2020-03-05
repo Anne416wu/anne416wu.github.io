@@ -180,12 +180,6 @@
     
 <div class="card">
     
-    <div class="card-image">
-        <a href="/posts/673/" class="image is-7by1">
-            <img class="thumbnail" src="/gallery/thumbnails/" alt="编译原理与设计-Lab2-编译器认知实验">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
@@ -201,7 +195,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    29 分钟 读完 (大约 4302 个字)
+                    29 分钟 读完 (大约 4306 个字)
                 </span>
                 
                 
@@ -214,376 +208,17 @@
             
         </h1>
         <div class="content">
-            <a id="more"></a>
-
-<!--more-->
-
-<h1 id="编译原理与设计-Lab2-编译器认知实验"><a href="#编译原理与设计-Lab2-编译器认知实验" class="headerlink" title="编译原理与设计-Lab2-编译器认知实验"></a>编译原理与设计-Lab2-编译器认知实验</h1><h2 id="实验目的和内容"><a href="#实验目的和内容" class="headerlink" title="实验目的和内容"></a>实验目的和内容</h2><p>本实验主要的内容为在 Linux 平台上安装和运行工业界常用的编译器 GCC 和 LLVM，如果系统中没有安装，则需要首先安装编译器，安装完成后编写简单的测 试程序，使用编译器编译，并观察中间输出结果。</p>
-<h2 id="实现的内容与方法"><a href="#实现的内容与方法" class="headerlink" title="实现的内容与方法"></a>实现的内容与方法</h2><h3 id="1-编译器安装"><a href="#1-编译器安装" class="headerlink" title="1 编译器安装"></a>1 编译器安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装gcc8</span></span><br><span class="line">brew install gcc@8</span><br><span class="line"><span class="comment"># 安装clang</span></span><br><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-编写测试程序"><a href="#2-编写测试程序" class="headerlink" title="2 编写测试程序"></a>2 编写测试程序</h3><ul>
-<li><p>单个程序</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"hello\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>多个程序</p>
-<p><code>cal.c</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> num1, num2;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;num1,&amp;num2);</span><br><span class="line">	<span class="keyword">int</span> res = add(num1,num2);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, res);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>add.c</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"add.h"</span></span></span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>&#123;</span><br><span class="line">  	<span class="keyword">return</span> num1+num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="3-运行编译器进行观测"><a href="#3-运行编译器进行观测" class="headerlink" title="3 运行编译器进行观测"></a>3 运行编译器进行观测</h3><h4 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a>GCC</h4><ul>
-<li><p>查看编译器版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -v</span><br><span class="line">$ gcc version 8.3.0 (Homebrew GCC 8.3.0_2)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用gcc编译单个文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o hello hello.c</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用gcc编译链接多个文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o cal cal.c add.c</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看预处理结果</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -E hello.c -o hello.i</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看语法分析树</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -fdump-tree-all hello.c</span><br></pre></td></tr></table></figure>
-
-<p>生成的文件列表，使用<code>ls -ltr</code> 查看(按生成顺序倒序排列)</p>
-<img src="Screenshot2020-03-0321.36.26.png" alt="执行命令后产生的文件列表" style="zoom: 33%;" />
-
-<p>查看中间代码生成结果</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -fdump-rtl-all hello.c</span><br></pre></td></tr></table></figure>
-
-<p>生成的文件列表，使用<code>ls -ltr</code> 查看(按生成顺序倒序排列)</p>
-<img src="Screenshot2020-03-0321.37.11.png" alt="执行命令后产生的文件列表" style="zoom:33%;" />
-
-
-</li>
-</ul>
-<ul>
-<li><p>查看生成的目标代码(汇编代码)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o hello.asm -S hello.c</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="LLVM"><a href="#LLVM" class="headerlink" title="LLVM"></a>LLVM</h4><ul>
-<li><p>查看编译器的版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang -v</span><br></pre></td></tr></table></figure>
-
-<p>返回结果</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Apple clang version 11.0.0 (clang-1100.0.33.17)</span><br><span class="line">Target: x86_64-apple-darwin19.3.0</span><br><span class="line">Thread model: posix</span><br><span class="line">InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用编译器编译单个文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang -o hello hello.c</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用编译器编译链接多个文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang -o cal cal.c add.c</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看编译流程和阶段</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang -ccc-print-phases test.c -c</span><br></pre></td></tr></table></figure>
-
-<p>终端的输出：</p>
-<img src="Screenshot2020-03-0321.59.14.png" alt="终端的输出" style="zoom:50%;" />
-</li>
-<li><p>查看词法分析结果</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang test.c -fsyntax-only -Xclang -dump-tokens</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看词法分析结果 2:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang test.c  -fsyntax-only -Xclang -dump-raw-tokens</span><br></pre></td></tr></table></figure>
-
-<p>生成的结果：</p>
-<img src="Screenshot2020-03-0322.43.03.png" alt="终端的输出" style="zoom:33%;" />
-</li>
-<li><p>查看语义分析结果</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clang test.c -Xclang -ast-dump <span class="comment"># error link</span></span><br><span class="line">clang -fsyntax-only -Xclang -ast-dump test.c</span><br></pre></td></tr></table></figure>
-
-<p>部分结果：</p>
-<img src="Screenshot2020-03-0322.44.20.png" alt="终端输出的末尾" style="zoom:20%;" />
-</li>
-<li><p>查看语义分析结果 2</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clang test.c -Xclang -ast-view    <span class="comment"># clang: error: linker command failed with exit code 1 </span></span><br><span class="line">clang test.c -fsyntax-only -Xclang -ast-view  <span class="comment"># 因为缺乏gv环境 此命令未能得到成功结果</span></span><br></pre></td></tr></table></figure>
-
-<p>部分结果：</p>
-<img src="Screenshot2020-03-0322.51.40.png" alt="终端的输出" style="zoom:20%;" />
-</li>
-<li><p>查看编译优化的结果:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang test.c -S -mllvm -<span class="built_in">print</span>-after-all</span><br></pre></td></tr></table></figure>
-
-<p>部分结果：</p>
-<img src="Screenshot2020-03-0323.03.18.png" alt="终端输出的末尾" style="zoom:20%;" />
-</li>
-<li><p>查看生成的目标代码结果 Target code generation</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang –S test.c</span><br></pre></td></tr></table></figure>
-
-<p>生成的目标代码文件开头：</p>
-<img src="Screenshot2020-03-0323.07.04.png" alt="test.s文件" style="zoom:30%;" />
-
-</li>
-</ul>
-<h2 id="运行结果分析"><a href="#运行结果分析" class="headerlink" title="运行结果分析"></a>运行结果分析</h2><p><img src="https://images2017.cnblogs.com/blog/856214/201708/856214-20170831203214640-1792176674.png" alt="img"></p>
-<h3 id="GCC-运行结果分析"><a href="#GCC-运行结果分析" class="headerlink" title="GCC 运行结果分析"></a>GCC 运行结果分析</h3><blockquote>
-<p><a href="https://blog.csdn.net/njys1/article/details/53448558" rel="external nofollow noreferrer">GCC进行编译的大概步骤：</a></p>
-<p>词法分析 –&gt;  语法分析 –&gt;  生成语法树 –&gt; 高级gimple –&gt;  低级gimple  –&gt;  cfg  –&gt; ssa –&gt;RTL –&gt;目标代码(汇编代码)</p>
-<p><a href="https://blog.csdn.net/doniexun/article/details/38324577" rel="external nofollow noreferrer">GENERIC、GIMPLE和RTL三者构成了gcc中间语言的全部，它们以GIMPLE为核心，由GENERIC承上，由RTL启下，在源文件和目标指令之间的鸿沟之上构建了一个三层的过渡。</a></p>
-</blockquote>
-<h4 id="预处理结果"><a href="#预处理结果" class="headerlink" title="预处理结果"></a>预处理结果</h4><ul>
-<li><p>运行<code>gcc -E hello.c –o hello.i</code>，将会产生 hello.i 文件，这就是 hello.c 经过预处理后的文件。原本4行的程序，经过预处理，得到了580行的预处理文件</p>
-<p>预处理文件开头：</p>
-<p><img src="Screenshot2020-03-0521.27.27.png" alt="文件开头"></p>
-<p>预处理文件结尾：</p>
-<p><img src="Screenshot2020-03-0521.28.30.png" alt="Screenshot2020-03-0521.28.30"></p>
-</li>
-<li><p>可以看到， hello.c 经过预处理后得到的 hello.i文件，除了原本的几行代码之外，还包含了很多额外的变量、函数等等，这些都是预处理器处理的结果。</p>
-</li>
-</ul>
-<h4 id="语法分析树"><a href="#语法分析树" class="headerlink" title="语法分析树"></a>语法分析树</h4><ul>
-<li><p>运行<code>gcc -fdump-tree-all hello.c</code>后，一共生成了22个文件，其命名格式均为<code>filename.c.&lt;num&gt;t.name</code></p>
-  <img src="Screenshot2020-03-0522.08.47-3423784.png" alt="Screenshot2020-03-0522.08.47" style="zoom: 30%;" />
-</li>
-<li><p>分析这22个文件内容(顺序为生成的先后顺序)：</p>
-<ul>
-<li>046t.profile_estimate/318t.statistics为空白；</li>
-<li>007t.lower/010t.eh相同；</li>
-<li>012t.ompexp/013t.printf-return-value1/019t.fixup_cfg1相同；</li>
-<li>020t.ssa/027t.fixup_cfg3/029t.einline/088t.fixup_cfg4/222t.veclower/223t.cplxlower0/225t.switchlower/232t.optimized相同</li>
-<li>028t.local-fnsummary1/050t.local-fnsummary2相同</li>
-<li>其余还有004t.gimple/006t.omplower/011t.cfg /049t.release_ssa 不与其他相同</li>
-</ul>
-</li>
-<li><p>以下重点对比源文件与004t.gimple/010(即007t.lower)/013的区别，其排序与生成顺序一致<br>  <img src="Screenshot2020-03-0520.38.22.png" alt="Screenshot2020-03-0520.38.22"></p>
-</li>
-</ul>
-<ol>
-<li><p><strong>main函数转变为高端gimple的过程</strong> ：004t.Gimple</p>
-<blockquote>
-<p>GCC 利用 “gimplifier” 将 GENERIC 中间表示转换为 GIMPLE中间表示。</p>
-<p>语法树到高端gimple的转化是以语法树的节点为单位进行遍历的</p>
-</blockquote>
-<ul>
-<li>以函数为单位进行转化，并且将函数内部的所有变量以及编译器为方便生成运行时结构所创建的临时变量都提高到函数最开始的位置，为计算栈空间和使用寄存器提供依据</li>
-<li>将函数执行语句集中到一起，并且其顺序与语法树种所表现的顺序一致，为配合运行时结构会增减一些语句</li>
-</ul>
-</li>
-<li><p><strong>return语句转低端gimple的处理</strong>：007t.lower/010t.eh：</p>
-<blockquote>
-<p>GIMPLE中有一个lower的动作，用于将高层次的GIMPLE表示，解析成低层次的，这个lower动作在pass_lower_cf中完成。</p>
-<p>高端gimple到低端gimple主要完成数据合并，代码合并和返回语句合并，有利于最后生成更规整的后端代码</p>
-</blockquote>
-<ul>
-<li>在gimple_return语句的位置插入一条goto lable跳转语句</li>
-<li>将gimple_return语句暂存起来，将gimple语句序列中的gimple_return语句删掉</li>
-<li>待所有的语句都lower gimple转换完之后，再将gimple_return语句做gimple_return的处理，处理过程是先添加一个标号，以便于第一句的goto  lable对应上，然后再把return  语句插入gimple语句序列</li>
-</ul>
-</li>
-</ol>
-<blockquote>
-<p>经过以上处理得到的低端gimple已经足以支持生成最终的目标代码，确定运行时结构了，但是gcc考虑到优化，在此基础上转化了cfg和ssa结构</p>
-</blockquote>
-<ol start="3">
-<li><p><strong>低端gimple到cfg结构中间代码</strong>：012t.ompexp/013t.printf-return-value1/019t.fixup_cfg1</p>
-<blockquote>
-<p>GCC设计cfg ( control  flow  graph ) 主要是用于函数内部的控制流转化，跨函数间的逻辑优化由于逻辑比较复杂，GCC目前还没有完成</p>
-<p>cfg的主要作用是在低端gimple的基础上将语句分成几个基本块(basic block)，在基本块内，代码是顺序执行的，不存在跳转语句，如果有跳转语句，则放在块的最后，保证跳转只发生在块与块之间，即在gimple中，指令跳转的语句就是基本块的边界</p>
-</blockquote>
-<ul>
-<li>013t与之后生成的hello.c.019t.fixup_cfg1/hello.c.027t.fixup_cfg3内容一致。相比007t.lower/010t.eh，语句被划分为几块，goto语句被取代。</li>
-</ul>
-</li>
-<li><p><strong>cfg转ssa</strong>：020t.ssa</p>
-<blockquote>
-<p>为每个变量增加一个版本号，用于数据流的优化，它的结构是跟低端gimple的结构相同的</p>
-</blockquote>
-<p>  如下cfs1与ssa的对比，变量int下多了一个版本号</p>
-<p><img src="Screenshot2020-03-0522.28.18.png" alt="Screenshot2020-03-0522.28.18"></p>
-</li>
-</ol>
-<h4 id="中间结果及目标代码"><a href="#中间结果及目标代码" class="headerlink" title="中间结果及目标代码"></a>中间结果及目标代码</h4><blockquote>
-<p>考虑到平台的通用性，gcc生成了一套通用的RTL结构，将在RTL的基础上转化为目标代码</p>
-</blockquote>
-<p>使用<code>gcc -fdump-tree-all hello.c</code> 查看生成的中间结果</p>
-<img src="Screenshot2020-03-0522.36.09.png" alt="Screenshot2020-03-0522.36.09" style="zoom:30%;" />
-
-<ul>
-<li><p>生成RTL</p>
-<p>由于GCC是支持多种平台的，在不同的平台上生成的汇编代码的格式肯定是不同的，如果为每个平台的汇编代码都写一套优化逻辑，是不太现实的，为了解决这个问题，GCC提供了一种中间形式的汇编语言RTL(Register  Transfer  Language)，它与具体的平台无关，这样所有的优化都可以基于RTL了，在所有的优化完成之后，再转变成针对不同硬件平台的汇编代码，每一条RTL语句称为一条insn语句</p>
-</li>
-<li><p>转化为RTL阶段的主要步骤</p>
-<ul>
-<li>转化为初始的RTL</li>
-<li>明确初始的RTL中的运行时结构信息，此时把虚拟寄存器更新为真实的寄存器</li>
-</ul>
-</li>
-<li><p>RTL生成目标代码，也就是汇编代码，<code>gcc -o hello.asm -S hello.c</code> 查看</p>
-<p>﻿<img src="Screenshot2020-03-0522.41.55.png" alt="hello.c源文件与hello.asm对比"></p>
-</li>
-</ul>
-<h3 id="LLVM-运行结果分析"><a href="#LLVM-运行结果分析" class="headerlink" title="LLVM 运行结果分析"></a><a href="">LLVM 运行结果分析</a></h3><ul>
-<li><p>查看编译流程和阶段<code>clang -ccc-print-phases test.c -c</code></p>
-<p>返回的结果</p>
-<p><img src="Screenshot2020-03-0321.59.14.png" alt="终端的输出"></p>
-<ul>
-<li>0：获得源代码<code>main.c</code>，c语言文件</li>
-<li>1：预处理阶段，做相应处理</li>
-<li>2：编译阶段</li>
-<li>3：步骤通过后端进行汇编前的处理</li>
-<li>4：汇编阶段</li>
-<li>5：链接阶段，做相应处理<br>通过如上步骤可以了解到整个过程以及过程中的一些信息。例如首先进行的预处理操作可以使用如下命令查看具体信息：</li>
-</ul>
-</li>
-</ul>
-<ol>
-<li><p>预处理阶段 <code>clang -E test.c</code></p>
-<p>这个过程包括宏的替换，头文件的导入等等</p>
-</li>
-<li><p>词法分析</p>
-<p>在此步骤会把代码切成一个个Token，比如大小括号，等于号还有字符串等。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 词法分析1</span></span><br><span class="line">clang -fsyntax-only -Xclang -dump-tokens test.c</span><br><span class="line"><span class="comment"># 词法分析2</span></span><br><span class="line">clang test.c  -fsyntax-only -Xclang -dump-raw-tokens</span><br></pre></td></tr></table></figure>
-
-<p>图片中依次为词法分析1，词法分析2和源文件</p>
-<p><img src="Screenshot2020-03-0523.09.17.png" alt="Screenshot2020-03-0523.09.17"></p>
-<p>可以看到，-dump-raw-tokens仅仅输出我们编写的test.c的词法分析结果，而-dump-tokens输出还包括所有头文件的词法分析结果</p>
-</li>
-<li><p>语法分析</p>
-<p>验证程序的语法是否正确，然后将所有的节点组成抽象语法树AST</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 语法分析1</span></span><br><span class="line">clang -fsyntax-only -Xclang -ast-dump test.c</span><br><span class="line"><span class="comment"># 语法分析2</span></span><br><span class="line">clang test.c -fsyntax-only -Xclang -ast-view  <span class="comment"># 因为缺乏gv环境 此命令未能得到成功结果</span></span><br></pre></td></tr></table></figure>
-
-<p>下图依次是语法分析1得到的抽象语法树ast，语法分析2的得到的语法树生成图的源文件。test.c的源代码</p>
-<p><img src="Screenshot2020-03-0523.17.14.png" alt="Screenshot2020-03-0523.17.14"></p>
-</li>
-<li><p>这些步骤完成之后就要开始进行IR中间代码的生成了，代码生成器CodeGen会负责将语法树自顶向下遍历逐步翻译成LLVM IR，IR就是编译过程的前端的输出以及后端的输入；此步骤LLVM会去做些优化工作，在Xcode的编译设置里也可以设置优化的级别-01，-03，-0s等；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看生成的IR中间代码</span></span><br><span class="line">clang -S -fobjc-arc -emit-llvm main.m -o main.ll</span><br><span class="line"><span class="comment"># 查看LLVM编译优化的结果</span></span><br><span class="line">clang test.c -S -mllvm -<span class="built_in">print</span>-after-all</span><br></pre></td></tr></table></figure>
-
-<p>下图依次为中间代码，LLVM编译优化的结果</p>
-<p><img src="Screenshot2020-03-0523.27.37.png" alt="Screenshot2020-03-0523.27.37"></p>
-</li>
-<li><p>生成汇编文件<code>clang –S test.c</code></p>
-<p>下图左为源文件，右为生成的汇编代码</p>
-<p><img src="Screenshot2020-03-0523.30.49.png" alt="Screenshot2020-03-0523.30.49"></p>
-</li>
-</ol>
-<h3 id="GCC-与-LLVM-对比分析"><a href="#GCC-与-LLVM-对比分析" class="headerlink" title="GCC 与 LLVM 对比分析"></a>GCC 与 LLVM 对比分析</h3><p>源文件均为C语言的hello world</p>
-<p>下图左为gcc生成的汇编文件，右为llvm生成的汇编文件</p>
-<p><img src="Screenshot2020-03-0523.31.58.png" alt="Screenshot2020-03-0523.31.58"></p>
-<h2 id="优化编译"><a href="#优化编译" class="headerlink" title="优化编译"></a>优化编译</h2><blockquote>
-<p><a href="https://blog.csdn.net/qq_31108501/article/details/51842166" rel="external nofollow noreferrer">gcc提供了从O0-O3以及Os这几种不同的优化级别供大家选择</a></p>
-<ul>
-<li>O0： 不做任何优化，这是默认的编译选项。 </li>
-<li>-O和-O1： 对程序做部分编译优化，对于大函数,优化编译占用稍微多的时间和相当大的内存。使用本项优化，编译器会尝试减小生成代码的尺寸，以及缩短执行时间，但并不执行需要占用大量编译时间的优化。 </li>
-<li>-O2： 是比O1更高级的选项，进行更多的优化。Gcc将执行几乎所有的不包含时间和空间折中的优化。当设置O2选项时，编译器并不进行循环打开（）loop unrolling以及函数内联。与O1比较而言，O2优化增加了编译时间的基础上，提高了生成代码的执行效率。 </li>
-<li>-O3： 比O2更进一步的进行优化。在包含了O2所有的优化的基础上，又打开了以下优化选项： <ul>
-<li>-finline-functions：内联简单的函数到被调用函数中。由编译器启发式的决定哪些函数足够简单可以做这种内联优化。默认情况下，编译器限制内联的尺寸，3.4.6中限制为600（具体含义不详，指令条数或代码size？）可以通过-finline-limit=n改变这个长度。这种优化技术不为函数创建单独的汇编语言代码， 而是把函数代码包含在调度程序的代码中。 对于多次被调用的函数来说, 为每次函数调用复制函数代码。 虽然这样对于减少代码长度不利, 但是通过最充分的利用指令缓存代码, 而不是在每次函数调用时进行分支操作, 可以提高性能。 </li>
-<li>-fweb：构建用于保存变量的伪寄存器网络。 伪寄存器包含数据, 就像他们是寄存器一样, 但是可以使用各种其他优化技术进行优化, 比如cse和loop优化技术。这种优化会使得调试变得更加的不可能，因为变量不再存放于原本的寄存器中。 </li>
-<li>-frename-registers：在寄存器分配后，通过使用registers left over来避免预定代码中的虚假依赖。这会使调试变得非常困难，因为变量不再存放于原本的寄存器中了。 </li>
-<li>-funswitch-loops：将无变化的条件分支移出循环，取而代之的将结果副本放入循环中。</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<p>优化编译测试文件采用<a href="https://www.annewqx.top/posts/53125/">Lab1</a>中的快速排序代码</p>
-<h3 id="GCC优化编译"><a href="#GCC优化编译" class="headerlink" title="GCC优化编译"></a>GCC优化编译</h3><ul>
-<li><p>规模为50000的1000000以内的不重复随机数(算法效率$O(log_n))$</p>
-<img src="Screenshot2020-03-0523.55.03.png" alt="Screenshot2020-03-0523.55.03" style="zoom:50%;" />
-</li>
-<li><p>规模为50000的逆序排列(算法效率$O(n^2)$)</p>
-<img src="Screenshot2020-03-0523.57.14.png" alt="Screenshot2020-03-0523.57.14" style="zoom:50%;" />
-</li>
-<li><p>每组实验重复5次，最后运行时间取平均数，单位为ms</p>
-<table>
-<thead>
-<tr>
-<th><strong>优化方式</strong></th>
-<th><strong>O(logn)</strong></th>
-<th><strong>O(N^2)</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-O0</td>
-<td>6</td>
-<td>2830</td>
-</tr>
-<tr>
-<td>-O1</td>
-<td>3</td>
-<td>505.4</td>
-</tr>
-<tr>
-<td>-O2</td>
-<td>4</td>
-<td>835</td>
-</tr>
-<tr>
-<td>-O3</td>
-<td>3</td>
-<td>567</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>gcc四种优化编译效率对比<img src="Screenshot2020-03-0600.45.28.png" alt="Screenshot2020-03-0600.45.28"></p>
-</li>
-</ul>
-<h3 id="LLVM优化编译"><a href="#LLVM优化编译" class="headerlink" title="LLVM优化编译"></a>LLVM优化编译</h3><ul>
-<li><p>规模为50000的1000000以内的不重复随机数</p>
-<img src="Screenshot2020-03-0523.58.45.png" alt="Screenshot2020-03-0523.58.45" style="zoom:50%;" />
-</li>
-<li><p>规模为50000的逆序排列</p>
-<img src="Screenshot2020-03-0600.00.30.png" alt="Screenshot2020-03-0600.00.30" style="zoom:50%;" />
-</li>
-<li><p>每组实验重复5次，最后运行时间取平均数，单位为ms</p>
-<table>
-<thead>
-<tr>
-<th><strong>优化方式</strong></th>
-<th><strong>O(logn)</strong></th>
-<th><strong>O(N^2)</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-O0</td>
-<td>6</td>
-<td>2368</td>
-</tr>
-<tr>
-<td>-O1</td>
-<td>3</td>
-<td>567</td>
-</tr>
-<tr>
-<td>-O2</td>
-<td>3</td>
-<td>574</td>
-</tr>
-<tr>
-<td>-O3</td>
-<td>3</td>
-<td>556</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<p>llvm四种优化编译效率对比</p>
-<p><img src="Screenshot2020-03-0600.51.28.png" alt="Screenshot2020-03-0600.51.28"></p>
-<h3 id="GCC与LLVM优化编译效果对比"><a href="#GCC与LLVM优化编译效果对比" class="headerlink" title="GCC与LLVM优化编译效果对比"></a>GCC与LLVM优化编译效果对比</h3><p><img src="Screenshot2020-03-0600.52.06.png" alt="Screenshot2020-03-0600.52.06"></p>
-<ul>
-<li>可以看出，总体而言，llvm优化效率是优于gcc的</li>
-<li>面对快排这样的少循环多递归的情况，-O2的优化效率是不如-O1和-O3的</li>
-</ul>
-<h2 id="实验心得体会"><a href="#实验心得体会" class="headerlink" title="实验心得体会"></a>实验心得体会</h2><ul>
-<li><p>了解工业界常用的编译器 GCC 和 LLVM。以前我对编译器之前的区别并没有比较明确的认知，这此实验之后我才知道macOS系统里的gcc命令实际上调用的是clang命令；</p>
-</li>
-<li><p>熟悉编译器的安装和使用过程。本次实验的过程较实验1曲折了很多，过程中也遇到了很多波折，虽然很多波折是与实验本身无关的—-比如安装GCC编译器需要把下载源换为国内的tuna/USTC；<code>wget</code> <code>brew</code>等软件包管理工具，在下载软件不成功的时候会尝试下载软件的源代码，然后在本地编译；</p>
-</li>
-<li><p>了解编译器的优化效果。本次实验并不是我们第一次接触gcc命令，以前我们学习过了基础的gcc命令参数，怎么进行gdb调试，以及makefile的写法；通过本次实验，我终于又系统了解了一遍gcc命令的相关参数的作用，进一步了解了编译优化；</p>
-</li>
-<li><p>观察编译器工作过程中生成的中间文件的格式和内容。本次实验中，我进一步了解了GCC编译器编译的全过程，以及这些过程存在的原因。gcc编译的过程有词法分析 –&gt;  语法分析 –&gt;  生成语法树 –&gt; 高级gimple –&gt;  低级gimple  –&gt;  cfg  –&gt; ssa –&gt;RTL –&gt;目标代码(汇编代码)。低端gimple已经足以支持生成最终的目标代码，确定运行结构了，但是gcc考虑到优化，还在此基础上转化了cfg和ssa结构。RTL结构是gcc为了平台的通用性而生成的一套通用的RTL结构，最终在RTL的基础上转化为汇编代码。</p>
-</li>
-<li><p>本次实验进一步为我们对编译器的学习和构造奠定了基础。</p>
-</li>
-</ul>
-
+            <p>GCC编译器和LLVM编译器的编译过程以及效率对比</p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/673/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -663,7 +298,7 @@
 
 
 
-<div class="column is-one-third-tablet is-3-desktop is-3-widescreen  has-order-1 column-left ">    
+<div class="column is-one-third-tablet is-3-desktop is-3-widescreen  has-order-1 column-left is-sticky">    
     
         
 <div class="card widget">
@@ -839,7 +474,7 @@
             
             <a href="/posts/673/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/thumbnails/" alt="编译原理与设计-Lab2-编译器认知实验">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab2-编译器认知实验">
                 </p>
             </a>
             

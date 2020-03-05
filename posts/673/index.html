@@ -12,20 +12,20 @@
 <title>编译原理与设计-Lab2-编译器认知实验 - Annewqx</title>
 
 
-    <meta name="description" content="编译原理与设计-Lab2-编译器认知实验实验目的和内容本实验主要的内容为在 Linux 平台上安装和运行工业界常用的编译器 GCC 和 LLVM，如果系统中没有安装，则需要首先安装编译器，安装完成后编写简单的测 试程序，使用编译器编译，并观察中间输出结果。 实现的内容与方法1 编译器安装1234# 安装gcc8brew install gcc@8# 安装clangxcode-select">
+    <meta name="description" content="GCC编译器和LLVM编译器的编译过程以及效率对比">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译原理与设计-Lab2-编译器认知实验">
 <meta property="og:url" content="https://www.annewqx.top/posts/673/index.html">
 <meta property="og:site_name" content="Annewqx">
-<meta property="og:description" content="编译原理与设计-Lab2-编译器认知实验实验目的和内容本实验主要的内容为在 Linux 平台上安装和运行工业界常用的编译器 GCC 和 LLVM，如果系统中没有安装，则需要首先安装编译器，安装完成后编写简单的测 试程序，使用编译器编译，并观察中间输出结果。 实现的内容与方法1 编译器安装1234# 安装gcc8brew install gcc@8# 安装clangxcode-select">
+<meta property="og:description" content="GCC编译器和LLVM编译器的编译过程以及效率对比">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.annewqx.top/gallery/thumbnails/">
+<meta property="og:image" content="https://www.annewqx.top/images/og_image.png">
 <meta property="article:published_time" content="2020-03-03T10:02:04.000Z">
-<meta property="article:modified_time" content="2020-03-05T18:18:17.951Z">
+<meta property="article:modified_time" content="2020-03-05T18:24:11.213Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="编译原理 编译器 gcc clang llvm">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.annewqx.top/gallery/thumbnails/">
+<meta name="twitter:image" content="https://www.annewqx.top/images/og_image.png">
 
 
 
@@ -174,12 +174,6 @@
                     <div class="column is-two-thirds-tablet is-two-thirds-desktop is-two-thirds-widescreen has-order-2 column-main">
 <div class="card">
     
-    <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" src="/gallery/thumbnails/" alt="编译原理与设计-Lab2-编译器认知实验">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
@@ -195,7 +189,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    29 分钟 读完 (大约 4302 个字)
+                    29 分钟 读完 (大约 4306 个字)
                 </span>
                 
                 
@@ -213,11 +207,10 @@
             
         </h1>
         <div class="content">
-            <a id="more"></a>
+            <p>GCC编译器和LLVM编译器的编译过程以及效率对比</p>
+<a id="more"></a>
 
-<!--more-->
-
-<h1 id="编译原理与设计-Lab2-编译器认知实验"><a href="#编译原理与设计-Lab2-编译器认知实验" class="headerlink" title="编译原理与设计-Lab2-编译器认知实验"></a>编译原理与设计-Lab2-编译器认知实验</h1><h2 id="实验目的和内容"><a href="#实验目的和内容" class="headerlink" title="实验目的和内容"></a>实验目的和内容</h2><p>本实验主要的内容为在 Linux 平台上安装和运行工业界常用的编译器 GCC 和 LLVM，如果系统中没有安装，则需要首先安装编译器，安装完成后编写简单的测 试程序，使用编译器编译，并观察中间输出结果。</p>
+<h2 id="实验目的和内容"><a href="#实验目的和内容" class="headerlink" title="实验目的和内容"></a>实验目的和内容</h2><p>本实验主要的内容为在 Linux 平台上安装和运行工业界常用的编译器 GCC 和 LLVM，如果系统中没有安装，则需要首先安装编译器，安装完成后编写简单的测 试程序，使用编译器编译，并观察中间输出结果。</p>
 <h2 id="实现的内容与方法"><a href="#实现的内容与方法" class="headerlink" title="实现的内容与方法"></a>实现的内容与方法</h2><h3 id="1-编译器安装"><a href="#1-编译器安装" class="headerlink" title="1 编译器安装"></a>1 编译器安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装gcc8</span></span><br><span class="line">brew install gcc@8</span><br><span class="line"><span class="comment"># 安装clang</span></span><br><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-编写测试程序"><a href="#2-编写测试程序" class="headerlink" title="2 编写测试程序"></a>2 编写测试程序</h3><ul>
@@ -705,66 +698,82 @@
                     目录
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#编译原理与设计-Lab2-编译器认知实验">
-        <span class="has-mr-6">1</span>
-        <span>编译原理与设计-Lab2-编译器认知实验</span>
-        </a><ul class="menu-list"><li>
         <a class="is-flex" href="#实验目的和内容">
-        <span class="has-mr-6">1.1</span>
+        <span class="has-mr-6">1</span>
         <span>实验目的和内容</span>
         </a></li><li>
         <a class="is-flex" href="#实现的内容与方法">
-        <span class="has-mr-6">1.2</span>
+        <span class="has-mr-6">2</span>
         <span>实现的内容与方法</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#1-编译器安装">
-        <span class="has-mr-6">1.2.1</span>
+        <span class="has-mr-6">2.1</span>
         <span>1 编译器安装</span>
         </a></li><li>
         <a class="is-flex" href="#2-编写测试程序">
-        <span class="has-mr-6">1.2.2</span>
+        <span class="has-mr-6">2.2</span>
         <span>2 编写测试程序</span>
         </a></li><li>
         <a class="is-flex" href="#3-运行编译器进行观测">
-        <span class="has-mr-6">1.2.3</span>
+        <span class="has-mr-6">2.3</span>
         <span>3 运行编译器进行观测</span>
-        </a></li></ul></li><li>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#GCC">
+        <span class="has-mr-6">2.3.1</span>
+        <span>GCC</span>
+        </a></li><li>
+        <a class="is-flex" href="#LLVM">
+        <span class="has-mr-6">2.3.2</span>
+        <span>LLVM</span>
+        </a></li></ul></li></ul></li><li>
         <a class="is-flex" href="#运行结果分析">
-        <span class="has-mr-6">1.3</span>
+        <span class="has-mr-6">3</span>
         <span>运行结果分析</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#GCC-运行结果分析">
-        <span class="has-mr-6">1.3.1</span>
+        <span class="has-mr-6">3.1</span>
         <span>GCC 运行结果分析</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#预处理结果">
+        <span class="has-mr-6">3.1.1</span>
+        <span>预处理结果</span>
         </a></li><li>
+        <a class="is-flex" href="#语法分析树">
+        <span class="has-mr-6">3.1.2</span>
+        <span>语法分析树</span>
+        </a></li><li>
+        <a class="is-flex" href="#中间结果及目标代码">
+        <span class="has-mr-6">3.1.3</span>
+        <span>中间结果及目标代码</span>
+        </a></li></ul></li><li>
         <a class="is-flex" href="#LLVM-运行结果分析">
-        <span class="has-mr-6">1.3.2</span>
+        <span class="has-mr-6">3.2</span>
         <span>LLVM 运行结果分析</span>
         </a></li><li>
         <a class="is-flex" href="#GCC-与-LLVM-对比分析">
-        <span class="has-mr-6">1.3.3</span>
+        <span class="has-mr-6">3.3</span>
         <span>GCC 与 LLVM 对比分析</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#优化编译">
-        <span class="has-mr-6">1.4</span>
+        <span class="has-mr-6">4</span>
         <span>优化编译</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#GCC优化编译">
-        <span class="has-mr-6">1.4.1</span>
+        <span class="has-mr-6">4.1</span>
         <span>GCC优化编译</span>
         </a></li><li>
         <a class="is-flex" href="#LLVM优化编译">
-        <span class="has-mr-6">1.4.2</span>
+        <span class="has-mr-6">4.2</span>
         <span>LLVM优化编译</span>
         </a></li><li>
         <a class="is-flex" href="#GCC与LLVM优化编译效果对比">
-        <span class="has-mr-6">1.4.3</span>
+        <span class="has-mr-6">4.3</span>
         <span>GCC与LLVM优化编译效果对比</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#实验心得体会">
-        <span class="has-mr-6">1.5</span>
+        <span class="has-mr-6">5</span>
         <span>实验心得体会</span>
-        </a></li></ul></li></ul>
+        </a></li></ul>
             </div>
         </div>
     </div>
