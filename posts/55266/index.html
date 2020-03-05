@@ -9,21 +9,21 @@
 <meta name="baidu-site-verification" content="3Y3HpgvHfC" />
 <meta name="google-site-verification" content="Ghp98s_fV8y_3dH0UxegAgiTfFrcPcenF6fk-V5SDmM" />
 
-<title>Linux的基本终端命令 - Annewqx</title>
+<title>Linux终端的基本命令 - Annewqx</title>
 
 
-    <meta name="description" content="Linux终端的基本命令 (Unix下基本一致)">
+    <meta name="description" content="shell 提示符username@hostname:direction$  shell命令格式command [option] [arguments]  按一次tab补全文件名按两次tab补全命令单击右键粘贴     基本命令 帮助命令  man 查看man手册 info 查看info手册 —help    目录  根目录 &#x2F; .代表目录自己 ..代表目录的父目录，对于根目录.和..都代">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux的基本终端命令">
+<meta property="og:title" content="Linux终端的基本命令">
 <meta property="og:url" content="https://www.annewqx.top/posts/55266/index.html">
 <meta property="og:site_name" content="Annewqx">
-<meta property="og:description" content="Linux终端的基本命令 (Unix下基本一致)">
+<meta property="og:description" content="shell 提示符username@hostname:direction$  shell命令格式command [option] [arguments]  按一次tab补全文件名按两次tab补全命令单击右键粘贴     基本命令 帮助命令  man 查看man手册 info 查看info手册 —help    目录  根目录 &#x2F; .代表目录自己 ..代表目录的父目录，对于根目录.和..都代">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.annewqx.top/gallery/thumbnails/Linux.png">
 <meta property="article:published_time" content="2019-08-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-03-02T09:22:19.235Z">
+<meta property="article:modified_time" content="2020-03-04T07:06:55.040Z">
 <meta property="article:author" content="Anne416wu">
-<meta property="article:tag" content="Linux bash">
+<meta property="article:tag" content="Linux bash 终端">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.annewqx.top/gallery/thumbnails/Linux.png">
 
@@ -33,7 +33,7 @@
 
 
 
-<link rel="alternative" href="atom.xml" title="Linux的基本终端命令" type="application/atom+xml">
+<link rel="alternative" href="atom.xml" title="Linux终端的基本命令" type="application/atom+xml">
 
 
 
@@ -106,7 +106,7 @@
             </div>
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Linux的基本终端命令" height="28">
+                <img src="/images/logo.svg" alt="Linux终端的基本命令" height="28">
              
             </a>
         </div>
@@ -176,7 +176,7 @@
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="/gallery/thumbnails/Linux.png" alt="Linux的基本终端命令">
+            <img class="thumbnail" src="/gallery/thumbnails/Linux.png" alt="Linux终端的基本命令">
         </span>
     </div>
     
@@ -195,7 +195,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    20 分钟 读完 (大约 3064 个字)
+                    22 分钟 读完 (大约 3241 个字)
                 </span>
                 
                 
@@ -209,15 +209,11 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Linux的基本终端命令
+                Linux终端的基本命令
             
         </h1>
         <div class="content">
-            <hr>
-<blockquote>
-<p>Linux终端的基本命令 (Unix下基本一致)</p>
-</blockquote>
-<a id="more"></a>
+            <a id="more"></a>
 
 <blockquote>
 <ul>
@@ -348,7 +344,7 @@
 </li>
 </ul>
 <h2 id="用户管理及网络设置"><a href="#用户管理及网络设置" class="headerlink" title="用户管理及网络设置"></a>用户管理及网络设置</h2><h2 id="GCC编译器"><a href="#GCC编译器" class="headerlink" title="GCC编译器"></a>GCC编译器</h2><p><strong>gcc支持的源码格式：</strong>.c .cpp .m（Objective-C源程序） .i（预处理后的c文件） .ii（预处理后的c++文件） .s/.S（汇编语言源程序） .h（预处理器文件） .o（目标文件）</p>
-<h4 id="单个源码"><a href="#单个源码" class="headerlink" title="单个源码"></a>单个源码</h4><ul>
+<h3 id="gcc的基本使用"><a href="#gcc的基本使用" class="headerlink" title="gcc的基本使用"></a>gcc的基本使用</h3><h4 id="单个源码"><a href="#单个源码" class="headerlink" title="单个源码"></a>单个源码</h4><ul>
 <li><p><code>gcc hello.c -o hello</code> 把hello.c编译成一个可执行程序hello（一次性完成四步）</p>
 </li>
 <li><p><code>gcc hello.c</code>不指定输出名，生成一个a.out</p>
@@ -384,7 +380,40 @@
 <li><code>gcc -Wall -Werror a.c -o a</code>将警告视作错误，出现任何警告就放弃编译</li>
 <li><code>gcc -w</code>禁止输出警告</li>
 </ul>
-<h4 id="gcc使用的第三方库"><a href="#gcc使用的第三方库" class="headerlink" title="gcc使用的第三方库"></a>gcc使用的第三方库</h4><h2 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h2><h4 id="make的调用"><a href="#make的调用" class="headerlink" title="make的调用"></a>make的调用</h4><ul>
+<h4 id="gcc使用的第三方库"><a href="#gcc使用的第三方库" class="headerlink" title="gcc使用的第三方库"></a>gcc使用的第三方库</h4><h3 id="gcc命令的参数详解"><a href="#gcc命令的参数详解" class="headerlink" title="gcc命令的参数详解"></a><a href="https://www.runoob.com/w3cnote/gcc-parameter-detail.html" rel="external nofollow noreferrer">gcc命令的参数详解</a></h3><ul>
+<li><p>-x：设定文件名所使用的语言，使文件后缀名无效</p>
+<p><code>gcc -x c hello.pig</code></p>
+</li>
+<li><p>-c：只进行预处理,编译和汇编，即生成.o的obj文件</p>
+<p><code>gcc -c hello.c</code></p>
+</li>
+<li><p>-S：只进行预处理和编译，即把文件编译为.s汇编代码</p>
+<p><code>gcc -S hello.c</code></p>
+</li>
+<li><p>-E：只激活预处理。这个命令不会不生成文件, 我们需要把它重定向到一个输出文件里面</p>
+<p><code>gcc -E hello.c &gt; pianoapan.txt</code></p>
+</li>
+<li><p>-o：生成可执行文件</p>
+<p><code>gcc -o hello hello.c</code></p>
+</li>
+<li><p>-fno-asm</p>
+</li>
+<li><p>-fno-strict-prototype</p>
+</li>
+<li><p>-fthis-is-varialble</p>
+</li>
+<li><p>-fcond-mismatch</p>
+</li>
+<li><p>-funsigned-char 、-fno-signed-char、-fsigned-char 、-fno-unsigned-char</p>
+</li>
+<li><p>-include file</p>
+</li>
+<li><p>-imacros file</p>
+</li>
+<li><p>b</p>
+</li>
+</ul>
+<h2 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h2><h4 id="make的调用"><a href="#make的调用" class="headerlink" title="make的调用"></a>make的调用</h4><ul>
 <li><p>直接执行make，自动查找当前目录下名为makefile的文件，并自动从第一个target开始执行</p>
 </li>
 <li><p>如果makefile脚本名称不是缺省名称，使用-f参数来表示<br><code>make -f hello.mk</code></p>
@@ -675,62 +704,22 @@
         <span class="has-mr-6">1.3</span>
         <span>GCC编译器</span>
         </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#单个源码">
+        <a class="is-flex" href="#gcc的基本使用">
         <span class="has-mr-6">1.3.1</span>
-        <span>单个源码</span>
+        <span>gcc的基本使用</span>
         </a></li><li>
-        <a class="is-flex" href="#多个源码">
+        <a class="is-flex" href="#gcc命令的参数详解">
         <span class="has-mr-6">1.3.2</span>
-        <span>多个源码</span>
-        </a></li><li>
-        <a class="is-flex" href="#gcc的选项">
-        <span class="has-mr-6">1.3.3</span>
-        <span>gcc的选项</span>
-        </a></li><li>
-        <a class="is-flex" href="#gcc使用的第三方库">
-        <span class="has-mr-6">1.3.4</span>
-        <span>gcc使用的第三方库</span>
+        <span>gcc命令的参数详解</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#Makefile">
         <span class="has-mr-6">1.4</span>
         <span>Makefile</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#make的调用">
-        <span class="has-mr-6">1.4.1</span>
-        <span>make的调用</span>
         </a></li><li>
-        <a class="is-flex" href="#makefile的格式">
-        <span class="has-mr-6">1.4.2</span>
-        <span>makefile的格式</span>
-        </a></li><li>
-        <a class="is-flex" href="#makefile基本结构">
-        <span class="has-mr-6">1.4.3</span>
-        <span>makefile基本结构</span>
-        </a></li><li>
-        <a class="is-flex" href="#makefile扩展用法">
-        <span class="has-mr-6">1.4.4</span>
-        <span>makefile扩展用法</span>
-        </a></li><li>
-        <a class="is-flex" href="#隐含规则">
-        <span class="has-mr-6">1.4.5</span>
-        <span>隐含规则</span>
-        </a></li><li>
-        <a class="is-flex" href="#makefile目标编译">
-        <span class="has-mr-6">1.4.6</span>
-        <span>makefile目标编译</span>
-        </a></li></ul></li><li>
         <a class="is-flex" href="#GDB调试器和调试方法">
         <span class="has-mr-6">1.5</span>
         <span>GDB调试器和调试方法</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#gdb的使用">
-        <span class="has-mr-6">1.5.1</span>
-        <span>gdb的使用</span>
-        </a></li><li>
-        <a class="is-flex" href="#gdb命令">
-        <span class="has-mr-6">1.5.2</span>
-        <span>gdb命令</span>
-        </a></li></ul></li></ul><li>
+        </a></li></ul><li>
         <a class="is-flex" href="#GTK">
         <span class="has-mr-6">2</span>
         <span>GTK</span>
@@ -769,7 +758,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Linux的基本终端命令" height="28">
+                    <img src="/images/logo.svg" alt="Linux终端的基本命令" height="28">
                 
                 </a>
                 <p class="is-size-7">

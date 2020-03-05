@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.annewqx.top/images/og_image.png">
 <meta property="article:published_time" content="2020-03-02T05:54:39.000Z">
-<meta property="article:modified_time" content="2020-03-03T06:53:44.247Z">
+<meta property="article:modified_time" content="2020-03-03T06:59:25.777Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="Caddy hexo 博客">
 <meta name="twitter:card" content="summary">
@@ -189,7 +189,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    12 分钟 读完 (大约 1740 个字)
+                    12 分钟 读完 (大约 1838 个字)
                 </span>
                 
                 
@@ -262,6 +262,7 @@
 <p>&lt;其实并不，Caddy可以很简单的开始，但总有高阶玩家可以把简单的事情变得更复杂，当然，也更安全&gt;</p>
 <h3 id="方案2：使用caddy-service-此部分有缺陷，未完成"><a href="#方案2：使用caddy-service-此部分有缺陷，未完成" class="headerlink" title="方案2：使用caddy.service(此部分有缺陷，未完成)"></a>方案2：使用caddy.service(此部分有缺陷，未完成)</h3><blockquote>
 <p>github: <a href="https://github.com/caddyserver/caddy/tree/master/dist/init/linux-systemd" rel="external nofollow noreferrer">systemd Service Unit for Caddy</a></p>
+<p>这部分目前我遇到的问题是使用service提示用户错误。错误的原因一个是systemd version太低，虽然caddy.service要求是219即可，实际上大概是需要229以上才行；还有一个是文件夹权限的问题，涉及到用户和用户组。等有时间的时候再回头修这个吧😑</p>
 </blockquote>
 <p>创建一个专门的系统用户：<code>caddy</code> 和一组同名的Caddy：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd -r -d /var/www -M -s /sbin/nologin caddy</span><br></pre></td></tr></table></figure>
@@ -385,6 +386,13 @@
 
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/673/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">编译原理与设计-Lab2-编译器认知实验</span>
+            </a>
+        </div>
         
         
         <div class="level-end">

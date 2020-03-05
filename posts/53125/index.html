@@ -21,9 +21,9 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.annewqx.top/images/og_image.png">
 <meta property="article:published_time" content="2020-02-19T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-03-01T09:38:25.323Z">
+<meta property="article:modified_time" content="2020-03-04T06:57:45.185Z">
 <meta property="article:author" content="Anne416wu">
-<meta property="article:tag" content="编译原理">
+<meta property="article:tag" content="编译原理 编程语言对比">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.annewqx.top/images/og_image.png">
 
@@ -189,7 +189,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    18 分钟 读完 (大约 2734 个字)
+                    18 分钟 读完 (大约 2720 个字)
                 </span>
                 
                 
@@ -213,7 +213,7 @@
 </blockquote>
 <a id="more"></a>
 
-<h1 id="编译原理与设计-Lab1-语言认知实验"><a href="#编译原理与设计-Lab1-语言认知实验" class="headerlink" title="编译原理与设计-Lab1-语言认知实验"></a>编译原理与设计-Lab1-语言认知实验</h1><h2 id="1-实验目的和内容"><a href="#1-实验目的和内容" class="headerlink" title="1 实验目的和内容"></a>1 实验目的和内容</h2><ul>
+<h2 id="1-实验目的和内容"><a href="#1-实验目的和内容" class="headerlink" title="1 实验目的和内容"></a>1 实验目的和内容</h2><ul>
 <li><p>实验目的：了解程序设计语言的发展历史，了解不同程序设计语言的各自特点;感受编 译执行和解释执行两种不同的执行方式，初步体验语言对编译器设计的影响，为 后续编译程序的设计和开发奠定良好的基础。</p>
 </li>
 <li><p>实验内容： 分别使用 C/C++、Java、Python 和 Haskell 实现快速排序算法和归并排序，对采用这几种语言实现的编程效率，程序的规模，程序的运行效率进行对比分析。</p>
@@ -247,7 +247,7 @@
 
 <ol start="2">
 <li><p>源代码</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 1000 <span class="comment">//50000为实验1规模，10000为实验2-1规模，1000为实验2-2规模</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> O 2 <span class="comment">//1为装填out.txt中的数据，2为装填逆序数组</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//归并函数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span> *num, <span class="keyword">int</span> start, <span class="keyword">int</span> mid, <span class="keyword">int</span> <span class="built_in">end</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *temp = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>((<span class="built_in">end</span>-start+<span class="number">1</span>) * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    <span class="keyword">int</span> i = start;</span><br><span class="line">    <span class="keyword">int</span> j = mid + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= <span class="built_in">end</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span> (num[i] &lt;= num[j])&#123;</span><br><span class="line">            temp[k++] = num[i++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            temp[k++] = num[j++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= mid)&#123;</span><br><span class="line">        temp[k++] = num[i++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (j &lt;= <span class="built_in">end</span>)&#123;</span><br><span class="line">        temp[k++] = num[j++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; k; i++)&#123;</span><br><span class="line">        num[start + i] = temp[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">free</span>(temp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//归并排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort_UptoDown</span><span class="params">(<span class="keyword">int</span> *num, <span class="keyword">int</span> start, <span class="keyword">int</span> <span class="built_in">end</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid = start + (<span class="built_in">end</span> - start) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (start &gt;= <span class="built_in">end</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    MergeSort_UptoDown(num, start, mid);</span><br><span class="line">    MergeSort_UptoDown(num, mid + <span class="number">1</span>, <span class="built_in">end</span>);</span><br><span class="line"></span><br><span class="line">    Merge(num, start, mid, <span class="built_in">end</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//分解函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> key;</span><br><span class="line">    key = arr[low];</span><br><span class="line">    <span class="keyword">while</span>(low&lt;high)&#123;</span><br><span class="line">        <span class="keyword">while</span>(low &lt;high &amp;&amp; arr[high]&gt;= key )</span><br><span class="line">            high--;</span><br><span class="line">        <span class="keyword">if</span>(low&lt;high)</span><br><span class="line">            arr[low++] = arr[high];</span><br><span class="line">        <span class="keyword">while</span>( low&lt;high &amp;&amp; arr[low]&lt;=key )</span><br><span class="line">            low++;</span><br><span class="line">        <span class="keyword">if</span>(low&lt;high)</span><br><span class="line">            arr[high--] = arr[low];</span><br><span class="line">    &#125;</span><br><span class="line">    arr[low] = key;</span><br><span class="line">    <span class="keyword">return</span> low;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//快速排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick_sort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> start, <span class="keyword">int</span> <span class="built_in">end</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pos;</span><br><span class="line">    <span class="keyword">if</span> (start&lt;<span class="built_in">end</span>)&#123;</span><br><span class="line">        pos = partition(arr, start, <span class="built_in">end</span>);</span><br><span class="line">        quick_sort(arr,start,pos<span class="number">-1</span>);</span><br><span class="line">        quick_sort(arr,pos+<span class="number">1</span>,<span class="built_in">end</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//装填函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fill</span><span class="params">(<span class="keyword">int</span> arr[])</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(O==<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        FILE *fp = <span class="literal">NULL</span>;</span><br><span class="line">        fp = fopen(<span class="string">"/Users/apple/Downloads/out.txt"</span>,<span class="string">"r"</span>);</span><br><span class="line">        <span class="keyword">char</span> buff[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">while</span>(<span class="built_in">fscanf</span>(fp,<span class="string">"%s"</span>,buff)!=EOF)&#123;</span><br><span class="line">        arr[cnt++]=atoi(buff);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            arr[i] = N - i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> N;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> arr[N+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span> num = <span class="built_in">fill</span>(arr);</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">timeval</span> <span class="title">begintime</span>,<span class="title">endtime</span>;</span></span><br><span class="line">    gettimeofday(&amp;begintime, <span class="literal">NULL</span>);</span><br><span class="line">    quick_sort(arr , <span class="number">0</span> , num<span class="number">-1</span>);</span><br><span class="line">    gettimeofday(&amp;endtime, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Size-%d / "</span>, num);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Qsort-C Running Time : %ld ms\n"</span>,<span class="number">1000</span>*(endtime.tv_sec-begintime.tv_sec)+(endtime.tv_usec-begintime.tv_usec)/<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">    num = <span class="built_in">fill</span>(arr);</span><br><span class="line">    gettimeofday(&amp;begintime, <span class="literal">NULL</span>);</span><br><span class="line">    MergeSort_UptoDown(arr , <span class="number">0</span> , num<span class="number">-1</span>);</span><br><span class="line">    gettimeofday(&amp;endtime, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Size-%d / "</span>, num);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Mergesort-C Running Time : %ld ms\n"</span>,<span class="number">1000</span>*(endtime.tv_sec-begintime.tv_sec)+(endtime.tv_usec-begintime.tv_usec)/<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 1000 <span class="comment">//50000为实验1规模，10000为实验2-1规模，1000为实验2-2规模</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> O 2 <span class="comment">//1为装填out.txt中的数据，2为装填逆序数组</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//归并函数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span> *num, <span class="keyword">int</span> start, <span class="keyword">int</span> mid, <span class="keyword">int</span> <span class="built_in">end</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *temp = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>((<span class="built_in">end</span>-start+<span class="number">1</span>) * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    <span class="keyword">int</span> i = start;</span><br><span class="line">    <span class="keyword">int</span> j = mid + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= <span class="built_in">end</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span> (num[i] &lt;= num[j])&#123;</span><br><span class="line">            temp[k++] = num[i++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            temp[k++] = num[j++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= mid)&#123;</span><br><span class="line">        temp[k++] = num[i++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (j &lt;= <span class="built_in">end</span>)&#123;</span><br><span class="line">        temp[k++] = num[j++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; k; i++)&#123;</span><br><span class="line">        num[start + i] = temp[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">free</span>(temp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//归并排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort_UptoDown</span><span class="params">(<span class="keyword">int</span> *num, <span class="keyword">int</span> start, <span class="keyword">int</span> <span class="built_in">end</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid = start + (<span class="built_in">end</span> - start) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (start &gt;= <span class="built_in">end</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    MergeSort_UptoDown(num, start, mid);</span><br><span class="line">    MergeSort_UptoDown(num, mid + <span class="number">1</span>, <span class="built_in">end</span>);</span><br><span class="line">    Merge(num, start, mid, <span class="built_in">end</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//分解函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> key;</span><br><span class="line">    key = arr[low];</span><br><span class="line">    <span class="keyword">while</span>(low&lt;high)&#123;</span><br><span class="line">        <span class="keyword">while</span>(low &lt;high &amp;&amp; arr[high]&gt;= key )</span><br><span class="line">            high--;</span><br><span class="line">        <span class="keyword">if</span>(low&lt;high)</span><br><span class="line">            arr[low++] = arr[high];</span><br><span class="line">        <span class="keyword">while</span>( low&lt;high &amp;&amp; arr[low]&lt;=key )</span><br><span class="line">            low++;</span><br><span class="line">        <span class="keyword">if</span>(low&lt;high)</span><br><span class="line">            arr[high--] = arr[low];</span><br><span class="line">    &#125;</span><br><span class="line">    arr[low] = key;</span><br><span class="line">    <span class="keyword">return</span> low;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//快速排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick_sort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> start, <span class="keyword">int</span> <span class="built_in">end</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pos;</span><br><span class="line">    <span class="keyword">if</span> (start&lt;<span class="built_in">end</span>)&#123;</span><br><span class="line">        pos = partition(arr, start, <span class="built_in">end</span>);</span><br><span class="line">        quick_sort(arr,start,pos<span class="number">-1</span>);</span><br><span class="line">        quick_sort(arr,pos+<span class="number">1</span>,<span class="built_in">end</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//装填函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fill</span><span class="params">(<span class="keyword">int</span> arr[])</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(O==<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        FILE *fp = <span class="literal">NULL</span>;</span><br><span class="line">        fp = fopen(<span class="string">"/Users/apple/Downloads/out.txt"</span>,<span class="string">"r"</span>);</span><br><span class="line">        <span class="keyword">char</span> buff[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">while</span>(<span class="built_in">fscanf</span>(fp,<span class="string">"%s"</span>,buff)!=EOF)&#123;</span><br><span class="line">        arr[cnt++]=atoi(buff);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            arr[i] = N - i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> N;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> arr[N+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span> num = <span class="built_in">fill</span>(arr);</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">timeval</span> <span class="title">begintime</span>,<span class="title">endtime</span>;</span></span><br><span class="line">    gettimeofday(&amp;begintime, <span class="literal">NULL</span>);</span><br><span class="line">    quick_sort(arr , <span class="number">0</span> , num<span class="number">-1</span>);</span><br><span class="line">    gettimeofday(&amp;endtime, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Size-%d / "</span>, num);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Qsort-C Running Time : %ld ms\n"</span>,<span class="number">1000</span>*(endtime.tv_sec-begintime.tv_sec)+(endtime.tv_usec-begintime.tv_usec)/<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">    num = <span class="built_in">fill</span>(arr);</span><br><span class="line">    gettimeofday(&amp;begintime, <span class="literal">NULL</span>);</span><br><span class="line">    MergeSort_UptoDown(arr , <span class="number">0</span> , num<span class="number">-1</span>);</span><br><span class="line">    gettimeofday(&amp;endtime, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Size-%d / "</span>, num);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Mergesort-C Running Time : %ld ms\n"</span>,<span class="number">1000</span>*(endtime.tv_sec-begintime.tv_sec)+(endtime.tv_usec-begintime.tv_usec)/<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用gcc编译器生成可执行文件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o lab1_c lab1.c</span><br></pre></td></tr></table></figure>
@@ -709,78 +709,130 @@
                     目录
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#编译原理与设计-Lab1-语言认知实验">
-        <span class="has-mr-6">1</span>
-        <span>编译原理与设计-Lab1-语言认知实验</span>
-        </a><ul class="menu-list"><li>
         <a class="is-flex" href="#1-实验目的和内容">
-        <span class="has-mr-6">1.1</span>
+        <span class="has-mr-6">1</span>
         <span>1 实验目的和内容</span>
         </a></li><li>
         <a class="is-flex" href="#2-实验的具体过程和步骤">
-        <span class="has-mr-6">1.2</span>
+        <span class="has-mr-6">2</span>
         <span>2 实验的具体过程和步骤</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#C语言">
-        <span class="has-mr-6">1.2.1</span>
+        <span class="has-mr-6">2.1</span>
         <span>C语言</span>
         </a></li><li>
         <a class="is-flex" href="#Java">
-        <span class="has-mr-6">1.2.2</span>
+        <span class="has-mr-6">2.2</span>
         <span>Java</span>
         </a></li><li>
         <a class="is-flex" href="#python">
-        <span class="has-mr-6">1.2.3</span>
+        <span class="has-mr-6">2.3</span>
         <span>python</span>
         </a></li><li>
         <a class="is-flex" href="#Haskell">
-        <span class="has-mr-6">1.2.4</span>
+        <span class="has-mr-6">2.4</span>
         <span>Haskell</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#3-运行效果截图">
-        <span class="has-mr-6">1.3</span>
+        <span class="has-mr-6">3</span>
         <span>3 运行效果截图</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#1-常规组">
-        <span class="has-mr-6">1.3.1</span>
+        <span class="has-mr-6">3.1</span>
         <span>1 常规组</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#C">
+        <span class="has-mr-6">3.1.1</span>
+        <span>C</span>
         </a></li><li>
-        <a class="is-flex" href="#2-1-小规模最坏数据">
-        <span class="has-mr-6">1.3.2</span>
-        <span>2-1 小规模最坏数据</span>
+        <a class="is-flex" href="#JAVA">
+        <span class="has-mr-6">3.1.2</span>
+        <span>JAVA</span>
         </a></li><li>
-        <a class="is-flex" href="#2-2大规模最坏数据">
-        <span class="has-mr-6">1.3.3</span>
-        <span>2-2大规模最坏数据</span>
+        <a class="is-flex" href="#python-1">
+        <span class="has-mr-6">3.1.3</span>
+        <span>python</span>
+        </a></li><li>
+        <a class="is-flex" href="#Haskell-1">
+        <span class="has-mr-6">3.1.4</span>
+        <span>Haskell</span>
         </a></li></ul></li><li>
+        <a class="is-flex" href="#2-1-小规模最坏数据">
+        <span class="has-mr-6">3.2</span>
+        <span>2-1 小规模最坏数据</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#C-1">
+        <span class="has-mr-6">3.2.1</span>
+        <span>C</span>
+        </a></li><li>
+        <a class="is-flex" href="#Java-1">
+        <span class="has-mr-6">3.2.2</span>
+        <span>Java</span>
+        </a></li><li>
+        <a class="is-flex" href="#python-2">
+        <span class="has-mr-6">3.2.3</span>
+        <span>python</span>
+        </a></li><li>
+        <a class="is-flex" href="#Haskell-2">
+        <span class="has-mr-6">3.2.4</span>
+        <span>Haskell</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#2-2大规模最坏数据">
+        <span class="has-mr-6">3.3</span>
+        <span>2-2大规模最坏数据</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#C-2">
+        <span class="has-mr-6">3.3.1</span>
+        <span>C</span>
+        </a></li><li>
+        <a class="is-flex" href="#Java-2">
+        <span class="has-mr-6">3.3.2</span>
+        <span>Java</span>
+        </a></li><li>
+        <a class="is-flex" href="#Python">
+        <span class="has-mr-6">3.3.3</span>
+        <span>Python</span>
+        </a></li><li>
+        <a class="is-flex" href="#Haskell-3">
+        <span class="has-mr-6">3.3.4</span>
+        <span>Haskell</span>
+        </a></li></ul></li></ul></li><li>
         <a class="is-flex" href="#4-语言易用性和程序规模对比分析">
-        <span class="has-mr-6">1.4</span>
+        <span class="has-mr-6">4</span>
         <span>4 语言易用性和程序规模对比分析</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#1-语言易用性">
-        <span class="has-mr-6">1.4.1</span>
+        <span class="has-mr-6">4.1</span>
         <span>1 语言易用性</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-学习难度">
+        <span class="has-mr-6">4.1.1</span>
+        <span>1 学习难度</span>
         </a></li><li>
+        <a class="is-flex" href="#2-语言的编程效率">
+        <span class="has-mr-6">4.1.2</span>
+        <span>2 语言的编程效率</span>
+        </a></li></ul></li><li>
         <a class="is-flex" href="#3-程序规模">
-        <span class="has-mr-6">1.4.2</span>
+        <span class="has-mr-6">4.2</span>
         <span>3 程序规模</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#5-程序运行性能对比分析">
-        <span class="has-mr-6">1.5</span>
+        <span class="has-mr-6">5</span>
         <span>5 程序运行性能对比分析</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#快速排序">
-        <span class="has-mr-6">1.5.1</span>
+        <span class="has-mr-6">5.1</span>
         <span>快速排序</span>
         </a></li><li>
         <a class="is-flex" href="#归并排序">
-        <span class="has-mr-6">1.5.2</span>
+        <span class="has-mr-6">5.2</span>
         <span>归并排序</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#6-实验心得体会">
-        <span class="has-mr-6">1.6</span>
+        <span class="has-mr-6">6</span>
         <span>6 实验心得体会</span>
-        </a></li></ul></li></ul>
+        </a></li></ul>
             </div>
         </div>
     </div>
