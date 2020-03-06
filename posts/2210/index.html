@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.annewqx.top/gallery/thumbnails/caddy.png">
 <meta property="article:published_time" content="2020-03-02T05:54:39.000Z">
-<meta property="article:modified_time" content="2020-03-05T20:05:20.802Z">
+<meta property="article:modified_time" content="2020-03-06T13:21:59.274Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="Caddy hexo 博客">
 <meta name="twitter:card" content="summary">
@@ -195,7 +195,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    12 分钟 读完 (大约 1852 个字)
+                    14 分钟 读完 (大约 2154 个字)
                 </span>
                 
                 
@@ -222,38 +222,42 @@
 <blockquote>
 <p>参考文章：</p>
 <ul>
-<li><a href="https://dengxiaolong.com/caddy/zh/" rel="external nofollow noreferrer">Caddy中文文档</a></li>
-<li><a href="https://3mile.github.io/archives/118/" rel="external nofollow noreferrer">3mile：如何在CentOS 7上安装和配置Caddy</a></li>
-<li><a href="https://liuzhichao.com/2018/caddy/" rel="external nofollow noreferrer">liuzhichao：替换 Nginx 使用 Caddy 作为博客静态服务器</a></li>
-<li><a href="https://www.moerats.com/archives/409/" rel="external nofollow noreferrer">Caddy最容易上手的Web Server</a></li>
+<li>入门： <a href="https://dengxiaolong.com/caddy/zh/" rel="external nofollow noreferrer">Caddy中文文档</a></li>
+<li>中阶： <a href="https://3mile.github.io/archives/118/" rel="external nofollow noreferrer">3mile：如何在CentOS 7上安装和配置Caddy</a></li>
+<li>Caddyfile的配置：<a href="https://liuzhichao.com/2018/caddy/" rel="external nofollow noreferrer">liuzhichao：替换 Nginx 使用 Caddy 作为博客静态服务器</a></li>
+<li>脚本介绍： <a href="https://wzfou.com/caddy/" rel="external nofollow noreferrer">Caddy-最容易上手的Web Server</a></li>
 </ul>
-<p>本博客基于<a href="https://dengxiaolong.com/caddy/zh/beginner.html" rel="external nofollow noreferrer">Caddy中文文档的新手入门</a>，结合其他文章进行介绍，上接本博客博文<a href="https://www.annewqx.top/posts/65182/">把hexo博客部署到VPS服务器</a>，请注意，这次你需要一个域名。</p>
+<p>本博客基于<a href="https://dengxiaolong.com/caddy/zh/beginner.html" rel="external nofollow noreferrer">Caddy中文文档</a>，结合其他文章进行介绍，上接本博客博文<a href="https://www.annewqx.top/posts/65182/">把hexo博客部署到VPS服务器</a>，请注意，这次我们需要一个域名。</p>
 </blockquote>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>为什么要用 <a href="https://caddyserver.com/" rel="external nofollow noreferrer">Caddy</a> 替换掉 Nginx ？最主要的原因是 <strong><a href="https://caddyserver.com/" rel="external nofollow noreferrer">Caddy</a> 能让网站自动支持 HTTPS</strong>。同样是使用 Let’s Encrypt，换成 Nginx 我们就必须手工操作，并且还需要设置三个月更新证书的计划任务。而且默认还支持 http/2，很多事情都不需要我们再配置了。另外它的配置文件也比 Nginx 的要简单很多，几十行的 Nginx 配置文件 <a href="https://caddyserver.com/" rel="external nofollow noreferrer">Caddy</a> 仅需要几行就可以搞定了。</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>为什么要用 <a href="https://caddyserver.com/" rel="external nofollow noreferrer">Caddy</a> 替换掉 Nginx ？最主要的原因是 <strong><a href="https://caddyserver.com/" rel="external nofollow noreferrer">Caddy</a> 能让网站自动支持 HTTPS</strong>。同样是使用 Let’s Encrypt，换成 Nginx 我们就必须手工操作，并且还需要设置三个月更新证书的计划任务。Caddy默认支持 http/2，很多东西都不需要我们配置了。另外它的配置文件也比 Nginx 的要简单很多，几十行的 Nginx 配置文件 <a href="https://caddyserver.com/" rel="external nofollow noreferrer">Caddy</a> 仅需要几行就可以搞定了。关于能否将Caddy用作正式的生产环境，目前来看还是有待商榷的，但是Caddy用为简单的Http服务器是没有问题的。</p>
 <h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><ul>
 <li>一个搭载CentOS 7 x64的VPS服务器</li>
 <li>一个域名<code>example.com</code>已被配置为指向<code>VPS IP</code>，具体方法参见<a href="https://www.annewqx.top/posts/65182/">把hexo博客部署到VPS服务器</a> 域名部分</li>
 <li>已经利用git把hexo博客部署到VPS的<code>/var/www/blog</code>文件夹</li>
+<li>如果已经运行nginx的，需要<code>nging -s stop</code>关闭</li>
 </ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在Linux，Mac或BSD操作系统上，使用以下命令安装Caddy最新稳定的系统特定版本：</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
+<p>我们使用Caddy官方的一键安装脚本</p>
+<p>大部分caddy的第三方一键脚本对于centOS都仅支持<code>6.8</code>或<code>7.2</code>版本(查看Linux版本方法<code>cat /etc/centos-release</code>)</p>
+<ul>
+<li><a href="https://github.com/sayem314/Caddy-Web-Server-Installer" rel="external nofollow noreferrer">sayem314</a></li>
+</ul>
+</blockquote>
+<p>在Linux，Mac或BSD操作系统上，使用以下命令安装Caddy最新稳定的系统特定版本：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://getcaddy.com | bash -s personal</span><br></pre></td></tr></table></figure>
 
 <p>Caddy二进制文件将被安装到该<code>/usr/local/bin</code>目录。使用以下命令确认：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> caddy</span><br></pre></td></tr></table></figure>
 
-<p>输出应该是：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/bin/caddy</span><br></pre></td></tr></table></figure>
-
-<p>为了安全起见，<strong>切勿</strong>以root身份运行Caddy二进制文件为了让Caddy能够以非root用户的身份绑定到特权端口（例如80,443），您需要<code>setcap</code>按如下所示运行该命令：</p>
+<p>为了安全起见，<strong>切勿</strong>以root身份运行Caddy二进制文件。为了让Caddy能够以非root用户的身份绑定到特权端口（例如80,443），需要<code>setcap</code>。按如下所示运行该命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">setcap</span> <span class="string">'cap_net_bind_service=+ep'</span> /usr/<span class="built_in">local</span>/bin/caddy</span><br></pre></td></tr></table></figure>
 
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>默认情况下，Caddy使用当前目录（执行命令的目录，而不是caddy二进制文件所在目录）作为网站根目录，因此运行本地站点非常方便。</p>
 <p>使用终端或者命令行，切换到站点目录所在：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> path/to/my/site		<span class="comment"># 在我们的服务器上是/var/www/blog</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> path/to/my/site		<span class="comment"># 在我们的服务器上是/var/www/blog</span></span><br><span class="line">caddy</span><br></pre></td></tr></table></figure>
 
-<p>浏览器打开<a href="http://localhost:2015/，如果出现404页面，说明caddy运行正常，但是网站缺少默认页面。" rel="external nofollow noreferrer">http://localhost:2015/，如果出现404页面，说明caddy运行正常，但是网站缺少默认页面。</a></p>
-<p>你可以使用<code>Ctrl+C</code>退出，caddy将尽可能优雅中断。</p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="方案1：官方指导的快速开始"><a href="#方案1：官方指导的快速开始" class="headerlink" title="方案1：官方指导的快速开始"></a>方案1：官方指导的快速开始</h3><blockquote>
+<p>浏览器打开<a href="http://localhost:2015/，如果出现404页面，说明caddy运行正常。使用`Ctrl+C`退出，caddy将尽可能优雅中断。" rel="external nofollow noreferrer">http://localhost:2015/，如果出现404页面，说明caddy运行正常。使用`Ctrl+C`退出，caddy将尽可能优雅中断。</a></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="方案1：来自Caddy官方文档的快速开始"><a href="#方案1：来自Caddy官方文档的快速开始" class="headerlink" title="方案1：来自Caddy官方文档的快速开始"></a>方案1：来自Caddy官方文档的快速开始</h3><blockquote>
 <p>如果服务器设置了防火墙，则打开80和443端口</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo firewall-cmd --permanent --zone=public --add-service=http </span><br><span class="line">sudo firewall-cmd --permanent --zone=public --add-service=https</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure>
 
@@ -263,15 +267,11 @@
 
 <p>当第一次使用一个真正的域名（不是localhost）运行Caddy时，会出现提示要求输入你的email地址。这是因为Caddy需要验证你的域名，并将验证信息安全地存储在硬盘上。</p>
 <p>Caddy必须将40和443端口绑定到一个真正的站点，这需要root或者Administrator的权限</p>
-<p>现在你可以打开你的网站了!</p>
-<p>&lt;全文完&gt;</p>
+<p>现在我们的网站已经按照在运行了!</p>
+<p><strong>&lt;全文完&gt;</strong></p>
 <hr>
 <p>&lt;其实并不，Caddy可以很简单的开始，但总有高阶玩家可以把简单的事情变得更复杂，当然，也更安全&gt;</p>
-<h3 id="方案2：使用caddy-service-此部分有缺陷，未完成"><a href="#方案2：使用caddy-service-此部分有缺陷，未完成" class="headerlink" title="方案2：使用caddy.service(此部分有缺陷，未完成)"></a>方案2：使用caddy.service(此部分有缺陷，未完成)</h3><blockquote>
-<p>github: <a href="https://github.com/caddyserver/caddy/tree/master/dist/init/linux-systemd" rel="external nofollow noreferrer">systemd Service Unit for Caddy</a></p>
-<p>这部分目前我遇到的问题是使用service提示用户错误。错误的原因一个是systemd version太低，虽然caddy.service要求是219即可，实际上大概是需要229以上才行；还有一个是文件夹权限的问题，涉及到用户和用户组。等有时间的时候再回头修这个吧😑</p>
-</blockquote>
-<p>创建一个专门的系统用户：<code>caddy</code> 和一组同名的Caddy：</p>
+<h3 id="方案2：从Caddyfile开始"><a href="#方案2：从Caddyfile开始" class="headerlink" title="方案2：从Caddyfile开始"></a>方案2：从Caddyfile开始</h3><p>创建一个专门的系统用户：<code>caddy</code> 和一组同名的Caddy：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd -r -d /var/www -M -s /sbin/nologin caddy</span><br></pre></td></tr></table></figure>
 
 <p><strong>注意</strong>：<em>此处创建**的用户caddy只能用于管理Caddy服务，不能用于登录。</em></p>
@@ -285,23 +285,34 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /etc/caddy</span><br><span class="line">sudo chown -R root:caddy /etc/caddy</span><br></pre></td></tr></table></figure>
 
 <p>创建名为的Caddy配置文件<code>Caddyfile</code> 以下仅是一个普通配置，详细的配置参见本文<a href="#Caddyfile">Caddyfile部分</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">sudo touch /etc/caddy/Caddyfile</span><br><span class="line">sudo chown caddy:caddy /etc/caddy/Caddyfile</span><br><span class="line">sudo chmod 444 /etc/caddy/Caddyfile</span><br><span class="line">cat &lt;&lt;EOF | sudo tee -a /etc/caddy/Caddyfile</span><br><span class="line">annewqx.top&#123;</span><br><span class="line">	redir https://annewqx.top&#123;uri&#125;</span><br><span class="line">&#125;</span><br><span class="line">annewqx.top &#123;</span><br><span class="line">    root /var/www/annewqx.top</span><br><span class="line">    gzip</span><br><span class="line">    tls annewqx@outlook.com</span><br><span class="line">    header / Strict-Transport-Security <span class="string">"max-age=31536000"</span></span><br><span class="line">    gzip</span><br><span class="line">    errors &#123;</span><br><span class="line">       404 404.html</span><br><span class="line">       403 403.html</span><br><span class="line">     &#125; </span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">sudo touch /etc/caddy/Caddyfile</span><br><span class="line">sudo chown caddy:caddy /etc/caddy/Caddyfile</span><br><span class="line">sudo chmod 444 /etc/caddy/Caddyfile</span><br><span class="line">cat &lt;&lt;EOF | sudo tee -a /etc/caddy/Caddyfile</span><br><span class="line">www.example.com &#123;</span><br><span class="line">	redir https://example.com&#123;uri&#125;</span><br><span class="line">&#125;</span><br><span class="line">example.com &#123;</span><br><span class="line">    root /var/www/blog</span><br><span class="line">    gzip</span><br><span class="line">    tls example@outlook.com</span><br><span class="line">    header / Strict-Transport-Security <span class="string">"max-age=31536000"</span></span><br><span class="line">    gzip</span><br><span class="line">    errors &#123;</span><br><span class="line">       404 404.html</span><br><span class="line">       403 403.html</span><br><span class="line">     &#125; </span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 
-<p>为了方便Caddy的操作，您可以<code>systemd</code>为Caddy 设置一个单元文件，然后用它<code>systemd</code>来管理Caddy。</p>
+<p>使用<code>caddy -conf /etc/caddy/Caddyfile</code> 按照配置文件运行caddy。第一次运行会验证邮箱，并进行ssh申请等，等待后将网页浏览器指向<code>http://example.com</code>或<code>https://example.com</code>。可看到网站运行的样子</p>
+<p>关于Caddyfile的书写解释，可见本文<a href="#Caddyfile">Caddyfile</a>部分</p>
+<h3 id="方案3：使用caddy-service-此部分有缺陷，未解决"><a href="#方案3：使用caddy-service-此部分有缺陷，未解决" class="headerlink" title="方案3：使用caddy.service(此部分有缺陷，未解决)"></a>方案3：使用caddy.service(此部分有缺陷，未解决)</h3><blockquote>
+<p>github: <a href="https://github.com/caddyserver/caddy/tree/master/dist/init/linux-systemd" rel="external nofollow noreferrer">systemd Service Unit for Caddy</a></p>
+<p>这部分目前我遇到的问题</p>
+<ul>
+<li>使用<code>systemctl status caddy.service</code>提示用户错误。错误的原因一个是systemd version太低，虽然caddy.service要求是219即可，实际上大概是需要229以上才行；</li>
+<li>文件夹权限的问题，涉及到用户和用户组，不太熟，如果把自己搞得ssh拒绝登录就傻了；</li>
+</ul>
+<p>等有时间的时候再回头修这个吧😑</p>
+</blockquote>
+<p>为了方便Caddy的操作，我们可以使用systemd<code>为Caddy 设置一个单元文件，然后用它</code>systemd`来管理Caddy。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -s https://raw.githubusercontent.com/mholt/caddy/master/dist/init/linux-systemd/caddy.service -o /etc/systemd/system/caddy.service  <span class="comment"># 从 github 下载 systemd 配置文件</span></span><br><span class="line">chown root:root /etc/systemd/system/caddy.service   <span class="comment"># 配置权限</span></span><br><span class="line">chmod 744 /etc/systemd/system/caddy.service</span><br></pre></td></tr></table></figure>
 
 <p>启动Caddy服务并使其在系统引导时自动启动：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl start caddy.service</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> caddy.service</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重启systemd使服务生效</span></span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line"><span class="comment"># 开始运行caddy服务</span></span><br><span class="line">sudo systemctl start caddy.service</span><br><span class="line"><span class="comment"># 设置开机自启动</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> caddy.service</span><br><span class="line"><span class="comment"># 查看caddy服务运行状态</span></span><br><span class="line">sudo systemctl status caddy.service</span><br></pre></td></tr></table></figure>
 
-<p>最后，将您的网页浏览器指向<code>http://example.com</code>或<code>https://example.com</code>。您应该看到博客运行的样子</p>
+<p>最后，将网页浏览器指向<code>http://example.com</code>或<code>https://example.com</code>。可看到网站运行的样子。</p>
 <span id = "Caddyfile">
 
 <h2 id="Caddyfile"><a href="#Caddyfile" class="headerlink" title="Caddyfile"></a>Caddyfile</h2></span>
 **Caddyfile**用来告诉Caddy如何提供服务的文本文件。他通常和网站放在一起。
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> path/to/site</span><br><span class="line"><span class="built_in">echo</span> example.com &gt; Caddyfile</span><br><span class="line">caddy</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> path/to/site</span><br><span class="line">vim Caddyfile</span><br></pre></td></tr></table></figure>
 
-<p>Caddy的结构如下：</p>
+<p>Caddy的一般结构如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">www.mysite.com &#123;</span><br><span class="line">    redir https:<span class="comment">//mysite.com&#123;uri&#125;</span></span><br><span class="line">&#125;</span><br><span class="line">mysite.com &#123;</span><br><span class="line">        root /var/www/blog</span><br><span class="line">        <span class="built_in">log</span> / /var/<span class="built_in">log</span>/caddy/mysite.<span class="built_in">log</span> <span class="string">"&#123;remote&#125; &#123;when&#125; &#123;method&#125; &#123;uri&#125; &#123;proto&#125; &#123;status&#125; &#123;size&#125; &#123;&gt;User-Agent&#125; &#123;latency&#125;"</span></span><br><span class="line">        tls 邮箱账号</span><br><span class="line">        header / Strict-Transport-Security <span class="string">"max-age=31536000"</span></span><br><span class="line">        gzip</span><br><span class="line">        errors &#123;</span><br><span class="line">         <span class="number">404</span> <span class="number">404.</span>html</span><br><span class="line">         <span class="number">403</span> <span class="number">403.</span>html</span><br><span class="line">       &#125;</span><br><span class="line">       expires &#123;</span><br><span class="line">         match .css$ <span class="number">1</span>m</span><br><span class="line">         match .js$ <span class="number">1</span>m</span><br><span class="line">         match .png$ <span class="number">1</span>m</span><br><span class="line">         match .jpg$ <span class="number">1</span>m</span><br><span class="line">      &#125;</span><br><span class="line">      ipfilter / &#123;</span><br><span class="line">        rule  block</span><br><span class="line">        blockpage /var/www/liuzhichao.com/<span class="number">403.</span>html</span><br><span class="line">        ip <span class="number">148.251</span><span class="number">.8</span><span class="number">.250</span> <span class="number">136.243</span><span class="number">.37</span><span class="number">.219</span> <span class="number">144.76</span><span class="number">.38</span><span class="number">.40</span> <span class="number">69.197</span><span class="number">.177</span><span class="number">.50</span> <span class="number">199.58</span><span class="number">.86</span><span class="number">.211</span> <span class="number">5.9</span><span class="number">.97</span><span class="number">.200</span> <span class="number">144.76</span><span class="number">.91</span><span class="number">.79</span></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">     rewrite &#123;</span><br><span class="line">        <span class="keyword">if</span> &#123;&gt;User-agent&#125; has <span class="string">"MJ12bot"</span></span><br><span class="line">        to /forbidden</span><br><span class="line">    &#125;</span><br><span class="line">     status <span class="number">403</span> /forbidden</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>说明：</p>
@@ -478,13 +489,17 @@
         <span class="has-mr-6">5</span>
         <span>配置</span>
         </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#方案1：官方指导的快速开始">
+        <a class="is-flex" href="#方案1：来自Caddy官方文档的快速开始">
         <span class="has-mr-6">5.1</span>
-        <span>方案1：官方指导的快速开始</span>
+        <span>方案1：来自Caddy官方文档的快速开始</span>
         </a></li><li>
-        <a class="is-flex" href="#方案2：使用caddy-service-此部分有缺陷，未完成">
+        <a class="is-flex" href="#方案2：从Caddyfile开始">
         <span class="has-mr-6">5.2</span>
-        <span>方案2：使用caddy.service(此部分有缺陷，未完成)</span>
+        <span>方案2：从Caddyfile开始</span>
+        </a></li><li>
+        <a class="is-flex" href="#方案3：使用caddy-service-此部分有缺陷，未解决">
+        <span class="has-mr-6">5.3</span>
+        <span>方案3：使用caddy.service(此部分有缺陷，未解决)</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#Caddyfile">
         <span class="has-mr-6">6</span>
