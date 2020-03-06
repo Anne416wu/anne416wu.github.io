@@ -938,18 +938,6 @@
                 <span id="busuanzi_container_site_pv">
                     <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
                 </span>
-                <script>
-                    $(document).ready(function() {
-                        var int = setInterval(fixCount, 50);  // 50ms周期检测函数
-                        var countOffset = 500000000;  // 初始化首次数据
-                        function fixCount() {   
-                            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
-                            clearInterval(int);         
-                            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
-                            clearInterval(int); // 停止检测
-                            
-                    });
-                    </script> 
                 
                 </p>
             </div>
@@ -989,6 +977,12 @@
             </div>
         </div>
     </div>
+    <script>
+        var uv = document.getElementById("busuanzi_value_site_uv")
+        var pv = document.getElementById("busuanzi_value_site_pv")
+        uv.innerText = patseInt(uv.innerHTML) + 30
+        pv.innerText = patseInt(pv.innerHTML) + 50
+    </script> 
 </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
