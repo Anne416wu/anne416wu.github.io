@@ -92,27 +92,7 @@
     
     <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <!-- 不蒜子计数初始值纠正 -->
-<script>
-    $(document).ready(function() {
-    
-        var int = setInterval(fixCount, 50);  // 50ms周期检测函数
-        var countOffset = 20000;  // 初始化首次数据
-    
-        function fixCount() {            
-           if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
-            {
-                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
-                clearInterval(int);
-            }                  
-            if ($("#busuanzi_container_site_pv").css("display") != "none")
-            {
-                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
-                clearInterval(int); // 停止检测
-            }  
-        }
-            
-    });
-    </script> 
+
     
 
 
@@ -444,6 +424,63 @@
     
 <div class="card">
     
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time> -->
+                <span class="level-item has-text-grey">2020-02-20</span>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/report/">report</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    18 分钟 读完 (大约 2720 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/53125/">编译原理与设计-Lab1-语言认知实验</a>
+            
+        </h1>
+        <div class="content">
+            <hr>
+<blockquote>
+<p>分别使用 C/C++、Java、Python 和 Haskell 实现快速排序和归并排序算法，对采用这几种语言实现的编程效率，程序的规模，程序的运行效率进行对比分析。</p>
+</blockquote>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/53125/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
     <div class="card-image">
         <a href="/posts/32573/" class="image is-7by1">
             <img class="thumbnail" src="/gallery/thumbnails/haskell.png" alt="Mac上Haskell的安装环境搭建">
@@ -486,63 +523,6 @@
             <div class="level-start">
                 <div class="level-item">
                 <a class="button is-size-7 is-light" href="/posts/32573/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time> -->
-                <span class="level-item has-text-grey">2020-02-20</span>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/report/">report</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    18 分钟 读完 (大约 2720 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/posts/53125/">编译原理与设计-Lab1-语言认知实验</a>
-            
-        </h1>
-        <div class="content">
-            <hr>
-<blockquote>
-<p>分别使用 C/C++、Java、Python 和 Haskell 实现快速排序和归并排序算法，对采用这几种语言实现的编程效率，程序的规模，程序的运行效率进行对比分析。</p>
-</blockquote>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/posts/53125/#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -1221,18 +1201,18 @@
         
         <article class="media">
             
-            <a href="/posts/32573/" class="media-left">
+            <a href="/posts/53125/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/thumbnails/haskell.png" alt="Mac上Haskell的安装环境搭建">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab1-语言认知实验">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
-                    <a href="/posts/32573/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Mac上Haskell的安装环境搭建</a>
+                    <a href="/posts/53125/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab1-语言认知实验</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
+                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/report/">report</a>
                     </p>
                 </div>
             </div>
@@ -1590,7 +1570,19 @@
                 </span>
                 <span id="busuanzi_container_site_pv">
                     <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
-                    </span>
+                </span>
+                <script>
+                    $(document).ready(function() {
+                        var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+                        var countOffset = 500000000;  // 初始化首次数据
+                        function fixCount() {   
+                            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+                            clearInterval(int);         
+                            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+                            clearInterval(int); // 停止检测
+                            
+                    });
+                    </script> 
                 
                 </p>
             </div>
