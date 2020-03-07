@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  lang="zh">
+<html  lang="en">
 <head>
     <meta charset="utf-8" />
 
@@ -16,10 +16,10 @@
 <meta property="og:url" content="https://www.annewqx.top/posts/65512/index.html">
 <meta property="og:site_name" content="Annewqx">
 <meta property="og:description" content="基于icarus主题的Hexo博客装修。本文将介绍除了icarus在_config.yml中提供的功能以外，通过修改其源代码实现的其他扩展功能，页面文件样式的进一步美化等。属于深度定制自己的主题，需要基础的CSS和HTML知识。">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.annewqx.top/gallery/thumbnails/desert.png">
 <meta property="article:published_time" content="2020-02-24T12:29:31.000Z">
-<meta property="article:modified_time" content="2020-03-07T10:45:26.548Z">
+<meta property="article:modified_time" content="2020-03-07T14:36:30.844Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="hexo decorate 博客 美化 装修">
 <meta name="twitter:card" content="summary">
@@ -151,12 +151,12 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" rel="external nofollow noreferrer">
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="搜索" href="javascript:;" rel="external nofollow noreferrer">
+                <a class="navbar-item search" title="Search" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -195,13 +195,13 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    11 分钟 读完 (大约 1624 个字)
+                    12 minutes read (About 1774 words)
                 </span>
                 
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
+                    <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> visits
                 </span>
                 
             </div>
@@ -227,25 +227,13 @@
 <li><p><a href="http://yearito.cn/posts/hexo-theme-beautify.html" rel="external nofollow noreferrer">Hexo 搭建个人博客系列：主题美化篇</a>–侧重于为页面添加视觉效果上的美化特效</p>
 <p> 作者Yearito一系列关于hexo博文写得都很漂亮：<a href="http://yearito.cn/tags/Hexo/" rel="external nofollow noreferrer">http://yearito.cn/tags/Hexo/</a></p>
 </li>
-<li><p><a href="https://lqwang.net/5.html" rel="external nofollow noreferrer">Hexo&amp;icarus主题修改</a> –主要侧重于修改ejs文件，改变网页排版</p>
-</li>
 </ul>
 </blockquote>
-<h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><p>首先我们要知道icarus的文件结构。icarus采用了ejs模板语言生成页面，使用Bulma框架作为页面样式的控制框架。icatus源代码良好书写习惯的可扩展性是我们修改的基础。</p>
-<p>icarus所有的页面样式都存在<code>themes/icarus/layout</code>中，我们以<code>layout</code>作为根目录，重点需要关注的文件有</p>
+<h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><p>首先我们要知道icarus的文件结构。icarus采用了ejs模板语言生成页面，使用Bulma框架作为页面样式的控制框架。icatus源代码良好书写习惯的可扩展性是我们修改的基础。icarus所有的页面样式都存在<code>themes/icarus/layout</code>中，我们重点需要关注的文件有:</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile">|-- themes<br>    |-- _config.yml<br>    |-- includes<br>    |   |-- generators<br>    |   |   |-- categories.js<br>    |   |   |-- category.js			<span class="hljs-comment"># 需要修改，换目录页为时间轴展示</span><br>    |   |   |-- insight.js<br>    |   |   |-- tag.js					<span class="hljs-comment"># 后期加入，换标签页为时间轴展示</span><br>    |   |   |-- tags.js<br>    |-- layout<br>    |   |-- archive.ejs					<span class="hljs-comment"># 控制归档页页面</span><br>    |   |-- category.ejs				<span class="hljs-comment"># 用于控制单个目录页页面</span><br>    |   |-- categories.ejs			<span class="hljs-comment"># 用于控制母目录页页面</span><br>    |   |-- tag.ejs							<span class="hljs-comment"># 用于控制单个标签页页面</span><br>    |   |-- tags.ejs						<span class="hljs-comment"># 用于控制母标签页页面</span><br>    |   |-- custom_cat.ejs			<span class="hljs-comment"># 后期加入，模仿archive.ejs，替换category.ejs</span><br>    |   |-- custom_tag.ejs			<span class="hljs-comment"># 后期加入，模仿archive.ejs，替换tag.ejs</span><br>    |   |-- layout.ejs					<span class="hljs-comment"># 控制homepage的页面和比例</span><br>    |   |-- comment<br>    |   |   |-- valine.ejs			<span class="hljs-comment"># 补充源主题缺少的头像控制</span><br>    |   |-- common				<span class="hljs-comment"># common中的文件用于控制页面各个区域</span><br>    |   |   |-- head.ejs				<span class="hljs-comment"># 控制每个网页的&lt;head&gt;中的信息，设置seo时修改</span><br>    |   |   |-- footer.ejs			<span class="hljs-comment"># 控制每个网页的脚注</span><br>    |   |   |-- article.ejs<br>    |   |   |-- navbar.ejs			<span class="hljs-comment"># 控制导航栏</span><br>    |   |   |-- widget.ejs			<span class="hljs-comment"># 控制所有widget比例</span><br>    |   |-- widget				<span class="hljs-comment"># 存放各个widget界面</span><br>    |       |-- map.ejs					<span class="hljs-comment"># 添加访客地图widget</span><br>    |       |-- map.locals.js		<span class="hljs-comment"># 缓存文件</span><br>    |       |-- music.ejs				<span class="hljs-comment"># 添加音乐widget</span><br>    |       |-- music.locals.js	<span class="hljs-comment"># 缓存文件</span><br>    |-- source<br>        |-- css<br>        |-- images<br>        |   |-- thumbnail.svg<br>        |   |-- Alipay.jpg<br>        |   |-- wechatpay.jpg<br>        |-- js<br></code></pre></td></tr></table></figure>
+
 <ul>
-<li><code>layout.ejs</code>–控制homepage的页面样式</li>
-<li>common文件夹中的文件用于控制页面各个区域<ul>
-<li><code>widget.ejs</code>–控制所有widget比例；</li>
-<li><code>head.ejs</code>–控制每个网页的<code>&lt;head&gt;</code>中的信息；</li>
-<li><code>footer.ejs</code>–控制每个网页的脚注；</li>
-<li><code>navbar.ejs</code>–控制导航栏；</li>
-<li><code>article.ejs</code>–控制普通博文页面</li>
-</ul>
-</li>
-<li>widget文件夹存放各个widget的内容，我们将模仿它的格式，添加音乐和地图的widget</li>
-<li>comment文件夹用于存放各个评论插件，我们将对其中的Valine作出一些修改</li>
-<li>其余还有plugin文件夹，用于存放分析和计数需要的工具；search文件夹，用于存放几种搜索所需要的工具(icarus作者并没有使用hexo-generate-search的插件生成索引，而是自己写了一个insight函数生成索引列表。respect🤔。但是它的搜索展现思路变为了仅显示包含搜索条件的文章名和首行，这与我们希望显示搜索条件出现在文章的哪一处的需求不同😑)</li>
+<li>其余我想要做改动的还有plugin文件夹，用于存放分析和计数需要的工具；search文件夹，用于存放几种搜索所需要的工具(icarus作者并没有使用hexo-generate-search的插件生成索引，而是自己写了一个insight函数生成索引列表。respect🤔。但是它的搜索展现思路变为了仅显示包含搜索条件的文章名和首行，这与我们希望显示搜索条件出现在文章的哪一处的需求不同😑)</li>
 </ul>
 <h2 id="个性化插件"><a href="#个性化插件" class="headerlink" title="个性化插件"></a>个性化插件</h2><blockquote>
 <p>插件是最简单的提升博客丰富性的方法。而多数插件只需要一行js代码就能实现</p>
@@ -305,7 +293,9 @@
 </ol>
 </li>
 </ul>
-<h3 id="人体时钟"><a href="#人体时钟" class="headerlink" title="人体时钟"></a>人体时钟</h3><img src="Screenshot2020-03-0700.16.52.png" alt="netEaseMusic" style="zoom: 50%;" />
+<h3 id="人体时钟"><a href="#人体时钟" class="headerlink" title="人体时钟"></a>人体时钟</h3><div align="center">
+  <img src="Screenshot2020-03-0700.16.52.png" alt="netEaseMusic" style="zoom: 50%;" />
+</div>
 
 <ul>
 <li><p>功能：在导航栏上添加一个有交互性的小人时钟</p>
@@ -337,10 +327,11 @@
 <li><p>Valine更多默认头像设置参考<a href="https://valine.js.org/avatar.html" rel="external nofollow noreferrer">Valine头像配置</a></p>
 </li>
 </ul>
-<h3 id="部件比例"><a href="#部件比例" class="headerlink" title="部件比例"></a>部件比例</h3><blockquote>
-<p>参考文章：<a href="https://blog.csdn.net/qq_25072517/article/details/78432626" rel="external nofollow noreferrer">CSDN-Bulma框架</a></p>
+<h3 id="修改widget和文章比例"><a href="#修改widget和文章比例" class="headerlink" title="修改widget和文章比例"></a>修改widget和文章比例</h3><blockquote>
+<p>参考文章：<a href="https://blog.csdn.net/qq_25072517/article/details/78432626" rel="external nofollow noreferrer">CSDN-Bulma框架</a> <a href="https://lqwang.net/5.html" rel="external nofollow noreferrer">Hexo&amp;icarus主题修改</a></p>
+<p>原本的icarus展开后总是展示三栏，使得中间</p>
 </blockquote>
-<h2 id="数据统计"><a href="#数据统计" class="headerlink" title="数据统计"></a>数据统计</h2><h3 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h3>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain"><br><br></code></pre></td></tr></table></figure>
+<h3 id="修改存档页的展示方式"><a href="#修改存档页的展示方式" class="headerlink" title="修改存档页的展示方式"></a>修改存档页的展示方式</h3><h2 id="数据统计"><a href="#数据统计" class="headerlink" title="数据统计"></a>数据统计</h2><h3 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h3>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain"><br><br></code></pre></td></tr></table></figure>
         </div>
         
         <div class="level is-size-7 is-uppercase">
@@ -361,7 +352,7 @@
 
 <div class="card">
     <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
         <div class="buttons is-centered">
             
                 
@@ -369,8 +360,8 @@
     <span class="icon is-small">
         <i class="fab fa-alipay"></i>
     </span>
-    <span>支付宝</span>
-    <div class="qrcode"><img src="/images/Alipay.jpg" alt="支付宝"></div>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="/images/Alipay.jpg" alt="Alipay"></div>
 </a>
 
                 
@@ -379,8 +370,8 @@
     <span class="icon is-small">
         <i class="fab fa-weixin"></i>
     </span>
-    <span>微信</span>
-    <div class="qrcode"><img src="/images/wechatpay.jpg" alt="微信"></div>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="/images/wechatpay.jpg" alt="Wechat"></div>
 </a>
 
                 
@@ -430,7 +421,7 @@
 
 <div class="card">
     <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
         
 <div id="valine-thread" class="content"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
@@ -460,7 +451,7 @@
 
 
 
-<div class="column is-one-third-tablet is-3-desktop is-3-widescreen  has-order-3 column-right is-sticky">    
+<div class="column is-one-third-tablet is-3-desktop is-3-widescreen  has-order-1 column-right is-sticky">    
     
         
 
@@ -468,7 +459,7 @@
         <div class="card-content">
             <div class="menu">
                 <h3 class="menu-label">
-                    目录
+                    Catalogue
                 </h3>
                 <ul class="menu-list"><li>
         <a class="is-flex" href="#先决条件">
@@ -503,9 +494,13 @@
         <span class="has-mr-6">3.1</span>
         <span>Valine 头像</span>
         </a></li><li>
-        <a class="is-flex" href="#部件比例">
+        <a class="is-flex" href="#修改widget和文章比例">
         <span class="has-mr-6">3.2</span>
-        <span>部件比例</span>
+        <span>修改widget和文章比例</span>
+        </a></li><li>
+        <a class="is-flex" href="#修改存档页的展示方式">
+        <span class="has-mr-6">3.3</span>
+        <span>修改存档页的展示方式</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#数据统计">
         <span class="has-mr-6">4</span>
@@ -523,7 +518,7 @@
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            标签云
+            Tag Cloud
         </h3>
         <a href="/tags/Caddy/" style="font-size: 10px;">Caddy</a> <a href="/tags/Compilation/" style="font-size: 13.33px;">Compilation</a> <a href="/tags/Haskell/" style="font-size: 10px;">Haskell</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/python-anaconda/" style="font-size: 10px;">python anaconda</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a>
     </div>
@@ -559,10 +554,10 @@
                 
                 <br>
                 <span id="busuanzi_container_site_uv">
-                共<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>个访客
+                Visited by <span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span> users
                 </span>
                 <span id="busuanzi_container_site_pv">
-                    <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
+                    <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span> visits
                 </span>
                 
                 </p>
@@ -613,7 +608,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
-<script>moment.locale("zh-CN");</script>
+<script>moment.locale("en");</script>
 
 
 <script>
@@ -690,7 +685,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="回到顶端" href="javascript:;" rel="external nofollow noreferrer">
+<a id="back-to-top" title="Back to Top" href="javascript:;" rel="external nofollow noreferrer">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -714,7 +709,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -726,11 +721,11 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: '文章',
-                PAGES: '页面',
-                CATEGORIES: '分类',
-                TAGS: '标签',
-                UNTITLED: '(无标题)',
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
         };
