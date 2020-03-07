@@ -100,7 +100,7 @@
 <body class="is-3-column">
     <nav class="navbar navbar-main">
     <div class="container">
-        <div class="navbar-brand is-flex-center">
+        <div class="navbar-brand is-flex-center"> 
             <div class="is-hidden-mobile">
                 <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script>
             </div>
@@ -214,42 +214,42 @@
 <h2 id="实现的内容与方法"><a href="#实现的内容与方法" class="headerlink" title="实现的内容与方法"></a>实现的内容与方法</h2><blockquote>
 <p>本机环境： 系统masOS Catalina，已安装homebrew</p>
 </blockquote>
-<h3 id="1-编译器安装"><a href="#1-编译器安装" class="headerlink" title="1 编译器安装"></a>1 编译器安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装gcc8</span></span><br><span class="line">brew install gcc@8</span><br><span class="line"><span class="comment"># 安装clang</span></span><br><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
+<h3 id="1-编译器安装"><a href="#1-编译器安装" class="headerlink" title="1 编译器安装"></a>1 编译器安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装gcc8</span><br>brew install gcc@8<br><span class="hljs-comment"># 安装clang</span><br>xcode-select --install<br></code></pre></td></tr></table></figure>
 
 <h3 id="2-编写测试程序"><a href="#2-编写测试程序" class="headerlink" title="2 编写测试程序"></a>2 编写测试程序</h3><ul>
 <li><p>单个程序</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"hello\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>2<span class="hljs-built_in">printf</span>(<span class="hljs-string">"hello\n"</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>多个程序</p>
 <p><code>cal.c</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> num1, num2;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;num1,&amp;num2);</span><br><span class="line">	<span class="keyword">int</span> res = add(num1,num2);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, res);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>2<span class="hljs-keyword">int</span> num1, num2;<br>2<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d %d"</span>,&amp;num1,&amp;num2);<br>2<span class="hljs-keyword">int</span> res = add(num1,num2);<br>2<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, res);<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p><code>add.c</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"add.h"</span></span></span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>&#123;</span><br><span class="line">  	<span class="keyword">return</span> num1+num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c">  <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"add.h"</span></span><br>  <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num1, <span class="hljs-keyword">int</span> num2)</span></span>&#123;<br>  	<span class="hljs-keyword">return</span> num1+num2;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 </li>
 </ul>
 <h3 id="3-运行编译器进行观测"><a href="#3-运行编译器进行观测" class="headerlink" title="3 运行编译器进行观测"></a>3 运行编译器进行观测</h3><h4 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a>GCC</h4><ul>
 <li><p>查看编译器版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -v</span><br><span class="line">$ gcc version 8.3.0 (Homebrew GCC 8.3.0_2)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -v<br>$ gcc version 8.3.0 (Homebrew GCC 8.3.0_2)<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>使用gcc编译单个文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o hello hello.c</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -o hello hello.c<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>使用gcc编译链接多个文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o cal cal.c add.c</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -o cal cal.c add.c<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>查看预处理结果</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -E hello.c -o hello.i</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -E hello.c -o hello.i<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>查看语法分析树</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -fdump-tree-all hello.c</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -fdump-tree-all hello.c<br></code></pre></td></tr></table></figure>
 
 <p>生成的文件列表，使用<code>ls -ltr</code> 查看(按生成顺序倒序排列)</p>
 <img src="Screenshot2020-03-0321.36.26.png" alt="执行命令后产生的文件列表" />
 
 <p>查看中间代码生成结果</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -fdump-rtl-all hello.c</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -fdump-rtl-all hello.c<br></code></pre></td></tr></table></figure>
 
 <p>生成的文件列表，使用<code>ls -ltr</code> 查看(按生成顺序倒序排列)</p>
 <img src="Screenshot2020-03-0321.37.11.png" alt="执行命令后产生的文件列表" style="zoom:33%;" />
@@ -259,58 +259,58 @@
 </ul>
 <ul>
 <li><p>查看生成的目标代码(汇编代码)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o hello.asm -S hello.c</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -o hello.asm -S hello.c<br></code></pre></td></tr></table></figure>
 
 </li>
 </ul>
 <h4 id="LLVM"><a href="#LLVM" class="headerlink" title="LLVM"></a>LLVM</h4><ul>
 <li><p>查看编译器的版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang -v</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">clang -v<br></code></pre></td></tr></table></figure>
 
 <p>返回结果</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Apple clang version 11.0.0 (clang-1100.0.33.17)</span><br><span class="line">Target: x86_64-apple-darwin19.3.0</span><br><span class="line">Thread model: posix</span><br><span class="line">InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">Apple clang version 11.0.0 (clang-1100.0.33.17)<br>Target: x86_64-apple-darwin19.3.0<br>Thread model: posix<br>InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>使用编译器编译单个文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang -o hello hello.c</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">clang -o hello hello.c<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>使用编译器编译链接多个文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang -o cal cal.c add.c</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">clang -o cal cal.c add.c<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>查看编译流程和阶段</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang -ccc-print-phases test.c -c</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">clang -ccc-print-phases test.c -c<br></code></pre></td></tr></table></figure>
 
 <p>终端的输出：</p>
 <img src="Screenshot2020-03-0321.59.14.png" alt="终端的输出"  />
 </li>
 <li><p>查看词法分析结果</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang test.c -fsyntax-only -Xclang -dump-tokens</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">clang test.c -fsyntax-only -Xclang -dump-tokens<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>查看词法分析结果 2:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang test.c  -fsyntax-only -Xclang -dump-raw-tokens</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">clang test.c  -fsyntax-only -Xclang -dump-raw-tokens<br></code></pre></td></tr></table></figure>
 
 <p>生成的结果：</p>
 <img src="Screenshot2020-03-0322.43.03.png" alt="终端的输出"  />
 </li>
 <li><p>查看语义分析结果</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clang test.c -Xclang -ast-dump <span class="comment"># error link</span></span><br><span class="line">clang -fsyntax-only -Xclang -ast-dump test.c</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">clang test.c -Xclang -ast-dump <span class="hljs-comment"># error link</span><br>clang -fsyntax-only -Xclang -ast-dump test.c<br></code></pre></td></tr></table></figure>
 
 <p>部分结果：</p>
 <img src="Screenshot2020-03-0322.44.20.png" alt="终端输出的末尾"  />
 </li>
 <li><p>查看语义分析结果 2</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clang test.c -Xclang -ast-view    <span class="comment"># clang: error: linker command failed with exit code 1 </span></span><br><span class="line">clang test.c -fsyntax-only -Xclang -ast-view  <span class="comment"># 因为缺乏gv环境 此命令未能得到成功结果</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">clang test.c -Xclang -ast-view    <span class="hljs-comment"># clang: error: linker command failed with exit code 1 </span><br>clang test.c -fsyntax-only -Xclang -ast-view  <span class="hljs-comment"># 因为缺乏gv环境 此命令未能得到成功结果</span><br></code></pre></td></tr></table></figure>
 
 <p>部分结果：</p>
 <img src="Screenshot2020-03-0322.51.40.png" alt="终端的输出"  />
 </li>
 <li><p>查看编译优化的结果:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang test.c -S -mllvm -<span class="built_in">print</span>-after-all</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">clang test.c -S -mllvm -<span class="hljs-built_in">print</span>-after-all<br></code></pre></td></tr></table></figure>
 
 <p>部分结果：</p>
 <img src="Screenshot2020-03-0323.03.18.png" alt="终端输出的末尾"  />
 </li>
 <li><p>查看生成的目标代码结果 Target code generation</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang –S test.c</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">clang –S test.c<br></code></pre></td></tr></table></figure>
 
 <p>生成的目标代码文件开头：</p>
 <img src="Screenshot2020-03-0323.07.04.png" alt="test.s文件"  />
@@ -434,7 +434,7 @@
 </li>
 <li><p>词法分析</p>
 <p>在此步骤会把代码切成一个个Token，比如大小括号，等于号还有字符串等。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 词法分析1</span></span><br><span class="line">clang -fsyntax-only -Xclang -dump-tokens test.c</span><br><span class="line"><span class="comment"># 词法分析2</span></span><br><span class="line">clang test.c  -fsyntax-only -Xclang -dump-raw-tokens</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 词法分析1</span><br>clang -fsyntax-only -Xclang -dump-tokens test.c<br><span class="hljs-comment"># 词法分析2</span><br>clang test.c  -fsyntax-only -Xclang -dump-raw-tokens<br></code></pre></td></tr></table></figure>
 
 <p>图片中依次为词法分析1，词法分析2和源文件</p>
 <p><img src="Screenshot2020-03-0523.09.17.png" alt="词法分析1，词法分析2和源文件"></p>
@@ -442,13 +442,13 @@
 </li>
 <li><p>语法分析</p>
 <p>验证程序的语法是否正确，然后将所有的节点组成抽象语法树AST</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 语法分析1</span></span><br><span class="line">clang -fsyntax-only -Xclang -ast-dump test.c</span><br><span class="line"><span class="comment"># 语法分析2</span></span><br><span class="line">clang test.c -fsyntax-only -Xclang -ast-view  <span class="comment"># 因为缺乏gv环境 此命令未能得到成功结果</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 语法分析1</span><br>clang -fsyntax-only -Xclang -ast-dump test.c<br><span class="hljs-comment"># 语法分析2</span><br>clang test.c -fsyntax-only -Xclang -ast-view  <span class="hljs-comment"># 因为缺乏gv环境 此命令未能得到成功结果</span><br></code></pre></td></tr></table></figure>
 
 <p>下图依次是语法分析1得到的抽象语法树ast，语法分析2的得到的语法树生成图的源文件。test.c的源代码</p>
 <p><img src="Screenshot2020-03-0523.17.14.png" alt="ast"></p>
 </li>
 <li><p>这些步骤完成之后就要开始进行IR中间代码的生成了，代码生成器CodeGen会负责将语法树自顶向下遍历逐步翻译成LLVM IR，IR就是编译过程的前端的输出以及后端的输入；此步骤LLVM会去做些优化工作，在Xcode的编译设置里也可以设置优化的级别-01，-03，-0s等；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看生成的IR中间代码</span></span><br><span class="line">clang -S -fobjc-arc -emit-llvm main.m -o main.ll</span><br><span class="line"><span class="comment"># 查看LLVM编译优化的结果</span></span><br><span class="line">clang test.c -S -mllvm -<span class="built_in">print</span>-after-all</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看生成的IR中间代码</span><br>clang -S -fobjc-arc -emit-llvm main.m -o main.ll<br><span class="hljs-comment"># 查看LLVM编译优化的结果</span><br>clang test.c -S -mllvm -<span class="hljs-built_in">print</span>-after-all<br></code></pre></td></tr></table></figure>
 
 <p>下图依次为中间代码，LLVM编译优化的结果</p>
 <p><img src="Screenshot2020-03-0523.27.37.png" alt="中间代码及优化结果"></p>
@@ -673,7 +673,6 @@
         app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
         app_key: '20OYVeUwaMoaoYEp1JhHnBmu',
         placeholder: 'Leave a comment',
-        
     });
 </script>
 
@@ -787,7 +786,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Caddy/" style="font-size: 10px;">Caddy</a> <a href="/tags/Compilation/" style="font-size: 15px;">Compilation</a> <a href="/tags/Haskell/" style="font-size: 10px;">Haskell</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 15px;">VPS</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/python-anaconda/" style="font-size: 10px;">python anaconda</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 15px;">科学上网</a>
+        <a href="/tags/Caddy/" style="font-size: 10px;">Caddy</a> <a href="/tags/Compilation/" style="font-size: 13.33px;">Compilation</a> <a href="/tags/Haskell/" style="font-size: 10px;">Haskell</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/python-anaconda/" style="font-size: 10px;">python anaconda</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a>
     </div>
 </div>
     

@@ -10,16 +10,16 @@
 <title>mac快捷键和常用命令行 - Annewqx</title>
 
 
-    <meta name="description" content="mac常用命令行">
+    <meta name="description" content="mac常用命令行，快捷键">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mac快捷键和常用命令行">
 <meta property="og:url" content="https://www.annewqx.top/posts/8410/index.html">
 <meta property="og:site_name" content="Annewqx">
-<meta property="og:description" content="mac常用命令行">
+<meta property="og:description" content="mac常用命令行，快捷键">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.annewqx.top/images/og_image.png">
 <meta property="article:published_time" content="2020-01-19T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-03-05T20:39:02.140Z">
+<meta property="article:modified_time" content="2020-03-06T13:36:16.310Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="mac 终端 命令行 快捷键">
 <meta name="twitter:card" content="summary">
@@ -100,7 +100,7 @@
 <body class="is-3-column">
     <nav class="navbar navbar-main">
     <div class="container">
-        <div class="navbar-brand is-flex-center">
+        <div class="navbar-brand is-flex-center"> 
             <div class="is-hidden-mobile">
                 <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script>
             </div>
@@ -189,7 +189,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    1 分钟 读完 (大约 115 个字)
+                    2 分钟 读完 (大约 238 个字)
                 </span>
                 
                 
@@ -209,19 +209,19 @@
         <div class="content">
             <hr>
 <blockquote>
-<p>mac常用命令行</p>
+<p>mac常用命令行，快捷键</p>
 </blockquote>
 <a id="more"></a>
 
 <h2 id="隐藏文件"><a href="#隐藏文件" class="headerlink" title="隐藏文件"></a>隐藏文件</h2><ul>
 <li>显示隐藏文件：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.Finder AppleShowAllFiles YES</span><br><span class="line">KillAll Finder</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">defaults write com.apple.Finder AppleShowAllFiles YES<br>KillAll Finder<br></code></pre></td></tr></table></figure>
 
 <ul>
 <li>不显示隐藏文件：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.Finder AppleShowAllFiles NO</span><br><span class="line">KillAll Finder</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">defaults write com.apple.Finder AppleShowAllFiles NO<br>KillAll Finder<br></code></pre></td></tr></table></figure>
 
 <ul>
 <li>快捷键方式：<code>command+shift+.</code></li>
@@ -229,17 +229,22 @@
 <h2 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h2><ul>
 <li>修改截图默认文件名</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture name &quot;Screenshot&quot;</span><br><span class="line">killall SystemUIServer</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">defaults write com.apple.screencapture name &quot;Screenshot&quot;<br>killall SystemUIServer<br></code></pre></td></tr></table></figure>
 
 <ul>
 <li>更换默认截图路径</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture location ~&#x2F;Desktop&#x2F;屏幕截图</span><br><span class="line">killall SystemUIServer</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">defaults write com.apple.screencapture location ~&#x2F;Desktop&#x2F;屏幕截图<br>killall SystemUIServer<br></code></pre></td></tr></table></figure>
 
 <ul>
 <li>去掉窗口截图的阴影</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture disable-shadow -bool true</span><br><span class="line">killall SystemUIServer</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">defaults write com.apple.screencapture disable-shadow -bool true<br>killall SystemUIServer<br></code></pre></td></tr></table></figure>
+
+<h2 id="ssh免验证"><a href="#ssh免验证" class="headerlink" title="ssh免验证"></a>ssh免验证</h2><ul>
+<li>有的时候配置了ssh服务，比如VPS远端登录，比如github账号，但是每次使用都会出现<code>Enter passphrase for key &#39;/Users/apple/.ssh/id_rsa&#39;</code>要求输入本地根用户密码—-这和密码登录有什么区别! 原因就是虽然在本地生成了ssh-key，但是没有把key添加到本地用户列表里。使用以下命令即可</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-add -k /Users/apple/.ssh/id_rsa<br></code></pre></td></tr></table></figure>
 
 
         </div>
@@ -345,7 +350,6 @@
         app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
         app_key: '20OYVeUwaMoaoYEp1JhHnBmu',
         placeholder: 'Leave a comment',
-        
     });
 </script>
 
@@ -380,6 +384,10 @@
         <a class="is-flex" href="#截图">
         <span class="has-mr-6">2</span>
         <span>截图</span>
+        </a></li><li>
+        <a class="is-flex" href="#ssh免验证">
+        <span class="has-mr-6">3</span>
+        <span>ssh免验证</span>
         </a></li></ul>
             </div>
         </div>
@@ -391,7 +399,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Caddy/" style="font-size: 10px;">Caddy</a> <a href="/tags/Compilation/" style="font-size: 15px;">Compilation</a> <a href="/tags/Haskell/" style="font-size: 10px;">Haskell</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 15px;">VPS</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/python-anaconda/" style="font-size: 10px;">python anaconda</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 15px;">科学上网</a>
+        <a href="/tags/Caddy/" style="font-size: 10px;">Caddy</a> <a href="/tags/Compilation/" style="font-size: 13.33px;">Compilation</a> <a href="/tags/Haskell/" style="font-size: 10px;">Haskell</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/python-anaconda/" style="font-size: 10px;">python anaconda</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a>
     </div>
 </div>
     

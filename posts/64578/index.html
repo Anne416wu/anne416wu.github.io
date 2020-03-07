@@ -100,7 +100,7 @@
 <body class="is-3-column">
     <nav class="navbar navbar-main">
     <div class="container">
-        <div class="navbar-brand is-flex-center">
+        <div class="navbar-brand is-flex-center"> 
             <div class="is-hidden-mobile">
                 <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script>
             </div>
@@ -218,7 +218,7 @@
 <p><span id = "jumptoexample"> 两种方法究其根本都是md中html语法的应用</span></p>
 <h3 id="link_in_page.1">1.生成目录方法</h3>
 
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>[<span class="string">页内跳转</span>](<span class="link">#link_in_page</span>)</span><br><span class="line"><span class="bullet">  * </span>[<span class="string">1生成目录的方法</span>](<span class="link">#link_in_page.1</span>)</span><br><span class="line"><span class="bullet">  * </span>[<span class="string">2html标签实现</span>](<span class="link">#link_in_page.2</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">* </span>[<span class="hljs-string">页内跳转</span>](<span class="hljs-link">#link_in_page</span>)<br><span class="hljs-bullet">  * </span>[<span class="hljs-string">1生成目录的方法</span>](<span class="hljs-link">#link_in_page.1</span>)<br><span class="hljs-bullet">  * </span>[<span class="hljs-string">2html标签实现</span>](<span class="hljs-link">#link_in_page.2</span>)<br></code></pre></td></tr></table></figure>
 
 <p>生成效果:</p>
 <ul>
@@ -229,7 +229,7 @@
 </li>
 </ul>
 <p>在正文中对应的地方, 加入章节标题对应id</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">'link_in_page'</span>&gt;</span></span>页内跳转<span class="xml"><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'link_in_page'</span>&gt;</span></span>页内跳转<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
 
 <h3 id="link_in_page.2">2.html标签实现</h3>
 
@@ -340,7 +340,6 @@
         app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
         app_key: '20OYVeUwaMoaoYEp1JhHnBmu',
         placeholder: 'Leave a comment',
-        
     });
 </script>
 
@@ -390,7 +389,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Caddy/" style="font-size: 10px;">Caddy</a> <a href="/tags/Compilation/" style="font-size: 15px;">Compilation</a> <a href="/tags/Haskell/" style="font-size: 10px;">Haskell</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 15px;">VPS</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/python-anaconda/" style="font-size: 10px;">python anaconda</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 15px;">科学上网</a>
+        <a href="/tags/Caddy/" style="font-size: 10px;">Caddy</a> <a href="/tags/Compilation/" style="font-size: 13.33px;">Compilation</a> <a href="/tags/Haskell/" style="font-size: 10px;">Haskell</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/python-anaconda/" style="font-size: 10px;">python anaconda</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a>
     </div>
 </div>
     
