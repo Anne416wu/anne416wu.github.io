@@ -17,11 +17,11 @@ textarea {
 @media screen and (min-width: 1280px) {
   .is-1-column .container,
   .is-2-column .container {
-    max-width: 960px;
-    width: 960px;
+    max-width: 1024px;
+    width: 1024px;
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1472px) {
   .is-2-column .container {
     max-width: 1216px;
     width: 1216px;
@@ -112,7 +112,7 @@ img.thumbnail {
   color: #3273dc;
   background-color: transparent;
 }
-@media screen and (max-width: 1088px) {
+@media screen and (max-width: 1152px) {
   .navbar-main .navbar-menu {
     justify-content: center;
     box-shadow: none;
@@ -366,9 +366,6 @@ img.thumbnail {
  * --------------------------------- */
 .content a {
   color: #22a2c9;
-  font-weight: 600;
-  padding: 0 2px;
-  text-decoration: none;
 }
 .content h1,
 .content h2,
@@ -384,19 +381,19 @@ img.thumbnail {
   line-height: 1.3;
 }
 .content h2 {
-  font-size: 1.5rem;
-  ine-height: 1.225;
+  font-size: 1.5em;
+  line-height: 1.225;
   margin: 35px 0 15px;
   padding-bottom: 0.5em;
   border-bottom: 1px solid #ddd;
 }
 .content h3 {
-  font-size: 1.25rem;
+  font-size: 1.25em;
   line-height: 1.3;
   margin: 20px 0 7px;
 }
 .content h4 {
-  font-size: 1.125rem;
+  font-size: 1.125em;
 }
 .content h5 {
   font-size: 1em;
@@ -413,8 +410,8 @@ img.thumbnail {
   font-size: 0.85em;
 }
 .content code {
-  padding: 0 2px 0 2px;
-  background: #f8f8f8;
+  padding: 0;
+  background: transparent;
 }
 .content > code,
 .content :not(pre) > code {
@@ -427,9 +424,6 @@ img.thumbnail {
 }
 .content blockquote footer strong + cite {
   margin-left: 0.5em;
-}
-.content img {
-  align: center;
 }
 /* ---------------------------------
  *        Fix code highlight
@@ -466,7 +460,7 @@ figure.highlight pre {
 }
 figure.highlight pre .line,
 figure.highlight pre code .hljs {
-  line-height: 1.5rem;
+  line-height: 1.25rem;
 }
 figure.highlight figcaption,
 figure.highlight .gutter {
@@ -554,4 +548,50 @@ figure.highlight .section {
 }
 .gist .file {
   all: initial;
+}
+.my_post_copyright {
+  width: 85%;
+  max-width: 45em;
+  margin: 2.8em auto 0;
+  padding: 0.5em 1em;
+  border: 1px solid #d3d3d3;
+  font-size: 0.93rem;
+  line-height: 1.6em;
+  word-break: break-all;
+  background: rgba(255,255,255,0.4);
+}
+.my_post_copyright p {
+  margin: 0;
+}
+.my_post_copyright span {
+  display: inline-block;
+  width: 5.2em;
+  color: #b5b5b5;
+  font-weight: bold;
+}
+.my_post_copyright .raw {
+  margin-left: 1em;
+  width: 5em;
+}
+.my_post_copyright a {
+  color: #808080;
+  border-bottom: 0;
+}
+.my_post_copyright a:hover {
+  color: #a3d2a3;
+  text-decoration: underline;
+}
+.my_post_copyright:hover .fa-clipboard {
+  color: #000;
+}
+.my_post_copyright .post-url:hover {
+  font-weight: normal;
+}
+.my_post_copyright .copy-path {
+  margin-left: 1em;
+  width: 1em;
+}
+.my_post_copyright .copy-path:hover {
+  color: #808080;
+  cursor: pointer;
 }
