@@ -165,218 +165,10 @@
     </div>
 </nav>
     
-    
-
     <section class="section">
         <div>
             <div class="columns is-centered">
                 
-                    <div class="column is-two-thirds-tablet is-9-desktop is-three-fifths-widescreen has-order-2 column-main">
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-01-16T16:00:00.000Z">2020-01-17</time> -->
-                <span class="level-item has-text-grey">2020-01-17</span>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    1 分钟 读完 (大约 172 个字)
-                </span>
-                
-                
-                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
-                    <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                markdown进阶使用技巧
-            
-        </h1>
-        <div class="content">
-            <hr>
-<blockquote>
-<p>markdown中的mermaid作图, html结合等进阶使用的handbook</p>
-</blockquote>
-<a id="more"></a>
-
-<h2 id="link_in_page">页内跳转</h2>
-
-<p><span id = "jumptoexample"> 两种方法究其根本都是md中html语法的应用</span></p>
-<h3 id="link_in_page.1">1.生成目录方法</h3>
-
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">* </span>[<span class="hljs-string">页内跳转</span>](<span class="hljs-link">#link_in_page</span>)<br><span class="hljs-bullet">  * </span>[<span class="hljs-string">1生成目录的方法</span>](<span class="hljs-link">#link_in_page.1</span>)<br><span class="hljs-bullet">  * </span>[<span class="hljs-string">2html标签实现</span>](<span class="hljs-link">#link_in_page.2</span>)<br></code></pre></td></tr></table></figure>
-
-<p>生成效果:</p>
-<ul>
-<li><a href="#link_in_page">页内跳转</a><ul>
-<li><a href="#link_in_page.1">1.生成目录的方法</a></li>
-<li><a href="#link_in_page.2">2.html标签实现</a></li>
-</ul>
-</li>
-</ul>
-<p>在正文中对应的地方, 加入章节标题对应id</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'link_in_page'</span>&gt;</span></span>页内跳转<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
-
-<h3 id="link_in_page.2">2.html标签实现</h3>
-
-<p>定义一个锚在跳转的目的地    <code>&lt;span id = &quot;jumptoexample&quot;&gt;页内跳转&lt;/span&gt;</code> </p>
-<p>在要需要跳转的地方使用md语法的超链接 <code>[ 点击跳转 ](#jumptoexample)</code></p>
-<p><a href="#jumptoexample"> 点击跳转 </a></p>
-
-        </div>
-        
-            <div class="my_post_copyright">
-    <div style="text-align:center;color: #ccc;font-size:14px;">------ 版权信息 ------</div>
-    <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-    <p><span>本文标题:</span><a href="/posts/64578/">markdown进阶使用技巧 - Annewqx</a></p>
-    <p><span>文章作者:</span><a href="/">Anne416wu</a></p>
-    <p><span>发布时间:</span>2020-01-17</p>
-    <p><span>修改时间:</span>2020-03-02</p>
-    <p>
-        <span>原始链接:</span><a href="/posts/64578/" title="markdown进阶使用技巧 - Annewqx">https://www.annewqx.top/posts/64578/</a>
-        <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/64578/"  aria-label="复制成功！"></i></span>
-    </p>
-    <p><span>许可协议:</span><i class="fab fa-creative-commons"></i>转载请保留原文链接及作者。</p>  
-</div>
-<script> 
-    var clipboard = new Clipboard('.fa-clipboard');
-    $(".fa-clipboard").click(function(){
-        clipboard.on('success', function(){
-            swal({   
-                title: "",   
-                text: '复制成功',
-                icon: "success", 
-                showConfirmButton: true
-            });
-         });
-    });  
-</script>
-
-        
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/html/" rel="tag">html</a>, <a class="has-link-grey -link" href="/tags/markdown/" rel="tag">markdown</a>
-                </div>
-            </div>
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
-        <div class="buttons is-centered">
-            
-                
-<a class="button is-info donate">
-    <span class="icon is-small">
-        <i class="fab fa-alipay"></i>
-    </span>
-    <span>支付宝</span>
-    <div class="qrcode"><img src="/images/Alipay.jpg" alt="支付宝"></div>
-</a>
-
-                
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>微信</span>
-    <div class="qrcode"><img src="/images/wechatpay.jpg" alt="微信"></div>
-</a>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
-    <span class="icon is-small">
-        <i class="fab fa-paypal"></i>
-    </span>
-    <span>Paypal</span>
-</a>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form">
-    <input type="hidden" name="cmd" value="_donations" />
-    <input type="hidden" name="business" value="86BR8FGECVEYE" />
-    <input type="hidden" name="currency_code" value="USD" />
-</form>
-
-                
-        </div>
-    </div>
-</div>
-
-
-
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/8410/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">mac快捷键和常用命令行</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/posts/52525/">
-                <span class="level-item">Anaconda的环境管理</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
-
-
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">评论</h3>
-        
-<div id="valine-thread" class="content"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
-<script>
-    new Valine({
-        el: '#valine-thread' ,
-        avatar: 'retro',
-        notify: true ,
-        verify: false ,
-        app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
-        app_key: '20OYVeUwaMoaoYEp1JhHnBmu',
-        placeholder: 'Leave a comment',
-    });
-</script>
-
-    </div>
-</div>
-</div>
-                
-                 
-
 
 
 
@@ -433,7 +225,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            8
+                            7
                         </p>
                     </a>
                 </div>
@@ -567,7 +359,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-03T10:02:04.000Z">2020-03-03</time></div>
                     <a href="/posts/673/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab2-编译器认知实验</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/report/">report</a>
+                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Report/">Report</a>
                     </p>
                 </div>
             </div>
@@ -698,15 +490,7 @@
                 <span class="level-item">Report</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Code/report/">
-            <span class="level-start">
-                <span class="level-item">report</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/Life/">
@@ -729,6 +513,8 @@
         </div>
     </div>
 </div>
+
+
     
         <div class="card widget">
     <div class="card-content">
@@ -948,9 +734,210 @@
     
 </div>
 
+                <div class="column is-two-thirds-tablet is-9-desktop is-three-fifths-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2020-01-16T16:00:00.000Z">2020-01-17</time> -->
+                <span class="level-item has-text-grey">2020-01-17</span>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
+                </div>
                 
                 
+                <span class="level-item has-text-grey">
+                    
+                    
+                    1 分钟 读完 (大约 172 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                markdown进阶使用技巧
+            
+        </h1>
+        <div class="content">
+            <hr>
+<blockquote>
+<p>markdown中的mermaid作图, html结合等进阶使用的handbook</p>
+</blockquote>
+<a id="more"></a>
 
+<h2 id="link_in_page">页内跳转</h2>
+
+<p><span id = "jumptoexample"> 两种方法究其根本都是md中html语法的应用</span></p>
+<h3 id="link_in_page.1">1.生成目录方法</h3>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">* </span>[<span class="hljs-string">页内跳转</span>](<span class="hljs-link">#link_in_page</span>)<br><span class="hljs-bullet">  * </span>[<span class="hljs-string">1生成目录的方法</span>](<span class="hljs-link">#link_in_page.1</span>)<br><span class="hljs-bullet">  * </span>[<span class="hljs-string">2html标签实现</span>](<span class="hljs-link">#link_in_page.2</span>)<br></code></pre></td></tr></table></figure>
+
+<p>生成效果:</p>
+<ul>
+<li><a href="#link_in_page">页内跳转</a><ul>
+<li><a href="#link_in_page.1">1.生成目录的方法</a></li>
+<li><a href="#link_in_page.2">2.html标签实现</a></li>
+</ul>
+</li>
+</ul>
+<p>在正文中对应的地方, 加入章节标题对应id</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'link_in_page'</span>&gt;</span></span>页内跳转<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<h3 id="link_in_page.2">2.html标签实现</h3>
+
+<p>定义一个锚在跳转的目的地    <code>&lt;span id = &quot;jumptoexample&quot;&gt;页内跳转&lt;/span&gt;</code> </p>
+<p>在要需要跳转的地方使用md语法的超链接 <code>[ 点击跳转 ](#jumptoexample)</code></p>
+<p><a href="#jumptoexample"> 点击跳转 </a></p>
+
+        </div>
+        
+            <div class="my_post_copyright">
+    <div style="text-align:center;color: #ccc;font-size:14px;">------ 版权信息 ------</div>
+    <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+    <p><span>本文标题:</span><a href="/posts/64578/">markdown进阶使用技巧 - Annewqx</a></p>
+    <p><span>文章作者:</span><a href="/">Anne416wu</a></p>
+    <p><span>发布时间:</span>2020-01-17</p>
+    <p><span>修改时间:</span>2020-03-02</p>
+    <p>
+        <span>原始链接:</span><a href="/posts/64578/" title="markdown进阶使用技巧 - Annewqx">https://www.annewqx.top/posts/64578/</a>
+        <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/64578/"  aria-label="复制成功！"></i></span>
+    </p>
+    <p><span>许可协议:</span><i class="fab fa-creative-commons"></i>转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+        clipboard.on('success', function(){
+            swal({   
+                title: "",   
+                text: '复制成功',
+                icon: "success", 
+                showConfirmButton: true
+            });
+         });
+    });  
+</script>
+
+        
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/html/" rel="tag">html</a>, <a class="has-link-grey -link" href="/tags/markdown/" rel="tag">markdown</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/Alipay.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechatpay.jpg" alt="微信"></div>
+</a>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
+    <span class="icon is-small">
+        <i class="fab fa-paypal"></i>
+    </span>
+    <span>Paypal</span>
+</a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form">
+    <input type="hidden" name="cmd" value="_donations" />
+    <input type="hidden" name="business" value="86BR8FGECVEYE" />
+    <input type="hidden" name="currency_code" value="USD" />
+</form>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/8410/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">mac快捷键和常用命令行</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/52525/">
+                <span class="level-item">Anaconda的环境管理</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        avatar: 'retro',
+        notify: true ,
+        verify: false ,
+        app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
+        app_key: '20OYVeUwaMoaoYEp1JhHnBmu',
+        placeholder: 'Leave a comment',
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
 
 
 

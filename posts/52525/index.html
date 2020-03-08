@@ -165,208 +165,10 @@
     </div>
 </nav>
     
-    
-
     <section class="section">
         <div>
             <div class="columns is-centered">
                 
-                    <div class="column is-two-thirds-tablet is-9-desktop is-three-fifths-widescreen has-order-2 column-main">
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2019-12-12T16:00:00.000Z">2019-12-13</time> -->
-                <span class="level-item has-text-grey">2019-12-13</span>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Note/">Note</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    10 分钟 读完 (大约 1535 个字)
-                </span>
-                
-                
-                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
-                    <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                Anaconda的环境管理
-            
-        </h1>
-        <div class="content">
-            <hr>
-<blockquote>
-<p>常用的Conda命令</p>
-</blockquote>
-<a id="more"></a>
-
-<h1 id="Conda的环境管理"><a href="#Conda的环境管理" class="headerlink" title="Conda的环境管理"></a>Conda的环境管理</h1><p>Conda的环境管理功能允许我们同时安装若干不同版本的Python，并能自由切换。对于上述安装过程，假设我们采用的是Python 2.7对应的安装包，那么Python 2.7就是默认的环境（默认名字是root注意这个root不是超级管理员的意思）。<br>假设我们需要安装Python 3.4，此时，我们需要做的操作如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本）</span><br>conda create —name python34 python=3.4<br><br><span class="hljs-comment"># 安装好后，使用activate激活某个环境</span><br>activate python34 <span class="hljs-comment"># for Windows</span><br><span class="hljs-built_in">source</span> activate python34 <span class="hljs-comment"># for Linux &amp; Mac</span><br><span class="hljs-comment"># 激活后，会发现terminal输入的地方多了python34的字样，实际上，此时系统做的事情就是把默认2.7环境从PATH中去除，再把3.4对应的命令加入PATH</span><br><br><span class="hljs-comment"># 此时，再次输入</span><br>python —version<br><span class="hljs-comment"># 可以得到`Python 3.4.5 :: Anaconda 4.1.1 (64-bit)`，即系统已经切换到了3.4的环境</span><br><br><span class="hljs-comment"># 如果想返回默认的python 2.7环境，运行</span><br>deactivate python34 <span class="hljs-comment"># for Windows</span><br><span class="hljs-built_in">source</span> deactivate python34 <span class="hljs-comment"># for Linux </span><br>conda deactivate python34 <span class="hljs-comment"># for mac</span><br><br><span class="hljs-comment"># 删除一个已有的环境</span><br>conda remove —name python34 —all<br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>用户安装的不同python环境都会被放在目录~/anaconda/envs<br>下，可以在命令中运行<br>conda info -e<br>查看已安装的环境，当前被激活的环境会显示有一个星号或者括号。<br>说明：有些用户可能经常使用python 3.4环境，因此直接把<br>~/anaconda/envs/python34<br>下面的bin或者Scripts加入PATH，去除anaconda对应的那个bin目录。这个办法，怎么说呢，也是可以的，但总觉得不是那么elegant……<br>如果直接按上面说的这么改PATH，你会发现conda命令又找不到了（当然找不到啦，因为conda在<br>~/anaconda/bin<br>里呢），这时候怎么办呢？方法有二：1. 显式地给出conda的绝对地址 2. 在python34环境中也安装conda工具（推荐）。</p>
-</blockquote>
-<h1 id="Conda的包管理"><a href="#Conda的包管理" class="headerlink" title="Conda的包管理"></a>Conda的包管理</h1><blockquote>
-<p>Conda的包管理就比较好理解了，这部分功能与<br>pip<br>类似。<br>例如，如果需要安装scipy：</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装scipy</span><br>conda install scipy<br><span class="hljs-comment"># conda会从从远程搜索scipy的相关信息和依赖项目，对于python 3.4，conda会同时安装numpy和mkl（运算加速的库）</span><br><span class="hljs-comment"># 查看已经安装的packages</span><br>conda list<br><span class="hljs-comment"># 最新版的conda是从site-packages文件夹中搜索已经安装的包，不依赖于pip，因此可以显示出通过各种方式安装的包</span><br><span class="hljs-comment"># 安装scipy</span><br>conda install scipy<br><span class="hljs-comment"># conda会从从远程搜索scipy的相关信息和依赖项目，对于python 3.4，conda会同时安装numpy和mkl（运算加速的库）</span><br><span class="hljs-comment"># 查看已经安装的packages</span><br>conda list<br><span class="hljs-comment"># 最新版的conda是从site-packages文件夹中搜索已经安装的包，不依赖于pip，因此可以显示出通过各种方式安装的包</span><br><span class="hljs-comment">### conda的一些常用操作如下：</span><br><span class="hljs-comment"># 查看当前环境下已安装的包</span><br>conda list<br><span class="hljs-comment"># 查看某个指定环境的已安装包</span><br>conda list -n python34<br><span class="hljs-comment"># 查找package信息</span><br>conda search numpy<br><span class="hljs-comment"># 安装package</span><br>conda install -n python34 numpy<br><span class="hljs-comment"># 如果不用-n指定环境名称，则被安装在当前活跃环境</span><br><span class="hljs-comment"># 也可以通过-c指定通过某个channel安装</span><br><span class="hljs-comment"># 更新package</span><br>conda update -n python34 numpy<br><span class="hljs-comment"># 删除package</span><br>conda remove -n python34 numpy<br><span class="hljs-comment"># 查看当前环境下已安装的包</span><br>conda list<br><span class="hljs-comment"># 查看某个指定环境的已安装包</span><br>conda list -n python34<br><span class="hljs-comment"># 查找package信息</span><br>conda search numpy<br><span class="hljs-comment"># 安装package</span><br>conda install -n python34 numpy<br><span class="hljs-comment"># 如果不用-n指定环境名称，则被安装在当前活跃环境</span><br><span class="hljs-comment"># 也可以通过-c指定通过某个channel安装</span><br><span class="hljs-comment"># 更新package</span><br>conda update -n python34 numpy<br><span class="hljs-comment"># 删除package</span><br>conda remove -n python34 numpy<br><span class="hljs-comment">### 前面已经提到，conda将conda、python等都视为package，因此，完全可以使用conda来管理conda和python的版本，例如</span><br><span class="hljs-comment"># 更新conda，保持conda最新</span><br>conda update conda<br><span class="hljs-comment"># 更新anaconda</span><br>conda update anaconda<br><span class="hljs-comment"># 更新python</span><br>conda update python<br><span class="hljs-comment"># 假设当前环境是python 3.4, conda会将python升级为3.4.x系列的当前最新版本</span><br><span class="hljs-comment">### 补充：如果创建新的python环境，比如3.4，运行</span><br><span class="hljs-comment">### conda create -n python34 python=3.4</span><br><span class="hljs-comment">### 之后，conda仅安装python 3.4相关的必须项，如python, pip等，如果希望该环境像默认环境那样，安装anaconda集合包，只需要：</span><br><span class="hljs-comment"># 在当前环境下安装anaconda包集合</span><br>conda install anaconda<br><span class="hljs-comment"># 结合创建环境的命令，以上操作可以合并为</span><br>conda create -n python34 python=3.4 anaconda<br><span class="hljs-comment"># 也可以不用全部安装，根据需求安装自己需要的package即可</span><br><span class="hljs-comment"># 在当前环境下安装anaconda包集合</span><br>conda install anaconda<br><span class="hljs-comment"># 结合创建环境的命令，以上操作可以合并为</span><br>conda create -n python34 python=3.4 anaconda<br><span class="hljs-comment"># 也可以不用全部安装，根据需求安装自己需要的package即可</span><br><span class="hljs-comment"># 设置国内镜像</span><br><span class="hljs-comment">### 如果需要安装很多packages，你会发现conda下载的速度经常很慢，因为Anaconda.org的服务器在国外。所幸的是，清华TUNA镜像源有Anaconda仓库的镜像，我们将其加入conda的配置即可：</span><br><span class="hljs-comment"># 添加Anaconda的TUNA镜像</span><br>conda config —add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/<br><span class="hljs-comment"># TUNA的help中镜像地址加有引号，需要去掉</span><br><span class="hljs-comment"># 设置搜索时显示通道地址</span><br>conda config —<span class="hljs-built_in">set</span> show_channel_urls yes<br><span class="hljs-comment"># 添加Anaconda的TUNA镜像</span><br>conda config —add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/<br><span class="hljs-comment"># TUNA的help中镜像地址加有引号，需要去掉</span><br><span class="hljs-comment"># 设置搜索时显示通道地址</span><br>conda config —<span class="hljs-built_in">set</span> show_channel_urls yes<br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>执行完上述命令后，会生成<br>~/.condarc<br>(Linux/Mac)或<br>C:UsersUSER_NAME.condarc<br>文件，记录着我们对conda的配置，直接手动创建、编辑该文件是相同的效果。</p>
-</blockquote>
-
-        </div>
-        
-            <div class="my_post_copyright">
-    <div style="text-align:center;color: #ccc;font-size:14px;">------ 版权信息 ------</div>
-    <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-    <p><span>本文标题:</span><a href="/posts/52525/">Anaconda的环境管理 - Annewqx</a></p>
-    <p><span>文章作者:</span><a href="/">Anne416wu</a></p>
-    <p><span>发布时间:</span>2019-12-13</p>
-    <p><span>修改时间:</span>2020-03-06</p>
-    <p>
-        <span>原始链接:</span><a href="/posts/52525/" title="Anaconda的环境管理 - Annewqx">https://www.annewqx.top/posts/52525/</a>
-        <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/52525/"  aria-label="复制成功！"></i></span>
-    </p>
-    <p><span>许可协议:</span><i class="fab fa-creative-commons"></i>转载请保留原文链接及作者。</p>  
-</div>
-<script> 
-    var clipboard = new Clipboard('.fa-clipboard');
-    $(".fa-clipboard").click(function(){
-        clipboard.on('success', function(){
-            swal({   
-                title: "",   
-                text: '复制成功',
-                icon: "success", 
-                showConfirmButton: true
-            });
-         });
-    });  
-</script>
-
-        
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/python-anaconda/" rel="tag">python anaconda</a>
-                </div>
-            </div>
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
-        <div class="buttons is-centered">
-            
-                
-<a class="button is-info donate">
-    <span class="icon is-small">
-        <i class="fab fa-alipay"></i>
-    </span>
-    <span>支付宝</span>
-    <div class="qrcode"><img src="/images/Alipay.jpg" alt="支付宝"></div>
-</a>
-
-                
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>微信</span>
-    <div class="qrcode"><img src="/images/wechatpay.jpg" alt="微信"></div>
-</a>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
-    <span class="icon is-small">
-        <i class="fab fa-paypal"></i>
-    </span>
-    <span>Paypal</span>
-</a>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form">
-    <input type="hidden" name="cmd" value="_donations" />
-    <input type="hidden" name="business" value="86BR8FGECVEYE" />
-    <input type="hidden" name="currency_code" value="USD" />
-</form>
-
-                
-        </div>
-    </div>
-</div>
-
-
-
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/64578/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">markdown进阶使用技巧</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/posts/55266/">
-                <span class="level-item">Linux终端的基本命令</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
-
-
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">评论</h3>
-        
-<div id="valine-thread" class="content"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
-<script>
-    new Valine({
-        el: '#valine-thread' ,
-        avatar: 'retro',
-        notify: true ,
-        verify: false ,
-        app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
-        app_key: '20OYVeUwaMoaoYEp1JhHnBmu',
-        placeholder: 'Leave a comment',
-    });
-</script>
-
-    </div>
-</div>
-</div>
-                
-                 
-
 
 
 
@@ -423,7 +225,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            8
+                            7
                         </p>
                     </a>
                 </div>
@@ -557,7 +359,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-03T10:02:04.000Z">2020-03-03</time></div>
                     <a href="/posts/673/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab2-编译器认知实验</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/report/">report</a>
+                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Report/">Report</a>
                     </p>
                 </div>
             </div>
@@ -688,15 +490,7 @@
                 <span class="level-item">Report</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Code/report/">
-            <span class="level-start">
-                <span class="level-item">report</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/Life/">
@@ -719,6 +513,8 @@
         </div>
     </div>
 </div>
+
+
     
         <div class="card widget">
     <div class="card-content">
@@ -938,9 +734,200 @@
     
 </div>
 
+                <div class="column is-two-thirds-tablet is-9-desktop is-three-fifths-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2019-12-12T16:00:00.000Z">2019-12-13</time> -->
+                <span class="level-item has-text-grey">2019-12-13</span>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Note/">Note</a>
+                </div>
                 
                 
+                <span class="level-item has-text-grey">
+                    
+                    
+                    10 分钟 读完 (大约 1535 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Anaconda的环境管理
+            
+        </h1>
+        <div class="content">
+            <hr>
+<blockquote>
+<p>常用的Conda命令</p>
+</blockquote>
+<a id="more"></a>
 
+<h1 id="Conda的环境管理"><a href="#Conda的环境管理" class="headerlink" title="Conda的环境管理"></a>Conda的环境管理</h1><p>Conda的环境管理功能允许我们同时安装若干不同版本的Python，并能自由切换。对于上述安装过程，假设我们采用的是Python 2.7对应的安装包，那么Python 2.7就是默认的环境（默认名字是root注意这个root不是超级管理员的意思）。<br>假设我们需要安装Python 3.4，此时，我们需要做的操作如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本）</span><br>conda create —name python34 python=3.4<br><br><span class="hljs-comment"># 安装好后，使用activate激活某个环境</span><br>activate python34 <span class="hljs-comment"># for Windows</span><br><span class="hljs-built_in">source</span> activate python34 <span class="hljs-comment"># for Linux &amp; Mac</span><br><span class="hljs-comment"># 激活后，会发现terminal输入的地方多了python34的字样，实际上，此时系统做的事情就是把默认2.7环境从PATH中去除，再把3.4对应的命令加入PATH</span><br><br><span class="hljs-comment"># 此时，再次输入</span><br>python —version<br><span class="hljs-comment"># 可以得到`Python 3.4.5 :: Anaconda 4.1.1 (64-bit)`，即系统已经切换到了3.4的环境</span><br><br><span class="hljs-comment"># 如果想返回默认的python 2.7环境，运行</span><br>deactivate python34 <span class="hljs-comment"># for Windows</span><br><span class="hljs-built_in">source</span> deactivate python34 <span class="hljs-comment"># for Linux </span><br>conda deactivate python34 <span class="hljs-comment"># for mac</span><br><br><span class="hljs-comment"># 删除一个已有的环境</span><br>conda remove —name python34 —all<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>用户安装的不同python环境都会被放在目录~/anaconda/envs<br>下，可以在命令中运行<br>conda info -e<br>查看已安装的环境，当前被激活的环境会显示有一个星号或者括号。<br>说明：有些用户可能经常使用python 3.4环境，因此直接把<br>~/anaconda/envs/python34<br>下面的bin或者Scripts加入PATH，去除anaconda对应的那个bin目录。这个办法，怎么说呢，也是可以的，但总觉得不是那么elegant……<br>如果直接按上面说的这么改PATH，你会发现conda命令又找不到了（当然找不到啦，因为conda在<br>~/anaconda/bin<br>里呢），这时候怎么办呢？方法有二：1. 显式地给出conda的绝对地址 2. 在python34环境中也安装conda工具（推荐）。</p>
+</blockquote>
+<h1 id="Conda的包管理"><a href="#Conda的包管理" class="headerlink" title="Conda的包管理"></a>Conda的包管理</h1><blockquote>
+<p>Conda的包管理就比较好理解了，这部分功能与<br>pip<br>类似。<br>例如，如果需要安装scipy：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装scipy</span><br>conda install scipy<br><span class="hljs-comment"># conda会从从远程搜索scipy的相关信息和依赖项目，对于python 3.4，conda会同时安装numpy和mkl（运算加速的库）</span><br><span class="hljs-comment"># 查看已经安装的packages</span><br>conda list<br><span class="hljs-comment"># 最新版的conda是从site-packages文件夹中搜索已经安装的包，不依赖于pip，因此可以显示出通过各种方式安装的包</span><br><span class="hljs-comment"># 安装scipy</span><br>conda install scipy<br><span class="hljs-comment"># conda会从从远程搜索scipy的相关信息和依赖项目，对于python 3.4，conda会同时安装numpy和mkl（运算加速的库）</span><br><span class="hljs-comment"># 查看已经安装的packages</span><br>conda list<br><span class="hljs-comment"># 最新版的conda是从site-packages文件夹中搜索已经安装的包，不依赖于pip，因此可以显示出通过各种方式安装的包</span><br><span class="hljs-comment">### conda的一些常用操作如下：</span><br><span class="hljs-comment"># 查看当前环境下已安装的包</span><br>conda list<br><span class="hljs-comment"># 查看某个指定环境的已安装包</span><br>conda list -n python34<br><span class="hljs-comment"># 查找package信息</span><br>conda search numpy<br><span class="hljs-comment"># 安装package</span><br>conda install -n python34 numpy<br><span class="hljs-comment"># 如果不用-n指定环境名称，则被安装在当前活跃环境</span><br><span class="hljs-comment"># 也可以通过-c指定通过某个channel安装</span><br><span class="hljs-comment"># 更新package</span><br>conda update -n python34 numpy<br><span class="hljs-comment"># 删除package</span><br>conda remove -n python34 numpy<br><span class="hljs-comment"># 查看当前环境下已安装的包</span><br>conda list<br><span class="hljs-comment"># 查看某个指定环境的已安装包</span><br>conda list -n python34<br><span class="hljs-comment"># 查找package信息</span><br>conda search numpy<br><span class="hljs-comment"># 安装package</span><br>conda install -n python34 numpy<br><span class="hljs-comment"># 如果不用-n指定环境名称，则被安装在当前活跃环境</span><br><span class="hljs-comment"># 也可以通过-c指定通过某个channel安装</span><br><span class="hljs-comment"># 更新package</span><br>conda update -n python34 numpy<br><span class="hljs-comment"># 删除package</span><br>conda remove -n python34 numpy<br><span class="hljs-comment">### 前面已经提到，conda将conda、python等都视为package，因此，完全可以使用conda来管理conda和python的版本，例如</span><br><span class="hljs-comment"># 更新conda，保持conda最新</span><br>conda update conda<br><span class="hljs-comment"># 更新anaconda</span><br>conda update anaconda<br><span class="hljs-comment"># 更新python</span><br>conda update python<br><span class="hljs-comment"># 假设当前环境是python 3.4, conda会将python升级为3.4.x系列的当前最新版本</span><br><span class="hljs-comment">### 补充：如果创建新的python环境，比如3.4，运行</span><br><span class="hljs-comment">### conda create -n python34 python=3.4</span><br><span class="hljs-comment">### 之后，conda仅安装python 3.4相关的必须项，如python, pip等，如果希望该环境像默认环境那样，安装anaconda集合包，只需要：</span><br><span class="hljs-comment"># 在当前环境下安装anaconda包集合</span><br>conda install anaconda<br><span class="hljs-comment"># 结合创建环境的命令，以上操作可以合并为</span><br>conda create -n python34 python=3.4 anaconda<br><span class="hljs-comment"># 也可以不用全部安装，根据需求安装自己需要的package即可</span><br><span class="hljs-comment"># 在当前环境下安装anaconda包集合</span><br>conda install anaconda<br><span class="hljs-comment"># 结合创建环境的命令，以上操作可以合并为</span><br>conda create -n python34 python=3.4 anaconda<br><span class="hljs-comment"># 也可以不用全部安装，根据需求安装自己需要的package即可</span><br><span class="hljs-comment"># 设置国内镜像</span><br><span class="hljs-comment">### 如果需要安装很多packages，你会发现conda下载的速度经常很慢，因为Anaconda.org的服务器在国外。所幸的是，清华TUNA镜像源有Anaconda仓库的镜像，我们将其加入conda的配置即可：</span><br><span class="hljs-comment"># 添加Anaconda的TUNA镜像</span><br>conda config —add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/<br><span class="hljs-comment"># TUNA的help中镜像地址加有引号，需要去掉</span><br><span class="hljs-comment"># 设置搜索时显示通道地址</span><br>conda config —<span class="hljs-built_in">set</span> show_channel_urls yes<br><span class="hljs-comment"># 添加Anaconda的TUNA镜像</span><br>conda config —add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/<br><span class="hljs-comment"># TUNA的help中镜像地址加有引号，需要去掉</span><br><span class="hljs-comment"># 设置搜索时显示通道地址</span><br>conda config —<span class="hljs-built_in">set</span> show_channel_urls yes<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>执行完上述命令后，会生成<br>~/.condarc<br>(Linux/Mac)或<br>C:UsersUSER_NAME.condarc<br>文件，记录着我们对conda的配置，直接手动创建、编辑该文件是相同的效果。</p>
+</blockquote>
+
+        </div>
+        
+            <div class="my_post_copyright">
+    <div style="text-align:center;color: #ccc;font-size:14px;">------ 版权信息 ------</div>
+    <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+    <p><span>本文标题:</span><a href="/posts/52525/">Anaconda的环境管理 - Annewqx</a></p>
+    <p><span>文章作者:</span><a href="/">Anne416wu</a></p>
+    <p><span>发布时间:</span>2019-12-13</p>
+    <p><span>修改时间:</span>2020-03-06</p>
+    <p>
+        <span>原始链接:</span><a href="/posts/52525/" title="Anaconda的环境管理 - Annewqx">https://www.annewqx.top/posts/52525/</a>
+        <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/52525/"  aria-label="复制成功！"></i></span>
+    </p>
+    <p><span>许可协议:</span><i class="fab fa-creative-commons"></i>转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+        clipboard.on('success', function(){
+            swal({   
+                title: "",   
+                text: '复制成功',
+                icon: "success", 
+                showConfirmButton: true
+            });
+         });
+    });  
+</script>
+
+        
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/python-anaconda/" rel="tag">python anaconda</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/Alipay.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechatpay.jpg" alt="微信"></div>
+</a>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
+    <span class="icon is-small">
+        <i class="fab fa-paypal"></i>
+    </span>
+    <span>Paypal</span>
+</a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form">
+    <input type="hidden" name="cmd" value="_donations" />
+    <input type="hidden" name="business" value="86BR8FGECVEYE" />
+    <input type="hidden" name="currency_code" value="USD" />
+</form>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/64578/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">markdown进阶使用技巧</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/55266/">
+                <span class="level-item">Linux终端的基本命令</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        avatar: 'retro',
+        notify: true ,
+        verify: false ,
+        app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
+        app_key: '20OYVeUwaMoaoYEp1JhHnBmu',
+        placeholder: 'Leave a comment',
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
 
 
 

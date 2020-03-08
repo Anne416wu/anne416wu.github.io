@@ -165,269 +165,10 @@
     </div>
 </nav>
     
-    
-
     <section class="section">
         <div>
             <div class="columns is-centered">
                 
-                    <div class="column is-two-thirds-tablet is-9-desktop is-three-fifths-widescreen has-order-2 column-main">
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time> -->
-                <span class="level-item has-text-grey">2020-02-16</span>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    6 分钟 读完 (大约 966 个字)
-                </span>
-                
-                
-                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
-                    <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                hexo的主题比较
-            
-        </h1>
-        <div class="content">
-            <hr>
-<blockquote>
-<p>hexo各个主题的比较, 以及部分主题的修改</p>
-</blockquote>
-<a id="more"></a>
-
-<h2 id="我的需求"><a href="#我的需求" class="headerlink" title="我的需求"></a>我的需求</h2><blockquote>
-<p>目的：记录开发中遇到的坑，形成自己的handbook</p>
-</blockquote>
-<ol>
-<li>功能：<ul>
-<li>🔍站内搜索LeanCloud统计</li>
-<li>🤥<a href="#valine_comment"> Valine的评论服务 </a></li>
-<li>较为友好的代码高亮</li>
-<li>有展示GitHub project（接入GitHub的API）的project页面</li>
-<li>seo支持</li>
-</ul>
-</li>
-<li>界面：<ul>
-<li>首页tagCloud和categories的Widget</li>
-<li>首页的index展示文章的tag和category标签</li>
-<li>单篇博文内有随页面变化的目录widget</li>
-<li>archive展示时间轴 </li>
-</ul>
-</li>
-</ol>
-<h2 id="各个theme评价"><a href="#各个theme评价" class="headerlink" title="各个theme评价"></a>各个theme评价</h2><h3 id="基于jade-pug-开发的主题"><a href="#基于jade-pug-开发的主题" class="headerlink" title="基于jade ( pug )开发的主题"></a>基于jade ( pug )开发的主题</h3><blockquote>
-<p>Jade 是一个高性能的模板引擎，它深受 <a href="http://haml-lang.com/" rel="external nofollow noreferrer">Haml</a> 影响，它是用 JavaScript 实现的，并且可以供 <a href="http://nodejs.org/" rel="external nofollow noreferrer">Node</a> 使用，后来由于商标的原因，改为Pug  </p>
-<div class="tip">
- 以下列举的主题都仍然使用hexo-renderer-jade插件，npm会提示插件已被废弃，运行时会显示错误提示。首先要替换hexo-renderer-jade插件为hexo-renderer-pug，下载命令为npm install hexo-renderer-pug --save；然后将主题layout文件夹中的所有.jade文件替换为.pug文件
-</div>
-入门指南：[pug中文文档](https://pugjs.org/zh-cn/api/getting-started.html)
-</blockquote>
-<ol>
-<li><p><a href="https://github.com/pinggod/hexo-theme-apollo" rel="external nofollow noreferrer">Apollo</a></p>
-<p>博客首页<br><img src="apollo_homepage.png" alt="apollo_homepage"><br>博客归档页<br><img src="apollo_archivepage.png" alt="apollo_archivepage"></p>
-<ul>
-<li>界面干净，多个theme都基于apollo开发，如<a href="https://github.com/MikeCoder/hexo-theme-Gandalfr" rel="external nofollow noreferrer">Gandalfr</a>  <a href="https://github.com/claymcleod/hexo-theme-hermes" rel="external nofollow noreferrer">Hermes</a>  <a href="https://github.com/Dreyer/hexo-theme-artemis" rel="external nofollow noreferrer">artemis</a> <a href="https://github.com/bulandent/hexo-theme-bubuzou" rel="external nofollow noreferrer">bubuzou</a> <a href="https://github.com/lyndonoc/hexo-theme-pandollo" rel="external nofollow noreferrer">pandollo</a></li>
-<li>缺点: 功能缺乏，需要自己接入评论、目录、搜索、Widget等功能；</li>
-</ul>
-</li>
-<li><p><a href="https://github.com/bulandent/hexo-theme-bubuzou" rel="external nofollow noreferrer">bubuzou</a></p>
-<p>博客首页<br><img src="bubuzou_archieve_page.png" alt="bubuzou_archieve_page"><br>博文底部<br><img src="bubuzou_post_page.png" alt="bubuzou_post_page"></p>
-<ul>
-<li><p>基于apollo开发, 补充大量apollo缺乏的功能，如评论、目录、搜索、Widget；评论支持Valine评论；</p>
-</li>
-<li><p>首页 css页面适配存在缺陷（缩放时borden过小），代码高亮有缺陷，个别博文底部不会出现评论窗口(奇奇怪怪的bug)</p>
-</li>
-<li><p>实际使用的时候发现leancloud的访问量统计功能有缺点，留个坑；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jade">p.visit<br>2i(class&#x3D;&quot;article-timer&quot;, data-identity&#x3D;item.path)<br>   span 次访问<br>   if (is_home())<br>   	i(data-hk-page&#x3D;&#39;http:&#x2F;&#x2F;anne416wu.github.io&#39;+url_for(item.path)) -<br>   else <br>   	i(data-hk-page&#x3D;&quot;current&quot;)<br></code></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p><a href="https://github.com/MikeCoder/hexo-theme-Gandalfr" rel="external nofollow noreferrer">Gandalfr</a></p>
-<ul>
-<li>不放图了，这玩意儿bug挺多。有意思的是作者写了个tagCloud的辅助插件，给TagCloud加上了动画效果。界面上较bubuzou更贴近apollo。</li>
-<li>有时间的可以把Gandalfr的界面和bubuzou的功能结合一下。</li>
-</ul>
-</li>
-</ol>
-<h3 id="基于ejs开发的主题"><a href="#基于ejs开发的主题" class="headerlink" title="基于ejs开发的主题"></a>基于ejs开发的主题</h3><blockquote>
-<p> ejs是一套简单的模板语言，利用普通的 JavaScript 代码生成 HTML 页面，相比上面使用jade，修改更为方便。个人体验感觉ejs性能的确不如jade。</p>
-</blockquote>
-<ol>
-<li><p><a href="https://github.com/yanm1ng/hexo-theme-vexo" rel="external nofollow noreferrer">Vexo</a><br>博客首页<br><img src="vexo_homepage.png" alt="vexo_homepage"><br>博文开头<br><img src="vexo_postpage.png" alt="vexo_postpage"><br>归档页<br><img src="vexo_archievepage.png" alt="vexo_archivepage"><br>项目页<br><img src="vexo_projectpage.png" alt="vexo_projectpage"></p>
-<ul>
-<li>满足对界面的一切幻想(对界面的幻想都是这个主题惯出来的)，支持多种代码高亮</li>
-<li>缺点：未接入搜索功能，仅支持gitment评论，无首页CLoudTag的Widget等</li>
-<li>本地运行存在bug。使用<code>hexo s</code>预览时，如果文章资源读取出现错误，整个博客页面会显示空白</li>
-</ul>
-</li>
-<li><p><a href="https://github.com/probberechts/hexo-theme-cactus" rel="external nofollow noreferrer">Cactus</a></p>
-<p>博客首页<br><img src="cactus_homepage.png" alt="cactus_homepage"><br>博文开头<br><img src="cactus_postpage.png" alt="cactus_postpage"><br>归档页<br><img src="cactus_archievepage.png" alt="cactus_archivepage"></p>
-<ul>
-<li>界面干净，支持多种代码高亮</li>
-<li>因为是国外开发的，对本地化的支持较少；</li>
-</ul>
-<p>&lt;–未完待续–&gt;</p>
-</li>
-</ol>
-<h3 id="基于Swig开发的主题"><a href="#基于Swig开发的主题" class="headerlink" title="基于Swig开发的主题"></a>基于Swig开发的主题</h3>
-        </div>
-        
-            <div class="my_post_copyright">
-    <div style="text-align:center;color: #ccc;font-size:14px;">------ 版权信息 ------</div>
-    <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-    <p><span>本文标题:</span><a href="/posts/27751/">hexo的主题比较 - Annewqx</a></p>
-    <p><span>文章作者:</span><a href="/">Anne416wu</a></p>
-    <p><span>发布时间:</span>2020-02-16</p>
-    <p><span>修改时间:</span>2020-03-02</p>
-    <p>
-        <span>原始链接:</span><a href="/posts/27751/" title="hexo的主题比较 - Annewqx">https://www.annewqx.top/posts/27751/</a>
-        <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/27751/"  aria-label="复制成功！"></i></span>
-    </p>
-    <p><span>许可协议:</span><i class="fab fa-creative-commons"></i>转载请保留原文链接及作者。</p>  
-</div>
-<script> 
-    var clipboard = new Clipboard('.fa-clipboard');
-    $(".fa-clipboard").click(function(){
-        clipboard.on('success', function(){
-            swal({   
-                title: "",   
-                text: '复制成功',
-                icon: "success", 
-                showConfirmButton: true
-            });
-         });
-    });  
-</script>
-
-        
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/hexo/" rel="tag">hexo</a>, <a class="has-link-grey -link" href="/tags/js/" rel="tag">js</a>
-                </div>
-            </div>
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
-        <div class="buttons is-centered">
-            
-                
-<a class="button is-info donate">
-    <span class="icon is-small">
-        <i class="fab fa-alipay"></i>
-    </span>
-    <span>支付宝</span>
-    <div class="qrcode"><img src="/images/Alipay.jpg" alt="支付宝"></div>
-</a>
-
-                
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>微信</span>
-    <div class="qrcode"><img src="/images/wechatpay.jpg" alt="微信"></div>
-</a>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
-    <span class="icon is-small">
-        <i class="fab fa-paypal"></i>
-    </span>
-    <span>Paypal</span>
-</a>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form">
-    <input type="hidden" name="cmd" value="_donations" />
-    <input type="hidden" name="business" value="86BR8FGECVEYE" />
-    <input type="hidden" name="currency_code" value="USD" />
-</form>
-
-                
-        </div>
-    </div>
-</div>
-
-
-
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/32573/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Mac上Haskell的安装环境搭建</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/posts/2727/">
-                <span class="level-item">Hexo搭建个人博客：入门</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
-
-
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">评论</h3>
-        
-<div id="valine-thread" class="content"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
-<script>
-    new Valine({
-        el: '#valine-thread' ,
-        avatar: 'retro',
-        notify: true ,
-        verify: false ,
-        app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
-        app_key: '20OYVeUwaMoaoYEp1JhHnBmu',
-        placeholder: 'Leave a comment',
-    });
-</script>
-
-    </div>
-</div>
-</div>
-                
-                 
-
 
 
 
@@ -484,7 +225,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            8
+                            7
                         </p>
                     </a>
                 </div>
@@ -618,7 +359,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-03T10:02:04.000Z">2020-03-03</time></div>
                     <a href="/posts/673/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab2-编译器认知实验</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/report/">report</a>
+                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Report/">Report</a>
                     </p>
                 </div>
             </div>
@@ -749,15 +490,7 @@
                 <span class="level-item">Report</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Code/report/">
-            <span class="level-start">
-                <span class="level-item">report</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/Life/">
@@ -780,6 +513,8 @@
         </div>
     </div>
 </div>
+
+
     
         <div class="card widget">
     <div class="card-content">
@@ -999,9 +734,261 @@
     
 </div>
 
+                <div class="column is-two-thirds-tablet is-9-desktop is-three-fifths-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2020-02-15T16:00:00.000Z">2020-02-16</time> -->
+                <span class="level-item has-text-grey">2020-02-16</span>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Other/">Other</a>
+                </div>
                 
                 
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6 分钟 读完 (大约 966 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                hexo的主题比较
+            
+        </h1>
+        <div class="content">
+            <hr>
+<blockquote>
+<p>hexo各个主题的比较, 以及部分主题的修改</p>
+</blockquote>
+<a id="more"></a>
 
+<h2 id="我的需求"><a href="#我的需求" class="headerlink" title="我的需求"></a>我的需求</h2><blockquote>
+<p>目的：记录开发中遇到的坑，形成自己的handbook</p>
+</blockquote>
+<ol>
+<li>功能：<ul>
+<li>🔍站内搜索LeanCloud统计</li>
+<li>🤥<a href="#valine_comment"> Valine的评论服务 </a></li>
+<li>较为友好的代码高亮</li>
+<li>有展示GitHub project（接入GitHub的API）的project页面</li>
+<li>seo支持</li>
+</ul>
+</li>
+<li>界面：<ul>
+<li>首页tagCloud和categories的Widget</li>
+<li>首页的index展示文章的tag和category标签</li>
+<li>单篇博文内有随页面变化的目录widget</li>
+<li>archive展示时间轴 </li>
+</ul>
+</li>
+</ol>
+<h2 id="各个theme评价"><a href="#各个theme评价" class="headerlink" title="各个theme评价"></a>各个theme评价</h2><h3 id="基于jade-pug-开发的主题"><a href="#基于jade-pug-开发的主题" class="headerlink" title="基于jade ( pug )开发的主题"></a>基于jade ( pug )开发的主题</h3><blockquote>
+<p>Jade 是一个高性能的模板引擎，它深受 <a href="http://haml-lang.com/" rel="external nofollow noreferrer">Haml</a> 影响，它是用 JavaScript 实现的，并且可以供 <a href="http://nodejs.org/" rel="external nofollow noreferrer">Node</a> 使用，后来由于商标的原因，改为Pug  </p>
+<div class="tip">
+ 以下列举的主题都仍然使用hexo-renderer-jade插件，npm会提示插件已被废弃，运行时会显示错误提示。首先要替换hexo-renderer-jade插件为hexo-renderer-pug，下载命令为npm install hexo-renderer-pug --save；然后将主题layout文件夹中的所有.jade文件替换为.pug文件
+</div>
+入门指南：[pug中文文档](https://pugjs.org/zh-cn/api/getting-started.html)
+</blockquote>
+<ol>
+<li><p><a href="https://github.com/pinggod/hexo-theme-apollo" rel="external nofollow noreferrer">Apollo</a></p>
+<p>博客首页<br><img src="apollo_homepage.png" alt="apollo_homepage"><br>博客归档页<br><img src="apollo_archivepage.png" alt="apollo_archivepage"></p>
+<ul>
+<li>界面干净，多个theme都基于apollo开发，如<a href="https://github.com/MikeCoder/hexo-theme-Gandalfr" rel="external nofollow noreferrer">Gandalfr</a>  <a href="https://github.com/claymcleod/hexo-theme-hermes" rel="external nofollow noreferrer">Hermes</a>  <a href="https://github.com/Dreyer/hexo-theme-artemis" rel="external nofollow noreferrer">artemis</a> <a href="https://github.com/bulandent/hexo-theme-bubuzou" rel="external nofollow noreferrer">bubuzou</a> <a href="https://github.com/lyndonoc/hexo-theme-pandollo" rel="external nofollow noreferrer">pandollo</a></li>
+<li>缺点: 功能缺乏，需要自己接入评论、目录、搜索、Widget等功能；</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/bulandent/hexo-theme-bubuzou" rel="external nofollow noreferrer">bubuzou</a></p>
+<p>博客首页<br><img src="bubuzou_archieve_page.png" alt="bubuzou_archieve_page"><br>博文底部<br><img src="bubuzou_post_page.png" alt="bubuzou_post_page"></p>
+<ul>
+<li><p>基于apollo开发, 补充大量apollo缺乏的功能，如评论、目录、搜索、Widget；评论支持Valine评论；</p>
+</li>
+<li><p>首页 css页面适配存在缺陷（缩放时borden过小），代码高亮有缺陷，个别博文底部不会出现评论窗口(奇奇怪怪的bug)</p>
+</li>
+<li><p>实际使用的时候发现leancloud的访问量统计功能有缺点，留个坑；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jade">p.visit<br>2i(class&#x3D;&quot;article-timer&quot;, data-identity&#x3D;item.path)<br>   span 次访问<br>   if (is_home())<br>   	i(data-hk-page&#x3D;&#39;http:&#x2F;&#x2F;anne416wu.github.io&#39;+url_for(item.path)) -<br>   else <br>   	i(data-hk-page&#x3D;&quot;current&quot;)<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/MikeCoder/hexo-theme-Gandalfr" rel="external nofollow noreferrer">Gandalfr</a></p>
+<ul>
+<li>不放图了，这玩意儿bug挺多。有意思的是作者写了个tagCloud的辅助插件，给TagCloud加上了动画效果。界面上较bubuzou更贴近apollo。</li>
+<li>有时间的可以把Gandalfr的界面和bubuzou的功能结合一下。</li>
+</ul>
+</li>
+</ol>
+<h3 id="基于ejs开发的主题"><a href="#基于ejs开发的主题" class="headerlink" title="基于ejs开发的主题"></a>基于ejs开发的主题</h3><blockquote>
+<p> ejs是一套简单的模板语言，利用普通的 JavaScript 代码生成 HTML 页面，相比上面使用jade，修改更为方便。个人体验感觉ejs性能的确不如jade。</p>
+</blockquote>
+<ol>
+<li><p><a href="https://github.com/yanm1ng/hexo-theme-vexo" rel="external nofollow noreferrer">Vexo</a><br>博客首页<br><img src="vexo_homepage.png" alt="vexo_homepage"><br>博文开头<br><img src="vexo_postpage.png" alt="vexo_postpage"><br>归档页<br><img src="vexo_archievepage.png" alt="vexo_archivepage"><br>项目页<br><img src="vexo_projectpage.png" alt="vexo_projectpage"></p>
+<ul>
+<li>满足对界面的一切幻想(对界面的幻想都是这个主题惯出来的)，支持多种代码高亮</li>
+<li>缺点：未接入搜索功能，仅支持gitment评论，无首页CLoudTag的Widget等</li>
+<li>本地运行存在bug。使用<code>hexo s</code>预览时，如果文章资源读取出现错误，整个博客页面会显示空白</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/probberechts/hexo-theme-cactus" rel="external nofollow noreferrer">Cactus</a></p>
+<p>博客首页<br><img src="cactus_homepage.png" alt="cactus_homepage"><br>博文开头<br><img src="cactus_postpage.png" alt="cactus_postpage"><br>归档页<br><img src="cactus_archievepage.png" alt="cactus_archivepage"></p>
+<ul>
+<li>界面干净，支持多种代码高亮</li>
+<li>因为是国外开发的，对本地化的支持较少；</li>
+</ul>
+<p>&lt;–未完待续–&gt;</p>
+</li>
+</ol>
+<h3 id="基于Swig开发的主题"><a href="#基于Swig开发的主题" class="headerlink" title="基于Swig开发的主题"></a>基于Swig开发的主题</h3>
+        </div>
+        
+            <div class="my_post_copyright">
+    <div style="text-align:center;color: #ccc;font-size:14px;">------ 版权信息 ------</div>
+    <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+    <p><span>本文标题:</span><a href="/posts/27751/">hexo的主题比较 - Annewqx</a></p>
+    <p><span>文章作者:</span><a href="/">Anne416wu</a></p>
+    <p><span>发布时间:</span>2020-02-16</p>
+    <p><span>修改时间:</span>2020-03-02</p>
+    <p>
+        <span>原始链接:</span><a href="/posts/27751/" title="hexo的主题比较 - Annewqx">https://www.annewqx.top/posts/27751/</a>
+        <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/27751/"  aria-label="复制成功！"></i></span>
+    </p>
+    <p><span>许可协议:</span><i class="fab fa-creative-commons"></i>转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+        clipboard.on('success', function(){
+            swal({   
+                title: "",   
+                text: '复制成功',
+                icon: "success", 
+                showConfirmButton: true
+            });
+         });
+    });  
+</script>
+
+        
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/hexo/" rel="tag">hexo</a>, <a class="has-link-grey -link" href="/tags/js/" rel="tag">js</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/Alipay.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechatpay.jpg" alt="微信"></div>
+</a>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
+    <span class="icon is-small">
+        <i class="fab fa-paypal"></i>
+    </span>
+    <span>Paypal</span>
+</a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form">
+    <input type="hidden" name="cmd" value="_donations" />
+    <input type="hidden" name="business" value="86BR8FGECVEYE" />
+    <input type="hidden" name="currency_code" value="USD" />
+</form>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/53125/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">编译原理与设计-Lab1-语言认知实验</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/2727/">
+                <span class="level-item">Hexo搭建个人博客：入门</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        avatar: 'retro',
+        notify: true ,
+        verify: false ,
+        app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
+        app_key: '20OYVeUwaMoaoYEp1JhHnBmu',
+        placeholder: 'Leave a comment',
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
 
 
 
