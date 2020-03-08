@@ -549,6 +549,9 @@ figure.highlight .section {
 .gist .file {
   all: initial;
 }
+/* ---------------------------------
+ *        Add Copyright CSS
+ * --------------------------------- */
 .my_post_copyright {
   width: 85%;
   max-width: 45em;
@@ -594,4 +597,35 @@ figure.highlight .section {
 .my_post_copyright .copy-path:hover {
   color: #808080;
   cursor: pointer;
+}
+/* ---------------------------------
+ *        Add tip block
+ * --------------------------------- */
+.content .tip {
+  position: relative;
+  margin: 2em 0;
+  padding: 12px 24px 12px 30px;
+  border-left: 4px solid #f66;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  background-color: #f6f8fa;
+}
+.content .tip:before {
+  content: "!";
+  position: absolute;
+  top: 14px;
+  left: -12px;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  font-family: Dosis, "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #f66;
+  color: #fff;
+}
+.content .tip br {
+  display: none;
 }
