@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.annewqx.top/images/og_image.png">
 <meta property="article:published_time" content="2020-03-03T10:02:04.000Z">
-<meta property="article:modified_time" content="2020-03-07T21:37:02.068Z">
+<meta property="article:modified_time" content="2020-03-08T18:49:08.985Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="编译原理 编译器 gcc clang llvm">
 <meta name="twitter:card" content="summary">
@@ -781,11 +781,11 @@
 
 <h3 id="2-编写测试程序"><a href="#2-编写测试程序" class="headerlink" title="2 编写测试程序"></a>2 编写测试程序</h3><ul>
 <li><p>单个程序</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>2<span class="hljs-built_in">printf</span>(<span class="hljs-string">"hello\n"</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"hello\n"</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>多个程序</p>
 <p><code>cal.c</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>2<span class="hljs-keyword">int</span> num1, num2;<br>2<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d %d"</span>,&amp;num1,&amp;num2);<br>2<span class="hljs-keyword">int</span> res = add(num1,num2);<br>2<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, res);<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-keyword">int</span> num1, num2;<br>  <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d %d"</span>,&amp;num1,&amp;num2);<br>  <span class="hljs-keyword">int</span> res = add(num1,num2);<br>  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, res);<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p><code>add.c</code></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c">  <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"add.h"</span></span><br>  <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num1, <span class="hljs-keyword">int</span> num2)</span></span>&#123;<br>  	<span class="hljs-keyword">return</span> num1+num2;<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -1148,7 +1148,7 @@
     <p><span>本文标题:</span><a href="/posts/673/">编译原理与设计-Lab2-编译器认知实验 - Annewqx</a></p>
     <p><span>文章作者:</span><a href="/">Anne416wu</a></p>
     <p><span>发布时间:</span>2020-03-03</p>
-    <p><span>修改时间:</span>2020-03-08</p>
+    <p><span>修改时间:</span>2020-03-09</p>
     <p>
         <span>原始链接:</span><a href="/posts/673/" title="编译原理与设计-Lab2-编译器认知实验 - Annewqx">https://www.annewqx.top/posts/673/</a>
         <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/673/"  aria-label="复制成功！"></i></span>
@@ -1377,7 +1377,7 @@
     </div>
 </div>
     
-        <iframe width="100%" height=310 src="//music.163.com/outchain/player?type=0&id=4878237788&auto=0&height=430"></iframe>
+        <iframe width="100%" height=400 src="//music.163.com/outchain/player?type=0&id=4878237788&auto=0&height=430"></iframe>
 
 
 

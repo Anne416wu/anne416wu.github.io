@@ -819,7 +819,7 @@
 <li><p>首页 css页面适配存在缺陷（缩放时borden过小），代码高亮有缺陷，个别博文底部不会出现评论窗口(奇奇怪怪的bug)</p>
 </li>
 <li><p>实际使用的时候发现leancloud的访问量统计功能有缺点，留个坑；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jade">p.visit<br>2i(class&#x3D;&quot;article-timer&quot;, data-identity&#x3D;item.path)<br>   span 次访问<br>   if (is_home())<br>   	i(data-hk-page&#x3D;&#39;http:&#x2F;&#x2F;anne416wu.github.io&#39;+url_for(item.path)) -<br>   else <br>   	i(data-hk-page&#x3D;&quot;current&quot;)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jade">p.visit<br>	i(class&#x3D;&quot;article-timer&quot;, data-identity&#x3D;item.path)<br>   span 次访问<br>   if (is_home())<br>   	i(data-hk-page&#x3D;&#39;http:&#x2F;&#x2F;anne416wu.github.io&#39;+url_for(item.path)) -<br>   else <br>   	i(data-hk-page&#x3D;&quot;current&quot;)<br></code></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -1039,7 +1039,7 @@
     </div>
 </div>
     
-        <iframe width="100%" height=310 src="//music.163.com/outchain/player?type=0&id=4878237788&auto=0&height=430"></iframe>
+        <iframe width="100%" height=400 src="//music.163.com/outchain/player?type=0&id=4878237788&auto=0&height=430"></iframe>
 
 
 
