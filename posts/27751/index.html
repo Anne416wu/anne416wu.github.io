@@ -98,6 +98,12 @@
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="is-3-column">
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center"> 
@@ -106,8 +112,9 @@
             </div>
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="hexo的主题比较" height="28">
-             
+                <img class="logo-img" src="/images/logo.svg" alt="hexo的主题比较" height="28" />
+                <img class="logo-img-dark" src="/images/logo_dark.png" alt="hexo的主题比较" height="28" />
+            
             </a>
         </div>
         <div class="navbar-menu">
@@ -135,6 +142,9 @@
             </div>
             
             <div class="navbar-end">
+                <a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;" rel="external nofollow noreferrer">
+                    <i class="fas fa-moon" id="night-icon"></i>
+                </a>
                 
                     
                     <a class="navbar-item" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/anne416wu">
@@ -947,9 +957,9 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/53125/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/32573/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">编译原理与设计-Lab1-语言认知实验</span>
+                <span class="level-item">Mac上Haskell的安装环境搭建</span>
             </a>
         </div>
         
@@ -1059,7 +1069,8 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="hexo的主题比较" height="28">
+                    <img class="logo-img" src="/images/logo.svg" alt="hexo的主题比较" height="28" />
+                    <img class="logo-img-dark" src="/images/logo_dark.png" alt="hexo的主题比较" height="28" />
                 
                 </a>
                 <p class="is-size-7">

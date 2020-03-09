@@ -98,6 +98,12 @@
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="is-3-column">
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center"> 
@@ -106,8 +112,9 @@
             </div>
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="github-tourguide" height="28">
-             
+                <img class="logo-img" src="/images/logo.svg" alt="github-tourguide" height="28" />
+                <img class="logo-img-dark" src="/images/logo_dark.png" alt="github-tourguide" height="28" />
+            
             </a>
         </div>
         <div class="navbar-menu">
@@ -135,6 +142,9 @@
             </div>
             
             <div class="navbar-end">
+                <a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;" rel="external nofollow noreferrer">
+                    <i class="fas fa-moon" id="night-icon"></i>
+                </a>
                 
                     
                     <a class="navbar-item" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/anne416wu">
@@ -1052,7 +1062,8 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="github-tourguide" height="28">
+                    <img class="logo-img" src="/images/logo.svg" alt="github-tourguide" height="28" />
+                    <img class="logo-img-dark" src="/images/logo_dark.png" alt="github-tourguide" height="28" />
                 
                 </a>
                 <p class="is-size-7">
