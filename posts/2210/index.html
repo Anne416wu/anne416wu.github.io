@@ -45,6 +45,7 @@
 
     <link rel="mask-icon" href="/images/favicon-64px.png" color="{{ theme.android_chrome_color }}">
 
+<
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -178,6 +179,329 @@
     <section class="section">
         <div>
             <div class="columns is-centered">
+                <div class="column is-two-thirds-tablet is-9-desktop is-7-widescreen is-three-fifths-fullhd has-order-2 column-main">
+                    
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/gallery/thumbnails/caddy.png" alt="使用Caddy替换Nginx运行网站">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+       <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+            <i class="fas fa-angle-double-right"></i>使用Caddy替换Nginx运行网站
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2020-03-01T05:54:39.000Z">2020-03-01</time> -->
+                <time class="level-item has-text-grey" datetime="2020-03-01T05:54:39.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-03-01</time>
+                
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-09T13:29:40.540Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-09</time>
+                
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    14 分钟 读完 (大约 2154 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <!-- <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                使用Caddy替换Nginx运行网站
+            
+        </h1> -->
+        <div class="content">
+            <p>Caddy的使用真的太傻瓜了! </p>
+<a id="more"></a>
+
+<blockquote>
+<p>参考文章：</p>
+<ul>
+<li>入门： <a href="https://dengxiaolong.com/caddy/zh/" rel="external nofollow noreferrer">Caddy中文文档</a></li>
+<li>中阶： <a href="https://3mile.github.io/archives/118/" rel="external nofollow noreferrer">3mile：如何在CentOS 7上安装和配置Caddy</a></li>
+<li>Caddyfile的配置：<a href="https://liuzhichao.com/2018/caddy/" rel="external nofollow noreferrer">liuzhichao：替换 Nginx 使用 Caddy 作为博客静态服务器</a></li>
+<li>脚本介绍： <a href="https://wzfou.com/caddy/" rel="external nofollow noreferrer">Caddy-最容易上手的Web Server</a></li>
+</ul>
+<p>本博客基于<a href="https://dengxiaolong.com/caddy/zh/beginner.html" rel="external nofollow noreferrer">Caddy中文文档</a>，结合其他文章进行介绍，上接本博客博文<a href="https://www.annewqx.top/posts/65182/">把hexo博客部署到VPS服务器</a>，请注意，这次我们需要一个域名。</p>
+</blockquote>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>为什么要用 <a href="https://caddyserver.com/" rel="external nofollow noreferrer">Caddy</a> 替换掉 Nginx ？最主要的原因是 <strong><a href="https://caddyserver.com/" rel="external nofollow noreferrer">Caddy</a> 能让网站自动支持 HTTPS</strong>。同样是使用 Let’s Encrypt，换成 Nginx 我们就必须手工操作，并且还需要设置三个月更新证书的计划任务。Caddy默认支持 http/2，很多东西都不需要我们配置了。另外它的配置文件也比 Nginx 的要简单很多，几十行的 Nginx 配置文件 <a href="https://caddyserver.com/" rel="external nofollow noreferrer">Caddy</a> 仅需要几行就可以搞定了。关于能否将Caddy用作正式的生产环境，目前来看还是有待商榷的，但是Caddy用为简单的Http服务器是没有问题的。</p>
+<h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><ul>
+<li>一个搭载CentOS 7 x64的VPS服务器</li>
+<li>一个域名<code>example.com</code>已被配置为指向<code>VPS IP</code>，具体方法参见<a href="https://www.annewqx.top/posts/65182/">把hexo博客部署到VPS服务器</a> 域名部分</li>
+<li>已经利用git把hexo博客部署到VPS的<code>/var/www/blog</code>文件夹</li>
+<li>如果已经运行nginx的，需要<code>nging -s stop</code>关闭</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
+<p>我们使用Caddy官方的一键安装脚本</p>
+<p>大部分caddy的第三方一键脚本对于centOS都仅支持<code>6.8</code>或<code>7.2</code>版本(查看Linux版本方法<code>cat /etc/centos-release</code>)</p>
+<ul>
+<li><a href="https://github.com/sayem314/Caddy-Web-Server-Installer" rel="external nofollow noreferrer">sayem314</a></li>
+</ul>
+</blockquote>
+<p>在Linux，Mac或BSD操作系统上，使用以下命令安装Caddy最新稳定的系统特定版本：</p>
+<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">curl https://getcaddy.com | bash -s personal<br></code></pre></td></tr></table></figure>
+
+<p>Caddy二进制文件将被安装到该<code>/usr/local/bin</code>目录。使用以下命令确认：</p>
+<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-built_in">which</span> caddy<br></code></pre></td></tr></table></figure>
+
+<p>为了安全起见，<strong>切勿</strong>以root身份运行Caddy二进制文件。为了让Caddy能够以非root用户的身份绑定到特权端口（例如80,443），需要<code>setcap</code>。按如下所示运行该命令：</p>
+<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo <span class="hljs-built_in">setcap</span> <span class="hljs-string">'cap_net_bind_service=+ep'</span> /usr/<span class="hljs-built_in">local</span>/bin/caddy<br></code></pre></td></tr></table></figure>
+
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>默认情况下，Caddy使用当前目录（执行命令的目录，而不是caddy二进制文件所在目录）作为网站根目录，因此运行本地站点非常方便。</p>
+<p>使用终端或者命令行，切换到站点目录所在：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> path/to/my/site		<span class="hljs-comment"># 在我们的服务器上是/var/www/blog</span><br>caddy<br></code></pre></td></tr></table></figure>
+
+<p>浏览器打开<a href="http://localhost:2015/，如果出现404页面，说明caddy运行正常。使用`Ctrl+C`退出，caddy将尽可能优雅中断。" rel="external nofollow noreferrer">http://localhost:2015/，如果出现404页面，说明caddy运行正常。使用`Ctrl+C`退出，caddy将尽可能优雅中断。</a></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="方案1：来自Caddy官方文档的快速开始"><a href="#方案1：来自Caddy官方文档的快速开始" class="headerlink" title="方案1：来自Caddy官方文档的快速开始"></a>方案1：来自Caddy官方文档的快速开始</h3><blockquote>
+<p>如果服务器设置了防火墙，则打开80和443端口</p>
+<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo firewall-cmd --permanent --zone=public --add-service=http <br>sudo firewall-cmd --permanent --zone=public --add-service=https<br>sudo firewall-cmd --reload<br></code></pre></td></tr></table></figure>
+
+<p>请确保你的域名能解析到你的服务器，具体方法参见<a href="https://www.annewqx.top/posts/65182/">把hexo博客部署到VPS服务器</a> 最后一部分</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo caddy -host example.com<br></code></pre></td></tr></table></figure>
+
+<p>当第一次使用一个真正的域名（不是localhost）运行Caddy时，会出现提示要求输入你的email地址。这是因为Caddy需要验证你的域名，并将验证信息安全地存储在硬盘上。</p>
+<p>Caddy必须将40和443端口绑定到一个真正的站点，这需要root或者Administrator的权限</p>
+<p>现在我们的网站已经按照在运行了!</p>
+<p><strong>&lt;全文完&gt;</strong></p>
+<hr>
+<p>&lt;其实并不，Caddy可以很简单的开始，但总有高阶玩家可以把简单的事情变得更复杂，当然，也更安全&gt;</p>
+<h3 id="方案2：从Caddyfile开始"><a href="#方案2：从Caddyfile开始" class="headerlink" title="方案2：从Caddyfile开始"></a>方案2：从Caddyfile开始</h3><p>创建一个专门的系统用户：<code>caddy</code> 和一组同名的Caddy：</p>
+<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo useradd -r -d /var/www -M -s /sbin/nologin caddy<br></code></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：<em>此处创建**的用户caddy只能用于管理Caddy服务，不能用于登录。</em></p>
+<p><code>/var/www</code>为Caddy Web服务器创建主目录，并<code>/var/www/blog</code>为您的站点创建主目录：</p>
+<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo mkdir -p /var/www/blog<br>sudo chown -R caddy:caddy /var/www<br></code></pre></td></tr></table></figure>
+
+<p>创建一个目录来存储SSL证书：</p>
+<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo mkdir /etc/ssl/caddy<br>sudo chown -R caddy:root /etc/ssl/caddy<br>sudo chmod 0770 /etc/ssl/caddy<br></code></pre></td></tr></table></figure>
+
+<p>创建专用目录来存储Caddy配置文件<code>Caddyfile</code>：</p>
+<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo mkdir /etc/caddy<br>sudo chown -R root:caddy /etc/caddy<br></code></pre></td></tr></table></figure>
+
+<p>创建名为的Caddy配置文件<code>Caddyfile</code> 以下仅是一个普通配置，详细的配置参见本文<a href="#Caddyfile">Caddyfile部分</a></p>
+<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo touch /etc/caddy/Caddyfile<br>sudo chown caddy:caddy /etc/caddy/Caddyfile<br>sudo chmod 444 /etc/caddy/Caddyfile<br>cat &lt;&lt;EOF | sudo tee -a /etc/caddy/Caddyfile<br>www.example.com &#123;<br>	redir https://example.com&#123;uri&#125;<br>&#125;<br>example.com &#123;<br>    root /var/www/blog<br>    gzip<br>    tls example@outlook.com<br>    header / Strict-Transport-Security <span class="hljs-string">"max-age=31536000"</span><br>    gzip<br>    errors &#123;<br>       404 404.html<br>       403 403.html<br>     &#125; <br>&#125;<br>EOF<br></code></pre></td></tr></table></figure>
+
+<p>使用<code>caddy -conf /etc/caddy/Caddyfile</code> 按照配置文件运行caddy。第一次运行会验证邮箱，并进行ssh申请等，等待后将网页浏览器指向<code>http://example.com</code>或<code>https://example.com</code>。可看到网站运行的样子</p>
+<p>关于Caddyfile的书写解释，可见本文<a href="#Caddyfile">Caddyfile</a>部分</p>
+<h3 id="方案3：使用caddy-service-此部分有缺陷，未解决"><a href="#方案3：使用caddy-service-此部分有缺陷，未解决" class="headerlink" title="方案3：使用caddy.service(此部分有缺陷，未解决)"></a>方案3：使用caddy.service(此部分有缺陷，未解决)</h3><blockquote>
+<p>github: <a href="https://github.com/caddyserver/caddy/tree/master/dist/init/linux-systemd" rel="external nofollow noreferrer">systemd Service Unit for Caddy</a></p>
+<p>这部分目前我遇到的问题</p>
+<ul>
+<li>使用<code>systemctl status caddy.service</code>提示用户错误。错误的原因一个是systemd version太低，虽然caddy.service要求是219即可，实际上大概是需要229以上才行；</li>
+<li>文件夹权限的问题，涉及到用户和用户组，不太熟，如果把自己搞得ssh拒绝登录就傻了；</li>
+</ul>
+<p>等有时间的时候再回头修这个吧😑</p>
+</blockquote>
+<p>为了方便Caddy的操作，我们可以使用systemd<code>为Caddy 设置一个单元文件，然后用它</code>systemd`来管理Caddy。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -s https://raw.githubusercontent.com/mholt/caddy/master/dist/init/linux-systemd/caddy.service -o /etc/systemd/system/caddy.service  <span class="hljs-comment"># 从 github 下载 systemd 配置文件</span><br>chown root:root /etc/systemd/system/caddy.service   <span class="hljs-comment"># 配置权限</span><br>chmod 744 /etc/systemd/system/caddy.service<br></code></pre></td></tr></table></figure>
+
+<p>启动Caddy服务并使其在系统引导时自动启动：</p>
+<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-comment"># 重启systemd使服务生效</span><br>sudo systemctl daemon-reload<br><span class="hljs-comment"># 开始运行caddy服务</span><br>sudo systemctl start caddy.service<br><span class="hljs-comment"># 设置开机自启动</span><br>sudo systemctl <span class="hljs-built_in">enable</span> caddy.service<br><span class="hljs-comment"># 查看caddy服务运行状态</span><br>sudo systemctl status caddy.service<br></code></pre></td></tr></table></figure>
+
+<p>最后，将网页浏览器指向<code>http://example.com</code>或<code>https://example.com</code>。可看到网站运行的样子。</p>
+<span id = "Caddyfile">
+
+<h2 id="Caddyfile"><a href="#Caddyfile" class="headerlink" title="Caddyfile"></a>Caddyfile</h2></span>
+**Caddyfile**用来告诉Caddy如何提供服务的文本文件。他通常和网站放在一起。
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> path/to/site<br>vim Caddyfile<br></code></pre></td></tr></table></figure>
+
+<p>Caddy的一般结构如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs c">www.mysite.com &#123;<br>    redir https:<span class="hljs-comment">//mysite.com&#123;uri&#125;</span><br>&#125;<br>mysite.com &#123;<br>        root /var/www/blog<br>        <span class="hljs-built_in">log</span> / /var/<span class="hljs-built_in">log</span>/caddy/mysite.<span class="hljs-built_in">log</span> <span class="hljs-string">"&#123;remote&#125; &#123;when&#125; &#123;method&#125; &#123;uri&#125; &#123;proto&#125; &#123;status&#125; &#123;size&#125; &#123;&gt;User-Agent&#125; &#123;latency&#125;"</span><br>        tls 邮箱账号<br>        header / Strict-Transport-Security <span class="hljs-string">"max-age=31536000"</span><br>        gzip<br>        errors &#123;<br>         <span class="hljs-number">404</span> <span class="hljs-number">404.</span>html<br>         <span class="hljs-number">403</span> <span class="hljs-number">403.</span>html<br>       &#125;<br>       expires &#123;<br>         match .css$ <span class="hljs-number">1</span>m<br>         match .js$ <span class="hljs-number">1</span>m<br>         match .png$ <span class="hljs-number">1</span>m<br>         match .jpg$ <span class="hljs-number">1</span>m<br>      &#125;<br>      ipfilter / &#123;<br>        rule  block<br>        blockpage /var/www/liuzhichao.com/<span class="hljs-number">403.</span>html<br>        ip <span class="hljs-number">148.251</span><span class="hljs-number">.8</span><span class="hljs-number">.250</span> <span class="hljs-number">136.243</span><span class="hljs-number">.37</span><span class="hljs-number">.219</span> <span class="hljs-number">144.76</span><span class="hljs-number">.38</span><span class="hljs-number">.40</span> <span class="hljs-number">69.197</span><span class="hljs-number">.177</span><span class="hljs-number">.50</span> <span class="hljs-number">199.58</span><span class="hljs-number">.86</span><span class="hljs-number">.211</span> <span class="hljs-number">5.9</span><span class="hljs-number">.97</span><span class="hljs-number">.200</span> <span class="hljs-number">144.76</span><span class="hljs-number">.91</span><span class="hljs-number">.79</span><br>      &#125;<br><br>     rewrite &#123;<br>        <span class="hljs-keyword">if</span> &#123;&gt;User-agent&#125; has <span class="hljs-string">"MJ12bot"</span><br>        to /forbidden<br>    &#125;<br>     status <span class="hljs-number">403</span> /forbidden<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">www.mysite.com &#123;<br>    redir https://mysite.com&#123;uri&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>是将 www 跳转到非 www 的域名。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tls mail@mysite.com<br></code></pre></td></tr></table></figure>
+
+<p>tls后面改为你的邮箱地址，会自动配置 https。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">header / Strict-Transport-Security <span class="hljs-string">"max-age=31536000"</span><br></code></pre></td></tr></table></figure>
+
+<p>是一条 https 的优化配置，加上之后，在<a href="https://www.ssllabs.com/ssltest/analyze.html?d=liuzhichao.com&hideResults=on" rel="external nofollow noreferrer">SSLLabs</a>上测试评分可以拿到A+,想想之前使用 Nginx 的时候，网络上找了各种配置参考都只优化到了 A，所以 Caddy 的自动 Https 功能确实还是很方便的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">errors &#123;<br>        404 404.html<br>        403 403.html<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<p>是自定义错误页面配置。确保你网站的根目录有相应的文件，不然启动服务会报错。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">expires &#123;<br>        match .css$ 1m<br>        match .js$ 1m<br>        match .png$ 1m<br>        match .jpg$ 1m<br>     &#125;<br></code></pre></td></tr></table></figure>
+
+<p>expires 是控制页面的缓存，上面的配置是将 css,js,png,jpg 这样的静态资源缓存1个月。此配置依赖http.expires这个插件，如果你没有安装，配置后启动 caddy 会出错。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">ipfilter / &#123;<br>        rule  block<br>        blockpage /var/www/liuzhichao.com/403.html<br>        ip 148.251.8.250 136.243.37.219 144.76.38.40 69.197.177.50 199.58.86.211 5.9.97.200 144.76.91.79<br>     &#125;<br></code></pre></td></tr></table></figure>
+
+<p>ipfilter是根据配置过滤到一些非正常的 IP，可以查看访问log，经常会有一些爬虫频繁的访问网站，没有任何用处反而加大服务器的负载，对于这样的 IP 可以直接过滤掉。blockpage是配置这些 IP 访问网址时显示的页面，依赖http.ipfilter插件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">rewrite &#123;<br>       <span class="hljs-keyword">if</span> &#123;&gt;User-agent&#125; has <span class="hljs-string">"MJ12bot"</span><br>       to /forbidden<br>   &#125;<br>   status 403 /forbidden<br></code></pre></td></tr></table></figure>
+
+<p>与上面的ipfilter功能类似，都是过滤掉一些非正常的访问用户，不同的是ipfilter是屏蔽 IP，这段配置则是根据<code>User-agent</code> block掉一些爬虫。</p>
+
+        </div>
+        
+            <div class="my_post_copyright">
+    <div style="text-align:center;color: #ccc;font-size:14px;">------ copyright ------</div>
+    <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+    <p><span>title:</span><a href="/posts/2210/">使用Caddy替换Nginx运行网站</a></p>
+    <p><span>author:</span><a href="/">Anne416wu</a></p>
+    <p>
+        <span>ink:</span><a href="/posts/2210/" title="使用Caddy替换Nginx运行网站 - Annewqx">https://www.annewqx.top/posts/2210/</a>
+        <span class="copy-path"  title="Click to Copy Link"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/2210/"  aria-label="复制成功！"></i></span>
+    </p>
+    <p><span>publish time:</span>2020-03-01</p>
+    <p><span>update time:</span>2020-03-09</p>
+    <p><span>版权声明</span>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank"><i class="fab fa-creative-commons" style="color:#808080"></a></i> 许可协议</p>  
+</div>
+<!-- <ul class="post-copyright">
+    <li><strong>本文标题：</strong><a href="https://www.annewqx.top/posts/2210/">使用Caddy替换Nginx运行网站</a></li>
+     <li><strong>本文作者：</strong><a href="https://www.annewqx.top">Anne416wu</a></li>
+    <li><strong>本文链接：</strong><a href="https://www.annewqx.top/posts/2210/">https://www.annewqx.top/posts/2210/</a></li>
+    <li><strong>发布时间：</strong>2020-03-01</li>
+    <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+    </li>
+</ul> -->
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+        clipboard.on('success', function(){
+            swal({   
+                title: "",   
+                text: '复制成功',
+                icon: "success", 
+                showConfirmButton: true
+            });
+         });
+    });  
+</script>
+
+        
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <!-- <span class="is-size-6 has-text-grey has-mr-7">#</span> -->
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/Caddy/" rel="tag">Caddy</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/Alipay.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechatpay.jpg" alt="微信"></div>
+</a>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
+    <span class="icon is-small">
+        <i class="fab fa-paypal"></i>
+    </span>
+    <span>Paypal</span>
+</a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form">
+    <input type="hidden" name="cmd" value="_donations" />
+    <input type="hidden" name="business" value="86BR8FGECVEYE" />
+    <input type="hidden" name="currency_code" value="USD" />
+</form>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/30155/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">ssr to v2ray</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/65512/">
+                <span class="level-item">Hexo搭建个人博客：装修</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        avatar: 'retro',
+        notify: true ,
+        verify: false ,
+        app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
+        app_key: '20OYVeUwaMoaoYEp1JhHnBmu',
+        placeholder: 'Leave a comment',
+    });
+</script>
+
+    </div>
+</div>
+
+                    
+                    
+                </div>
                 
 
 
@@ -526,6 +850,7 @@
 </div>
 
 
+
     
         <div class="card widget">
     <div class="card-content">
@@ -745,325 +1070,6 @@
     
 </div>
 
-                <div class="column is-two-thirds-tablet is-9-desktop is-7-widescreen is-three-fifths-fullhd has-order-2 column-main">
-<div class="card">
-    
-    <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" src="/gallery/thumbnails/caddy.png" alt="使用Caddy替换Nginx运行网站">
-        </span>
-    </div>
-    
-    <div class="card-content article ">
-       <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-            <i class="fas fa-angle-double-right"></i>使用Caddy替换Nginx运行网站
-            
-        </h1>
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-03-01T05:54:39.000Z">2020-03-01</time> -->
-                <time class="level-item has-text-grey" datetime="2020-03-01T05:54:39.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-03-01</time>
-                
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-09T13:29:40.540Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-09</time>
-                
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    14 分钟 读完 (大约 2154 个字)
-                </span>
-                
-                
-                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
-                    <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
-                </span>
-                
-            </div>
-        </div>
-        
-        <!-- <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                使用Caddy替换Nginx运行网站
-            
-        </h1> -->
-        <div class="content">
-            <p>Caddy的使用真的太傻瓜了! </p>
-<a id="more"></a>
-
-<blockquote>
-<p>参考文章：</p>
-<ul>
-<li>入门： <a href="https://dengxiaolong.com/caddy/zh/" rel="external nofollow noreferrer">Caddy中文文档</a></li>
-<li>中阶： <a href="https://3mile.github.io/archives/118/" rel="external nofollow noreferrer">3mile：如何在CentOS 7上安装和配置Caddy</a></li>
-<li>Caddyfile的配置：<a href="https://liuzhichao.com/2018/caddy/" rel="external nofollow noreferrer">liuzhichao：替换 Nginx 使用 Caddy 作为博客静态服务器</a></li>
-<li>脚本介绍： <a href="https://wzfou.com/caddy/" rel="external nofollow noreferrer">Caddy-最容易上手的Web Server</a></li>
-</ul>
-<p>本博客基于<a href="https://dengxiaolong.com/caddy/zh/beginner.html" rel="external nofollow noreferrer">Caddy中文文档</a>，结合其他文章进行介绍，上接本博客博文<a href="https://www.annewqx.top/posts/65182/">把hexo博客部署到VPS服务器</a>，请注意，这次我们需要一个域名。</p>
-</blockquote>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>为什么要用 <a href="https://caddyserver.com/" rel="external nofollow noreferrer">Caddy</a> 替换掉 Nginx ？最主要的原因是 <strong><a href="https://caddyserver.com/" rel="external nofollow noreferrer">Caddy</a> 能让网站自动支持 HTTPS</strong>。同样是使用 Let’s Encrypt，换成 Nginx 我们就必须手工操作，并且还需要设置三个月更新证书的计划任务。Caddy默认支持 http/2，很多东西都不需要我们配置了。另外它的配置文件也比 Nginx 的要简单很多，几十行的 Nginx 配置文件 <a href="https://caddyserver.com/" rel="external nofollow noreferrer">Caddy</a> 仅需要几行就可以搞定了。关于能否将Caddy用作正式的生产环境，目前来看还是有待商榷的，但是Caddy用为简单的Http服务器是没有问题的。</p>
-<h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><ul>
-<li>一个搭载CentOS 7 x64的VPS服务器</li>
-<li>一个域名<code>example.com</code>已被配置为指向<code>VPS IP</code>，具体方法参见<a href="https://www.annewqx.top/posts/65182/">把hexo博客部署到VPS服务器</a> 域名部分</li>
-<li>已经利用git把hexo博客部署到VPS的<code>/var/www/blog</code>文件夹</li>
-<li>如果已经运行nginx的，需要<code>nging -s stop</code>关闭</li>
-</ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
-<p>我们使用Caddy官方的一键安装脚本</p>
-<p>大部分caddy的第三方一键脚本对于centOS都仅支持<code>6.8</code>或<code>7.2</code>版本(查看Linux版本方法<code>cat /etc/centos-release</code>)</p>
-<ul>
-<li><a href="https://github.com/sayem314/Caddy-Web-Server-Installer" rel="external nofollow noreferrer">sayem314</a></li>
-</ul>
-</blockquote>
-<p>在Linux，Mac或BSD操作系统上，使用以下命令安装Caddy最新稳定的系统特定版本：</p>
-<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">curl https://getcaddy.com | bash -s personal<br></code></pre></td></tr></table></figure>
-
-<p>Caddy二进制文件将被安装到该<code>/usr/local/bin</code>目录。使用以下命令确认：</p>
-<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-built_in">which</span> caddy<br></code></pre></td></tr></table></figure>
-
-<p>为了安全起见，<strong>切勿</strong>以root身份运行Caddy二进制文件。为了让Caddy能够以非root用户的身份绑定到特权端口（例如80,443），需要<code>setcap</code>。按如下所示运行该命令：</p>
-<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo <span class="hljs-built_in">setcap</span> <span class="hljs-string">'cap_net_bind_service=+ep'</span> /usr/<span class="hljs-built_in">local</span>/bin/caddy<br></code></pre></td></tr></table></figure>
-
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>默认情况下，Caddy使用当前目录（执行命令的目录，而不是caddy二进制文件所在目录）作为网站根目录，因此运行本地站点非常方便。</p>
-<p>使用终端或者命令行，切换到站点目录所在：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> path/to/my/site		<span class="hljs-comment"># 在我们的服务器上是/var/www/blog</span><br>caddy<br></code></pre></td></tr></table></figure>
-
-<p>浏览器打开<a href="http://localhost:2015/，如果出现404页面，说明caddy运行正常。使用`Ctrl+C`退出，caddy将尽可能优雅中断。" rel="external nofollow noreferrer">http://localhost:2015/，如果出现404页面，说明caddy运行正常。使用`Ctrl+C`退出，caddy将尽可能优雅中断。</a></p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="方案1：来自Caddy官方文档的快速开始"><a href="#方案1：来自Caddy官方文档的快速开始" class="headerlink" title="方案1：来自Caddy官方文档的快速开始"></a>方案1：来自Caddy官方文档的快速开始</h3><blockquote>
-<p>如果服务器设置了防火墙，则打开80和443端口</p>
-<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo firewall-cmd --permanent --zone=public --add-service=http <br>sudo firewall-cmd --permanent --zone=public --add-service=https<br>sudo firewall-cmd --reload<br></code></pre></td></tr></table></figure>
-
-<p>请确保你的域名能解析到你的服务器，具体方法参见<a href="https://www.annewqx.top/posts/65182/">把hexo博客部署到VPS服务器</a> 最后一部分</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo caddy -host example.com<br></code></pre></td></tr></table></figure>
-
-<p>当第一次使用一个真正的域名（不是localhost）运行Caddy时，会出现提示要求输入你的email地址。这是因为Caddy需要验证你的域名，并将验证信息安全地存储在硬盘上。</p>
-<p>Caddy必须将40和443端口绑定到一个真正的站点，这需要root或者Administrator的权限</p>
-<p>现在我们的网站已经按照在运行了!</p>
-<p><strong>&lt;全文完&gt;</strong></p>
-<hr>
-<p>&lt;其实并不，Caddy可以很简单的开始，但总有高阶玩家可以把简单的事情变得更复杂，当然，也更安全&gt;</p>
-<h3 id="方案2：从Caddyfile开始"><a href="#方案2：从Caddyfile开始" class="headerlink" title="方案2：从Caddyfile开始"></a>方案2：从Caddyfile开始</h3><p>创建一个专门的系统用户：<code>caddy</code> 和一组同名的Caddy：</p>
-<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo useradd -r -d /var/www -M -s /sbin/nologin caddy<br></code></pre></td></tr></table></figure>
-
-<p><strong>注意</strong>：<em>此处创建**的用户caddy只能用于管理Caddy服务，不能用于登录。</em></p>
-<p><code>/var/www</code>为Caddy Web服务器创建主目录，并<code>/var/www/blog</code>为您的站点创建主目录：</p>
-<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo mkdir -p /var/www/blog<br>sudo chown -R caddy:caddy /var/www<br></code></pre></td></tr></table></figure>
-
-<p>创建一个目录来存储SSL证书：</p>
-<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo mkdir /etc/ssl/caddy<br>sudo chown -R caddy:root /etc/ssl/caddy<br>sudo chmod 0770 /etc/ssl/caddy<br></code></pre></td></tr></table></figure>
-
-<p>创建专用目录来存储Caddy配置文件<code>Caddyfile</code>：</p>
-<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo mkdir /etc/caddy<br>sudo chown -R root:caddy /etc/caddy<br></code></pre></td></tr></table></figure>
-
-<p>创建名为的Caddy配置文件<code>Caddyfile</code> 以下仅是一个普通配置，详细的配置参见本文<a href="#Caddyfile">Caddyfile部分</a></p>
-<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo touch /etc/caddy/Caddyfile<br>sudo chown caddy:caddy /etc/caddy/Caddyfile<br>sudo chmod 444 /etc/caddy/Caddyfile<br>cat &lt;&lt;EOF | sudo tee -a /etc/caddy/Caddyfile<br>www.example.com &#123;<br>	redir https://example.com&#123;uri&#125;<br>&#125;<br>example.com &#123;<br>    root /var/www/blog<br>    gzip<br>    tls example@outlook.com<br>    header / Strict-Transport-Security <span class="hljs-string">"max-age=31536000"</span><br>    gzip<br>    errors &#123;<br>       404 404.html<br>       403 403.html<br>     &#125; <br>&#125;<br>EOF<br></code></pre></td></tr></table></figure>
-
-<p>使用<code>caddy -conf /etc/caddy/Caddyfile</code> 按照配置文件运行caddy。第一次运行会验证邮箱，并进行ssh申请等，等待后将网页浏览器指向<code>http://example.com</code>或<code>https://example.com</code>。可看到网站运行的样子</p>
-<p>关于Caddyfile的书写解释，可见本文<a href="#Caddyfile">Caddyfile</a>部分</p>
-<h3 id="方案3：使用caddy-service-此部分有缺陷，未解决"><a href="#方案3：使用caddy-service-此部分有缺陷，未解决" class="headerlink" title="方案3：使用caddy.service(此部分有缺陷，未解决)"></a>方案3：使用caddy.service(此部分有缺陷，未解决)</h3><blockquote>
-<p>github: <a href="https://github.com/caddyserver/caddy/tree/master/dist/init/linux-systemd" rel="external nofollow noreferrer">systemd Service Unit for Caddy</a></p>
-<p>这部分目前我遇到的问题</p>
-<ul>
-<li>使用<code>systemctl status caddy.service</code>提示用户错误。错误的原因一个是systemd version太低，虽然caddy.service要求是219即可，实际上大概是需要229以上才行；</li>
-<li>文件夹权限的问题，涉及到用户和用户组，不太熟，如果把自己搞得ssh拒绝登录就傻了；</li>
-</ul>
-<p>等有时间的时候再回头修这个吧😑</p>
-</blockquote>
-<p>为了方便Caddy的操作，我们可以使用systemd<code>为Caddy 设置一个单元文件，然后用它</code>systemd`来管理Caddy。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -s https://raw.githubusercontent.com/mholt/caddy/master/dist/init/linux-systemd/caddy.service -o /etc/systemd/system/caddy.service  <span class="hljs-comment"># 从 github 下载 systemd 配置文件</span><br>chown root:root /etc/systemd/system/caddy.service   <span class="hljs-comment"># 配置权限</span><br>chmod 744 /etc/systemd/system/caddy.service<br></code></pre></td></tr></table></figure>
-
-<p>启动Caddy服务并使其在系统引导时自动启动：</p>
-<figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-comment"># 重启systemd使服务生效</span><br>sudo systemctl daemon-reload<br><span class="hljs-comment"># 开始运行caddy服务</span><br>sudo systemctl start caddy.service<br><span class="hljs-comment"># 设置开机自启动</span><br>sudo systemctl <span class="hljs-built_in">enable</span> caddy.service<br><span class="hljs-comment"># 查看caddy服务运行状态</span><br>sudo systemctl status caddy.service<br></code></pre></td></tr></table></figure>
-
-<p>最后，将网页浏览器指向<code>http://example.com</code>或<code>https://example.com</code>。可看到网站运行的样子。</p>
-<span id = "Caddyfile">
-
-<h2 id="Caddyfile"><a href="#Caddyfile" class="headerlink" title="Caddyfile"></a>Caddyfile</h2></span>
-**Caddyfile**用来告诉Caddy如何提供服务的文本文件。他通常和网站放在一起。
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> path/to/site<br>vim Caddyfile<br></code></pre></td></tr></table></figure>
-
-<p>Caddy的一般结构如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs c">www.mysite.com &#123;<br>    redir https:<span class="hljs-comment">//mysite.com&#123;uri&#125;</span><br>&#125;<br>mysite.com &#123;<br>        root /var/www/blog<br>        <span class="hljs-built_in">log</span> / /var/<span class="hljs-built_in">log</span>/caddy/mysite.<span class="hljs-built_in">log</span> <span class="hljs-string">"&#123;remote&#125; &#123;when&#125; &#123;method&#125; &#123;uri&#125; &#123;proto&#125; &#123;status&#125; &#123;size&#125; &#123;&gt;User-Agent&#125; &#123;latency&#125;"</span><br>        tls 邮箱账号<br>        header / Strict-Transport-Security <span class="hljs-string">"max-age=31536000"</span><br>        gzip<br>        errors &#123;<br>         <span class="hljs-number">404</span> <span class="hljs-number">404.</span>html<br>         <span class="hljs-number">403</span> <span class="hljs-number">403.</span>html<br>       &#125;<br>       expires &#123;<br>         match .css$ <span class="hljs-number">1</span>m<br>         match .js$ <span class="hljs-number">1</span>m<br>         match .png$ <span class="hljs-number">1</span>m<br>         match .jpg$ <span class="hljs-number">1</span>m<br>      &#125;<br>      ipfilter / &#123;<br>        rule  block<br>        blockpage /var/www/liuzhichao.com/<span class="hljs-number">403.</span>html<br>        ip <span class="hljs-number">148.251</span><span class="hljs-number">.8</span><span class="hljs-number">.250</span> <span class="hljs-number">136.243</span><span class="hljs-number">.37</span><span class="hljs-number">.219</span> <span class="hljs-number">144.76</span><span class="hljs-number">.38</span><span class="hljs-number">.40</span> <span class="hljs-number">69.197</span><span class="hljs-number">.177</span><span class="hljs-number">.50</span> <span class="hljs-number">199.58</span><span class="hljs-number">.86</span><span class="hljs-number">.211</span> <span class="hljs-number">5.9</span><span class="hljs-number">.97</span><span class="hljs-number">.200</span> <span class="hljs-number">144.76</span><span class="hljs-number">.91</span><span class="hljs-number">.79</span><br>      &#125;<br><br>     rewrite &#123;<br>        <span class="hljs-keyword">if</span> &#123;&gt;User-agent&#125; has <span class="hljs-string">"MJ12bot"</span><br>        to /forbidden<br>    &#125;<br>     status <span class="hljs-number">403</span> /forbidden<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>说明：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">www.mysite.com &#123;<br>    redir https://mysite.com&#123;uri&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>是将 www 跳转到非 www 的域名。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tls mail@mysite.com<br></code></pre></td></tr></table></figure>
-
-<p>tls后面改为你的邮箱地址，会自动配置 https。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">header / Strict-Transport-Security <span class="hljs-string">"max-age=31536000"</span><br></code></pre></td></tr></table></figure>
-
-<p>是一条 https 的优化配置，加上之后，在<a href="https://www.ssllabs.com/ssltest/analyze.html?d=liuzhichao.com&hideResults=on" rel="external nofollow noreferrer">SSLLabs</a>上测试评分可以拿到A+,想想之前使用 Nginx 的时候，网络上找了各种配置参考都只优化到了 A，所以 Caddy 的自动 Https 功能确实还是很方便的。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">errors &#123;<br>        404 404.html<br>        403 403.html<br>    &#125;<br></code></pre></td></tr></table></figure>
-
-<p>是自定义错误页面配置。确保你网站的根目录有相应的文件，不然启动服务会报错。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">expires &#123;<br>        match .css$ 1m<br>        match .js$ 1m<br>        match .png$ 1m<br>        match .jpg$ 1m<br>     &#125;<br></code></pre></td></tr></table></figure>
-
-<p>expires 是控制页面的缓存，上面的配置是将 css,js,png,jpg 这样的静态资源缓存1个月。此配置依赖http.expires这个插件，如果你没有安装，配置后启动 caddy 会出错。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">ipfilter / &#123;<br>        rule  block<br>        blockpage /var/www/liuzhichao.com/403.html<br>        ip 148.251.8.250 136.243.37.219 144.76.38.40 69.197.177.50 199.58.86.211 5.9.97.200 144.76.91.79<br>     &#125;<br></code></pre></td></tr></table></figure>
-
-<p>ipfilter是根据配置过滤到一些非正常的 IP，可以查看访问log，经常会有一些爬虫频繁的访问网站，没有任何用处反而加大服务器的负载，对于这样的 IP 可以直接过滤掉。blockpage是配置这些 IP 访问网址时显示的页面，依赖http.ipfilter插件。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">rewrite &#123;<br>       <span class="hljs-keyword">if</span> &#123;&gt;User-agent&#125; has <span class="hljs-string">"MJ12bot"</span><br>       to /forbidden<br>   &#125;<br>   status 403 /forbidden<br></code></pre></td></tr></table></figure>
-
-<p>与上面的ipfilter功能类似，都是过滤掉一些非正常的访问用户，不同的是ipfilter是屏蔽 IP，这段配置则是根据<code>User-agent</code> block掉一些爬虫。</p>
-
-        </div>
-        
-            <div class="my_post_copyright">
-    <div style="text-align:center;color: #ccc;font-size:14px;">------ copyright ------</div>
-    <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-    <p><span>title:</span><a href="/posts/2210/">使用Caddy替换Nginx运行网站</a></p>
-    <p><span>author:</span><a href="/">Anne416wu</a></p>
-    <p>
-        <span>ink:</span><a href="/posts/2210/" title="使用Caddy替换Nginx运行网站 - Annewqx">https://www.annewqx.top/posts/2210/</a>
-        <span class="copy-path"  title="Click to Copy Link"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/2210/"  aria-label="复制成功！"></i></span>
-    </p>
-    <p><span>publish time:</span>2020-03-01</p>
-    <p><span>update time:</span>2020-03-09</p>
-    <p><span>版权声明</span>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank"><i class="fab fa-creative-commons" style="color:#808080"></a></i> 许可协议</p>  
-</div>
-<!-- <ul class="post-copyright">
-    <li><strong>本文标题：</strong><a href="https://www.annewqx.top/posts/2210/">使用Caddy替换Nginx运行网站</a></li>
-     <li><strong>本文作者：</strong><a href="https://www.annewqx.top">Anne416wu</a></li>
-    <li><strong>本文链接：</strong><a href="https://www.annewqx.top/posts/2210/">https://www.annewqx.top/posts/2210/</a></li>
-    <li><strong>发布时间：</strong>2020-03-01</li>
-    <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
-    </li>
-</ul> -->
-<script> 
-    var clipboard = new Clipboard('.fa-clipboard');
-    $(".fa-clipboard").click(function(){
-        clipboard.on('success', function(){
-            swal({   
-                title: "",   
-                text: '复制成功',
-                icon: "success", 
-                showConfirmButton: true
-            });
-         });
-    });  
-</script>
-
-        
-        
-        <hr style="height:1px;margin:1rem 0"/>
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <!-- <span class="is-size-6 has-text-grey has-mr-7">#</span> -->
-                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="has-link-grey -link" href="/tags/Caddy/" rel="tag">Caddy</a>
-                </div>
-            </div>
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
-        <div class="buttons is-centered">
-            
-                
-<a class="button is-info donate">
-    <span class="icon is-small">
-        <i class="fab fa-alipay"></i>
-    </span>
-    <span>支付宝</span>
-    <div class="qrcode"><img src="/images/Alipay.jpg" alt="支付宝"></div>
-</a>
-
-                
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>微信</span>
-    <div class="qrcode"><img src="/images/wechatpay.jpg" alt="微信"></div>
-</a>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
-    <span class="icon is-small">
-        <i class="fab fa-paypal"></i>
-    </span>
-    <span>Paypal</span>
-</a>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form">
-    <input type="hidden" name="cmd" value="_donations" />
-    <input type="hidden" name="business" value="86BR8FGECVEYE" />
-    <input type="hidden" name="currency_code" value="USD" />
-</form>
-
-                
-        </div>
-    </div>
-</div>
-
-
-
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/30155/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">ssr to v2ray</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/posts/65512/">
-                <span class="level-item">Hexo搭建个人博客：装修</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
-
-
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">评论</h3>
-        
-<div id="valine-thread" class="content"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
-<script>
-    new Valine({
-        el: '#valine-thread' ,
-        avatar: 'retro',
-        notify: true ,
-        verify: false ,
-        app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
-        app_key: '20OYVeUwaMoaoYEp1JhHnBmu',
-        placeholder: 'Leave a comment',
-    });
-</script>
-
-    </div>
-</div>
-</div>
                 
 
 
