@@ -9,21 +9,24 @@
 
 <title>Hexo搭建个人博客：装修 - Annewqx</title>
 
+<script data-ad-client="ca-pub-6929188339121540" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-    <meta name="description" content="基于icarus主题的Hexo博客装修。本文将介绍除了icarus在_config.yml中提供的功能以外，通过修改其源代码实现的其他扩展功能，页面文件样式的进一步美化等。属于深度定制自己的主题，需要基础的CSS和HTML知识。 to be continued">
+
+    <meta name="description" content="基于icarus主题的Hexo博客装修。本文将介绍除了icarus在_config.yml中提供的功能以外，通过修改其源代码实现的其他扩展功能，页面文件样式的进一步美化等。属于深度定制自己的主题，需要基础的CSS和HTML知识。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo搭建个人博客：装修">
 <meta property="og:url" content="https://www.annewqx.top/posts/65512/index.html">
 <meta property="og:site_name" content="Annewqx">
-<meta property="og:description" content="基于icarus主题的Hexo博客装修。本文将介绍除了icarus在_config.yml中提供的功能以外，通过修改其源代码实现的其他扩展功能，页面文件样式的进一步美化等。属于深度定制自己的主题，需要基础的CSS和HTML知识。 to be continued">
+<meta property="og:description" content="基于icarus主题的Hexo博客装修。本文将介绍除了icarus在_config.yml中提供的功能以外，通过修改其源代码实现的其他扩展功能，页面文件样式的进一步美化等。属于深度定制自己的主题，需要基础的CSS和HTML知识。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.annewqx.top/gallery/thumbnails/desert.png">
 <meta property="article:published_time" content="2020-02-25T12:29:31.000Z">
-<meta property="article:modified_time" content="2020-03-10T07:38:32.624Z">
+<meta property="article:modified_time" content="2020-03-10T09:12:51.322Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="hexo decorate 博客 美化 装修">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.annewqx.top/gallery/thumbnails/desert.png">
+
 
 
 
@@ -44,8 +47,6 @@
 
 
     <link rel="mask-icon" href="/images/favicon-64px.png" color="{{ theme.android_chrome_color }}">
-
-<
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -178,7 +179,7 @@
     
     <section class="section">
         <div>
-            <div class="columns is-centered">
+            <div class="columns is-centered is-variable is-2">
                 <div class="column is-two-thirds-tablet is-9-desktop is-7-widescreen is-three-fifths-fullhd has-order-2 column-main">
                     
 <div class="card">
@@ -201,7 +202,7 @@
                 <!-- <time class="level-item has-text-grey" datetime="2020-02-25T12:29:31.000Z">2020-02-25</time> -->
                 <time class="level-item has-text-grey" datetime="2020-02-25T12:29:31.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-02-25</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-10T07:38:32.624Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-10</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-10T09:12:51.322Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-10</time>
                 
                 
                 <div class="level-item">
@@ -212,7 +213,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    37 分钟 读完 (大约 5568 个字)
+                    37 分钟 读完 (大约 5525 个字)
                 </span>
                 
                 
@@ -233,22 +234,20 @@
             <hr>
 <blockquote>
 <p>基于icarus主题的Hexo博客装修。本文将介绍除了icarus在_config.yml中提供的功能以外，通过修改其源代码实现的其他扩展功能，页面文件样式的进一步美化等。属于深度定制自己的主题，需要基础的CSS和HTML知识。</p>
-<p><a href="#tobecontinued">to be continued</a></p>
 </blockquote>
 <a id="more"></a>
+
+<div class="tip">
+  本文不涉及所有icarus主题的配置文档`_config.yml`里已经有的配置! 是对icarus v2.7版本里未加入的功能或者个人觉得不完善的功能进行的补充
+</div>
 
 <blockquote>
 <p>参考文章</p>
 <ul>
-<li><p><a href="http://yearito.cn/posts/hexo-advanced-settings.html" rel="external nofollow noreferrer">Yearito：Hexo 搭建个人博客系列：进阶设置篇</a>–较为全面系统的介绍功能拓展</p>
-</li>
-<li><p><a href="http://yearito.cn/posts/hexo-theme-beautify.html" rel="external nofollow noreferrer">Yearito：Hexo 搭建个人博客系列：主题美化篇</a>–侧重于为页面添加视觉效果上的美化特效</p>
-<p>作者一系列关于hexo博文写得都很漂亮：<a href="http://yearito.cn/tags/Hexo/" rel="external nofollow noreferrer">yearito.cn</a></p>
-</li>
-<li><p><a href="https://www.alphalxy.com/2019/03/customize-icarus/" rel="external nofollow noreferrer">alphalxy-Icarus 主题自定义</a></p>
-</li>
-<li><p>本文所修改的主题文件已fork到<a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne" rel="external nofollow noreferrer"> GitHub仓库</a>，我的_config.yml也在其中</p>
-</li>
+<li><a href="http://yearito.cn/tags/Hexo/" rel="external nofollow noreferrer">Yearito：Hexo 搭建个人博客系列 – 基于Next主题</a></li>
+<li><a href="https://www.chingow.cn/tags/Hexo/" rel="external nofollow noreferrer">chingow：Hexo+NexT(v7.0+) 搭建博客</a> – 基于Next主题，较Yearito的博客全面一些</li>
+<li><a href="https://www.alphalxy.com/2019/03/customize-icarus/" rel="external nofollow noreferrer">alphalxy-Icarus 主题自定义</a> – 基于Icarus主题</li>
+<li>本文所修改的主题文件已fork到<a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne" rel="external nofollow noreferrer">GitHub仓库</a>，<code>_config.yml</code>也在其中</li>
 </ul>
 </blockquote>
 <h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><blockquote>
@@ -257,7 +256,7 @@
 <li><a href="https://hexo.io/zh-cn/docs/variables" rel="external nofollow noreferrer">hexo官方文档里对于变量的说明</a></li>
 <li><a href="https://hexo.io/zh-cn/docs/helpers" rel="external nofollow noreferrer">hexo官方文档里对于辅助函数的说明</a></li>
 <li><a href="https://ejs.bootcss.com" rel="external nofollow noreferrer">ejs嵌入开发各个标签的含义</a></li>
-<li><a href="https://blog.csdn.net/qq_25072517/article/details/78432626" rel="external nofollow noreferrer">CSDN上关于bulma的文章</a></li>
+<li><a href="https://bulma.zcopy.site/documentation/" rel="external nofollow noreferrer">bulma框架中文文档</a></li>
 </ul>
 </blockquote>
 <p>首先我们要知道icarus的文件结构。icarus采用了ejs模板语言生成页面，使用Bulma框架作为页面样式的控制框架。icatus源代码良好书写习惯的可扩展性是我们修改的基础。icarus所有的页面样式都存在<code>themes/icarus/layout</code>中，我们重点需要关注的文件有:</p>
@@ -287,12 +286,7 @@
 <li><p>在<code>/icarus/layout/widget</code>目录下，新建文件<code>map.ejs</code>和<code>map.locals.js</code>。把复制的js代码粘贴到<code>map.ejs</code>文件中，而<code>map.locals.js</code>中复制它隔壁的profile.locals.js中的内容即可。这个文件的作用是，如果已经访问过这个页面，再次访问时，优先显示浏览器已缓存的内容( 因此非必须添加 )</p>
 <figure class="highlight js"><figcaption><span>layout/widget/map.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/widget/map.ejs" rel="external nofollow noreferrer">map.ejs</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;script type=<span class="hljs-string">"text/javascript"</span> src=<span class="hljs-string">"//rf.revolvermaps.com/0/0/6.js?i=53u8jvixw8q&amp;amp;m=7&amp;amp;c=e63100&amp;amp;cr1=ffffff&amp;amp;f=arial&amp;amp;l=0&amp;amp;bv=90&amp;amp;lx=-420&amp;amp;ly=420&amp;amp;hi=20&amp;amp;he=7&amp;amp;hc=a8ddff&amp;amp;rs=80"</span> <span class="hljs-keyword">async</span>=<span class="hljs-string">"async"</span>&gt;&lt;<span class="hljs-regexp">/script&gt;</span><br></code></pre></td></tr></table></figure>
 
-
-
-</li>
-</ol>
-   <figure class="highlight js"><figcaption><span>layout/widget/map.locals.js</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/widget//map.locals.js" rel="external nofollow noreferrer">map.locals.js</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">module</span>.exports = <span class="hljs-function">(<span class="hljs-params">ctx, locals</span>) =&gt;</span> &#123;<br>	<span class="hljs-keyword">return</span> locals;  <br>&#125;<br></code></pre></td></tr></table></figure>
-<ol start="3">
+<figure class="highlight js"><figcaption><span>layout/widget/map.locals.js</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/widget//map.locals.js" rel="external nofollow noreferrer">map.locals.js</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">module</span>.exports = <span class="hljs-function">(<span class="hljs-params">ctx, locals</span>) =&gt;</span> &#123;<br>   	<span class="hljs-keyword">return</span> locals;  <br>   &#125;<br></code></pre></td></tr></table></figure></li>
 <li><p>在<code>/icarus/_config.yml</code>配置文件中，模仿已有的widget，添加如下字段</p>
 <figure class="highlight yml"><figcaption><span>_config.yml</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/_config.yml" rel="external nofollow noreferrer">_config.yml</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-bullet">-</span><br> <span class="hljs-attr">type:</span> <span class="hljs-string">map</span><br> <span class="hljs-attr">position:</span> <span class="hljs-string">right</span><br></code></pre></td></tr></table></figure>
 </li>
@@ -313,13 +307,13 @@
 <li><p>在网易云音乐官网，登录后，选择一个歌单，点击歌单左上角的生成外链播放器，注意，歌单中不能包含VIP歌曲，否则会提示版权不允许</p>
 <p><img src="Screenshot2020-03-0700.01.12.png" alt="歌单页面示例"></p>
 </li>
-<li><p>生成iframe插件。建议使用iframe插件，一方面是可以自己调整插件的属性，另一方面是很多浏览器现在对flash的使用有限制</p>
+<li><p>生成iframe插件。建议使用iframe插件，一方面是可以自己调整插件的属性，另一方面是很多浏览器现在对flash的使用有限制。复制给出的HTML代码</p>
 <p><img src="Screenshot2020-03-0700.00.43.png" alt="生成插件页面"></p>
 </li>
-<li><p>复制HTML代码。注意这里的id，可以替换成其他歌单的id(歌单的地址栏会有)，包括包含VIP歌曲的歌单</p>
-<figure class="highlight js"><figcaption><span>layout/widget/music.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/widget/music.ejs" rel="external nofollow noreferrer">music.ejs</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;iframe frameborder=<span class="hljs-string">"no"</span> border=<span class="hljs-string">"0"</span> marginwidth=<span class="hljs-string">"0"</span> marginheight=<span class="hljs-string">"0"</span> width=<span class="hljs-number">320</span> height=<span class="hljs-number">320</span> src=<span class="hljs-string">"//music.163.com/outchain/player?type=0&amp;id=4878237788&amp;auto=1&amp;height=430"</span>&gt;&lt;<span class="hljs-regexp">/iframe&gt;</span><br></code></pre></td></tr></table></figure>
+<li><p>与添加访客地球widget的过程类似，在<code>/icarus/layout/widget</code>目录下，新建文件<code>music.ejs</code></p>
+<figure class="highlight js"><figcaption><span>layout/widget/music.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/widget/music.ejs" rel="external nofollow noreferrer">music.ejs</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;iframe <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"card widget"</span> height=<span class="hljs-number">400</span> width=<span class="hljs-number">100</span>% src=<span class="hljs-string">"//music.163.com/outchain/player?type=0&amp;id=4878237788&amp;auto=0&amp;height=430"</span>&gt;&lt;<span class="hljs-regexp">/iframe&gt;</span><br></code></pre></td></tr></table></figure>
 </li>
-<li><p>与添加访客地球widget的过程类似，在<code>/icarus/layout/widget</code>目录下，新建文件<code>netEase.ejs</code>和<code>netEase.locals.js</code>。把复制的html代码粘贴到<code>netEase.ejs</code>文件夹中</p>
+<li><p>在<code>music.locals.js</code>填入与之前一样的缓存函数</p>
 </li>
 <li><p>在<code>/icarus/_config.yml</code>配置文件中，模仿已有的widget，添加如下字段</p>
 <figure class="highlight yml"><figcaption><span>_config.yml</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/_config.yml" rel="external nofollow noreferrer">_config.yml</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-bullet">-</span><br>    <span class="hljs-attr">type:</span> <span class="hljs-string">netEase</span><br>    <span class="hljs-attr">position:</span> <span class="hljs-string">right</span><br></code></pre></td></tr></table></figure>
@@ -514,6 +508,8 @@
 4. 在`layout/common/article.ejs`中插入`copyright.ejs`
    <figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs diff">&lt;div class="content"&gt;<br>    &lt;%- index &amp;&amp; post.excerpt ? post.excerpt : post.content %&gt;<br>&lt;/div&gt;<br><span class="hljs-addition">+   &lt;% if (is_post()===true) &#123; %&gt;</span><br><span class="hljs-addition">+       &lt;%- _partial('common/copyright') %&gt;</span><br><span class="hljs-addition">+   &lt;% &#125; %&gt;</span><br>&lt;% if (!index &amp;&amp; post.tags &amp;&amp; post.tags.length) &#123; %&gt;<br></code></pre></td></tr></table></figure>
 
+
+
 <h2 id="数据统计"><a href="#数据统计" class="headerlink" title="数据统计"></a>数据统计</h2><h3 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h3><blockquote>
 <p><a href="https://zhuanlan.zhihu.com/p/35400128" rel="external nofollow noreferrer">知乎专栏：hexo博客搭建（五）SEO优化</a></p>
 </blockquote>
@@ -685,7 +681,7 @@
 
 
 
-<div class="column is-one-third-tablet is-3-desktop is-one-fifth-widescreen is-one-fifth-fullhd is-hidden-touch  is-hidden-desktop-only has-order-3 column-left ">    
+<div class="column is-one-third-tablet is-3-desktop is-one-fifth-widescreen is-one-fifth-fullhd is-hidden-touch  is-hidden-desktop-only has-order-3 column-left is-sticky">    
     
         
 <div class="card widget">
@@ -1350,9 +1346,7 @@
     </div>
 </div>
     
-        <iframe width="100%" height=400 src="//music.163.com/outchain/player?type=0&id=4878237788&auto=0&height=430"></iframe>
-
-
+        <iframe class="card widget" height=400 width=100% src="//music.163.com/outchain/player?type=0&id=4878237788&auto=0&height=430"></iframe>
 
     
         <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=53u8jvixw8q&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
