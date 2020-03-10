@@ -91,7 +91,7 @@ img.thumbnail {
   align-items: stretch;
   display: flex;
   padding: 0;
-  flex-shrink: 0;
+  flex-shrink: 1;
 }
 .navbar-main .navbar-menu {
   flex-grow: 1;
@@ -511,6 +511,18 @@ figure.highlight .section {
   vertical-align: inherit;
   min-width: inherit;
   border-radius: inherit;
+}
+figure.highlight .hljs-deletion {
+  background-color: #ffd3d8;
+}
+figure.highlight .hljs-addition {
+  background-color: #c7ffd7;
+}
+.night .hljs-deletion {
+  background-color: #0e1225 !important;
+}
+.night .hljs-addition {
+  background-color: #0e1225 !important;
 }
 /* ---------------------------------
  *          Overflow Table
