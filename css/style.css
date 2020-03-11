@@ -419,7 +419,7 @@ img.thumbnail {
 .content > code,
 .content :not(pre) > code {
   font-size: 0.85em;
-  color: #e96900;
+  color: #f5871f;
 }
 .content blockquote {
   color: #777;
@@ -512,17 +512,63 @@ figure.highlight .section {
   min-width: inherit;
   border-radius: inherit;
 }
-figure.highlight .hljs-deletion {
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* ---------------------------------
+ *        Use tommorrow highlight
+ * --------------------------------- */
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #8e908c;
+}
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #c82829;
+}
+.hljs-deletion {
   background-color: #ffd3d8;
 }
-figure.highlight .hljs-addition {
+.hljs-addition {
   background-color: #c7ffd7;
 }
-.night .hljs-deletion {
-  background-color: #0e1225 !important;
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #f5871f;
 }
-.night .hljs-addition {
-  background-color: #0e1225 !important;
+/* Tomorrow Yellow */
+.hljs-attribute {
+  color: #eab700;
+}
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #718c00;
+}
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+  color: #4271ae;
+}
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #8959a8;
 }
 /* ---------------------------------
  *          Overflow Table
@@ -573,10 +619,10 @@ figure.highlight .hljs-addition {
 .my_post_copyright {
   width: 85%;
   max-width: 45em;
-  margin: 2.8em auto 0;
+  margin: 2.5em auto 0;
   padding: 0.5em 1em;
   border: 1px solid #d3d3d3;
-  font-size: 0.93rem;
+  font-size: 1rem;
   line-height: 1.6em;
   word-break: break-all;
   background: rgba(255,255,255,0.4);
@@ -586,7 +632,7 @@ figure.highlight .hljs-addition {
 }
 .my_post_copyright span {
   display: inline-block;
-  width: 7em;
+  width: 10em;
   color: #b5b5b5;
   font-weight: bold;
 }
@@ -595,7 +641,7 @@ figure.highlight .hljs-addition {
   width: 5em;
 }
 .my_post_copyright a {
-  color: #a3d2a3;
+  color: #29a329;
   border-bottom: 0;
 }
 .my_post_copyright a:hover {
@@ -659,6 +705,12 @@ figure.highlight .hljs-addition {
 /* ---------------------------------
 *            night mode
 * --------------------------------- */
+.night .hljs-deletion {
+  background-color: #0e1225 !important;
+}
+.night .hljs-addition {
+  background-color: #0e1225 !important;
+}
 #universe {
   display: none;
 }
