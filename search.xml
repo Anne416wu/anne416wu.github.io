@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>计算机网络-exp1-分层的协议栈体系结构</title>
+      <link href="/posts/23959/"/>
+      <url>/posts/23959/</url>
+      
+        <content type="html"><![CDATA[<a id="more"></a><h1 id="计算机网络实验1-分层的协议栈体系结构"><a href="#计算机网络实验1-分层的协议栈体系结构" class="headerlink" title="计算机网络实验1-分层的协议栈体系结构"></a>计算机网络实验1-分层的协议栈体系结构</h1><h2 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h2><p>分层的网络协议体系结构是网络的核心概念，本实验的目的是在学习掌握网络协议分析器工具的基础上，借助网络协议分析器学习在数据包中如何表示协议和分层。</p><h2 id="实验工具"><a href="#实验工具" class="headerlink" title="实验工具"></a>实验工具</h2><ul><li>Wireshark - Version 3.2.1 (v3.2.1-0-gbf38a67724d0) </li><li>curl</li></ul><h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><blockquote><p>加深对网络协议的理解通常可以通过观察协议的运行和不断调试协议完成，观察两个 协议实体之间交换的报文序列，深入了解协议操作的细节，执行某些动作，然后观察这些动作产生的结果。</p><p>在第一个 Wireshark 实验中，让我们熟悉 Wireshark，做一些简单的抓包和观察。</p></blockquote><h3 id="2-捕获数据包"><a href="#2-捕获数据包" class="headerlink" title="2 捕获数据包"></a>2 捕获数据包</h3><blockquote><p>本步骤用你的计算机从 Web 服务器获取一个 URL，捕获这次 HTTP 通信的数据包并 观察协议数据包结构。</p></blockquote><ol><li>打开Capture-option菜单，选择接口，设置过滤器为<code>tcp port 80</code>, 选择选项页面下的“解析网络名字”复选框；取消复选框 “混杂”</li></ol><p><img src="2020-03-12-network-exp1/Screenshot2020-03-1221.56.29.png" alt="Screenshot2020-03-1221.56.29"></p><ol start="2"><li><p>打开终端，运行<code>wget www.baidu.com</code>, 获取成功后返回Wireshark</p><p><img src="2020-03-12-network-exp1/Screenshot2020-03-1222.03.10.png" alt="Screenshot2020-03-1222.03.10"></p></li><li><p>检查捕获的数据包</p><p>运行命令<code>curl www.baidu.com</code>，对应的过滤结果：</p><p><img src="2020-03-12-network-exp1/Screenshot2020-03-1222.11.33.png" alt="Screenshot2020-03-1222.11.33"></p><p>查看其中的GET数据包</p><p><img src="2020-03-12-network-exp1/Screenshot2020-03-1222.19.09.png" alt="Screenshot2020-03-1222.19.09"></p><ul><li><p>GET包分为四个部分，分别是Ethernet，IPV4，TCP和 HTTP，数据帧4，数据链路层的source是本机的MAC地址，destination是路由器的地址</p></li><li><p>IPV4中的Dst 是百度的IPV4地址，从TCP中可以看出源端口为53883，目的端口为80，打开下方的HTTP协议 可以看到具体的内容，访问方式为GET，HOST为<a href="http://www.baidu.com，用户代理为curl，配合" rel="external nofollow noreferrer">www.baidu.com，用户代理为curl，配合</a> 下方的详细信息可以看出一个包的头部的封装结构，协议栈是自底向上组织的，头部的结构也是和协议栈的 顺序相同，各层数据包的嵌套关系图如下：</p></li></ul></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Code </category>
+          
+          <category> Report </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> network </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>编译原理与设计-Lab2-编译器认知实验</title>
       <link href="/posts/673/"/>
       <url>/posts/673/</url>
