@@ -180,12 +180,6 @@
     
 <div class="card">
     
-    <div class="card-image">
-        <a href="/posts/23959/" class="image is-7by1">
-            <img class="thumbnail" src="/gallery/thumbnails/" alt="计算机网络-exp1-分层的协议栈体系结构">
-        </a>
-    </div>
-    
     <div class="card-content article ">
        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
@@ -198,7 +192,7 @@
                 <!-- <time class="level-item has-text-grey" datetime="2020-03-12T13:38:09.000Z">2020-03-12</time> -->
                 <time class="level-item has-text-grey" datetime="2020-03-12T13:38:09.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-03-12</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-12T14:20:19.457Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-12</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-12T15:55:39.977Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-12</time>
                 
                 
                 <div class="level-item">
@@ -209,7 +203,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 573 个字)
+                    4 分钟 读完 (大约 576 个字)
                 </span>
                 
                 
@@ -222,45 +216,28 @@
             
         </h1> -->
         <div class="content">
-            <a id="more"></a>
-
-<h1 id="计算机网络实验1-分层的协议栈体系结构"><a href="#计算机网络实验1-分层的协议栈体系结构" class="headerlink" title="计算机网络实验1-分层的协议栈体系结构"></a>计算机网络实验1-分层的协议栈体系结构</h1><h2 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h2><p>分层的网络协议体系结构是网络的核心概念，本实验的目的是在学习掌握网络协议分析器工具的基础上，借助网络协议分析器学习在数据包中如何表示协议和分层。</p>
-<h2 id="实验工具"><a href="#实验工具" class="headerlink" title="实验工具"></a>实验工具</h2><ul>
-<li>Wireshark - Version 3.2.1 (v3.2.1-0-gbf38a67724d0) </li>
-<li>curl</li>
-</ul>
-<h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><blockquote>
-<p>加深对网络协议的理解通常可以通过观察协议的运行和不断调试协议完成，观察两个 协议实体之间交换的报文序列，深入了解协议操作的细节，执行某些动作，然后观察这些动作产生的结果。</p>
-<p>在第一个 Wireshark 实验中，让我们熟悉 Wireshark，做一些简单的抓包和观察。</p>
-</blockquote>
-<h3 id="2-捕获数据包"><a href="#2-捕获数据包" class="headerlink" title="2 捕获数据包"></a>2 捕获数据包</h3><blockquote>
-<p>本步骤用你的计算机从 Web 服务器获取一个 URL，捕获这次 HTTP 通信的数据包并 观察协议数据包结构。</p>
-</blockquote>
-<ol>
-<li>打开Capture-option菜单，选择接口，设置过滤器为<code>tcp port 80</code>, 选择选项页面下的“解析网络名字”复选框；取消复选框 “混杂”</li>
-</ol>
-<p><img src="2020-03-12-network-exp1/Screenshot2020-03-1221.56.29.png" alt="Screenshot2020-03-1221.56.29"></p>
-<ol start="2">
-<li><p>打开终端，运行<code>wget www.baidu.com</code>, 获取成功后返回Wireshark</p>
-<p><img src="2020-03-12-network-exp1/Screenshot2020-03-1222.03.10.png" alt="Screenshot2020-03-1222.03.10"></p>
-</li>
-<li><p>检查捕获的数据包</p>
-<p>运行命令<code>curl www.baidu.com</code>，对应的过滤结果：</p>
-<p><img src="2020-03-12-network-exp1/Screenshot2020-03-1222.11.33.png" alt="Screenshot2020-03-1222.11.33"></p>
-<p>查看其中的GET数据包</p>
-<p><img src="2020-03-12-network-exp1/Screenshot2020-03-1222.19.09.png" alt="Screenshot2020-03-1222.19.09"></p>
-<ul>
-<li><p>GET包分为四个部分，分别是Ethernet，IPV4，TCP和 HTTP，数据帧4，数据链路层的source是本机的MAC地址，destination是路由器的地址</p>
-</li>
-<li><p>IPV4中的Dst 是百度的IPV4地址，从TCP中可以看出源端口为53883，目的端口为80，打开下方的HTTP协议 可以看到具体的内容，访问方式为GET，HOST为<a href="http://www.baidu.com，用户代理为curl，配合" rel="external nofollow noreferrer">www.baidu.com，用户代理为curl，配合</a> 下方的详细信息可以看出一个包的头部的封装结构，协议栈是自底向上组织的，头部的结构也是和协议栈的 顺序相同，各层数据包的嵌套关系图如下：</p>
-</li>
-</ul>
-</li>
-</ol>
-
+            <p>未完成</p>
         </div>
         
         
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-mobile is-flex">
+            <div class="level-start">
+                
+                <div class="level-item is-size-7 is-uppercase">
+                <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/tags/network/" rel="tag">network</a>
+                </div>
+                
+            </div>
+        <!-- <div class="level is-mobile"></div> -->
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/23959/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -825,6 +802,81 @@
     
 <div class="card">
     
+    <div class="card-content article ">
+       <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+            <a class="has-link-black-ter" href="/posts/53125/"><i class="fas fa-angle-double-right"></i>编译原理与设计-Lab1-语言认知实验</a>
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time> -->
+                <time class="level-item has-text-grey" datetime="2020-02-19T16:00:00.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-02-20</time>
+                
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-07T21:35:41.580Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-08</time>
+                
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Report/">Report</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    18 分钟 读完 (大约 2719 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <!-- <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/53125/">编译原理与设计-Lab1-语言认知实验</a>
+            
+        </h1> -->
+        <div class="content">
+            <hr>
+<blockquote>
+<p>分别使用 C/C++、Java、Python 和 Haskell 实现快速排序和归并排序算法，对采用这几种语言实现的编程效率，程序的规模，程序的运行效率进行对比分析。</p>
+</blockquote>
+        </div>
+        
+        
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-mobile is-flex">
+            <div class="level-start">
+                
+                <div class="level-item is-size-7 is-uppercase">
+                <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/tags/Compilation/" rel="tag">Compilation</a>
+                </div>
+                
+            </div>
+        <!-- <div class="level is-mobile"></div> -->
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/53125/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+    
+<div class="card">
+    
     <div class="card-image">
         <a href="/posts/32573/" class="image is-7by1">
             <img class="thumbnail" src="/gallery/thumbnails/haskell.png" alt="Mac上Haskell的安装环境搭建">
@@ -886,81 +938,6 @@
             <div class="level-start">
                 <div class="level-item">
                 <a class="button is-size-7 is-light" href="/posts/32573/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-       <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-            <a class="has-link-black-ter" href="/posts/53125/"><i class="fas fa-angle-double-right"></i>编译原理与设计-Lab1-语言认知实验</a>
-            
-        </h1>
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time> -->
-                <time class="level-item has-text-grey" datetime="2020-02-19T16:00:00.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-02-20</time>
-                
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-07T21:35:41.580Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-08</time>
-                
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Code/">Code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Code/Report/">Report</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    18 分钟 读完 (大约 2719 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <!-- <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/posts/53125/">编译原理与设计-Lab1-语言认知实验</a>
-            
-        </h1> -->
-        <div class="content">
-            <hr>
-<blockquote>
-<p>分别使用 C/C++、Java、Python 和 Haskell 实现快速排序和归并排序算法，对采用这几种语言实现的编程效率，程序的规模，程序的运行效率进行对比分析。</p>
-</blockquote>
-        </div>
-        
-        
-        
-        <hr style="height:1px;margin:1rem 0"/>
-        <div class="level is-mobile is-flex">
-            <div class="level-start">
-                
-                <div class="level-item is-size-7 is-uppercase">
-                <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                <a class="has-link-grey -link" href="/tags/Compilation/" rel="tag">Compilation</a>
-                </div>
-                
-            </div>
-        <!-- <div class="level is-mobile"></div> -->
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/posts/53125/#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -1181,7 +1158,7 @@
             
             <a href="/posts/23959/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/thumbnails/" alt="计算机网络-exp1-分层的协议栈体系结构">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="计算机网络-exp1-分层的协议栈体系结构">
                 </p>
             </a>
             
@@ -1586,14 +1563,10 @@
     </div>
 </div>
         
-            
- 
-
-<iframe class="card widget" height=400 width=100% src="//music.163.com/outchain/player?type=0&id=[object Object]&auto=0&height=430"></iframe>
+            <iframe class="card widget" height=400 width=100% src="//music.163.com/outchain/player?type=0&id=4878237788&auto=0&height=430"></iframe>
 
         
-            
-<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=[object Object]&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+            <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=53u8jvixw8q&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
 
         
         </div>
@@ -1622,14 +1595,10 @@
     </div>
 </div>
     
-        
- 
-
-<iframe class="card widget" height=400 width=100% src="//music.163.com/outchain/player?type=0&id=[object Object]&auto=0&height=430"></iframe>
+        <iframe class="card widget" height=400 width=100% src="//music.163.com/outchain/player?type=0&id=4878237788&auto=0&height=430"></iframe>
 
     
-        
-<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=[object Object]&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+        <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=53u8jvixw8q&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
 
     
     
