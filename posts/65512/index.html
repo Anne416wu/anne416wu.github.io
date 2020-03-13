@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.annewqx.top/gallery/thumbnails/desert.png">
 <meta property="article:published_time" content="2020-02-25T12:29:31.000Z">
-<meta property="article:modified_time" content="2020-03-11T08:05:53.335Z">
+<meta property="article:modified_time" content="2020-03-13T07:39:13.250Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="hexo decorate 博客 美化 装修">
 <meta name="twitter:card" content="summary">
@@ -202,7 +202,7 @@
                 <!-- <time class="level-item has-text-grey" datetime="2020-02-25T12:29:31.000Z">2020-02-25</time> -->
                 <time class="level-item has-text-grey" datetime="2020-02-25T12:29:31.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-02-25</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-11T08:05:53.335Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-11</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-13T07:39:13.250Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-13</time>
                 
                 
                 <div class="level-item">
@@ -213,7 +213,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    37 分钟 读完 (大约 5502 个字)
+                    37 分钟 读完 (大约 5584 个字)
                 </span>
                 
                 
@@ -245,10 +245,10 @@
 <blockquote>
 <p>参考文章</p>
 <ul>
-<li><a href="http://yearito.cn/tags/Hexo/" rel="external nofollow noreferrer">Yearito：Hexo 搭建个人博客系列 – 基于Next主题</a></li>
+<li><a href="http://yearito.cn/tags/Hexo/" rel="external nofollow noreferrer">Yearito：Hexo 搭建个人博客系列</a>  – 基于Next主题</li>
 <li><a href="https://www.chingow.cn/tags/Hexo/" rel="external nofollow noreferrer">chingow：Hexo+NexT(v7.0+) 搭建博客</a> – 基于Next主题，较Yearito的博客全面一些</li>
 <li><a href="https://www.alphalxy.com/2019/03/customize-icarus/" rel="external nofollow noreferrer">alphalxy-Icarus 主题自定义</a> – 基于Icarus主题</li>
-<li>本文所修改的主题文件已fork到<a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne" rel="external nofollow noreferrer">GitHub仓库</a>，<code>_config.yml</code>也在其中</li>
+<li>本文所修改的主题文件已fork到<a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne" rel="external nofollow noreferrer">GitHub仓库</a></li>
 </ul>
 </blockquote>
 <h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><blockquote>
@@ -349,7 +349,7 @@
 <h3 id="添加密码"><a href="#添加密码" class="headerlink" title="添加密码"></a>添加密码</h3><p>该功能由 <a href="https://github.com/MikeCoder/hexo-blog-encrypt" rel="external nofollow noreferrer">hexo-blog-encrypt</a> 插件提供，效果可见<a href="https://annewqx.top/posts/27073/" rel="external nofollow noreferrer">DUDES</a></p>
 <p>使用方法参阅<a href="https://github.com/MikeCoder/hexo-blog-encrypt/blob/master/ReadMe.zh.md" rel="external nofollow noreferrer">hexo-blog-encrypt官方文档</a>即可</p>
 <h3 id="黑暗模式"><a href="#黑暗模式" class="headerlink" title="黑暗模式"></a>黑暗模式</h3><blockquote>
-<p><a href="https://github.com/ppoffice/hexo-theme-icarus/issues/564" rel="external nofollow noreferrer">[tutorial] support night dark mode</a></p>
+<p><a href="https://github.com/ppoffice/hexo-theme-icarus/issues/564" rel="external nofollow noreferrer">imaegoo：[tutorial] support night dark mode</a></p>
 </blockquote>
 <p>在命令行，进入博客的根目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 进入icarus目录</span><br><span class="hljs-built_in">cd</span> themes/icarus<br><span class="hljs-comment"># 添加远端仓库night</span><br>git remote add night https://github.com/imaegoo/hexo-theme-icarus.git<br><span class="hljs-comment"># 从远端仓库的night拉取night分支</span><br>git pull night night<br><span class="hljs-comment"># 查看并确认当前分支是master</span><br>git status<br><span class="hljs-comment"># 合并master分支和night分支，原master分支合并是不会有conflict的，如果有的话修一下</span><br>git merge night<br></code></pre></td></tr></table></figure>
@@ -361,11 +361,25 @@
 <blockquote>
 <p>js获取浏览器颜色模式代码：<code>window.matchMedia(&#39;(prefers-color-scheme: dark)&#39;).matches</code></p>
 </blockquote>
+<h3 id="related-post-widget"><a href="#related-post-widget" class="headerlink" title="related_post widget"></a>related_post widget</h3><ul>
+<li>在每篇博文增加一个widget，展示和这篇文章有相同tag的文章列表</li>
+</ul>
+<ol>
+<li>添加文件<code>layout/widget/related_posts.ejs</code></li>
+</ol>
+<figure class="highlight plain"><figcaption><span>layout/widget/related_posts.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/widget/related_posts.ejs" rel="external nofollow noreferrer">related_posts </a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&lt;% function build_list(tags,post) &#123;<br>    let flag &#x3D; true;<br>    return tags.map(tag &#x3D;&gt; &#123;<br>        let result &#x3D;&#39;&#39;;<br>        post.tags.map(ptag &#x3D;&gt; &#123;<br>            if( ptag.name &#x3D;&#x3D;&#x3D; tag.name &amp;&amp; post.title !&#x3D; page.title &amp;&amp; flag &#x3D;&#x3D;&#x3D; true)&#123;<br>                if (get_config(&#39;article.thumbnail&#39;)&#x3D;&#x3D;&#x3D; true )&#123;<br>                    result+&#x3D; &#96;&lt;article class&#x3D;&quot;media&quot;&gt; &lt;a href&#x3D;&quot;$&#123;url_for(post.link ? post.link : post.path)&#125;&quot; class&#x3D;&quot;media-left&quot;&gt;<br>                        &lt;p class&#x3D;&quot;image is-64x64&quot;&gt;<br>                            &lt;img class&#x3D;&quot;thumbnail&quot; src&#x3D;&quot;$&#123;get_thumbnail(post)&#125;&quot; alt&#x3D;&quot;$&#123;post.title&#125;&quot;&gt;<br>                        &lt;&#x2F;p&gt;<br>                    &lt;&#x2F;a&gt;&#96;;<br>                &#125;<br>                result+&#x3D;&#96;&lt;div class&#x3D;&quot;media-content&quot;&gt;<br>                    &lt;div class&#x3D;&quot;content&quot;&gt;<br>                        &lt;div&gt;&lt;time class&#x3D;&quot;has-text-grey is-size-7 is-uppercase&quot; datetime&#x3D;&quot;$&#123;date_xml(post.date)&#125;&quot;&gt;$&#123;date(post.date)&#125;&lt;&#x2F;time&gt;&lt;&#x2F;div&gt;<br>                        &lt;a href&#x3D;&quot;$&#123;url_for((post.link?post.link:post.path))&#125;&quot; class&#x3D;&quot;title has-link-black-ter is-size-6 has-text-weight-normal&quot;&gt;$&#123;post.title&#125;&lt;&#x2F;a&gt;<br>                    &lt;&#x2F;div&gt;<br>                &lt;&#x2F;div&gt;<br>            &lt;&#x2F;article&gt;&#96;;<br>            flag &#x3D; false;<br>            return result;<br>            &#125;<br>            return result;<br>        &#125;)<br>        return result;<br>    &#125;).join(&#39;&#39;);<br>&#125;<br>%&gt;<br>&lt;div class&#x3D;&quot;card widget&quot;&gt;<br>    &lt;div class&#x3D;&quot;card-content&quot;&gt;<br>        &lt;h3 class&#x3D;&quot;menu-label&quot;&gt;<br>            related posts<br>        &lt;&#x2F;h3&gt;<br>        &lt;% site.posts.forEach(post &#x3D;&gt; &#123; %&gt; <br>            &lt;%- build_list(page.tags , post) %&gt;<br>        &lt;% &#125;) %&gt;<br>    &lt;&#x2F;div&gt;<br>&lt;&#x2F;div&gt;<br></code></pre></td></tr></table></figure>
+
+<p>同目录下添加渲染绑定js文件<code>related_posts.locals.js</code>，使该widget仅对posts页面生效</p>
+<figure class="highlight js"><figcaption><span>related_posts.locals.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">module</span>.exports = <span class="hljs-function">(<span class="hljs-params">ctx, locals</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> &#123; layout, content &#125; = ctx.page;<br>    <span class="hljs-keyword">const</span> &#123; get_config &#125; = ctx;<br>    <span class="hljs-keyword">if</span> (layout !== <span class="hljs-string">'page'</span> &amp;&amp; layout !== <span class="hljs-string">'post'</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.assign(locals, &#123; content &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在<code>_config.yml</code>中，widget下添加related_posts</p>
+<figure class="highlight diff"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs diff">widget:<br><span class="hljs-addition">+    -</span><br><span class="hljs-addition">+        type: recent_posts</span><br><span class="hljs-addition">+        position: left</span><br></code></pre></td></tr></table></figure>
+
 <h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><h3 id="Valine-头像"><a href="#Valine-头像" class="headerlink" title="Valine 头像"></a><a href="https://valine.js.org/avatar.html" rel="external nofollow noreferrer">Valine 头像</a></h3><ul>
 <li><p>icarus原生配置中没有默认的Valine头像值</p>
 </li>
-<li><p>打开<code>icarus/layout/comment/valine.ejs</code>，在第12行，插入avatar的配置信息</p>
-<figure class="highlight js"><figcaption><span>layout/comment/valine ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/comment/valine" rel="external nofollow noreferrer">valine</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"> &lt;script&gt;<br>    <span class="hljs-keyword">new</span> Valine(&#123;<br>        <span class="hljs-attr">el</span>: <span class="hljs-string">'#valine-thread'</span> ,<br>        <span class="hljs-attr">avatar</span>: <span class="hljs-string">'retro'</span>,<br>        <span class="hljs-attr">notify</span>: &lt;%= get_config(<span class="hljs-string">'comment.notify'</span>) %&gt; ,<br>        <span class="hljs-attr">verify</span>: &lt;%= get_config(<span class="hljs-string">'comment.verify'</span>) %&gt; ,<br>        <span class="hljs-attr">app_id</span>: <span class="hljs-string">'&lt;%= get_config('</span>comment.app_id<span class="hljs-string">') %&gt;'</span>,<br>        <span class="hljs-attr">app_key</span>: <span class="hljs-string">'&lt;%= get_config('</span>comment.app_key<span class="hljs-string">') %&gt;'</span>,<br>        <span class="hljs-attr">placeholder</span>: <span class="hljs-string">'&lt;%= get_config('</span>comment.placeholder<span class="hljs-string">') %&gt;'</span>,<br>  &#125;);<br>&lt;<span class="hljs-regexp">/script&gt;</span><br></code></pre></td></tr></table></figure>
+<li><p>打开<code>icarus/layout/comment/valine.ejs</code>，插入avatar的配置信息</p>
+<figure class="highlight diff"><figcaption><span>layout/comment/valine ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/comment/valine" rel="external nofollow noreferrer">valine</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs diff"> &lt;script&gt;<br>    new Valine(&#123;<br>        el: '#valine-thread' ,<br><span class="hljs-addition">+        avatar: 'retro',</span><br>        notify: &lt;%= get_config('comment.notify') %&gt; ,<br>        verify: &lt;%= get_config('comment.verify') %&gt; ,<br>        app_id: '&lt;%= get_config('comment.app_id') %&gt;',<br>        app_key: '&lt;%= get_config('comment.app_key') %&gt;',<br>        placeholder: '&lt;%= get_config('comment.placeholder') %&gt;',<br>  &#125;);<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>评论默认头像将会变为八位像素复古头像，如果用户在gravatar注册过，则会显示注册的绑定头像</p>
 </li>
@@ -375,25 +389,25 @@
 <h3 id="修改widget和文章比例"><a href="#修改widget和文章比例" class="headerlink" title="修改widget和文章比例"></a>修改widget和文章比例</h3><blockquote>
 <p>参考文章：</p>
 <ul>
-<li><a href="https://blog.csdn.net/qq_25072517/article/details/78432626" rel="external nofollow noreferrer">CSDN-Bulma框架</a></li>
+<li><a href="https://bulma.zcopy.site/documentation/" rel="external nofollow noreferrer">bulma框架中文文档</a></li>
 <li><a href="https://lqwang.net/5.html" rel="external nofollow noreferrer">Hexo&amp;icarus主题修改</a></li>
+<li>我在主题修改中把比例配置抽取到_config.yml中了，可见<a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne" rel="external nofollow noreferrer">GitHub仓库</a></li>
 </ul>
-<p>我最新的主题修改中把比例配置抽取到_config.yml中了，直接使用我fork的<a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne" rel="external nofollow noreferrer"> GitHub仓库</a>中的文件替换即可</p>
 </blockquote>
 <ul>
-<li><p>原本的icarus最大化后三栏居中，两侧会有很宽的空白，我们要消灭这个空白</p>
-</li>
-<li><p>网上大量教所谓三栏变两栏的方法是在配置的时候所有widget都配置到一侧—-这未免有点傻乎乎。而我想实现的展示逻辑：非博文页面，当屏幕大小符合PC时，从左到右显示三栏–个人资料栏/博文栏/页面工具栏，当屏幕大小符合tablet时，从左到右显示两栏，页面工具栏合并到个人资料栏；博文页面，当屏幕大小符合PC或tablet时，从左到右显示两栏–目录工具栏/博文栏，当屏幕大小符合宽屏(窗口最大化)时，从左到右显示三栏</p>
-</li>
-<li><p>首先是<code>_config.yml</code>，我把profile\link\recent_poat\tag\archive这几个widget分类为个人资料栏(以下统称profile栏)，top\tagcloud\music\map分类为目录工具栏(以下统称目录栏)，而中间的最大的那一栏以下统称博文栏。在_config.yml中加入以下配置。相关配置含义之后会做解释。我们的网页最大化后两侧宽阔的白边主要就是由于原来的配置里每一栏没有占满。</p>
-<figure class="highlight yml"><figcaption><span>_config.yml</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/_config.yml" rel="external nofollow noreferrer">_config.yml</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">proportion:</span><br>    <span class="hljs-attr">homepage:</span><br>        <span class="hljs-attr">sidebar:</span> <span class="hljs-string">'is-one-third-tablet is-3-desktop is-3-widescreen is-one-fifth-fullhd'</span><br>        <span class="hljs-attr">article:</span> <span class="hljs-string">'is-two-thirds-tablet is-6-desktop is-6-widescreen is-5-fullhd'</span><br>    <span class="hljs-attr">post:</span><br>        <span class="hljs-attr">sidebar:</span> <span class="hljs-string">'is-one-third-tablet is-3-desktop is-one-fifth-widescreen is-one-fifth-fullhd'</span><br>        <span class="hljs-attr">article:</span> <span class="hljs-string">'is-two-thirds-tablet is-9-desktop is-three-fifths-widescreen is-three-fifths-fullhd'</span><br></code></pre></td></tr></table></figure>
-</li>
-<li><p>我们对ejs文件的改动主要涉及三个文件<code>layout/layout.ejs</code> <code>layout/common/widget.ejs</code>以及<code>source/css/style.styl</code></p>
-<p>|– icarus</p>
+<li>原本icarus最大化后三栏居中，两侧会有很宽的空白，我想消灭这个空白；</li>
+<li>我想实现的展示逻辑是，屏幕宽度足够时，首页显示三栏，博文页显示两栏；如果屏幕宽度再增加，则都显示三栏。以下把profile\link\recent_poat\tag\archive这几个widget分类为个人资料栏(统称profile栏)，top\tagcloud\music\map分类为目录工具栏(统称目录栏)，中间的最大的那一栏统称博文栏。目录栏在博文页居左，个人资料栏在首页居左。</li>
+<li>首先是icarus主题的<code>_config.yml</code>，加入以下配置。相关配置含义之后会做解释。我们的网页最大化后两侧宽阔的白边主要就是由于原来的配置里每一栏最后相加之和不是12(bulma的12格布局)，没有占满整个屏幕。</li>
+</ul>
+<figure class="highlight yml"><figcaption><span>_config.yml</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/_config.yml" rel="external nofollow noreferrer">_config.yml</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">proportion:</span><br>    <span class="hljs-attr">homepage:</span> <span class="hljs-comment"># 非博文页</span><br>        <span class="hljs-attr">sidebar:</span> <span class="hljs-string">'is-one-third-tablet is-3-desktop is-3-widescreen is-one-fifth-fullhd'</span><br>        <span class="hljs-attr">article:</span> <span class="hljs-string">'is-two-thirds-tablet is-6-desktop is-6-widescreen is-5-fullhd'</span><br>    <span class="hljs-attr">post:</span> <span class="hljs-comment">#博文页面</span><br>        <span class="hljs-attr">sidebar:</span> <span class="hljs-string">'is-one-third-tablet is-3-desktop is-one-fifth-widescreen is-one-fifth-fullhd'</span><br>        <span class="hljs-attr">article:</span> <span class="hljs-string">'is-two-thirds-tablet is-9-desktop is-three-fifths-widescreen is-three-fifths-fullhd'</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>对ejs文件的改动主要涉及三个文件<code>layout/layout.ejs</code> <code>layout/common/widget.ejs</code>以及<code>source/css/style.styl</code></p>
+<p>   |– icarus</p>
 <pre><code>|-- layout
 |   |-- [layout.ejs](https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/layout.ejs)
 |   |-- common    
-|   |   |-- [widget.ejs](https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/common/widget.ejs)</code></pre><p>​    |– source<br>​        |– css<br>​        |   |– <a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/source/css/style.styl" rel="external nofollow noreferrer">style.styl</a></p>
+|   |   |-- [widget.ejs](https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/common/widget.ejs)</code></pre><p>   ​    |– source<br>   ​        |– css<br>   ​        |   |– <a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/source/css/style.styl" rel="external nofollow noreferrer">style.styl</a></p>
 <ol>
 <li><p><code>style.styl</code>：先说这个css文件，因为通过这个文件我们能更好的理解bulma框架。bulma框架自动根据屏幕大小对照我们的预设适配不同比例的页面：mobile-手机/tablet-平板/desktop-pc/widescreen-全屏/fullhd-全屏。至于不同屏幕对应哪个大小，我们可以采用icarus原有的方案，也可以用更为严格的方案：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs scss">gap = 64px<br>screen-tablet = 769px<br>screen-desktop = 1088pxs<br>screen-widescreen = 1280px<br>screen-fullhd = 1472px<br></code></pre></td></tr></table></figure>
@@ -413,14 +427,20 @@
 
 <p><code>_config.yml</code>中对应设置含义：当存在三栏的配置时，当屏幕大于平板小于pc，仅显示左侧栏，占1/3，当屏幕大于pc小于全屏，博文页仅显示左侧栏，占3/12，非博文页显示左右两栏，各占3/12；以此类推</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">proportion:</span><br>    <span class="hljs-attr">homepage:</span><br>        <span class="hljs-attr">sidebar:</span> <span class="hljs-string">'is-one-third-tablet is-3-desktop is-3-widescreen is-one-fifth-fullhd'</span><br>    <span class="hljs-attr">post:</span><br>        <span class="hljs-attr">sidebar:</span> <span class="hljs-string">'is-one-third-tablet is-3-desktop is-one-fifth-widescreen is-one-fifth-fullhd'</span><br></code></pre></td></tr></table></figure>
-</li>
-<li><p>更改控制模块可见性的函数<code>visibility_class()</code>：如果页面不是博文页，当屏幕小于或等于平板时，仅显示左侧栏，当屏幕大于平板时，左右侧栏都显示；如果页面是博文页，当屏幕小于或等于PC大小时，仅显示左侧栏，当屏幕大于pc时，左右侧栏都显示</p>
+
+<ol start="2">
+<li>更改控制模块可见性的函数<code>visibility_class()</code>：如果页面不是博文页，当屏幕小于或等于平板时，仅显示左侧栏，当屏幕大于平板时，左右侧栏都显示；如果页面是博文页，当屏幕小于或等于PC大小时，仅显示左侧栏，当屏幕大于pc时，左右侧栏都显示</li>
+</ol>
 <figure class="highlight js"><figcaption><span>layout/common/widget.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/common/widget.ejs" rel="external nofollow noreferrer">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;% <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">visibility_class</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">if</span>(is_post()===<span class="hljs-literal">false</span> &amp;&amp; column_count() === <span class="hljs-number">3</span> &amp;&amp; position === <span class="hljs-string">'right'</span>)&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">'is-hidden-touch'</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span>(is_post()===<span class="hljs-literal">true</span> &amp;&amp; column_count() === <span class="hljs-number">3</span> &amp;&amp; position === <span class="hljs-string">'left'</span>)&#123;<br>     <span class="hljs-keyword">return</span> <span class="hljs-string">'is-hidden-touch  is-hidden-desktop-only'</span>;<br>    &#125;<br> <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>;<br>&#125; %&gt;<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>更改控制侧栏输出顺序的函数<code>order_class()</code>：当页面是博文页，目录栏在左侧，profile栏在右侧；当页面不是博文页，profile栏在左侧，目录栏在右侧</p>
+
+<ol start="3">
+<li>更改控制侧栏输出顺序的函数<code>order_class()</code>：当页面是博文页，目录栏在左侧，profile栏在右侧；当页面不是博文页，profile栏在左侧，目录栏在右侧</li>
+</ol>
 <figure class="highlight js"><figcaption><span>layout/common/widget.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/common/widget.ejs" rel="external nofollow noreferrer">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;% <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">order_class</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">if</span>(is_post() === <span class="hljs-literal">true</span>)&#123;<br>        <span class="hljs-keyword">return</span> position === <span class="hljs-string">'left'</span> ? <span class="hljs-string">'has-order-3'</span> : <span class="hljs-string">'has-order-1'</span>;<br>    &#125;<br> <span class="hljs-keyword">else</span>&#123;<br>        <span class="hljs-keyword">return</span> position === <span class="hljs-string">'right'</span> ? <span class="hljs-string">'has-order-3'</span> : <span class="hljs-string">'has-order-1'</span>;<br> &#125;<br>&#125; %&gt;<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>更改主函数，大概从第27行开始，做下述更改。这里函数原本的意思是，在屏幕小于全屏时，将右侧栏合并到左侧栏显示。我们更改为，当页面不是博文页且屏幕大小小于pc时，将右侧栏合并到左侧栏</p>
+
+<ol start="4">
+<li>更改主函数，大概从第27行开始，做下述更改。这里函数原本的意思是，在屏幕小于全屏时，将右侧栏合并到左侧栏显示。我们更改为，当页面不是博文页且屏幕大小小于pc时，将右侧栏合并到左侧栏</li>
+</ol>
 <figure class="highlight diff"><figcaption><span>layout/common/widget.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/common/widget.ejs" rel="external nofollow noreferrer">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-deletion">-    &lt;% if (position === 'left') &#123; %&gt;</span><br><span class="hljs-addition">+	  &lt;% if (position === 'left' &amp;&amp; is_post() === false ) &#123; %&gt;</span><br><span class="hljs-deletion">-      &lt;div class="column-right-shadow is-hidden-widescreen &lt;%= sticky_class('right') %&gt;"&gt;</span><br><span class="hljs-addition">+      &lt;div class="column-right-shadow is-hidden-desktop"&gt;</span><br></code></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -439,7 +459,7 @@
 <h3 id="修改标签和目录页为时间轴"><a href="#修改标签和目录页为时间轴" class="headerlink" title="修改标签和目录页为时间轴"></a>修改标签和目录页为时间轴</h3><ul>
 <li><p>原生的icarus这两页的展示方式与homepage一致，依次展示按块展示每篇博客的标题和简介。这样的展示效率并不高。我希望把这两页的展示方式替换为和存档archive页相同的时间轴显示</p>
 </li>
-<li><p>我们要用到的文件有：<br>|– includes<br>|   |– generators<br>|   |   |– <a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/includes/generators/category.js" rel="external nofollow noreferrer">category.js</a><br>|   |   |– <a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/includes/generators/tag.js" rel="external nofollow noreferrer">tag.js</a><br>|– layout<br>|   |– archive.ejs<br>|   |– category.ejs<br>|   |– <a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/custom_cat.ejs" rel="external nofollow noreferrer">custom_cat.ejs</a><br>|   |– categories.ejs<br>|   |– tag.ejs<br>|   |– <a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/custom_tag.ejs" rel="external nofollow noreferrer">custom_tag.ejs</a></p>
+<li><p>我们要用到的文件有：<br>|– includes<br>|   |– generators<br>|   |   |– <a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/includes/generators/category.js" rel="external nofollow noreferrer">category.js</a><br>|   |   |– <a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/includes/generators/tag.js" rel="external nofollow noreferrer">tag.js</a><br>|– layout<br>|   |– archive.ejs<br>|   |– <a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/custom_cat.ejs" rel="external nofollow noreferrer">custom_cat.ejs</a><br>|   |– <a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/custom_tag.ejs" rel="external nofollow noreferrer">custom_tag.ejs</a></p>
 </li>
 </ul>
 <ol>
@@ -508,8 +528,6 @@
 <li>在<code>source/css/style.styl</code>中导入<code>copyright.styl</code><figure class="highlight scss"><figcaption><span>source/css/style.styl</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-comment">/* ---------------------------------<br> *        Add Copyright CSS<br> * --------------------------------- */</span><br><span class="hljs-keyword">@import</span> copyright<br></code></pre></td></tr></table></figure></li>
 <li>在<code>layout/common/article.ejs</code>中插入<code>copyright.ejs</code><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs diff">&lt;div class="content"&gt;<br>    &lt;%- index &amp;&amp; post.excerpt ? post.excerpt : post.content %&gt;<br>&lt;/div&gt;<br><span class="hljs-addition">+   &lt;% if (is_post()===true) &#123; %&gt;</span><br><span class="hljs-addition">+       &lt;%- _partial('common/copyright') %&gt;</span><br><span class="hljs-addition">+   &lt;% &#125; %&gt;</span><br>&lt;% if (!index &amp;&amp; post.tags &amp;&amp; post.tags.length) &#123; %&gt;<br></code></pre></td></tr></table></figure>
 
-
-
 </li>
 </ol>
 <h2 id="数据统计"><a href="#数据统计" class="headerlink" title="数据统计"></a>数据统计</h2><h3 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h3><blockquote>
@@ -529,8 +547,7 @@
 <div class="tobecontinues">
 ------ to be continued ------
 </div>
-
-<h3 id="添加ads"><a href="#添加ads" class="headerlink" title="添加ads"></a>添加ads</h3>
+### 添加ads
         </div>
         
             <div class="my_post_copyright">
@@ -542,11 +559,11 @@
     <p><span>title:</span><a href="/posts/65512/">Hexo搭建个人博客：装修</a></p>
     <p><span>author:</span><a href="/">Anne416wu</a></p>
     <p>
-        <span>ink:</span><a href="/posts/65512/" title="Hexo搭建个人博客：装修 - Annewqx">https://www.annewqx.top/posts/65512/</a>
+        <span>link:</span><a href="/posts/65512/" title="Hexo搭建个人博客：装修 - Annewqx">https://www.annewqx.top/posts/65512/</a>
         <span class="copy-path"  title="Click to Copy Link"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/65512/"  aria-label="复制成功！"></i></span>
     </p>
     <p><span>publish time:</span>2020-02-25</p>
-    <p><span>update time:</span>2020-03-11</p>
+    <p><span>update time:</span>2020-03-13</p>
     </div>
 </div>
 <!-- <ul class="post-copyright">
@@ -1304,6 +1321,10 @@
         <a class="is-flex" href="#黑暗模式">
         <span class="has-mr-6">2.5</span>
         <span>黑暗模式</span>
+        </a></li><li>
+        <a class="is-flex" href="#related-post-widget">
+        <span class="has-mr-6">2.6</span>
+        <span>related_post widget</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#布局">
         <span class="has-mr-6">3</span>
@@ -1348,10 +1369,6 @@
         <a class="is-flex" href="#修改busuanzi阅读量统计为leancloud">
         <span class="has-mr-6">4.3</span>
         <span>修改busuanzi阅读量统计为leancloud</span>
-        </a></li><li>
-        <a class="is-flex" href="#添加ads">
-        <span class="has-mr-6">4.4</span>
-        <span>添加ads</span>
         </a></li></ul></li></ul>
             </div>
         </div>
@@ -1375,6 +1392,8 @@
          
             
          
+            
+         
             <article class="media"> <a href="/posts/2727/" class="media-left">
                         <p class="image is-64x64">
                             <img class="thumbnail" src="/gallery/thumbnails/hexo-cover.png" alt="Hexo搭建个人博客：入门">
@@ -1387,8 +1406,6 @@
                 </div>
             </article>
          
-            
-         
             <article class="media"> <a href="/posts/27751/" class="media-left">
                         <p class="image is-64x64">
                             <img class="thumbnail" src="/gallery/thumbnails/plant.jpg" alt="Hexo搭建个人博客：主题比较">
@@ -1400,6 +1417,8 @@
                     </div>
                 </div>
             </article>
+         
+            
          
             
          
@@ -1426,14 +1445,9 @@
             
          
             
-         
-            
         
     </div>
 </div>
-
-
-
     
         <div class="card widget">
     <div class="card-content">
