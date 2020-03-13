@@ -11,5 +11,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://anne416wu.github.io/sitemap.xml
-Sitemap: http://anne416wu.github.io/baidusitemap.xml
+Sitemap: http://annewqx.top/sitemap.xml
+Sitemap: http://annewqx.top/baidusitemap.xml
