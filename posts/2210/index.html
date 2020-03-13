@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.annewqx.top/gallery/thumbnails/caddy.png">
 <meta property="article:published_time" content="2020-03-01T05:54:39.000Z">
-<meta property="article:modified_time" content="2020-03-10T17:04:40.327Z">
+<meta property="article:modified_time" content="2020-03-13T11:29:55.270Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="Caddy hexo 博客">
 <meta name="twitter:card" content="summary">
@@ -202,7 +202,7 @@
                 <!-- <time class="level-item has-text-grey" datetime="2020-03-01T05:54:39.000Z">2020-03-01</time> -->
                 <time class="level-item has-text-grey" datetime="2020-03-01T05:54:39.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-03-01</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-10T17:04:40.327Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-11</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-13T11:29:55.270Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-13</time>
                 
                 
                 <div class="level-item">
@@ -213,7 +213,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    14 分钟 读完 (大约 2154 个字)
+                    14 分钟 读完 (大约 2142 个字)
                 </span>
                 
                 
@@ -242,12 +242,12 @@
 <li>Caddyfile的配置：<a href="https://liuzhichao.com/2018/caddy/" rel="external nofollow noreferrer">liuzhichao：替换 Nginx 使用 Caddy 作为博客静态服务器</a></li>
 <li>脚本介绍： <a href="https://wzfou.com/caddy/" rel="external nofollow noreferrer">Caddy-最容易上手的Web Server</a></li>
 </ul>
-<p>本博客基于<a href="https://dengxiaolong.com/caddy/zh/beginner.html" rel="external nofollow noreferrer">Caddy中文文档</a>，结合其他文章进行介绍，上接本博客博文<a href="https://www.annewqx.top/posts/65182/">把hexo博客部署到VPS服务器</a>，请注意，这次我们需要一个域名。</p>
+<p>本博客基于<a href="https://dengxiaolong.com/caddy/zh/beginner.html" rel="external nofollow noreferrer">Caddy中文文档</a>，结合其他文章进行介绍，上接本博客博文<a href="/posts/65182/">把hexo博客部署到VPS服务器</a>，请注意，这次我们需要一个域名。</p>
 </blockquote>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>为什么要用 <a href="https://caddyserver.com/" rel="external nofollow noreferrer">Caddy</a> 替换掉 Nginx ？最主要的原因是 <strong><a href="https://caddyserver.com/" rel="external nofollow noreferrer">Caddy</a> 能让网站自动支持 HTTPS</strong>。同样是使用 Let’s Encrypt，换成 Nginx 我们就必须手工操作，并且还需要设置三个月更新证书的计划任务。Caddy默认支持 http/2，很多东西都不需要我们配置了。另外它的配置文件也比 Nginx 的要简单很多，几十行的 Nginx 配置文件 <a href="https://caddyserver.com/" rel="external nofollow noreferrer">Caddy</a> 仅需要几行就可以搞定了。关于能否将Caddy用作正式的生产环境，目前来看还是有待商榷的，但是Caddy用为简单的Http服务器是没有问题的。</p>
 <h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><ul>
 <li>一个搭载CentOS 7 x64的VPS服务器</li>
-<li>一个域名<code>example.com</code>已被配置为指向<code>VPS IP</code>，具体方法参见<a href="https://www.annewqx.top/posts/65182/">把hexo博客部署到VPS服务器</a> 域名部分</li>
+<li>一个域名<code>example.com</code>已被配置为指向<code>VPS IP</code>，具体方法参见<a href="/posts/65182/">把hexo博客部署到VPS服务器</a> 域名部分</li>
 <li>已经利用git把hexo博客部署到VPS的<code>/var/www/blog</code>文件夹</li>
 <li>如果已经运行nginx的，需要<code>nging -s stop</code>关闭</li>
 </ul>
@@ -276,7 +276,7 @@
 <p>如果服务器设置了防火墙，则打开80和443端口</p>
 <figure class="highlight Bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo firewall-cmd --permanent --zone=public --add-service=http <br>sudo firewall-cmd --permanent --zone=public --add-service=https<br>sudo firewall-cmd --reload<br></code></pre></td></tr></table></figure>
 
-<p>请确保你的域名能解析到你的服务器，具体方法参见<a href="https://www.annewqx.top/posts/65182/">把hexo博客部署到VPS服务器</a> 最后一部分</p>
+<p>请确保你的域名能解析到你的服务器，具体方法参见<a href="/posts/65182/">把hexo博客部署到VPS服务器</a> 最后一部分</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo caddy -host example.com<br></code></pre></td></tr></table></figure>
 
@@ -368,7 +368,7 @@
         <span class="copy-path"  title="Click to Copy Link"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/2210/"  aria-label="复制成功！"></i></span>
     </p>
     <p><span>publish time:</span>2020-03-01</p>
-    <p><span>update time:</span>2020-03-11</p>
+    <p><span>update time:</span>2020-03-13</p>
     </div>
 </div>
 <!-- <ul class="post-copyright">
@@ -916,7 +916,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/git/">
                         <span class="tag">git</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1169,6 +1169,8 @@
          
             
          
+            
+         
             <article class="media"> <a href="/posts/65182/" class="media-left">
                         <p class="image is-64x64">
                             <img class="thumbnail" src="/gallery/thumbnails/Nginx.jpg" alt="Hexo搭建个人博客：部署">
@@ -1188,8 +1190,6 @@
             
          
             
-         
-            
         
     </div>
 </div>
@@ -1199,7 +1199,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Caddy/" style="font-size: 10px;">Caddy</a> <a href="/tags/Compilation/" style="font-size: 13.33px;">Compilation</a> <a href="/tags/Haskell/" style="font-size: 10px;">Haskell</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/python-anaconda/" style="font-size: 10px;">python anaconda</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a>
+        <a href="/tags/Caddy/" style="font-size: 10px;">Caddy</a> <a href="/tags/Compilation/" style="font-size: 13.33px;">Compilation</a> <a href="/tags/Haskell/" style="font-size: 10px;">Haskell</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/python-anaconda/" style="font-size: 10px;">python anaconda</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a>
     </div>
 </div>
     
