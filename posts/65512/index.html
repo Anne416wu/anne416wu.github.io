@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.annewqx.top/gallery/thumbnails/desert.png">
 <meta property="article:published_time" content="2020-02-25T12:29:31.000Z">
-<meta property="article:modified_time" content="2020-03-13T07:39:13.250Z">
+<meta property="article:modified_time" content="2020-03-13T07:51:28.670Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="hexo decorate 博客 美化 装修">
 <meta name="twitter:card" content="summary">
@@ -139,7 +139,7 @@
                 href="/archives">Archives</a>
                 
                 <a class="navbar-item"
-                href="/about">About</a>
+                href="/about">Comment</a>
                 
             </div>
             
@@ -202,7 +202,7 @@
                 <!-- <time class="level-item has-text-grey" datetime="2020-02-25T12:29:31.000Z">2020-02-25</time> -->
                 <time class="level-item has-text-grey" datetime="2020-02-25T12:29:31.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-02-25</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-13T07:39:13.250Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-13</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-13T07:51:28.670Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-13</time>
                 
                 
                 <div class="level-item">
@@ -422,10 +422,11 @@
 </li>
 <li><p><code>layout/common/widget.ejs</code></p>
 <ol>
-<li><p>更改控制边栏占页面比例的函数<code>side_column_class()</code>：</p>
+<li>更改控制边栏占页面比例的函数<code>side_column_class()</code>：</li>
+</ol>
 <figure class="highlight js"><figcaption><span>layout/common/widget.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/common/widget.ejs" rel="external nofollow noreferrer">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js">_&lt;% <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">side_column_class</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">switch</span> (column_count()) &#123;<br>        <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">'is-4-tablet is-4-desktop is-3-widescreen'</span>;<br>        <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:<br>             <span class="hljs-keyword">if</span>(is_post() === <span class="hljs-literal">false</span>)&#123;<br>                <span class="hljs-keyword">return</span> get_config(<span class="hljs-string">'proportion.homepage.sidebar'</span>);<br>            &#125;<br>            <span class="hljs-keyword">else</span>&#123;<br>                <span class="hljs-keyword">return</span> get_config(<span class="hljs-string">'proportion.post.sidebar'</span>);<br>            &#125;<br>    &#125;<br> <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>;<br>&#125; %&gt;<br></code></pre></td></tr></table></figure>
 
-<p><code>_config.yml</code>中对应设置含义：当存在三栏的配置时，当屏幕大于平板小于pc，仅显示左侧栏，占1/3，当屏幕大于pc小于全屏，博文页仅显示左侧栏，占3/12，非博文页显示左右两栏，各占3/12；以此类推</p>
+<p>  <code>_config.yml</code>中对应设置含义：当存在三栏的配置时，当屏幕大于平板小于pc，仅显示左侧栏，占1/3，当屏幕大于pc小于全屏，博文页仅显示左侧栏，占3/12，非博文页显示左右两栏，各占3/12；以此类推</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">proportion:</span><br>    <span class="hljs-attr">homepage:</span><br>        <span class="hljs-attr">sidebar:</span> <span class="hljs-string">'is-one-third-tablet is-3-desktop is-3-widescreen is-one-fifth-fullhd'</span><br>    <span class="hljs-attr">post:</span><br>        <span class="hljs-attr">sidebar:</span> <span class="hljs-string">'is-one-third-tablet is-3-desktop is-one-fifth-widescreen is-one-fifth-fullhd'</span><br></code></pre></td></tr></table></figure>
 
 <ol start="2">
@@ -442,8 +443,6 @@
 <li>更改主函数，大概从第27行开始，做下述更改。这里函数原本的意思是，在屏幕小于全屏时，将右侧栏合并到左侧栏显示。我们更改为，当页面不是博文页且屏幕大小小于pc时，将右侧栏合并到左侧栏</li>
 </ol>
 <figure class="highlight diff"><figcaption><span>layout/common/widget.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/common/widget.ejs" rel="external nofollow noreferrer">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-deletion">-    &lt;% if (position === 'left') &#123; %&gt;</span><br><span class="hljs-addition">+	  &lt;% if (position === 'left' &amp;&amp; is_post() === false ) &#123; %&gt;</span><br><span class="hljs-deletion">-      &lt;div class="column-right-shadow is-hidden-widescreen &lt;%= sticky_class('right') %&gt;"&gt;</span><br><span class="hljs-addition">+      &lt;div class="column-right-shadow is-hidden-desktop"&gt;</span><br></code></pre></td></tr></table></figure>
-</li>
-</ol>
 </li>
 </ol>
 </li>

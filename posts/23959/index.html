@@ -12,16 +12,16 @@
 <script data-ad-client="ca-pub-6929188339121540" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
-    <meta name="description" content="未完成">
+    <meta name="description" content="Unfinished">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络-exp1-分层的协议栈体系结构">
 <meta property="og:url" content="https://www.annewqx.top/posts/23959/index.html">
 <meta property="og:site_name" content="Annewqx">
-<meta property="og:description" content="未完成">
+<meta property="og:description" content="Unfinished">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.annewqx.top/images/og_image.png">
 <meta property="article:published_time" content="2020-03-12T13:38:09.000Z">
-<meta property="article:modified_time" content="2020-03-12T15:55:39.977Z">
+<meta property="article:modified_time" content="2020-03-13T08:31:13.595Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="计算机网络 wireshark">
 <meta name="twitter:card" content="summary">
@@ -139,7 +139,7 @@
                 href="/archives">Archives</a>
                 
                 <a class="navbar-item"
-                href="/about">About</a>
+                href="/about">Comment</a>
                 
             </div>
             
@@ -196,7 +196,7 @@
                 <!-- <time class="level-item has-text-grey" datetime="2020-03-12T13:38:09.000Z">2020-03-12</time> -->
                 <time class="level-item has-text-grey" datetime="2020-03-12T13:38:09.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-03-12</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-12T15:55:39.977Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-12</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-13T08:31:13.595Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-13</time>
                 
                 
                 <div class="level-item">
@@ -225,43 +225,15 @@
             
         </h1> -->
         <div class="content">
-            <p>未完成</p>
-<a id="more"></a>
-
-<h1 id="计算机网络实验1-分层的协议栈体系结构"><a href="#计算机网络实验1-分层的协议栈体系结构" class="headerlink" title="计算机网络实验1-分层的协议栈体系结构"></a>计算机网络实验1-分层的协议栈体系结构</h1><h2 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h2><p>分层的网络协议体系结构是网络的核心概念，本实验的目的是在学习掌握网络协议分析器工具的基础上，借助网络协议分析器学习在数据包中如何表示协议和分层。</p>
-<h2 id="实验工具"><a href="#实验工具" class="headerlink" title="实验工具"></a>实验工具</h2><ul>
-<li>Wireshark - Version 3.2.1 (v3.2.1-0-gbf38a67724d0) </li>
-<li>curl</li>
-</ul>
-<h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><blockquote>
-<p>加深对网络协议的理解通常可以通过观察协议的运行和不断调试协议完成，观察两个 协议实体之间交换的报文序列，深入了解协议操作的细节，执行某些动作，然后观察这些动作产生的结果。</p>
-<p>在第一个 Wireshark 实验中，让我们熟悉 Wireshark，做一些简单的抓包和观察。</p>
-</blockquote>
-<h3 id="2-捕获数据包"><a href="#2-捕获数据包" class="headerlink" title="2 捕获数据包"></a>2 捕获数据包</h3><blockquote>
-<p>本步骤用你的计算机从 Web 服务器获取一个 URL，捕获这次 HTTP 通信的数据包并 观察协议数据包结构。</p>
-</blockquote>
-<ol>
-<li>打开Capture-option菜单，选择接口，设置过滤器为<code>tcp port 80</code>, 选择选项页面下的“解析网络名字”复选框；取消复选框 “混杂”</li>
-</ol>
-<p><img src="2020-03-12-network-exp1/Screenshot2020-03-1221.56.29.png" alt="Screenshot2020-03-1221.56.29"></p>
-<ol start="2">
-<li><p>打开终端，运行<code>wget www.baidu.com</code>, 获取成功后返回Wireshark</p>
-<p><img src="2020-03-12-network-exp1/Screenshot2020-03-1222.03.10.png" alt="Screenshot2020-03-1222.03.10"></p>
-</li>
-<li><p>检查捕获的数据包</p>
-<p>运行命令<code>curl www.baidu.com</code>，对应的过滤结果：</p>
-<p><img src="2020-03-12-network-exp1/Screenshot2020-03-1222.11.33.png" alt="Screenshot2020-03-1222.11.33"></p>
-<p>查看其中的GET数据包</p>
-<p><img src="2020-03-12-network-exp1/Screenshot2020-03-1222.19.09.png" alt="Screenshot2020-03-1222.19.09"></p>
-<ul>
-<li><p>GET包分为四个部分，分别是Ethernet，IPV4，TCP和 HTTP，数据帧4，数据链路层的source是本机的MAC地址，destination是路由器的地址</p>
-</li>
-<li><p>IPV4中的Dst 是百度的IPV4地址，从TCP中可以看出源端口为53883，目的端口为80，打开下方的HTTP协议 可以看到具体的内容，访问方式为GET，HOST为<a href="http://www.baidu.com，用户代理为curl，配合" rel="external nofollow noreferrer">www.baidu.com，用户代理为curl，配合</a> 下方的详细信息可以看出一个包的头部的封装结构，协议栈是自底向上组织的，头部的结构也是和协议栈的 顺序相同，各层数据包的嵌套关系图如下：</p>
-</li>
-</ul>
-</li>
-</ol>
-
+            <div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">Please Input Password</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="6813012d44f01678648b3d3c310cb322c1426bd502470ddb71033c6bdb12492e">7799ac1d640be778c782162cf4af8b40b9e85b1a1eadc51035961d9a4ae995aee1a7a3501d5d2a32fb7237252258f5c81b1d9ac1611cdd4a81084c025e24215de1b180b759e4b725927edf1886665da56e6e0f54c9377b926506ae4507a04e905da17526ad5a5ab40de04f57f6431fd8735837de5ba67155b3ab85cd21612d33a3fda0e788823784b85caec66c07773834c4bef9124941bc6561727c196d639c2e881f0369c7d1362e6d3c973a24bc0e7490eed82a9bfc0adcaf437fe3259efa80fc37610b5628b9488e5f1d28f175efdd842d4144ef83b3c196a03d688952af01c1c2b0e004592c41cb2f1a4293e02ee7f685f8ec46458a73702099509943260924cdbd65bcb3355cc837577ffd52601abf36573c7d19e98a3f3d4146f07e3a6be3902d21c1a8cd45a4409d8093c6104baec284548e32da04f2847bef9d090ea9ea2c46ee22a4322f8737a6c1835f44643be7c496f2a69b357d7edb7ac6aaf8c88142f61206ab52a4082376ffccd19ebcbbe7b3fb718d8361ce1e396ce3065ff557281db12345121096c9566cb64bfc46bc9401a858ba6b079ae9e7aae1e35d244e4efab12968bd4d1add4e91a2eed8c476e6ab6358d888595b5c183588e4326d3fa94c11fc26cb3868614b5969a951c861c4948a164d3d44dc8c6a17e48e5b0fdfbc6a4b74e9df3da749df067cc3431cd5bde0f5c4a38f1114195eed0adea7453900a40e3d5e56bf93332452522ee34cb4fa258898dfb3348f8e3858dde104ae0b065e98759bc3cd91e74750a055024e67b1ef05d1e1ea74d12e6e03e0d48bdcdcd7af0a50c00bcae8d28502076afa290dbc706edb7d0ff60ea3ff67edce0266c666137bc76dfe3d5e695ca60de3bb78d800cfbcbd36465831d9ea325fcccdc804f6e8ecac2d2f00bb917958bb1f7374d4b69e9e5223d23fd0b3c13a3850a6f4f014e724dc3ef35cc97cc9a1bf890f876ab6517c81c6a7b55efea259d03bb2595b96d47ddd8a2225825320d684173e5ba7b86f3c858eedd0c269d32490f5c8c44db266a9dec1e5b9393c9d3afc5775411bbfb0d92988b4afa6c43dd18aa5c096e14eeb175255449c7bd9089423d181089e2925b39fa6e6cb9abd6f487a4ecd8afdf703704046141b3da654596148ceb485740dc72e9d6c816206de993aeb8a236d637aaa3263e9fe2ce637f492d1a6f4aac66cfe69596f0fe20b8ec4e248bbe301cc128c8f0df593bb7df9f7433c979569eda4108142b4f13754907881150d1f732e666e4fc307a20a1e5fa4bc50cf71da5d8d3e5c8e6bbaf3bb513033c2d8b420c055a0f5b558bbe75b1086ee1b3aab9eebee909fc4ea65eb747666a88495b846506c1a3c91d826424014134460bfba3d17f8c185b5df4d130f6be62e03293972618ba7de88560f52f1b30f484e0befc73ec76512915b9466d7375519f224d0f4ffdd1f7728369cf910620610ed3e12e859f6658deb66f12242d48488995eb0e410422b4efd24abd9b953ffcb485a7925a2b04436ac852e1bd30953cc6cbb1e43190c286b99c75c021ea272e0633619eb237bb983b32a6e7bdbf0313b1c7a22e1df05dc148234ca5bf1b3ceafe80deef686a0bb82780b39842b4d1766297c3bb5acc944d01cb8c76f567f5781be4cefb1e46bf43ab1efc2a538c32ac583b1c655c9ed7875014fb091430c6638bd33ccf9c44df389087310ea2f3ac1bd953a2a6730c1badc36bc32d621ca5399d0499726ff18b7803472d5bcb90fbe9245d1dcb6f6d31738c63d98f5f21236677cc44f820e0a0c2a046c0077baac347782552662f463e3261d19620b67f0f3623e9c6133196fbd77f82ddd3a20d35475a51a3d883c77346ea02ebd4e139a36aec9130abcebf16489199336c608ac0d2626833348c55525ddb0cafd21644bf600333b9c5e9093070bc8c95685eefe70e1c69dcc6bd73090dbd38b29ca89cd3bb631fe6fcd09b7a1b37b63fc083e4b442e6dd62fb0ad78570b5eea0da852d3c9eecfcc87d3aa342168cd302db97593928ba36054ad90adf17a9a2b23cd7dd7b7b4749f5db74c6520d24a0eea2b9806d45be866816924404c62676551d1ca2de6f5d7b0c3c577c55b0a54d81a93fcd6e618f6384ff2a6e8f0969e2097739e6718896425090c0a0a26ae2c656dd2e07c82eb5b8efbb203803b1526f263481702723ac9011e4048b287d5c83d112b64f6c7c11f70b9336854e40038863f5bb91aa028fb1f0d26286256e51d39ccf4f9fe4440ffcaafbd0fc158058fdaf68e20474daa0af323bad715c65856397ca3dea9aea09172434eb1b777443f0205b4967078f3417f25c605ba6bf58c3db26f42dbf38488dbdecb77e68e70f54b1e6c2087a9c7cacdb4dd43880ff2d76c7a0ba5537995409af793f6f41836cae6d601212c7f415af8bbf955b901c0af6b411997dc86c61afaa8c538cf116a0abaf0b33a78a548b6c2b9d8238ff3f0fba02594755a2b2b59731b2e81745b3c703bb8e625bb1a98ebdb95f411816444ab1077f4ff599cf8003a1df3e013546cdba49047e1446e090366ccc59bfb88a59635c615b5deac1f3e2027a7075cb0fd255108067e07debdca2c8c0cf4505aabcb64afb83db92d25b1c158834cff0b9f80d597e8fa6f8de90ff21f8fb483c97ce0ac8dcd9b52e92f41d47035a664077db227d71e1d9e64454099ee30665c746ff1f71cfe90fde735715565715c9f9a3460761e87bc7d2332f9711128ac07771e0def13dd74c0658d29f682bc33552990d604274b0b78d813e5cfc9f9a75b1ee1d7c76f0fe7345f63ba222643a239eaf09ac051f9c35063581d0326bee17000ae96e312c891e90a5cd09a6a95cd9b3953921090dd53cea8d5ed9b7cc0b7839765986cefcf0c1beafd84a225dc6f73b7f01487347cd765f873eba60ca89fa4941847bbc63049ebf63a1c819e93cadfb4055800ac526793e0636a9971ebe9cd73c1de176c67547049a3c533cb384679783457f55606189728f1ef11e1c5e7c59f4717b95dc0fd27e5286436091cf15280f2130f48234a0dc3e04571741acf936bcf2b42511a2248798f8552f2b0c8bb40c4ee5d01b970e10c2ff61956560f73894f4e70fec2388e3f4db764ba82bcabbd02fdcf15eb469c6829ec3e0f59649c8684657a413895108b59ee47efa1c225c9f5a4389108334ab76c041d43dc9d6f966923961183cb186dae40a18180a75cc493ac2db7d5c7c56c24569d27f4e4e31701856b4128b0c3204a1129c26431d55690adc4d504549ae44a3f7627dd050d10cff57871103fcbcb47fc35dd806b1309ff4715bc07152aef6f9b383ce86b8207045d81cf616fca57f18080961e6491db9a47911afdb8c6db6f417124bc8a893696def91432aae64ae9e5f45109f473ca40b7afa04af9d208c4ff52b2364777a664ca98ee97573dcb1eaf397e13c5782ea47bd71b5ab003ae105bb71ea77b4812d2a3aee37faea79eb64f2c1fe23586b939b820156ecab37e3cf4e275b401aa8a3caf4b6dc2a9647891d8cead1b7acfe6b5e2996b48d9c6bd2cd57229439180895fff08588f75db2bfff9edd3f9affaf462e5688555d25479c172ffefc24ad503c2a1df8a2c0253741fefa1de712875eba6a78947f716aee33786b4fe646c190ad79d82ebb4d2b98f3652da791e31682761d111f3ab2791fa59d3802de979e59361eaaaff7ae30a0953aba5f7de02b15e53d778f7099e03bd3ca67741cf09f8105fe5c15e784f0d278e9c98b69d4f08a98e933c4615502576e7055675fd01ff40c1400994dca79b8360dda9c8a053579dec0d2731cfc78544fbb131eb4b2218320939f32970b822cf8db58bc35bd839e87e76be919754889d3e53e3e6cbb7f3098bf06520176898acd25af6c01770f04e0541372f8b9f0de9e2bca84dd400a38454a815148379213fa9467b4639767d3c6429517cc32af4beb89caa10bfee3ff4c1ef64fd1a3c5964aa31370d6361075ee20e9b6946ab30ddd95d9a0f40a2079874946507a3c3a20ef2c5623745aa061eebfabfa12849af1404514f68e1a2fd11c954b8b867a548c429c351d80e5c887776bbeac564ec1965d7f10f99040da1b678668d99e5dac726421e094e98c8ac0ac59ddc0115b1aac02709f6d480826ecc5f37819da4832311ab76b0956d416f82af63e8491e6a8af1a0b93afcf8dfd8c7b9def20cbb75b837ebda87fc4479a9120423e97ffa068d9e584ed5240c68dd5671e604b8e32a452a96e3403aa4088dd2bf0a2495e02a0ce13d1c70490e47650d421a38f7c21479134bdcdae56d5250f501e3563d0b94d8b4ef84862a11f60b11937e6875df250a49d56a9ef33475059c0ad5157386328c92b78d334533317df6f242e1dc041dc9ba6e33439f355933b96b55d35299d233c36d4c73cc407f4f844b4c217ef1d44fd982b7e702a36da9b109e171e8d6faef294b6a373cba1ef563a7b92239dcf4735a3802c580b3273922754f161e9d1cfd682633f31be6b0bc3fe69f856cd577250231c6e79ae7da90df0b4f4628a8547541fdcf147dbf0552360be5368cded26196b1cf967ad412899b044bebbfd7042ba657b29dd097c0c755498bfb6b067c0b03bed1c141932a63d4ac0f7ef4e087ad5154f5196907409e63bca82767aefd3438aea493</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
         </div>
         
             <div class="my_post_copyright">
@@ -277,7 +249,7 @@
         <span class="copy-path"  title="Click to Copy Link"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/23959/"  aria-label="复制成功！"></i></span>
     </p>
     <p><span>publish time:</span>2020-03-12</p>
-    <p><span>update time:</span>2020-03-12</p>
+    <p><span>update time:</span>2020-03-13</p>
     </div>
 </div>
 <!-- <ul class="post-copyright">
@@ -993,37 +965,6 @@
 <div class="column is-one-third-tablet is-3-desktop is-one-fifth-widescreen is-one-fifth-fullhd  has-order-1 column-right is-sticky">    
     
         
-
-    <div class="card widget "  id="toc">
-        <div class="card-content">
-            <div class="menu">
-                <h3 class="menu-label">
-                    目录
-                </h3>
-                <ul class="menu-list"><li>
-        <a class="is-flex" href="#计算机网络实验1-分层的协议栈体系结构">
-        <span class="has-mr-6">1</span>
-        <span>计算机网络实验1-分层的协议栈体系结构</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#实验目的">
-        <span class="has-mr-6">1.1</span>
-        <span>实验目的</span>
-        </a></li><li>
-        <a class="is-flex" href="#实验工具">
-        <span class="has-mr-6">1.2</span>
-        <span>实验工具</span>
-        </a></li><li>
-        <a class="is-flex" href="#实验步骤">
-        <span class="has-mr-6">1.3</span>
-        <span>实验步骤</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#2-捕获数据包">
-        <span class="has-mr-6">1.3.1</span>
-        <span>2 捕获数据包</span>
-        </a></li></ul></li></ul></li></ul>
-            </div>
-        </div>
-    </div>
 
     
         
