@@ -22,7 +22,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.annewqx.top/gallery/thumbnails/desert.png">
 <meta property="article:published_time" content="2020-02-25T12:29:31.000Z">
-<meta property="article:modified_time" content="2020-03-13T11:27:59.866Z">
+<meta property="article:modified_time" content="2020-03-14T08:09:09.652Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="hexo decorate 博客 美化 装修">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
 
 
 
-<link rel="canonical" href="https://www.annewqx.top/" />
+<link rel="canonical" href="https://annewqx.top/" />
 
 
 
@@ -52,7 +52,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atelier-seaside-light.css">
 
 
@@ -203,7 +203,7 @@
                 <!-- <time class="level-item has-text-grey" datetime="2020-02-25T12:29:31.000Z">2020-02-25</time> -->
                 <time class="level-item has-text-grey" datetime="2020-02-25T12:29:31.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-02-25</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-13T11:27:59.866Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-13</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-14T08:09:09.652Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-14</time>
                 
                 
                 <div class="level-item">
@@ -214,7 +214,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    37 分钟 读完 (大约 5578 个字)
+                    37 分钟 读完 (大约 5612 个字)
                 </span>
                 
                 
@@ -362,13 +362,13 @@
 <blockquote>
 <p>js获取浏览器颜色模式代码：<code>window.matchMedia(&#39;(prefers-color-scheme: dark)&#39;).matches</code></p>
 </blockquote>
-<h3 id="related-post-widget"><a href="#related-post-widget" class="headerlink" title="related_post widget"></a>related_post widget</h3><ul>
+<h3 id="related-post-widget"><a href="#related-post-widget" class="headerlink" title="related post widget"></a>related post widget</h3><ul>
 <li>在每篇博文增加一个widget，展示和这篇文章有相同tag的文章列表</li>
 </ul>
 <ol>
 <li>添加文件<code>layout/widget/related_posts.ejs</code></li>
 </ol>
-<figure class="highlight plain"><figcaption><span>layout/widget/related_posts.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/widget/related_posts.ejs" rel="external nofollow noreferrer">related_posts </a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&lt;% function build_list(tags,post) &#123;<br>    let flag &#x3D; true;<br>    return tags.map(tag &#x3D;&gt; &#123;<br>        let result &#x3D;&#39;&#39;;<br>        post.tags.map(ptag &#x3D;&gt; &#123;<br>            if( ptag.name &#x3D;&#x3D;&#x3D; tag.name &amp;&amp; post.title !&#x3D; page.title &amp;&amp; flag &#x3D;&#x3D;&#x3D; true)&#123;<br>                if (get_config(&#39;article.thumbnail&#39;)&#x3D;&#x3D;&#x3D; true )&#123;<br>                    result+&#x3D; &#96;&lt;article class&#x3D;&quot;media&quot;&gt; &lt;a href&#x3D;&quot;$&#123;url_for(post.link ? post.link : post.path)&#125;&quot; class&#x3D;&quot;media-left&quot;&gt;<br>                        &lt;p class&#x3D;&quot;image is-64x64&quot;&gt;<br>                            &lt;img class&#x3D;&quot;thumbnail&quot; src&#x3D;&quot;$&#123;get_thumbnail(post)&#125;&quot; alt&#x3D;&quot;$&#123;post.title&#125;&quot;&gt;<br>                        &lt;&#x2F;p&gt;<br>                    &lt;&#x2F;a&gt;&#96;;<br>                &#125;<br>                result+&#x3D;&#96;&lt;div class&#x3D;&quot;media-content&quot;&gt;<br>                    &lt;div class&#x3D;&quot;content&quot;&gt;<br>                        &lt;div&gt;&lt;time class&#x3D;&quot;has-text-grey is-size-7 is-uppercase&quot; datetime&#x3D;&quot;$&#123;date_xml(post.date)&#125;&quot;&gt;$&#123;date(post.date)&#125;&lt;&#x2F;time&gt;&lt;&#x2F;div&gt;<br>                        &lt;a href&#x3D;&quot;$&#123;url_for((post.link?post.link:post.path))&#125;&quot; class&#x3D;&quot;title has-link-black-ter is-size-6 has-text-weight-normal&quot;&gt;$&#123;post.title&#125;&lt;&#x2F;a&gt;<br>                    &lt;&#x2F;div&gt;<br>                &lt;&#x2F;div&gt;<br>            &lt;&#x2F;article&gt;&#96;;<br>            flag &#x3D; false;<br>            return result;<br>            &#125;<br>            return result;<br>        &#125;)<br>        return result;<br>    &#125;).join(&#39;&#39;);<br>&#125;<br>%&gt;<br>&lt;div class&#x3D;&quot;card widget&quot;&gt;<br>    &lt;div class&#x3D;&quot;card-content&quot;&gt;<br>        &lt;h3 class&#x3D;&quot;menu-label&quot;&gt;<br>            related posts<br>        &lt;&#x2F;h3&gt;<br>        &lt;% site.posts.forEach(post &#x3D;&gt; &#123; %&gt; <br>            &lt;%- build_list(page.tags , post) %&gt;<br>        &lt;% &#125;) %&gt;<br>    &lt;&#x2F;div&gt;<br>&lt;&#x2F;div&gt;<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>layout/widget/related_posts.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/widget/related_posts.ejs" rel="external nofollow noreferrer">related_posts </a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;% <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">build_list</span>(<span class="hljs-params">tags,post</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> flag = <span class="hljs-literal">true</span>;<br>    <span class="hljs-keyword">return</span> tags.map(<span class="hljs-function"><span class="hljs-params">tag</span> =&gt;</span> &#123;<br>        <span class="hljs-keyword">let</span> result =<span class="hljs-string">''</span>;<br>        post.tags.map(<span class="hljs-function"><span class="hljs-params">ptag</span> =&gt;</span> &#123;<br>            <span class="hljs-keyword">if</span>( ptag.name === tag.name &amp;&amp; post.title != page.title &amp;&amp; flag === <span class="hljs-literal">true</span>)&#123;<br>                <span class="hljs-keyword">if</span> (get_config(<span class="hljs-string">'article.thumbnail'</span>)=== <span class="hljs-literal">true</span> )&#123;<br>                    result+= <span class="hljs-string">`&lt;article class="media"&gt; &lt;a href="<span class="hljs-subst">$&#123;url_for(post.link ? post.link : post.path)&#125;</span>" class="media-left"&gt;<br>                        &lt;p class="image is-64x64"&gt;<br>                            &lt;img class="thumbnail" src="<span class="hljs-subst">$&#123;get_thumbnail(post)&#125;</span>" alt="<span class="hljs-subst">$&#123;post.title&#125;</span>"&gt;<br>                        &lt;/p&gt;<br>                    &lt;/a&gt;`</span>;<br>                &#125;<br>                result+=<span class="hljs-string">`&lt;div class="media-content"&gt;<br>                    &lt;div class="content"&gt;<br>                        &lt;div&gt;&lt;time class="has-text-grey is-size-7 is-uppercase" datetime="<span class="hljs-subst">$&#123;date_xml(post.date)&#125;</span>"&gt;<span class="hljs-subst">$&#123;date(post.date)&#125;</span>&lt;/time&gt;&lt;/div&gt;<br>                        &lt;a href="<span class="hljs-subst">$&#123;url_for((post.link?post.link:post.path))&#125;</span>" class="title has-link-black-ter is-size-6 has-text-weight-normal"&gt;<span class="hljs-subst">$&#123;post.title&#125;</span>&lt;/a&gt;<br>                    &lt;/div&gt;<br>                &lt;/div&gt;<br>            &lt;/article&gt;`</span>;<br>            flag = <span class="hljs-literal">false</span>;<br>            <span class="hljs-keyword">return</span> result;<br>            &#125;<br>            <span class="hljs-keyword">return</span> result;<br>        &#125;)<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;).join(<span class="hljs-string">''</span>);<br>&#125;<br>%&gt;<br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card widget"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card-content"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"menu-label"</span>&gt;</span><br>            related posts<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">%</span> <span class="hljs-attr">site.posts.forEach</span>(<span class="hljs-attr">post</span> =&gt;</span> &#123; %&gt; <br>            <span class="hljs-tag">&lt;<span class="hljs-name">%-</span> <span class="hljs-attr">build_list</span>(<span class="hljs-attr">page.tags</span> , <span class="hljs-attr">post</span>) %&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">%</span> &#125;) %&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
 
 <p>同目录下添加渲染绑定js文件<code>related_posts.locals.js</code>，使该widget仅对posts页面生效</p>
 <figure class="highlight js"><figcaption><span>related_posts.locals.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">module</span>.exports = <span class="hljs-function">(<span class="hljs-params">ctx, locals</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> &#123; layout, content &#125; = ctx.page;<br>    <span class="hljs-keyword">const</span> &#123; get_config &#125; = ctx;<br>    <span class="hljs-keyword">if</span> (layout !== <span class="hljs-string">'page'</span> &amp;&amp; layout !== <span class="hljs-string">'post'</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.assign(locals, &#123; content &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -548,6 +548,12 @@
 ------ to be continued ------
 </div>
 ### 添加ads
+
+
+
+<h3 id="Gulp压缩"><a href="#Gulp压缩" class="headerlink" title="Gulp压缩"></a>Gulp压缩</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install gulp --save<br>npm install gulp-minify-css --save<br>npm install gulp-uglify --save<br>npm install gulp-htmlmin --save<br>npm install gulp-htmlclean --save<br>npm install gulp-imagemin --save<br></code></pre></td></tr></table></figure>
+
+
         </div>
         
             <div class="my_post_copyright">
@@ -563,7 +569,7 @@
         <span class="copy-path"  title="Click to Copy Link"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/65512/"  aria-label="复制成功！"></i></span>
     </p>
     <p><span>publish time:</span>2020-02-25</p>
-    <p><span>update time:</span>2020-03-13</p>
+    <p><span>update time:</span>2020-03-14</p>
     </div>
 </div>
 <!-- <ul class="post-copyright">
@@ -746,7 +752,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            17
+                            19
                         </p>
                     </a>
                 </div>
@@ -770,7 +776,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            17
+                            18
                         </p>
                     </a>
                 </div>
@@ -882,6 +888,44 @@
         
         <article class="media">
             
+            <a href="/posts/62214/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/" alt="Compilation-Lab3">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-15T10:07:08.000Z">2020-03-15</time></div>
+                    <a href="/posts/62214/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Compilation-Lab3</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Report/">Report</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/30293/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="网络安全工程-Shodan">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-15T08:24:48.000Z">2020-03-15</time></div>
+                    <a href="/posts/30293/" class="title has-link-black-ter is-size-6 has-text-weight-normal">网络安全工程-Shodan</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Report/">Report</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/posts/23959/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="计算机网络-exp1-分层的协议栈体系结构">
@@ -937,44 +981,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/2210/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/thumbnails/caddy.png" alt="使用Caddy替换Nginx运行网站">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-01T05:54:39.000Z">2020-03-01</time></div>
-                    <a href="/posts/2210/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用Caddy替换Nginx运行网站</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/posts/65512/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/thumbnails/desert.png" alt="Hexo搭建个人博客：装修">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-25T12:29:31.000Z">2020-02-25</time></div>
-                    <a href="/posts/65512/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo搭建个人博客：装修</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Guide/">Guide</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -992,7 +998,7 @@
                 <span class="level-item">Code</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">16</span>
+                <span class="level-item tag">18</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/Code/Guide/">
@@ -1024,7 +1030,7 @@
                 <span class="level-item">Report</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">3</span>
+                <span class="level-item tag">5</span>
             </span>
         </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/Life/">
@@ -1069,7 +1075,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Compilation/">
                         <span class="tag">Compilation</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1165,6 +1171,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/shodan/">
+                        <span class="tag">shodan</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/ssh/">
                         <span class="tag">ssh</span>
                         <span class="tag is-grey">1</span>
@@ -1197,7 +1210,7 @@
                     <span class="level-item">三月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1324,7 +1337,7 @@
         </a></li><li>
         <a class="is-flex" href="#related-post-widget">
         <span class="has-mr-6">2.6</span>
-        <span>related_post widget</span>
+        <span>related post widget</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#布局">
         <span class="has-mr-6">3</span>
@@ -1369,6 +1382,10 @@
         <a class="is-flex" href="#修改busuanzi阅读量统计为leancloud">
         <span class="has-mr-6">4.3</span>
         <span>修改busuanzi阅读量统计为leancloud</span>
+        </a></li><li>
+        <a class="is-flex" href="#Gulp压缩">
+        <span class="has-mr-6">4.4</span>
+        <span>Gulp压缩</span>
         </a></li></ul></li></ul>
             </div>
         </div>
@@ -1392,6 +1409,20 @@
          
             
          
+            
+         
+            <article class="media"> <a href="/posts/27751/" class="media-left">
+                        <p class="image is-64x64">
+                            <img class="thumbnail" src="/gallery/thumbnails/plant.jpg" alt="Hexo搭建个人博客：主题比较">
+                        </p>
+                    </a><div class="media-content">
+                    <div class="content">
+                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-22T16:00:00.000Z">2020-02-23</time></div>
+                        <a href="/posts/27751/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo搭建个人博客：主题比较</a>
+                    </div>
+                </div>
+            </article>
+         
             <article class="media"> <a href="/posts/2727/" class="media-left">
                         <p class="image is-64x64">
                             <img class="thumbnail" src="/gallery/thumbnails/hexo-cover.png" alt="Hexo搭建个人博客：入门">
@@ -1406,17 +1437,9 @@
          
             
          
-            <article class="media"> <a href="/posts/27751/" class="media-left">
-                        <p class="image is-64x64">
-                            <img class="thumbnail" src="/gallery/thumbnails/plant.jpg" alt="Hexo搭建个人博客：主题比较">
-                        </p>
-                    </a><div class="media-content">
-                    <div class="content">
-                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-22T16:00:00.000Z">2020-02-23</time></div>
-                        <a href="/posts/27751/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo搭建个人博客：主题比较</a>
-                    </div>
-                </div>
-            </article>
+            
+         
+            
          
             
          
@@ -1443,8 +1466,6 @@
             
          
             
-         
-            
         
     </div>
 </div>
@@ -1454,7 +1475,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Caddy/" style="font-size: 10px;">Caddy</a> <a href="/tags/Compilation/" style="font-size: 13.33px;">Compilation</a> <a href="/tags/Haskell/" style="font-size: 10px;">Haskell</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/python-anaconda/" style="font-size: 10px;">python anaconda</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a>
+        <a href="/tags/Caddy/" style="font-size: 10px;">Caddy</a> <a href="/tags/Compilation/" style="font-size: 16.67px;">Compilation</a> <a href="/tags/Haskell/" style="font-size: 10px;">Haskell</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/python-anaconda/" style="font-size: 10px;">python anaconda</a> <a href="/tags/shodan/" style="font-size: 10px;">shodan</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a>
     </div>
 </div>
     
