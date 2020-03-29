@@ -184,6 +184,124 @@
     <div class="card-content article ">
        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
+            <a class="has-link-black-ter" href="/posts/4542/"><i class="fas fa-angle-double-right"></i>密码学应用和加密货币实践</a>
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2020-03-29T07:27:21.000Z">2020-03-29</time> -->
+                <time class="level-item has-text-grey" datetime="2020-03-29T07:27:21.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-03-29</time>
+                
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-29T09:10:03.861Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-29</time>
+                
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/code/">code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/code/report/">report</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 510 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <!-- <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/4542/">密码学应用和加密货币实践</a>
+            
+        </h1> -->
+        <div class="content">
+            <a id="more"></a>
+
+<blockquote>
+<p>本文网址：<a href="https://annewqx.top/" rel="external nofollow noreferrer">https://annewqx.top/</a></p>
+</blockquote>
+<h2 id="传输数据加密初探"><a href="#传输数据加密初探" class="headerlink" title="传输数据加密初探"></a>传输数据加密初探</h2><ul>
+<li>PPP协议的pap验证：明文传输验证的用户名和密码</li>
+</ul>
+<p><img src="report-netsecurity-exp3-code-digital:-year-03-29/image-20200329153012935.png" alt="image-20200329153012935"></p>
+<ul>
+<li>PPP协议的chap验证：密文传输密码</li>
+</ul>
+<p><img src="report-netsecurity-exp3-code-digital:-year-03-29/image-20200329152934684.png" alt="image-20200329152934684"></p>
+<h2 id="实践：发行虚拟货币"><a href="#实践：发行虚拟货币" class="headerlink" title="实践：发行虚拟货币"></a>实践：发行虚拟货币</h2><blockquote>
+<p>以太坊工具：<a href="https://ethfans.org/wikis/Ethereum-Geth-Mirror" rel="external nofollow noreferrer">https://ethfans.org/wikis/Ethereum-Geth-Mirror</a></p>
+<p>运行环境：macOS 10.15.4 / geth 1.8.3</p>
+</blockquote>
+<ol>
+<li><p>进入终端，新建挖矿目录<code>mkdir mine</code>，将下载的可执行文件<code>geth</code>放到这个目录下，进入该目录，</p>
+</li>
+<li><p>新建挖矿数据的目录并初始化</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkdir mycoin<br>vim test.json<br>geth --datadir=<span class="hljs-string">"mycoin"</span> init <span class="hljs-string">"test.json"</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>test.json</code>示例</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs json">&gt;&#123;<br>"config": &#123;<br>      "chainId":666,<br>      "homesteadBlock": 0,<br>      "eip150Block": 0,<br>      "eip155Block": 0,<br>      "eip158Block": 0<br>  &#125;,<br>"alloc"      : &#123;&#125;,<br>"difficulty" : "0x400",<br>"extraData"  : "",<br>"gasLimit"   : "0x7A1200",<br>"parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",<br>"timestamp"  : "0x00"<br>&gt;&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>进入后台</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">geth --networkid <span class="hljs-string">"30"</span> --nodiscover --datadir=<span class="hljs-string">"mycoin"</span> console 2&gt;&gt; <span class="hljs-string">"mycoin"</span>/<span class="hljs-string">"err.log"</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>查看指定区块</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">eth.getBlock(0)<br></code></pre></td></tr></table></figure>
+
+<p> <img src="report-netsecurity-exp3-code-digital:-year-03-29/Screenshot2020-03-29%2016.38.27.png" alt="Screenshot2020-03-29 16.38.27"></p>
+</li>
+<li><p>创建账户并查看</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">personal.newAccount(<span class="hljs-string">"pay"</span>)     <span class="hljs-comment"># 括号里是密码</span><br>personal.newAccount(<span class="hljs-string">"collect"</span>)<br>eth.accounts<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>模拟挖矿</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 设置挖矿地址，缺省则为第一个</span><br>eth.coinbase<br><span class="hljs-comment"># 查看账户余额</span><br>eth.getBalance(eth.accounts[0])<br><span class="hljs-comment"># 开始挖矿</span><br>miner.start()<br><span class="hljs-comment"># 结束挖矿：</span><br>miner.stop()<br><span class="hljs-comment"># 查看挖矿状态：</span><br>miner.getHashrate()<br></code></pre></td></tr></table></figure>
+
+<p> <img src="report-netsecurity-exp3-code-digital:-year-03-29/Screenshot2020-03-29%2016.51.21.png" alt="acounts[1]中余额增加"></p>
+<blockquote>
+<p><a href="https://mp.weixin.qq.com/s/AB9vj1EzOgWT7JyryfQhDg?" rel="external nofollow noreferrer"><code>miner.start()</code>返回null：</a></p>
+<ul>
+<li>geth-1.7.3以上版本的节点，在dev环境下执行miner.start()时，返回null。但其实miner已经执行。使用<code>eth.blockNumber</code>可查看到区块高度在增加</li>
+</ul>
+<p><a href="https://github.com/ethereum/go-ethereum/wiki/mining" rel="external nofollow noreferrer"><code>miner.getHashrate</code>返回0：</a></p>
+<ul>
+<li><p>macOS上执行</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget http://developer.download.nvidia.com/compute/cuda/7_0/Prod/local_installers/cuda_7.0.29_mac.pkg<br>sudo installer -pkg ~/Desktop/cuda_7.0.29_mac.pkg -target /<br>brew update<br>brew tap ethereum/ethereum<br>brew reinstall cpp-ethereum --with-gpu-mining --devel --headless --build-from-source<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>执行命令查看挖矿状态</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">aticonfig --adapter=0 --od-gettemperature<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>转账</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 解锁账户</span><br>personal.unlockAccount(eth.accounts[0], <span class="hljs-string">"pay"</span>)<br>personal.unlockAccount(eth.accounts[1], <span class="hljs-string">"collect"</span>)<br><span class="hljs-comment"># 转账</span><br>eth.sendTransaction(&#123;from: eth.accounts[0], to: eth.accounts[1], value: web3.toWei(1, <span class="hljs-string">"ether"</span>)&#125;)<br><span class="hljs-comment"># 查看交易</span><br>eth.pendingTransactions<br><span class="hljs-comment"># 继续挖矿，进而完成交易</span><br>miner.start()<br></code></pre></td></tr></table></figure>
+
+<p> <img src="report-netsecurity-exp3-code-digital:-year-03-29/Screenshot2020-03-29%2016.58.33.png" alt="accounts[1]中增加1个单位"></p>
+</li>
+</ol>
+
+        </div>
+        
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+       <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
             <a class="has-link-black-ter" href="/posts/33846/"><i class="fas fa-angle-double-right"></i>编译原理与设计-Lab4-文法设计实验</a>
             
         </h1>
@@ -838,84 +956,6 @@
 
 
 
-    
-<div class="card">
-    
-    <div class="card-image">
-        <a href="/posts/65182/" class="image is-7by1">
-            <img class="thumbnail" src="/gallery/thumbnails/Nginx.jpg" alt="Hexo搭建个人博客：部署">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-       <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-            <a class="has-link-black-ter" href="/posts/65182/"><i class="fas fa-angle-double-right"></i>Hexo搭建个人博客：部署</a>
-            
-        </h1>
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-02-24T05:53:24.000Z">2020-02-24</time> -->
-                <time class="level-item has-text-grey" datetime="2020-02-24T05:53:24.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-02-24</time>
-                
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-23T14:20:22.317Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-23</time>
-                
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/code/">code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/code/guide/">guide</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    13 分钟 读完 (大约 1896 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <!-- <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/posts/65182/">Hexo搭建个人博客：部署</a>
-            
-        </h1> -->
-        <div class="content">
-            <hr>
-<p>通过创建远端git仓库，将本地的hexo博客部署到远端服务器并通过Nginx服务运行</p>
-        </div>
-        
-        
-        
-        <hr style="height:1px;margin:1rem 0"/>
-        <div class="level is-mobile is-flex">
-            <div class="level-start">
-                
-                <div class="level-item is-size-7 is-uppercase">
-                <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                <a class="has-link-grey -link" href="/tags/hexo/" rel="tag">hexo</a>,&nbsp;<a class="has-link-grey -link" href="/tags/nginx/" rel="tag">nginx</a>
-                </div>
-                
-            </div>
-        <!-- <div class="level is-mobile"></div> -->
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/posts/65182/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -986,7 +1026,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            24
+                            25
                         </p>
                     </a>
                 </div>
@@ -1122,6 +1162,25 @@
         
         <article class="media">
             
+            <a href="/posts/4542/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="密码学应用和加密货币实践">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-29T07:27:21.000Z">2020-03-29</time></div>
+                    <a href="/posts/4542/" class="title has-link-black-ter is-size-6 has-text-weight-normal">密码学应用和加密货币实践</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/report/">report</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/posts/33846/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab4-文法设计实验">
@@ -1196,25 +1255,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/23959/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="计算机网络-exp1-分层的协议栈体系结构">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-12T13:38:09.000Z">2020-03-12</time></div>
-                    <a href="/posts/23959/" class="title has-link-black-ter is-size-6 has-text-weight-normal">计算机网络-exp1-分层的协议栈体系结构</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/report/">report</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1232,7 +1272,7 @@
                 <span class="level-item">code</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">23</span>
+                <span class="level-item tag">24</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/code/course/">
@@ -1264,7 +1304,7 @@
                 <span class="level-item">report</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">7</span>
+                <span class="level-item tag">8</span>
             </span>
         </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/life/">
@@ -1421,7 +1461,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/security/">
                         <span class="tag">security</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1472,7 +1512,7 @@
                     <span class="level-item">三月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">8</span>
+                    <span class="level-item tag">9</span>
                 </span>
             </a>
         </li>
@@ -1587,7 +1627,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/anaconda/" style="font-size: 10px;">anaconda</a> <a href="/tags/caddy/" style="font-size: 10px;">caddy</a> <a href="/tags/compilation/" style="font-size: 20px;">compilation</a> <a href="/tags/course/" style="font-size: 16.67px;">course</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/md/" style="font-size: 10px;">md</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/security/" style="font-size: 13.33px;">security</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/terminal/" style="font-size: 13.33px;">terminal</a> <a href="/tags/testing/" style="font-size: 10px;">testing</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a>
+        <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/anaconda/" style="font-size: 10px;">anaconda</a> <a href="/tags/caddy/" style="font-size: 10px;">caddy</a> <a href="/tags/compilation/" style="font-size: 20px;">compilation</a> <a href="/tags/course/" style="font-size: 16.67px;">course</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/md/" style="font-size: 10px;">md</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/security/" style="font-size: 16.67px;">security</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/terminal/" style="font-size: 13.33px;">terminal</a> <a href="/tags/testing/" style="font-size: 10px;">testing</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a>
     </div>
 </div>
         
@@ -1633,7 +1673,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/anaconda/" style="font-size: 10px;">anaconda</a> <a href="/tags/caddy/" style="font-size: 10px;">caddy</a> <a href="/tags/compilation/" style="font-size: 20px;">compilation</a> <a href="/tags/course/" style="font-size: 16.67px;">course</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/md/" style="font-size: 10px;">md</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/security/" style="font-size: 13.33px;">security</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/terminal/" style="font-size: 13.33px;">terminal</a> <a href="/tags/testing/" style="font-size: 10px;">testing</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a>
+        <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/anaconda/" style="font-size: 10px;">anaconda</a> <a href="/tags/caddy/" style="font-size: 10px;">caddy</a> <a href="/tags/compilation/" style="font-size: 20px;">compilation</a> <a href="/tags/course/" style="font-size: 16.67px;">course</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/md/" style="font-size: 10px;">md</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/security/" style="font-size: 16.67px;">security</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/terminal/" style="font-size: 13.33px;">terminal</a> <a href="/tags/testing/" style="font-size: 10px;">testing</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a>
     </div>
 </div>
     
