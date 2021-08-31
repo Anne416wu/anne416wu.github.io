@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=1"
+/>
+
+<title>编译原理与设计-Lab1-语言认知实验 - Annewqx</title>
+
+<meta
+  name="google-site-verification"
+  content="GvExXP5gCEjttN6mUpfkSVS0rn_Vbyw5KKRRhqI2jnU"
+/>
+<script
+  data-ad-client="ca-pub-6929188339121540"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+
+ <meta name="description" content="分别使用 C&#x2F;C++、Java、Python 和 Haskell 实现快速排序和归并排序算法，对采用这几种语言实现的编程效率，程序的规模，程序的运行效率进行对比分析。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译原理与设计-Lab1-语言认知实验">
+<meta property="og:url" content="https://www.annewqx.top/posts/53125/index.html">
+<meta property="og:site_name" content="Annewqx">
+<meta property="og:description" content="分别使用 C&#x2F;C++、Java、Python 和 Haskell 实现快速排序和归并排序算法，对采用这几种语言实现的编程效率，程序的规模，程序的运行效率进行对比分析。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.annewqx.top/images/og_image.png">
+<meta property="article:published_time" content="2020-02-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-03-23T14:17:17.797Z">
+<meta property="article:author" content="Anne416wu">
+<meta property="article:tag" content="编译原理 编程语言对比">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.annewqx.top/images/og_image.png">  
+<link rel="canonical" href="https://annewqx.top/" />
+ 
+<link
+  rel="alternative"
+  href="atom.xml"
+  title="编译原理与设计-Lab1-语言认知实验"
+  type="application/atom+xml"
+/>
+ 
+<link
+  rel="apple-touch-icon"
+  sizes="128x128"
+  href="/images/favicon-64px.png"
+/>
+ 
+<link rel="icon" sizes="32x32" href="/images/favicon-64px.png" />
+ 
+<link
+  rel="mask-icon"
+  href="/images/favicon-64px.png"
+  color="{{ theme.android_chrome_color }}"
+/>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css"> <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"> <link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atelier-seaside-light.css">  
+
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+ 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+ 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+ 
+ 
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+ 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158871764-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-158871764-1');
+</script> 
+ 
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2579115,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script> 
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script> 
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- 不蒜子计数初始值纠正 -->
+   <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body class="is-3-column">
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
+    <nav class="navbar navbar-main">
+  <div class="container">
+    <div class="navbar-brand is-flex-center">
+      <!-- <div class="is-hidden-mobile">
+                <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script>
+            </div> -->
+      <a class="navbar-item navbar-logo" href="/">
+        
+        <img
+          class="logo-img"
+          src="/images/logo.svg"
+          alt="编译原理与设计-Lab1-语言认知实验"
+          height="28"
+        />
+        <img
+          class="logo-img-dark"
+          src="/images/logo_dark.png"
+          alt="编译原理与设计-Lab1-语言认知实验"
+          height="28"
+        />
+        
+      </a>
+    </div>
+    <div class="navbar-menu is-flex-wrap is-flex-center">
+      
+      <div class="navbar-start">
+        
+        <a
+          class="navbar-item"
+          href="/"
+          >Home</a
+        >
+        
+        <a
+          class="navbar-item"
+          href="/categories/code"
+          >Code</a
+        >
+        
+        <a
+          class="navbar-item"
+          href="/categories/life"
+          >Life</a
+        >
+        
+        <a
+          class="navbar-item"
+          href="/categories"
+          >Categories</a
+        >
+        
+        <a
+          class="navbar-item"
+          href="/archives"
+          >Archives</a
+        >
+        
+        <a
+          class="navbar-item"
+          href="/about"
+          >Comment</a
+        >
+        
+      </div>
+      
+      <div class="navbar-end">
+        <a
+          class="navbar-item night"
+          id="night-nav"
+          title="Night Mode"
+          href="javascript:;"
+        >
+          <i class="fas fa-moon" id="night-icon"></i>
+        </a>
+         
+        <a
+          class="navbar-item"
+          target="_blank"
+          rel="noopener"
+          title="Download on GitHub"
+          href="https://github.com/anne416wu"
+        >
+          
+          <i class="fab fa-github"></i>
+          
+        </a>
+        
+        <a
+          class="navbar-item"
+          target="_blank"
+          rel="noopener"
+          title="RSS"
+          href="/atom.xml"
+        >
+          
+          <i class="fas fa-rss"></i>
+          
+        </a>
+          
+        <a
+          class="navbar-item is-hidden-tablet catalogue"
+          title="目录"
+          href="javascript:;"
+        >
+          <i class="fas fa-list-ul"></i>
+        </a>
+         
+        <a
+          class="navbar-item search"
+          title="搜索"
+          href="javascript:;"
+        >
+          <i class="fas fa-search"></i>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+    
+    <section class="section">
+        <div>
+            <div class="columns is-centered is-variable is-2">
+                <div class="column is-two-thirds-tablet is-9-desktop is-7-widescreen is-three-fifths-fullhd has-order-2 column-main">
+                    
+<div class="card">
+    
+    <div class="card-content article ">
+       <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+            <i class="fas fa-angle-double-right"></i>编译原理与设计-Lab1-语言认知实验
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time> -->
+                <time class="level-item has-text-grey" datetime="2020-02-19T16:00:00.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-02-20</time>
+                
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-23T14:17:17.797Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-23</time>
+                
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/code/">code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/code/report/">report</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    18 分钟 读完 (大约 2719 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <!-- <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                编译原理与设计-Lab1-语言认知实验
+            
+        </h1> -->
+        <div class="content">
+            <hr>
+<blockquote>
+<p>分别使用 C/C++、Java、Python 和 Haskell 实现快速排序和归并排序算法，对采用这几种语言实现的编程效率，程序的规模，程序的运行效率进行对比分析。</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="1-实验目的和内容"><a href="#1-实验目的和内容" class="headerlink" title="1 实验目的和内容"></a>1 实验目的和内容</h2><ul>
+<li><p>实验目的：了解程序设计语言的发展历史，了解不同程序设计语言的各自特点;感受编 译执行和解释执行两种不同的执行方式，初步体验语言对编译器设计的影响，为 后续编译程序的设计和开发奠定良好的基础。</p>
+</li>
+<li><p>实验内容： 分别使用 C/C++、Java、Python 和 Haskell 实现快速排序算法和归并排序，对采用这几种语言实现的编程效率，程序的规模，程序的运行效率进行对比分析。</p>
+</li>
+<li><p>实验说明：实验使用电脑参数如下</p>
+<p><img src="Screenshot2020-02-2217.13.04.png" alt="电脑参数"></p>
+</li>
+</ul>
+<h2 id="2-实验的具体过程和步骤"><a href="#2-实验的具体过程和步骤" class="headerlink" title="2 实验的具体过程和步骤"></a>2 实验的具体过程和步骤</h2><ul>
+<li><p>实验分三组：</p>
+<ul>
+<li>普通情况(50000个范围在1~100000的不重复数)下不同语言的归并排序和快速排序</li>
+<li>最坏情况：<ul>
+<li>小规模组(1000-&gt;1逆序排列) </li>
+<li>大规模组(10000-&gt;1逆序排列)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>快速排序的算法采用三数取最小数的算法，平均时间复杂度 $ O(nlogn) $ ，最坏时间复杂度 $ O(n^2) $</p>
+</li>
+<li><p>归并排序无论最好最坏情况，时间复杂度均为 $ O(nlog_2n) $ </p>
+</li>
+<li><p>不同语言所使用的的算法完全一致，时间函数分别使用各语言提供的库函数</p>
+<h3 id="C语言"><a href="#C语言" class="headerlink" title="C语言"></a>C语言</h3></li>
+</ul>
+<ol>
+<li>编译器版本及运行环境</li>
+</ol>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">   $ gcc --version<br>   Apple clang version 11.0.0 (clang-1100.0.33.17)<br>Target: x86_64-apple-darwin19.3.0<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>源代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;time.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/time.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> N 1000 <span class="hljs-comment">//50000为实验1规模，10000为实验2-1规模，1000为实验2-2规模</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> O 2 <span class="hljs-comment">//1为装填out.txt中的数据，2为装填逆序数组</span></span><br><br><span class="hljs-comment">//归并函数</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Merge</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *num, <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> mid, <span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>)</span></span>&#123;<br>    <span class="hljs-keyword">int</span> *temp = (<span class="hljs-keyword">int</span> *)<span class="hljs-built_in">malloc</span>((<span class="hljs-built_in">end</span>-start+<span class="hljs-number">1</span>) * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>));<br>    <span class="hljs-keyword">int</span> i = start;<br>    <span class="hljs-keyword">int</span> j = mid + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= <span class="hljs-built_in">end</span>)&#123;<br>        <span class="hljs-keyword">if</span> (num[i] &lt;= num[j])&#123;<br>            temp[k++] = num[i++];<br>        &#125;<br>        <span class="hljs-keyword">else</span> &#123;<br>            temp[k++] = num[j++];<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">while</span> (i &lt;= mid)&#123;<br>        temp[k++] = num[i++];<br>    &#125;<br>    <span class="hljs-keyword">while</span> (j &lt;= <span class="hljs-built_in">end</span>)&#123;<br>        temp[k++] = num[j++];<br>    &#125;<br>    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; k; i++)&#123;<br>        num[start + i] = temp[i];<br>    &#125;<br>    <span class="hljs-built_in">free</span>(temp);<br>&#125;<br><br><span class="hljs-comment">//归并排序</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">MergeSort_UptoDown</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *num, <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>)</span><br></span>&#123;<br>    <span class="hljs-keyword">int</span> mid = start + (<span class="hljs-built_in">end</span> - start) / <span class="hljs-number">2</span>;<br><br>    <span class="hljs-keyword">if</span> (start &gt;= <span class="hljs-built_in">end</span>)<br>    &#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <br>    MergeSort_UptoDown(num, start, mid);<br>    MergeSort_UptoDown(num, mid + <span class="hljs-number">1</span>, <span class="hljs-built_in">end</span>);<br>    Merge(num, start, mid, <span class="hljs-built_in">end</span>);<br>&#125;<br><br><span class="hljs-comment">//分解函数</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">partition</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr[], <span class="hljs-keyword">int</span> low, <span class="hljs-keyword">int</span> high)</span></span>&#123;<br>    <span class="hljs-keyword">int</span> key;<br>    key = arr[low];<br>    <span class="hljs-keyword">while</span>(low&lt;high)&#123;<br>        <span class="hljs-keyword">while</span>(low &lt;high &amp;&amp; arr[high]&gt;= key )<br>            high--;<br>        <span class="hljs-keyword">if</span>(low&lt;high)<br>            arr[low++] = arr[high];<br>        <span class="hljs-keyword">while</span>( low&lt;high &amp;&amp; arr[low]&lt;=key )<br>            low++;<br>        <span class="hljs-keyword">if</span>(low&lt;high)<br>            arr[high--] = arr[low];<br>    &#125;<br>    arr[low] = key;<br>    <span class="hljs-keyword">return</span> low;<br>&#125;<br><span class="hljs-comment">//快速排序</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">quick_sort</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr[], <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>)</span></span>&#123;<br>    <span class="hljs-keyword">int</span> pos;<br>    <span class="hljs-keyword">if</span> (start&lt;<span class="hljs-built_in">end</span>)&#123;<br>        pos = partition(arr, start, <span class="hljs-built_in">end</span>);<br>        quick_sort(arr,start,pos<span class="hljs-number">-1</span>);<br>        quick_sort(arr,pos+<span class="hljs-number">1</span>,<span class="hljs-built_in">end</span>);<br>    &#125;<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><span class="hljs-comment">//装填函数</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">fill</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr[])</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(O==<span class="hljs-number">1</span>)&#123;<br>        <span class="hljs-keyword">int</span> cnt = <span class="hljs-number">0</span>;<br>        FILE *fp = <span class="hljs-literal">NULL</span>;<br>        fp = fopen(<span class="hljs-string">"/Users/apple/Downloads/out.txt"</span>,<span class="hljs-string">"r"</span>);<br>        <span class="hljs-keyword">char</span> buff[<span class="hljs-number">10</span>];<br>        <span class="hljs-keyword">while</span>(<span class="hljs-built_in">fscanf</span>(fp,<span class="hljs-string">"%s"</span>,buff)!=EOF)&#123;<br>        arr[cnt++]=atoi(buff);<br>        &#125;<br>        <span class="hljs-keyword">return</span> cnt;<br>    &#125;<br>    <span class="hljs-keyword">else</span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; N; ++i)<br>        &#123;<br>            arr[i] = N - i;<br>        &#125;<br>        <span class="hljs-keyword">return</span> N;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">int</span> arr[N+<span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">int</span> num = <span class="hljs-built_in">fill</span>(arr);<br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">timeval</span> <span class="hljs-title">begintime</span>,<span class="hljs-title">endtime</span>;</span><br>    gettimeofday(&amp;begintime, <span class="hljs-literal">NULL</span>);<br>    quick_sort(arr , <span class="hljs-number">0</span> , num<span class="hljs-number">-1</span>);<br>    gettimeofday(&amp;endtime, <span class="hljs-literal">NULL</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Size-%d / "</span>, num);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Qsort-C Running Time : %ld ms\n"</span>,<span class="hljs-number">1000</span>*(endtime.tv_sec-begintime.tv_sec)+(endtime.tv_usec-begintime.tv_usec)/<span class="hljs-number">1000</span>);<br><br>    num = <span class="hljs-built_in">fill</span>(arr);<br>    gettimeofday(&amp;begintime, <span class="hljs-literal">NULL</span>);<br>    MergeSort_UptoDown(arr , <span class="hljs-number">0</span> , num<span class="hljs-number">-1</span>);<br>    gettimeofday(&amp;endtime, <span class="hljs-literal">NULL</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Size-%d / "</span>, num);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Mergesort-C Running Time : %ld ms\n"</span>,<span class="hljs-number">1000</span>*(endtime.tv_sec-begintime.tv_sec)+(endtime.tv_usec-begintime.tv_usec)/<span class="hljs-number">1000</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>使用gcc编译器生成可执行文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -o lab1_c lab1.c<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在终端运行可执行文件6次</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">/.lab1_c<br></code></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><ol>
+<li><p>编译器版本及运行环境</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">   $ Javac --version<br>   javac 10.0.2<br>   $ java --version<br>   openjdk 10.0.2 2018-07-17<br>   OpenJDK Runtime Environment 18.3 (build 10.0.2+13)<br>OpenJDK 64-Bit Server VM 18.3 (build 10.0.2+13, mixed mode)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>源代码</p>
+<figure class="highlight Java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">import</span> java.io.*;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Lab1</span> </span>&#123;<br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> O = <span class="hljs-number">2</span>; <span class="hljs-comment">//1为装填out.txt中的数据，2为装填逆序数组</span><br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">10000</span>; <span class="hljs-comment">//50000为实验1规模，10000为实验2-1规模，1000为实验2-2规模</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fill</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr)</span></span>&#123;<br>        <span class="hljs-keyword">if</span> (O==<span class="hljs-number">1</span>) &#123;<br>            <span class="hljs-keyword">int</span> cnt =<span class="hljs-number">0</span>;<br>            String pathname = <span class="hljs-string">"/Users/apple/Downloads/out.txt"</span>;<br>            <span class="hljs-keyword">try</span> (FileReader reader = <span class="hljs-keyword">new</span> FileReader(pathname);<br>                BufferedReader br = <span class="hljs-keyword">new</span> BufferedReader(reader)<br>            )&#123;<br>                String line;<br>                <span class="hljs-keyword">while</span> ((line = br.readLine()) != <span class="hljs-keyword">null</span>) &#123;<br>                arr[cnt++]=Integer.parseInt(line);<br>                &#125;<br>            &#125;<span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                e.printStackTrace();<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;N; i++) &#123;<br>                arr[i] = N-i;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>        print5();<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print5</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">int</span>[] arr = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[N];<br>        fill(arr);<br>        <span class="hljs-keyword">long</span> t = System.currentTimeMillis();<br>        <span class="hljs-comment">// System.out.println(arr[0]+" "+arr[N/2]+" "+arr[N-1]);</span><br>        quick_sort(arr,<span class="hljs-number">0</span> , N-<span class="hljs-number">1</span>);<br>        <span class="hljs-comment">// System.out.println(arr[0]+" "+arr[N/2]+" "+arr[N-1]);</span><br>        System.out.println(<span class="hljs-string">"QSort-Size-"</span>+N+<span class="hljs-string">" / Java Running time : "</span>+(System.currentTimeMillis()-t)+<span class="hljs-string">" ms"</span>);<br><br>        fill(arr);<br>        <span class="hljs-comment">// System.out.println(arr[0]+" "+arr[N/2]+" "+arr[N-1]);</span><br>        t = System.currentTimeMillis();<br>        m_sort(arr,<span class="hljs-number">0</span> , N-<span class="hljs-number">1</span>);<br>        <span class="hljs-comment">// System.out.println(arr[0]+" "+arr[N/2]+" "+arr[N-1]);</span><br>        System.out.println(<span class="hljs-string">"MergeSort-Size-"</span>+N+<span class="hljs-string">" / Java Running time : "</span>+(System.currentTimeMillis()-t)+<span class="hljs-string">" ms"</span>);<br>        <br>    &#125;<br>    <span class="hljs-comment">//分解函数</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">partition</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> []arr, <span class="hljs-keyword">int</span> low, <span class="hljs-keyword">int</span> high)</span></span>&#123;<br>    <span class="hljs-keyword">int</span> key;<br>    key = arr[low];<br>    <span class="hljs-keyword">while</span>(low&lt;high)&#123;<br>        <span class="hljs-keyword">while</span>(low &lt;high &amp;&amp; arr[high]&gt;= key )<br>            high--;<br>        <span class="hljs-keyword">if</span>(low&lt;high)<br>            arr[low++] = arr[high];<br>        <span class="hljs-keyword">while</span>( low&lt;high &amp;&amp; arr[low]&lt;=key )<br>            low++;<br>        <span class="hljs-keyword">if</span>(low&lt;high)<br>            arr[high--] = arr[low];<br>    &#125;<br>    arr[low] = key;<br>    <span class="hljs-keyword">return</span> low;<br>    &#125;<br>    <span class="hljs-comment">//快速排序</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">quick_sort</span><span class="hljs-params">(<span class="hljs-keyword">int</span> []arr, <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> end)</span></span>&#123;<br>        <span class="hljs-keyword">int</span> pos;<br>        <span class="hljs-keyword">if</span> (start&lt;end)&#123;<br>            pos = partition(arr, start, end);<br>            quick_sort(arr,start,pos-<span class="hljs-number">1</span>);<br>            quick_sort(arr,pos+<span class="hljs-number">1</span>,end);<br>        &#125;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-comment">//归并排序</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span>[] m_sort(<span class="hljs-keyword">int</span>[] a,<span class="hljs-keyword">int</span> low,<span class="hljs-keyword">int</span> high)&#123;<br>        <span class="hljs-keyword">int</span> mid = (low+high)/<span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span>(low&lt;high)&#123;<br>            m_sort(a,low,mid);<br>            m_sort(a,mid+<span class="hljs-number">1</span>,high);<br>            <span class="hljs-comment">//左右归并</span><br>            merge(a,low,mid,high);<br>        &#125;<br>        <span class="hljs-keyword">return</span> a;<br>    &#125;<br>     <span class="hljs-comment">//合并函数</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] a, <span class="hljs-keyword">int</span> low, <span class="hljs-keyword">int</span> mid, <span class="hljs-keyword">int</span> high)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span>[] temp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[high-low+<span class="hljs-number">1</span>];<br>        <span class="hljs-keyword">int</span> i= low;<br>        <span class="hljs-keyword">int</span> j = mid+<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> k=<span class="hljs-number">0</span>;<br>        <span class="hljs-comment">// 把较小的数先移到新数组中</span><br>        <span class="hljs-keyword">while</span>(i&lt;=mid &amp;&amp; j&lt;=high)&#123;<br>            <span class="hljs-keyword">if</span>(a[i]&lt;a[j])&#123;<br>                temp[k++] = a[i++];<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                temp[k++] = a[j++];<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">// 把左边剩余的数移入数组 </span><br>        <span class="hljs-keyword">while</span>(i&lt;=mid)&#123;<br>            temp[k++] = a[i++];<br>        &#125;<br>        <span class="hljs-comment">// 把右边边剩余的数移入数组</span><br>        <span class="hljs-keyword">while</span>(j&lt;=high)&#123;<br>            temp[k++] = a[j++];<br>        &#125;<br>        <span class="hljs-comment">// 把新数组中的数覆盖nums数组</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> x=<span class="hljs-number">0</span>;x&lt;temp.length;x++)&#123;<br>            a[x+low] = temp[x];<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>使用java编译器(javac.exe)编译为字节码文件(.class)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">javac Lab1.java<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>运行生成的字节码文件6次</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">java Lab1<br></code></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="python"><a href="#python" class="headerlink" title="python"></a>python</h3><ol>
+<li><p>解释器版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ python --version<br>Python 2.7.16<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>源代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">import</span> sys<br>sys.setrecursionlimit(<span class="hljs-number">100000</span>)<br><br>O = <span class="hljs-number">1</span>  //<span class="hljs-number">1</span>为装填out.txt中的数据，<span class="hljs-number">2</span>为装填逆序数组<br>N = <span class="hljs-number">50000</span>  //<span class="hljs-number">50000</span>为实验<span class="hljs-number">1</span>规模，<span class="hljs-number">10000</span>为实验<span class="hljs-number">2</span><span class="hljs-number">-1</span>规模，<span class="hljs-number">1000</span>为实验<span class="hljs-number">2</span><span class="hljs-number">-2</span>规<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">merge</span><span class="hljs-params">(arr, l, m, r)</span>:</span> <br>    n1 = m - l + <span class="hljs-number">1</span><br>    n2 = r- m <br>    L = [<span class="hljs-number">0</span>] * (n1)<br>    R = [<span class="hljs-number">0</span>] * (n2)<br>  <br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span> , n1): <br>        L[i] = arr[l + i] <br>  <br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span> , n2): <br>        R[j] = arr[m + <span class="hljs-number">1</span> + j] <br>  <br>    i=<span class="hljs-number">0</span><br>    j=<span class="hljs-number">0</span><br>    k=l<br>  <br>    <span class="hljs-keyword">while</span> i &lt; n1 <span class="hljs-keyword">and</span> j &lt; n2 : <br>        <span class="hljs-keyword">if</span> L[i] &lt;= R[j]: <br>            arr[k] = L[i] <br>            i += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">else</span>: <br>            arr[k] = R[j] <br>            j += <span class="hljs-number">1</span><br>        k += <span class="hljs-number">1</span><br>  <br>    <span class="hljs-keyword">while</span> i &lt; n1: <br>        arr[k] = L[i] <br>        i += <span class="hljs-number">1</span><br>        k += <span class="hljs-number">1</span><br>  <br>    <span class="hljs-keyword">while</span> j &lt; n2: <br>        arr[k] = R[j] <br>        j += <span class="hljs-number">1</span><br>        k += <span class="hljs-number">1</span><br>  <br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mergeSort</span><span class="hljs-params">(arr,l,r)</span>:</span> <br>    <span class="hljs-keyword">if</span> l &lt; r: <br>  <br>        <br>        m = int((l+(r<span class="hljs-number">-1</span>))/<span class="hljs-number">2</span>)<br>  <br>       <br>        mergeSort(arr, l, m) <br>        mergeSort(arr, m+<span class="hljs-number">1</span>, r) <br>        merge(arr, l, m, r) <br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">partition</span><span class="hljs-params">(arr,low,high)</span>:</span><br>	key = arr[low]<br>	<span class="hljs-keyword">while</span>(low&lt;high):<br>		<span class="hljs-keyword">while</span> low&lt;high <span class="hljs-keyword">and</span> arr[high] &gt;= key:<br>			high-=<span class="hljs-number">1</span><br>		<span class="hljs-keyword">if</span> low&lt;high:<br>			arr[low] = arr[high]<br>			low+=<span class="hljs-number">1</span><br>		<span class="hljs-keyword">while</span> low&lt;high <span class="hljs-keyword">and</span> arr[low]&lt;=key:<br>			low+=<span class="hljs-number">1</span><br>		<span class="hljs-keyword">if</span> low&lt;high:<br>			arr[high] = arr[low]<br>			high -= <span class="hljs-number">1</span><br>	arr[low] = key<br>	<span class="hljs-keyword">return</span> low<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">q_sort</span><span class="hljs-params">(arr,start,end)</span>:</span><br>	<span class="hljs-keyword">if</span> start&lt;end:<br>		pos = partition(arr,start,end)<br>		q_sort(arr,start,pos<span class="hljs-number">-1</span>)<br>		q_sort(arr,pos+<span class="hljs-number">1</span>,end)<br>	<span class="hljs-keyword">return</span> arr<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">quick_sort</span><span class="hljs-params">(arr)</span>:</span><br>	<span class="hljs-keyword">return</span> q_sort(arr,<span class="hljs-number">0</span>,len(arr)<span class="hljs-number">-1</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">do</span><span class="hljs-params">()</span>:</span><br>    <span class="hljs-keyword">if</span>(O==<span class="hljs-number">1</span>)<br>      arr=[] <span class="hljs-comment">#直接使用out.txt内数据初始化</span><br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> xrange(<span class="hljs-number">1</span>,N):<br>            arr[i]=N-x;<br>	begintime=time.time()<br>	quick_sort(arr)<br>	endtime = time.time()<br>	Running_time = (endtime-begintime)*<span class="hljs-number">1000</span><br>	print(<span class="hljs-string">"Qsort-python Running time : %f ms"</span>%Running_time)<br><br>	begintime=time.time()<br>	mergeSort(arr,<span class="hljs-number">0</span>,len(arr)<span class="hljs-number">-1</span>)<br>	endtime = time.time()<br>	Running_time = (endtime-begintime)*<span class="hljs-number">1000</span><br>	print(<span class="hljs-string">"Msort-python Running time : %f ms"</span>%Running_time)<br><br>arr = [<span class="hljs-number">0</span>]*N<br>do()<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在终端运行6次</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python lab1.py<br></code></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="Haskell"><a href="#Haskell" class="headerlink" title="Haskell"></a>Haskell</h3><ol>
+<li><p>解释器版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ runhaskell --version<br>runghc 8.8.2<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>源代码</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-keyword">import</span> Text.Printf<br><span class="hljs-keyword">import</span> Control.Exception<br><span class="hljs-keyword">import</span> System.CPUTime<br><br><span class="hljs-title">msort</span> :: (<span class="hljs-type">Ord</span> a) =&gt; [a] -&gt; [a]<br><span class="hljs-title">msort</span> [] = []<br><span class="hljs-title">msort</span> [x] = [x]<br><span class="hljs-title">msort</span> xs = merge (msort xs1) (msort xs2)<br>  <span class="hljs-keyword">where</span> k = (length xs) `div` <span class="hljs-number">2</span><br>        xs1 = take k xs<br>        xs2 = drop k xs<br><br>        merge :: (<span class="hljs-type">Ord</span> a) =&gt; [a] -&gt; [a] -&gt; [a]<br>        merge [] b = b <br>        merge a [] = a<br>        merge a@(x:xs) b@(y:ys) | x &gt;= y    = x:(merge xs b)<br>                                | otherwise = y:(merge a ys)<br><br><span class="hljs-title">qsort</span> :: (<span class="hljs-type">Ord</span> a) =&gt; [a] -&gt; [a]<br><span class="hljs-title">qsort</span> [] = []<br><span class="hljs-title">qsort</span> (x:xs) = qsort [i | i &lt;- xs, i &gt;= x]<br>  ++ [x]<br>  ++ qsort [i | i &lt;- xs, i &lt; x]<br><br><span class="hljs-title">main</span>=<span class="hljs-keyword">do</span><br>    start &lt;- getCPUTime<br>    <span class="hljs-keyword">let</span> list =msort [] <span class="hljs-comment">--实验1直接填入out.txt中数组，实验2-1为[1..1000]，实验2.2为[1..10000]</span><br>    <span class="hljs-keyword">let</span> a = maximum list<br>    printf <span class="hljs-string">"Size %d "</span>(a::<span class="hljs-type">Int</span>)<br>    end   &lt;- getCPUTime<br>    <span class="hljs-keyword">let</span> diff = (fromIntegral (end - start)) / (<span class="hljs-number">10</span>^<span class="hljs-number">9</span>)<br>    printf <span class="hljs-string">"qsort Haskell Running time: %0.3f ms\n"</span> (diff :: <span class="hljs-type">Double</span>)<br><br>    start &lt;- getCPUTime<br>    <span class="hljs-keyword">let</span> list =qsort [] <span class="hljs-comment">--实验1直接填入out.txt中数组，实验2-1为[1..1000]，实验2.2为[1..10000]</span><br>    <span class="hljs-keyword">let</span> a = maximum list<br>    printf <span class="hljs-string">"Size %d "</span>(a::<span class="hljs-type">Int</span>)<br>    end   &lt;- getCPUTime<br>    <span class="hljs-keyword">let</span> diff = (fromIntegral (start - end)) / (<span class="hljs-number">10</span>^<span class="hljs-number">9</span>)<br>    printf <span class="hljs-string">"msort Haskell Running time: %0.3f ms\n"</span> (diff :: <span class="hljs-type">Double</span>)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在终端运行6次</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">runhaskell lab1.hs<br></code></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="3-运行效果截图"><a href="#3-运行效果截图" class="headerlink" title="3 运行效果截图"></a>3 运行效果截图</h2><h3 id="1-常规组"><a href="#1-常规组" class="headerlink" title="1 常规组"></a>1 常规组</h3><blockquote>
+<p>50000个范围在1~1000000的不重复数</p>
+</blockquote>
+<h4 id="C"><a href="#C" class="headerlink" title="C"></a>C</h4><img src="Screenshot2020-02-2616.50.19.png" alt="C" style="zoom:50%;" />
+
+<ul>
+<li><p>快速排序平均运行时间：6.00 ms</p>
+</li>
+<li><p>归并排序平均运行时间：13.33 ms</p>
+</li>
+</ul>
+<h4 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h4><img src="Screenshot2020-02-2616.52.32.png" alt="java" style="zoom: 50%;" />
+
+<ul>
+<li><p>快速排序平均运行时间：14.00 ms</p>
+</li>
+<li><p>归并排序平均运行时间：16.33 ms</p>
+</li>
+</ul>
+<h4 id="python-1"><a href="#python-1" class="headerlink" title="python"></a>python</h4><img src="Screenshot2020-02-2616.55.17.png" alt="python" style="zoom:50%;" />
+
+<ul>
+<li><p>快速排序平均运行时间：88.26 ms</p>
+</li>
+<li><p>归并排序平均运行时间：244.45  ms</p>
+</li>
+</ul>
+<h4 id="Haskell-1"><a href="#Haskell-1" class="headerlink" title="Haskell"></a>Haskell</h4><blockquote>
+<p>因为笔者失误，此处Size应为50000，msort和qsort对应时间输出交换，即第一行为qsort运行时间，第二行为msort运行时间</p>
+</blockquote>
+<img src="Screenshot2020-02-2616.59.54.png" alt="haskell" style="zoom:50%;" />
+
+<ul>
+<li><p>快速排序平均运行时间：504.93 ms</p>
+</li>
+<li><p>归并排序平均运行时间：416.71 ms</p>
+</li>
+</ul>
+<h3 id="2-1-小规模最坏数据"><a href="#2-1-小规模最坏数据" class="headerlink" title="2-1 小规模最坏数据"></a>2-1 小规模最坏数据</h3><blockquote>
+<p>对逆序数组[1000,999,998,997,996,995,…,4,3,2,1]进行升序排列</p>
+</blockquote>
+<h4 id="C-1"><a href="#C-1" class="headerlink" title="C"></a>C</h4><img src="Screenshot2020-02-2617.03.17.png" alt="C" style="zoom:50%;" />
+
+<ul>
+<li><p>快速排序平均运行时间：1 ms</p>
+</li>
+<li><p>归并排序平均运行时间：0 ms</p>
+</li>
+</ul>
+<h4 id="Java-1"><a href="#Java-1" class="headerlink" title="Java"></a>Java</h4><img src="Screenshot2020-02-2617.04.00.png" alt="Java" style="zoom:50%;" />
+
+<ul>
+<li><p>快速排序平均运行时间：3.5 ms</p>
+</li>
+<li><p>归并排序平均运行时间：0.83 ms</p>
+</li>
+</ul>
+<h4 id="python-2"><a href="#python-2" class="headerlink" title="python"></a>python</h4><img src="Screenshot2020-02-2617.05.24.png" alt="python" style="zoom:50%;" />
+
+<ul>
+<li>快速排序平均运行时间：26.24 ms</li>
+<li>归并排序平均运行时间：3.51 ms</li>
+</ul>
+<h4 id="Haskell-2"><a href="#Haskell-2" class="headerlink" title="Haskell"></a>Haskell</h4><blockquote>
+<p>因为笔者失误，msort和qsort对应时间输出交换，即第一行为qsort运行时间，第二行为msort运行时间</p>
+</blockquote>
+<img src="Screenshot2020-02-2617.08.14.png" alt="Haskell" style="zoom:50%;" />
+
+<ul>
+<li>快速排序平均运行时间：309.12 ms</li>
+<li>归并排序平均运行时间：3.285 ms</li>
+</ul>
+<h3 id="2-2大规模最坏数据"><a href="#2-2大规模最坏数据" class="headerlink" title="2-2大规模最坏数据"></a>2-2大规模最坏数据</h3><blockquote>
+<p>对逆序排列[10000,9999,9998,9997,9996,9995,…,4,3,2,1]进行升序排列</p>
+<p>因为Haskell较易生成正序列表，所以对于Haskell对正序排列[1,2,3,4…9999,10000]进行降序排列</p>
+</blockquote>
+<h4 id="C-2"><a href="#C-2" class="headerlink" title="C"></a>C</h4><img src="Screenshot2020-02-2617.10.10.png" alt="C" style="zoom:50%;" />
+
+<ul>
+<li>快速排序平均运行时间：97.17 ms</li>
+<li>归并排序平均运行时间：1.6 ms</li>
+</ul>
+<h4 id="Java-2"><a href="#Java-2" class="headerlink" title="Java"></a>Java</h4><img src="Screenshot2020-02-2616.32.16.png" alt="JAVA" style="zoom:50%;" />
+
+<ul>
+<li>快速排序平均运行时间：45.67 ms</li>
+<li>归并排序平均运行时间：4.67 ms</li>
+</ul>
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><img src="Screenshot2020-02-2617.13.01.png" alt="Python" style="zoom:50%;" />
+
+<ul>
+<li>快速排序平均运行时间：2595.45 ms -&gt; 2.6s</li>
+<li>归并排序平均运行时间：41.71 ms</li>
+</ul>
+<h4 id="Haskell-3"><a href="#Haskell-3" class="headerlink" title="Haskell"></a>Haskell</h4><blockquote>
+<p>因为笔者失误，msort和qsort对应时间输出交换，即第一行实为qsort运行时间，第二行为msort运行时间</p>
+</blockquote>
+<img src="Screenshot2020-02-2617.50.13.png" alt="Haskell" style="zoom:50%;" />
+
+<ul>
+<li>快速排序平均运行时间：31378.91 ms -&gt; 31.4s</li>
+<li>归并排序平均运行时间：38.00 ms</li>
+</ul>
+<h2 id="4-语言易用性和程序规模对比分析"><a href="#4-语言易用性和程序规模对比分析" class="headerlink" title="4 语言易用性和程序规模对比分析"></a>4 语言易用性和程序规模对比分析</h2><h3 id="1-语言易用性"><a href="#1-语言易用性" class="headerlink" title="1 语言易用性"></a>1 语言易用性</h3><h4 id="1-学习难度"><a href="#1-学习难度" class="headerlink" title="1 学习难度"></a>1 学习难度</h4><p><strong>Python&lt;=Java&lt;=C&lt;&lt;Haskell</strong></p>
+<table>
+<thead>
+<tr>
+<th>语言</th>
+<th>难度分析</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C</td>
+<td>C作为大多数人编程的入门语言，先声夺人，字符串处理文件处理数组初始化等等基础操作，大多时候我都更习惯c的写法。链表与指针和内存管理是C的一大难以逾越的障碍</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>Java的语法大致类似C/C++，并且没有C中令人头疼的链表指针和内存操作，有自动内存管理，个人认为学过C再加上对面向对象的理解是非常容易上手Java的</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>Python近年被广泛推崇为儿童编程的入门语言，不一定说明它很简单，但至少说明它入门容易。Python中缩进作为格式化使得程序总体更简洁，但也使得在大项目中它的可维护性降低。Python更适合于小型项目，或者玩具，例如跑一个CNN。</td>
+</tr>
+<tr>
+<td>Haskell</td>
+<td>习惯了命令式语言，面对Haskell这样的纯函数式语言会陷入完全的不知所措。它是一种不同的概念、一种新的语言范式。需要用与我们的习惯所不同的方式开发应用，不同的方式组织应用，不同的方式扩展应用</td>
+</tr>
+</tbody></table>
+<h4 id="2-语言的编程效率"><a href="#2-语言的编程效率" class="headerlink" title="2 语言的编程效率"></a>2 语言的编程效率</h4><p>个人认为编程分为两部分：初始编码+Debug</p>
+<p>对于几种主流语言编程效率的普遍看法认为，python是效率最高的，C次之，Java最为啰嗦繁琐，而函数式编程语言较少用于工程。但我个人的经历里，不同语言在不同项目规模下各有所长。大型项目大多基于Java的相关框架，如果开发一个移动互联应用(上万行)，Java几乎可以说是没有敌手，它的啰嗦和繁琐减小了奇奇怪怪的bug发生的可能性，而在Java下继续前进还有Korlin，Swift等专门为应用开发而设计的语言。C/C++适合于开发小型项目(几千行)，比如小游戏或者解释器，使用C开发能够在某种程度上方便开发者最大程度提升程序的运行效率。至于Python，个人认为Python适合千行以内的代码规模，目前的学习中使用到Python的地方主要是人工智能和知识工程等课程，一个神经网络大致也就一百行代码，Python的相关库Numpy和TensorFlow在神经网络的应用中已经非常成熟。尽管Python在初始编码阶段能优雅简洁的一行代码完成一个复杂的功能，但在debug阶段Python也能让人一个头有两个大。使用Python中稍不注意就会有缩进造成的bug，怎么检查都难以寻觅其踪迹，可想如果代码规模稍大，该有多么头疼。</p>
+<p>至于函数式编程，其思想和命令式编程有很大的不同。有人说，大部分人第一次使用Haskell或Ocaml时都完全的不知所措。在Haskell里，连分号都跟别人不一样。这并不是语法的问题；Haskell和ML语言完全基于一种不同的概念、一种新的语言范式。需要用不同的方式开发应用，不同的方式组织应用，不同的方式扩展应用。所以说它入门门槛高，适用范围不广，但是学界非常喜欢，其在数学逻辑证明上的优势是其他语言望尘莫及的。而非纯函数编程语言，如Lisp，其历史悠久，也曾在相关历史时期居于某些领域(人工智能)的统治地位。</p>
+<p>总而言之，在不同的战场上使用相适合的工具是决定编程效率的关键。而就本次实验中的编程效率来说，仅仅实现一个快排算法，C，Java和Python并无太大差别，有差别也主要是个人对于不同语言熟练性造成的，Haskell的描述函数是什么而不是命令机器怎么做的优势高下立现，程序规模是其他的一半(统计见表4-3)</p>
+<h3 id="3-程序规模"><a href="#3-程序规模" class="headerlink" title="3 程序规模"></a>3 程序规模</h3><p>Python&gt;=C&gt;Java&gt;&gt;Haskell</p>
+<table>
+<thead>
+<tr>
+<th>语言</th>
+<th align="right">快排总代码行数</th>
+<th>实现快排函数行数</th>
+<th align="right">归并排序总代码行数</th>
+<th align="right">实现归并函数行数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C</td>
+<td align="right">46</td>
+<td>24</td>
+<td align="right">41</td>
+<td align="right">41</td>
+</tr>
+<tr>
+<td>Java</td>
+<td align="right">37</td>
+<td>25</td>
+<td align="right">38</td>
+<td align="right">38</td>
+</tr>
+<tr>
+<td>Python</td>
+<td align="right">46</td>
+<td>21</td>
+<td align="right">45</td>
+<td align="right">45</td>
+</tr>
+<tr>
+<td>Haskell</td>
+<td align="right">17</td>
+<td>4</td>
+<td align="right">11</td>
+<td align="right">11</td>
+</tr>
+</tbody></table>
+<img src="Screenshot2020-02-2618.35.39.png" alt="表4-3代码规模比较" style="zoom:100%;" />
+
+
+
+
+
+<h2 id="5-程序运行性能对比分析"><a href="#5-程序运行性能对比分析" class="headerlink" title="5 程序运行性能对比分析"></a>5 程序运行性能对比分析</h2><blockquote>
+<p>(统一保留到小数点后一位)</p>
+</blockquote>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><table>
+<thead>
+<tr>
+<th>语言</th>
+<th align="right">常规组平均运行时间$O(nlogn)$</th>
+<th align="right">小规模最坏组平均运行时间$(O(n^2))$</th>
+<th align="right">大规模最坏组平均运行时间$(O(n^2))$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C</td>
+<td align="right">6.0 ms</td>
+<td align="right">1.0 ms</td>
+<td align="right">96.0 ms</td>
+</tr>
+<tr>
+<td>Java</td>
+<td align="right">14.0 ms</td>
+<td align="right">2.4 ms</td>
+<td align="right">41.8 ms</td>
+</tr>
+<tr>
+<td>Python</td>
+<td align="right">88.3 ms</td>
+<td align="right">24.5 ms</td>
+<td align="right">2396.9 ms</td>
+</tr>
+<tr>
+<td>Haskell</td>
+<td align="right">504.9 ms</td>
+<td align="right">284.4 ms</td>
+<td align="right">45812.2 ms</td>
+</tr>
+</tbody></table>
+<img src="Screenshot2020-02-2618.51.15.png" alt="qsort" style="zoom:67%;" />
+
+<ul>
+<li>在常规组和小规模最坏组的实验中，符合常规的认知，效率上C最优，Java次之；对于解释型语言，Python较快，Haskell非常耗时，尤其是在n为较大值的时间复杂度(O(n^2))下</li>
+<li>在大规模最坏组的实验中，Java比C快了一半。猜测Java在递归过程中编译器进行了优化，因为本实验未涉及几种语言的内存使用测量，故作出此猜测。</li>
+</ul>
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><table>
+<thead>
+<tr>
+<th>语言</th>
+<th align="right">常规组平均运行时间$O(nlogn)$</th>
+<th align="right">小规模组平均运行时间$O(nlogn)$</th>
+<th align="right">大规模组平均运行时间$O(nlogn)$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C</td>
+<td align="right">13.33 ms</td>
+<td align="right">0.3 ms</td>
+<td align="right">1.6 ms</td>
+</tr>
+<tr>
+<td>Java</td>
+<td align="right">16.3 ms</td>
+<td align="right">0.8 ms</td>
+<td align="right">4.7 ms</td>
+</tr>
+<tr>
+<td>Python</td>
+<td align="right">244.5 ms</td>
+<td align="right">3.5 ms</td>
+<td align="right">41.7 ms</td>
+</tr>
+<tr>
+<td>Haskell</td>
+<td align="right">416.7 ms</td>
+<td align="right">3.2 ms</td>
+<td align="right">38.0 ms</td>
+</tr>
+</tbody></table>
+<img src="Screenshot2020-02-2619.32.44.png" alt="msort" style="zoom: 67%;" />
+
+<ul>
+<li><p>归并排序是一种稳定排序，对于最好/最坏/平均都有 $ O(nlogn) $ 复杂度，在实验中确实可以得到体现；效率上以上是C最优，Java次之；对于解释性语言，常规组(规模50000)</p>
+</li>
+<li><p>在小规模组(规模1000)和大规模组(规模10000)的实验中，可以看到Haskell比Python有了细微的优势。但在常规组(规模50000)的实验中，python又超过了Haskell。笔者另外增加了规模80000和100000的测试：</p>
+<img src="Screenshot2020-02-2620.20.28.png" alt="80000-py" style="zoom:50%;" />
+
+<img src="Screenshot2020-02-2620.19.45.png" alt="80000-hs" style="zoom:50%;" />
+
+<ul>
+<li>80000规模python归并排序5次平均运行时间：374.1 ms；</li>
+<li>80000规模haskell归并排序5次平均运行时间：477.3 ms;</li>
+<li>100000规模python归并排序5次平均运行时间：474.1 ms;</li>
+<li>100000规模haskell归并排序5次平均运行时间：588.2 ms;</li>
+</ul>
+<p>可以看出随着数据规模增大，python又较haskell具有了优势。</p>
+</li>
+</ul>
+<h2 id="6-实验心得体会"><a href="#6-实验心得体会" class="headerlink" title="6 实验心得体会"></a>6 实验心得体会</h2><ul>
+<li>我想，大多数人的对编程语言的学习都有一个刚入门时遇到一些困难，然后逐渐轻松，云开日朗，但是之后又遇到一个巨大的瓶颈，有可能是诸如指针这样的概念，也有可能是无关语法的对算法的理解限制住了编程能力的提高。差不多所有学过编程的人都有过遇到困难的经历。我们在学了一些基本知识后，必然会遇到一些公认的概念上的关口，比如指针。很少人能轻松的掌握它们。大多数人，比如我，则需要不断的练习和参考例子来理解什么是指针、为什么它们很重要。</li>
+<li>对于同一种思维方式的语言，如命令式语言，一旦学会几种语言后，所有的语言都开始看起来都很相似，虽然有细微差别，但入门都会相对容易。做移动互联的大作业的时候，Dart、Swift或者Kotlin的语法，它们都存在共通的地方；开发个人博客的时候，利用掌握的html我们也能把Jade、ejs的代码改得更符合我们的需求。Python的人学习Ruby可能不会遇到太多的问题，知道Java的人学习C#会感到很熟悉。不错，也有意外的地方。Ruby爱好者在学习Python时会对它的comprehension感到吃惊，Java用户会对C#里的委托摸不着头脑。还是那句话，如果只瞟一眼，它们都很相似。</li>
+<li>但是第一次使用Haskells时我陷入了不知所措。看官方代码的一头雾水和无论如何都无法让自己的程序正确运行的焦灼不安。这并不是语法的问题；Haskell和ML语言完全基于一种不同的概念、一种新的语言范式。需要用不同的方式开发应用，不同的方式组织应用，不同的方式扩展应用。而我还是习惯性的在haskell中输入<code>let list = quicksort [1..10]</code>这样的命令，期望它运行。很多这样的新概念都具有不可思议的强大力量。Haskell里的Monads是跟指针一样基础且强大的概念。所以，跟学了Java后再学C#不一样，有志向学习函数式语言的人需要往回走的更远，去学习更加基础的概念后才能接下去学习。就像是完全再学习一次</li>
+<li>说说细节上的收获，在进行大规模的实验时，我发现python、Java和Haskell都有对递归深度限制，但是C几乎是完全自由没有任何限制的。在运行速度上，解释执行的Python和Haskell自然无法与编译执行的C和Java比，</li>
+<li>Java虚拟机的启动占用一定的时间，所以在数据规模增后的快排实验中，Java要比C快了一半。</li>
+</ul>
+
+        </div>
+        
+            <div class="my_post_copyright">
+    <div style="text-align:center" class="menu-label">------ copyright ------</div>
+    <p style="text-align:center" class="menu-label"> 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank"><i class="fab fa-creative-commons" style="color:#29a329"></a></i> 许可协议</p>  
+
+    <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+    <div class="has-text-grey is-size-7 is-block">
+    <p><span>title:</span><a href="/posts/53125/">编译原理与设计-Lab1-语言认知实验</a></p>
+    <p><span>author:</span><a href="/">Anne416wu</a></p>
+    <p>
+        <span>link:</span><a href="/posts/53125/" title="编译原理与设计-Lab1-语言认知实验 - Annewqx">https://www.annewqx.top/posts/53125/</a>
+        <span class="copy-path"  title="Click to Copy Link"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/53125/"  aria-label="复制成功！"></i></span>
+    </p>
+    <p><span>publish time:</span>2020-02-20</p>
+    <p><span>update time:</span>2020-03-23</p>
+    </div>
+</div>
+<!-- <ul class="post-copyright">
+    <li><strong>本文标题：</strong><a href="https://www.annewqx.top/posts/53125/">编译原理与设计-Lab1-语言认知实验</a></li>
+     <li><strong>本文作者：</strong><a href="https://www.annewqx.top">Anne416wu</a></li>
+    <li><strong>本文链接：</strong><a href="https://www.annewqx.top/posts/53125/">https://www.annewqx.top/posts/53125/</a></li>
+    <li><strong>发布时间：</strong>2020-02-20</li>
+    <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+    </li>
+</ul> -->
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+        clipboard.on('success', function(){
+            swal({   
+                title: "",   
+                text: '复制成功',
+                icon: "success", 
+                showConfirmButton: true
+            });
+         });
+    });  
+</script>
+
+        
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <!-- <span class="is-size-6 has-text-grey has-mr-7">#</span> -->
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/compilation/" rel="tag">compilation</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧，或者点一下广告也行↓</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/Alipay.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechatpay.jpg" alt="微信"></div>
+</a>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
+    <span class="icon is-small">
+        <i class="fab fa-paypal"></i>
+    </span>
+    <span>Paypal</span>
+</a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form">
+    <input type="hidden" name="cmd" value="_donations" />
+    <input type="hidden" name="business" value="86BR8FGECVEYE" />
+    <input type="hidden" name="currency_code" value="USD" />
+</form>
+
+                
+        </div>
+    </div>
+</div>
+<div class="card widget">
+  <div class="card-content">
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <!-- cross -->
+     <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-6929188339121540"
+          data-ad-slot="5334530389"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+     <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+     </script>
+  </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/32573/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Mac上Haskell的安装环境搭建</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/9931/">
+                <span class="level-item">VPS和Shadowsocks配置</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        avatar: 'retro',
+        notify: true ,
+        verify: false ,
+        app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
+        app_key: '20OYVeUwaMoaoYEp1JhHnBmu',
+        placeholder: 'Leave a comment',
+    });
+</script>
+
+    </div>
+</div>
+
+                    
+                    
+                </div>
+                
+
+
+
+
+
+<div class="column is-one-third-tablet is-3-desktop is-one-fifth-widescreen is-one-fifth-fullhd is-hidden-touch  is-hidden-desktop-only has-order-3 column-left ">    
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/avatar.png" alt="Anne Wu">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Anne Wu
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Anne416Wu
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Beijing, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            26
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            7
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            22
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener external nofollow noreferrer">
+                <i class="fas fa-rss"></i>&nbsp
+                订阅我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Twitter" href="https://twitter.com/annewqx">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Weibo" href="http://weibo.com/5204863560">
+                
+                <i class="fab fa-weibo"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Zhihu" href="https://www.zhihu.com/people/anne-wu-7">
+                
+                <i class="fab fa-zhihu"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Music" href="https://music.163.com/#/user/home?id=122741706">
+                
+                <i class="fa fa-music"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Steam" href="https://steamcommunity.com/profiles/76561198797448390/">
+                
+                <i class="fab fa-steam"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41844395" target="_blank" rel="noopener external nofollow noreferrer">
+                    <span class="level-left">
+                        <span class="level-item">CSDN</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.csdn.net</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.annewqx.top" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Domain</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.annewqx.top</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://anne416wu.github.io" target="_blank" rel="noopener external nofollow noreferrer">
+                    <span class="level-left">
+                        <span class="level-item">GITHUB.IO</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">anne416wu.github.io</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/1742/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/" alt="report-compilation-lab5">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-14T13:08:30.000Z">2020-04-14</time></div>
+                    <a href="/posts/1742/" class="title has-link-black-ter is-size-6 has-text-weight-normal">report-compilation-lab5</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/4542/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="密码学应用和加密货币实践">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-29T07:27:21.000Z">2020-03-29</time></div>
+                    <a href="/posts/4542/" class="title has-link-black-ter is-size-6 has-text-weight-normal">密码学应用和加密货币实践</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/report/">report</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/33846/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab4-文法设计实验">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-23T07:05:17.000Z">2020-03-23</time></div>
+                    <a href="/posts/33846/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab4-文法设计实验</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/report/">report</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/12800/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="网络安全工程-实验2-密码学基础与实践">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-22T07:18:22.000Z">2020-03-22</time></div>
+                    <a href="/posts/12800/" class="title has-link-black-ter is-size-6 has-text-weight-normal">网络安全工程-实验2-密码学基础与实践</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/report/">report</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/62214/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab3-词法分析实验">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-15T10:07:08.000Z">2020-03-15</time></div>
+                    <a href="/posts/62214/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab3-词法分析实验</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/report/">report</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/code/">
+            <span class="level-start">
+                <span class="level-item">code</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">24</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/code/course/">
+            <span class="level-start">
+                <span class="level-item">course</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/code/guide/">
+            <span class="level-start">
+                <span class="level-item">guide</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">7</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/code/note/">
+            <span class="level-start">
+                <span class="level-item">note</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/code/report/">
+            <span class="level-start">
+                <span class="level-item">report</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/life/">
+            <span class="level-start">
+                <span class="level-item">life</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/life/fragments/">
+            <span class="level-start">
+                <span class="level-item">fragments</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AI/">
+                        <span class="tag">AI</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/VPS/">
+                        <span class="tag">VPS</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/anaconda/">
+                        <span class="tag">anaconda</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/caddy/">
+                        <span class="tag">caddy</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/compilation/">
+                        <span class="tag">compilation</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/course/">
+                        <span class="tag">course</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/haskell/">
+                        <span class="tag">haskell</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html/">
+                        <span class="tag">html</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/js/">
+                        <span class="tag">js</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/md/">
+                        <span class="tag">md</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/network/">
+                        <span class="tag">network</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nginx/">
+                        <span class="tag">nginx</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/os/">
+                        <span class="tag">os</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/python/">
+                        <span class="tag">python</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/security/">
+                        <span class="tag">security</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ssh/">
+                        <span class="tag">ssh</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/terminal/">
+                        <span class="tag">terminal</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/testing/">
+                        <span class="tag">testing</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">
+                        <span class="tag">科学上网</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+  <div class="card-content">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Cube -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6929188339121540"
+         data-ad-slot="7652135170"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+    
+    
+    
+</div>
+
+                
+
+
+
+
+
+<div class="column is-one-third-tablet is-3-desktop is-one-fifth-widescreen is-one-fifth-fullhd  has-order-1 column-right is-sticky">    
+    
+        
+
+    <div class="card widget "  id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#1-实验目的和内容">
+        <span class="has-mr-6">1</span>
+        <span>1 实验目的和内容</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-实验的具体过程和步骤">
+        <span class="has-mr-6">2</span>
+        <span>2 实验的具体过程和步骤</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#C语言">
+        <span class="has-mr-6">2.1</span>
+        <span>C语言</span>
+        </a></li><li>
+        <a class="is-flex" href="#Java">
+        <span class="has-mr-6">2.2</span>
+        <span>Java</span>
+        </a></li><li>
+        <a class="is-flex" href="#python">
+        <span class="has-mr-6">2.3</span>
+        <span>python</span>
+        </a></li><li>
+        <a class="is-flex" href="#Haskell">
+        <span class="has-mr-6">2.4</span>
+        <span>Haskell</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#3-运行效果截图">
+        <span class="has-mr-6">3</span>
+        <span>3 运行效果截图</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-常规组">
+        <span class="has-mr-6">3.1</span>
+        <span>1 常规组</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#C">
+        <span class="has-mr-6">3.1.1</span>
+        <span>C</span>
+        </a></li><li>
+        <a class="is-flex" href="#JAVA">
+        <span class="has-mr-6">3.1.2</span>
+        <span>JAVA</span>
+        </a></li><li>
+        <a class="is-flex" href="#python-1">
+        <span class="has-mr-6">3.1.3</span>
+        <span>python</span>
+        </a></li><li>
+        <a class="is-flex" href="#Haskell-1">
+        <span class="has-mr-6">3.1.4</span>
+        <span>Haskell</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#2-1-小规模最坏数据">
+        <span class="has-mr-6">3.2</span>
+        <span>2-1 小规模最坏数据</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#C-1">
+        <span class="has-mr-6">3.2.1</span>
+        <span>C</span>
+        </a></li><li>
+        <a class="is-flex" href="#Java-1">
+        <span class="has-mr-6">3.2.2</span>
+        <span>Java</span>
+        </a></li><li>
+        <a class="is-flex" href="#python-2">
+        <span class="has-mr-6">3.2.3</span>
+        <span>python</span>
+        </a></li><li>
+        <a class="is-flex" href="#Haskell-2">
+        <span class="has-mr-6">3.2.4</span>
+        <span>Haskell</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#2-2大规模最坏数据">
+        <span class="has-mr-6">3.3</span>
+        <span>2-2大规模最坏数据</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#C-2">
+        <span class="has-mr-6">3.3.1</span>
+        <span>C</span>
+        </a></li><li>
+        <a class="is-flex" href="#Java-2">
+        <span class="has-mr-6">3.3.2</span>
+        <span>Java</span>
+        </a></li><li>
+        <a class="is-flex" href="#Python">
+        <span class="has-mr-6">3.3.3</span>
+        <span>Python</span>
+        </a></li><li>
+        <a class="is-flex" href="#Haskell-3">
+        <span class="has-mr-6">3.3.4</span>
+        <span>Haskell</span>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#4-语言易用性和程序规模对比分析">
+        <span class="has-mr-6">4</span>
+        <span>4 语言易用性和程序规模对比分析</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-语言易用性">
+        <span class="has-mr-6">4.1</span>
+        <span>1 语言易用性</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-学习难度">
+        <span class="has-mr-6">4.1.1</span>
+        <span>1 学习难度</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-语言的编程效率">
+        <span class="has-mr-6">4.1.2</span>
+        <span>2 语言的编程效率</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#3-程序规模">
+        <span class="has-mr-6">4.2</span>
+        <span>3 程序规模</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#5-程序运行性能对比分析">
+        <span class="has-mr-6">5</span>
+        <span>5 程序运行性能对比分析</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#快速排序">
+        <span class="has-mr-6">5.1</span>
+        <span>快速排序</span>
+        </a></li><li>
+        <a class="is-flex" href="#归并排序">
+        <span class="has-mr-6">5.2</span>
+        <span>归并排序</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#6-实验心得体会">
+        <span class="has-mr-6">6</span>
+        <span>6 实验心得体会</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            related posts
+        </h3>
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            <article class="media"> <a href="/posts/33846/" class="media-left">
+                        <p class="image is-64x64">
+                            <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab4-文法设计实验">
+                        </p>
+                    </a><div class="media-content">
+                    <div class="content">
+                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-23T07:05:17.000Z">2020-03-23</time></div>
+                        <a href="/posts/33846/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab4-文法设计实验</a>
+                    </div>
+                </div>
+            </article>
+         
+            <article class="media"> <a href="/posts/673/" class="media-left">
+                        <p class="image is-64x64">
+                            <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab2-编译器认知实验">
+                        </p>
+                    </a><div class="media-content">
+                    <div class="content">
+                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-03T10:02:04.000Z">2020-03-03</time></div>
+                        <a href="/posts/673/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab2-编译器认知实验</a>
+                    </div>
+                </div>
+            </article>
+         
+            <article class="media"> <a href="/posts/62214/" class="media-left">
+                        <p class="image is-64x64">
+                            <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab3-词法分析实验">
+                        </p>
+                    </a><div class="media-content">
+                    <div class="content">
+                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-15T10:07:08.000Z">2020-03-15</time></div>
+                        <a href="/posts/62214/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab3-词法分析实验</a>
+                    </div>
+                </div>
+            </article>
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/anaconda/" style="font-size: 10px;">anaconda</a> <a href="/tags/caddy/" style="font-size: 10px;">caddy</a> <a href="/tags/compilation/" style="font-size: 20px;">compilation</a> <a href="/tags/course/" style="font-size: 16.67px;">course</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/md/" style="font-size: 10px;">md</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/security/" style="font-size: 16.67px;">security</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/terminal/" style="font-size: 13.33px;">terminal</a> <a href="/tags/testing/" style="font-size: 10px;">testing</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a>
+    </div>
+</div>
+    
+        <iframe
+  class="card widget"
+  height="400"
+  width="100%"
+  src="https://music.163.com/outchain/player?type=0&id=4878237788&auto=0&height=430"
+></iframe>
+
+    
+        <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=53u8jvixw8q&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+
+    
+        <div class="card widget">
+    <div class="card-content" height=200 width=100
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- homead2 -->
+        <ins class="adsbygoogle"
+            style="display:inline-block;width:250px;height:200px"
+            data-ad-client="ca-pub-6929188339121540"
+            data-ad-slot="8095112019"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    </div>
+  </div>
+    
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img class="logo-img" src="/images/logo.svg" alt="编译原理与设计-Lab1-语言认知实验" height="28" />
+                    <img class="logo-img-dark" src="/images/logo_dark.png" alt="编译原理与设计-Lab1-语言认知实验" height="28" />
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2021 Anne416wu&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener external nofollow noreferrer">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>个访客
+                </span>
+                <span id="busuanzi_container_site_pv">
+                    <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                    
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                    
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <!-- <script>
+        var uv = document.getElementById("busuanzi_value_site_uv")
+        var pv = document.getElementById("busuanzi_value_site_pv")
+        uv.innerText = patseInt(uv.value) + 30
+        pv.innerText = patseInt(pv.value) + 5
+    </script>  -->
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://www.annewqx.top',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noreferrer">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="回到顶端" href="javascript:;" rel="external nofollow noreferrer">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
