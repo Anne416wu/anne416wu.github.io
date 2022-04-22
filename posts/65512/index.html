@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=1"
+/>
+
+<title>Hexo搭建个人博客：装修 - Annewqx</title>
+
+<meta
+  name="google-site-verification"
+  content="GvExXP5gCEjttN6mUpfkSVS0rn_Vbyw5KKRRhqI2jnU"
+/>
+<script
+  data-ad-client="ca-pub-6929188339121540"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+
+ <meta name="description" content="基于icarus主题的Hexo博客装修。本文将介绍除了icarus在_config.yml中提供的功能以外，通过修改其源代码实现的其他扩展功能，页面文件样式的进一步美化等。属于深度定制自己的主题，需要基础的CSS和HTML知识。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo搭建个人博客：装修">
+<meta property="og:url" content="https://www.annewqx.top/posts/65512/index.html">
+<meta property="og:site_name" content="Annewqx">
+<meta property="og:description" content="基于icarus主题的Hexo博客装修。本文将介绍除了icarus在_config.yml中提供的功能以外，通过修改其源代码实现的其他扩展功能，页面文件样式的进一步美化等。属于深度定制自己的主题，需要基础的CSS和HTML知识。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.annewqx.top/gallery/thumbnails/desert.png">
+<meta property="article:published_time" content="2020-02-25T12:29:31.000Z">
+<meta property="article:modified_time" content="2022-04-22T14:31:43.180Z">
+<meta property="article:author" content="Anne416wu">
+<meta property="article:tag" content="hexo decorate 博客 美化 装修">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.annewqx.top/gallery/thumbnails/desert.png">  
+<link rel="canonical" href="https://annewqx.top/" />
+ 
+<link
+  rel="alternative"
+  href="atom.xml"
+  title="Hexo搭建个人博客：装修"
+  type="application/atom+xml"
+/>
+ 
+<link
+  rel="apple-touch-icon"
+  sizes="128x128"
+  href="/images/favicon-64px.png"
+/>
+ 
+<link rel="icon" sizes="32x32" href="/images/favicon-64px.png" />
+ 
+<link
+  rel="mask-icon"
+  href="/images/favicon-64px.png"
+  color="{{ theme.android_chrome_color }}"
+/>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css"> <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"> <link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atelier-seaside-light.css">  
+
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+ 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+ 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+ 
+ 
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+ 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158871764-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-158871764-1');
+</script> 
+ 
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2579115,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script> 
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script> 
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- 不蒜子计数初始值纠正 -->
+   <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body class="is-3-column">
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
+    <nav class="navbar navbar-main">
+  <div class="container">
+    <div class="navbar-brand is-flex-center">
+      <!-- <div class="is-hidden-mobile">
+                <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script>
+            </div> -->
+      <a class="navbar-item navbar-logo" href="/">
+        
+        <img
+          class="logo-img"
+          src="/images/logo.svg"
+          alt="Hexo搭建个人博客：装修"
+          height="28"
+        />
+        <img
+          class="logo-img-dark"
+          src="/images/logo_dark.png"
+          alt="Hexo搭建个人博客：装修"
+          height="28"
+        />
+        
+      </a>
+    </div>
+    <div class="navbar-menu is-flex-wrap is-flex-center">
+      
+      <div class="navbar-start">
+        
+        <a
+          class="navbar-item"
+          href="/"
+          >Home</a
+        >
+        
+        <a
+          class="navbar-item"
+          href="/categories/code"
+          >Code</a
+        >
+        
+        <a
+          class="navbar-item"
+          href="/categories/life"
+          >Life</a
+        >
+        
+        <a
+          class="navbar-item"
+          href="/categories"
+          >Categories</a
+        >
+        
+        <a
+          class="navbar-item"
+          href="/archives"
+          >Archives</a
+        >
+        
+        <a
+          class="navbar-item"
+          href="/about"
+          >Comment</a
+        >
+        
+      </div>
+      
+      <div class="navbar-end">
+        <a
+          class="navbar-item night"
+          id="night-nav"
+          title="Night Mode"
+          href="javascript:;"
+        >
+          <i class="fas fa-moon" id="night-icon"></i>
+        </a>
+         
+        <a
+          class="navbar-item"
+          target="_blank"
+          rel="noopener"
+          title="Download on GitHub"
+          href="https://github.com/anne416wu"
+        >
+          
+          <i class="fab fa-github"></i>
+          
+        </a>
+        
+        <a
+          class="navbar-item"
+          target="_blank"
+          rel="noopener"
+          title="RSS"
+          href="/atom.xml"
+        >
+          
+          <i class="fas fa-rss"></i>
+          
+        </a>
+          
+        <a
+          class="navbar-item is-hidden-tablet catalogue"
+          title="目录"
+          href="javascript:;"
+        >
+          <i class="fas fa-list-ul"></i>
+        </a>
+         
+        <a
+          class="navbar-item search"
+          title="搜索"
+          href="javascript:;"
+        >
+          <i class="fas fa-search"></i>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+    
+    <section class="section">
+        <div>
+            <div class="columns is-centered is-variable is-2">
+                <div class="column is-two-thirds-tablet is-9-desktop is-7-widescreen is-three-fifths-fullhd has-order-2 column-main">
+                    
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/gallery/thumbnails/desert.png" alt="Hexo搭建个人博客：装修">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+       <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+            <i class="fas fa-angle-double-right"></i>Hexo搭建个人博客：装修
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2020-02-25T12:29:31.000Z">2020-02-25</time> -->
+                <time class="level-item has-text-grey" datetime="2020-02-25T12:29:31.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-02-25</time>
+                
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2022-04-22T14:31:43.180Z"><i class="far fa-calendar-check">&nbsp;</i>2022-04-22</time>
+                
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/code/">code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/code/guide/">guide</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    40 分钟 读完 (大约 6064 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <!-- <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Hexo搭建个人博客：装修
+            
+        </h1> -->
+        <div class="content">
+            <hr>
+<blockquote>
+<p>基于icarus主题的Hexo博客装修。本文将介绍除了icarus在_config.yml中提供的功能以外，通过修改其源代码实现的其他扩展功能，页面文件样式的进一步美化等。属于深度定制自己的主题，需要基础的CSS和HTML知识。</p>
+</blockquote>
+<a id="more"></a>
+
+<div class="tip">
+  本文不涉及icarus主题的配置文档`_config.yml`里已经有的配置! 仅对icarus v2.6版本里未加入的功能或者个人觉得不完善的功能进行补充。由于icarus3.0中作者使用jsx取代了ejs，并且把所有能共用的js代码抽取到了inferno插件中，icarus v3请谨慎参考
+</div>
+
+
+
+<blockquote>
+<p>参考文章</p>
+<ul>
+<li><a href="http://yearito.cn/tags/Hexo/" rel="external nofollow noreferrer">Yearito：Hexo 搭建个人博客系列</a>  – 基于Next主题</li>
+<li><a href="https://www.chingow.cn/tags/Hexo/" rel="external nofollow noreferrer">chingow：Hexo+NexT(v7.0+) 搭建博客</a> – 基于Next主题，较Yearito的博客全面一些</li>
+<li><a href="https://www.alphalxy.com/2019/03/customize-icarus/" rel="external nofollow noreferrer">alphalxy-Icarus 主题自定义</a> – 基于Icarus主题</li>
+<li>本文所修改的主题文件已fork到<a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne" rel="external nofollow noreferrer">GitHub仓库</a></li>
+</ul>
+</blockquote>
+<h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><blockquote>
+<p>需要了解的几个文档：</p>
+<ul>
+<li><a href="https://hexo.io/zh-cn/docs/variables" rel="external nofollow noreferrer">hexo官方文档里对于变量的说明</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/helpers" rel="external nofollow noreferrer">hexo官方文档里对于辅助函数的说明</a></li>
+<li><a href="https://ejs.bootcss.com" rel="external nofollow noreferrer">ejs嵌入开发各个标签的含义</a></li>
+<li><a href="https://bulma.zcopy.site/documentation/" rel="external nofollow noreferrer">bulma框架中文文档</a></li>
+</ul>
+</blockquote>
+<p>首先我们要知道icarus的文件结构。icarus采用了ejs模板语言生成页面，使用Bulma框架作为页面样式的控制框架。icatus源代码良好书写习惯的可扩展性是我们修改的基础。icarus所有的页面样式都存在<code>themes/icarus/layout</code>中，我们重点需要关注的文件有:</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile">|-- icarus<br>    |-- _config.yml<br>    |-- includes<br>    |   |-- generators<br>    |   |   |-- categories.js<br>    |   |   |-- category.js	<span class="hljs-comment"># 需要修改，换目录页为时间轴展示</span><br>    |   |   |-- insight.js<br>    |   |   |-- tag.js			<span class="hljs-comment"># 后期加入，换标签页为时间轴展示</span><br>    |   |   |-- tags.js<br>    |-- layout<br>    |   |-- archive.ejs			<span class="hljs-comment"># 控制归档页页面</span><br>    |   |-- category.ejs		<span class="hljs-comment"># 用于控制单个目录页页面</span><br>    |   |-- categories.ejs	<span class="hljs-comment"># 用于控制母目录页页面</span><br>    |   |-- tag.ejs					<span class="hljs-comment"># 用于控制单个标签页页面</span><br>    |   |-- tags.ejs				<span class="hljs-comment"># 用于控制母标签页页面</span><br>    |   |-- custom_cat.ejs	<span class="hljs-comment"># 后期加入，模仿archive.ejs，替换category.ejs</span><br>    |   |-- custom_tag.ejs	<span class="hljs-comment"># 后期加入，模仿archive.ejs，替换tag.ejs</span><br>    |   |-- layout.ejs			<span class="hljs-comment"># 控制homepage的页面和比例</span><br>    |   |-- comment<br>    |   |   |-- valine.ejs	<span class="hljs-comment"># 补充源主题缺少的头像控制</span><br>    |   |-- common		<span class="hljs-comment"># common中存放控制各个页面共有区域</span><br>    |   |   |-- head.ejs		<span class="hljs-comment"># 控制每个网页的&lt;head&gt;中的信息，设置seo时修改</span><br>    |   |   |-- footer.ejs	<span class="hljs-comment"># 控制每个网页的脚注</span><br>    |   |   |-- article.ejs <span class="hljs-comment"># 控制博客正文页面</span><br>    |   |   |-- navbar.ejs	<span class="hljs-comment"># 控制导航栏</span><br>    |   |   |-- widget.ejs	<span class="hljs-comment"># 控制所有widget比例</span><br>    |   |   |-- copyright.ejs	<span class="hljs-comment"># 后期加入，添加文末版权栏</span><br>    |   |-- widget		<span class="hljs-comment"># 存放各个widget界面</span><br>    |       |-- map.ejs			<span class="hljs-comment"># 添加访客地图widget</span><br>    |       |-- map.locals.js			<span class="hljs-comment"># 缓存文件</span><br>    |       |-- music.ejs		<span class="hljs-comment"># 添加音乐widget</span><br>    |       |-- music.locals.js		<span class="hljs-comment"># 缓存文件</span><br>    |-- source<br>        |-- css<br>        |   |-- back-to-top.css<br>        |   |-- copyright.styl	<span class="hljs-comment"># 后期加入控制版权栏的页面样式</span><br>        |   |-- progressbar.css<br>        |   |-- style.styl	<span class="hljs-comment"># 大部分的页面样式</span><br>        |-- images<br>        |   |-- thumbnail.svg<br>        |   |-- Alipay.jpg<br>        |   |-- wechatpay.jpg<br>        |-- js<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>其余我想要做改动的还有plugin文件夹，用于存放分析和计数需要的工具；search文件夹，用于存放几种搜索所需要的工具(icarus作者并没有使用hexo-generate-search的插件生成索引，而是自己写了一个insight函数生成索引列表。respect🤔。但是它的搜索展现思路变为了仅显示包含搜索条件的文章名和首行，这与我们希望显示搜索条件出现在文章的哪一处的需求不同😑) <code>icarus v3.0中已经改变insight🔍展示文章内容</code></li>
+</ul>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><blockquote>
+<p>插件是最简单的提升博客丰富性的方法。而多数插件只需要一行js代码就能实现</p>
+</blockquote>
+<h3 id="访客地球"><a href="#访客地球" class="headerlink" title="访客地球"></a>访客地球</h3><div  align="center">    
+<img src="Screenshot2020-03-0622.22.35.png" alt="revolvermaps" style="zoom: 50%;"/>
+</div>
+
+<ul>
+<li><p>功能：展示页面的总浏览量/页面浏览人来源的的热力图/同时在线人的地址标签</p>
+</li>
+<li><p>地址：<a href="https://www.revolvermaps.com" rel="external nofollow noreferrer">RevolverMaps官网</a></p>
+</li>
+<li><p>使用方法：</p>
+</li>
+</ul>
+<ol>
+<li><p>在官网复制所给的js代码</p>
+</li>
+<li><p>在<code>/icarus/layout/widget</code>目录下，新建文件<code>map.ejs</code>和<code>map.locals.js</code>。把复制的js代码粘贴到<code>map.ejs</code>文件中，而<code>map.locals.js</code>中复制它隔壁的profile.locals.js中的内容即可。该文件的作用是绑定渲染该ejs文件(可以不添加)</p>
+<figure class="highlight js"><figcaption><span>layout/widget/map.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/widget/map.ejs" rel="external nofollow noreferrer">map.ejs</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;script type=<span class="hljs-string">"text/javascript"</span> src=<span class="hljs-string">"//rf.revolvermaps.com/0/0/6.js?i=53u8jvixw8q&amp;amp;m=7&amp;amp;c=e63100&amp;amp;cr1=ffffff&amp;amp;f=arial&amp;amp;l=0&amp;amp;bv=90&amp;amp;lx=-420&amp;amp;ly=420&amp;amp;hi=20&amp;amp;he=7&amp;amp;hc=a8ddff&amp;amp;rs=80"</span> <span class="hljs-keyword">async</span>=<span class="hljs-string">"async"</span>&gt;&lt;<span class="hljs-regexp">/script&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><figcaption><span>layout/widget/map.locals.js</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/widget//map.locals.js" rel="external nofollow noreferrer">map.locals.js</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">module</span>.exports = <span class="hljs-function">(<span class="hljs-params">ctx, locals</span>) =&gt;</span> &#123;<br>	<span class="hljs-keyword">return</span> locals;  <br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>在<code>/icarus/_config.yml</code>配置文件中，模仿已有的widget，添加如下字段</p>
+<figure class="highlight yml"><figcaption><span>_config.yml</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/_config.yml" rel="external nofollow noreferrer">_config.yml</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-bullet">-</span><br> <span class="hljs-attr">type:</span> <span class="hljs-string">map</span><br> <span class="hljs-attr">position:</span> <span class="hljs-string">right</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>现在我们有一个访客地球的widget了!</p>
+</li>
+</ol>
+<h3 id="网易云音乐"><a href="#网易云音乐" class="headerlink" title="网易云音乐"></a>网易云音乐</h3><div  align="center">    
+<img src="Screenshot2020-03-0623.39.29.png" alt="netEaseMusic" style="zoom: 50%;"/>
+</div>
+
+<ul>
+<li><p>功能：网易云音乐外链播放器</p>
+</li>
+<li><p>地址：<a href="https://music.163.com/" rel="external nofollow noreferrer">网易云音乐官网</a></p>
+</li>
+<li><p>使用方法：</p>
+<ol>
+<li><p>在网易云音乐官网，登录后，选择一个歌单，点击歌单左上角的生成外链播放器，注意，歌单中不能包含VIP歌曲，否则会提示版权不允许</p>
+<p><img src="Screenshot2020-03-0700.01.12.png" alt="歌单页面示例"></p>
+</li>
+<li><p>生成iframe插件。建议使用iframe插件，一方面是可以自己调整插件的属性，另一方面是很多浏览器现在对flash的使用有限制。复制给出的HTML代码</p>
+<p><img src="Screenshot2020-03-0700.00.43.png" alt="生成插件页面"></p>
+</li>
+<li><p>与添加访客地球widget的过程类似，在<code>/icarus/layout/widget</code>目录下，新建文件<code>music.ejs</code></p>
+<figure class="highlight js"><figcaption><span>layout/widget/music.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/widget/music.ejs" rel="external nofollow noreferrer">music.ejs</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;iframe <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"card widget"</span> height=<span class="hljs-number">400</span> width=<span class="hljs-number">100</span>% src=<span class="hljs-string">"//music.163.com/outchain/player?type=0&amp;id=4878237788&amp;auto=0&amp;height=430"</span>&gt;&lt;<span class="hljs-regexp">/iframe&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>music.locals.js</code>填入与之前一样的绑定渲染函数</p>
+</li>
+<li><p>在<code>/icarus/_config.yml</code>配置文件中，模仿已有的widget，添加如下字段</p>
+<figure class="highlight yml"><figcaption><span>_config.yml</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/_config.yml" rel="external nofollow noreferrer">_config.yml</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-bullet">-</span><br>    <span class="hljs-attr">type:</span> <span class="hljs-string">netEase</span><br>    <span class="hljs-attr">position:</span> <span class="hljs-string">right</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>现在我们有一个播放器的widget了😺</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="人体时钟"><a href="#人体时钟" class="headerlink" title="人体时钟"></a>人体时钟</h3><div align="center">
+  <img src="Screenshot2020-03-0700.16.52.png" alt="clock" style="zoom: 50%;" />
+</div>
+
+
+<ul>
+<li><p>功能：在导航栏上添加一个有交互性的小人时钟</p>
+</li>
+<li><p>地址：<a href="http://chabudai.org/blog/?p=59" rel="external nofollow noreferrer">ホネホネ・クロック 時計・ブログパーツ</a>(这个作者审美超级好🥰)</p>
+</li>
+<li><p>使用方法：</p>
+<ol>
+<li><p>复制作者给的js代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;script charset=<span class="hljs-string">"Shift_JIS"</span> src=<span class="hljs-string">"http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"</span>&gt;&lt;<span class="hljs-regexp">/script&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>/icarus/layout/common/nvabar.ejs</code>中，在第四行，添加一个新的块。<code>class=&quot;is-hidden-mobile&quot;</code>是bulma框架中的一种样式，意为当屏幕宽度小于desktop时，不显示该元素。因为平板和手机的浏览器中一般没有flash插件，所以做这个处理。</p>
+<figure class="highlight diff"><figcaption><span>/layout/coppom/nvabar.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/coppom/nvabar.ejs" rel="external nofollow noreferrer">nvabar.ejs</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs diff">&lt;nav class="navbar navbar-main"&gt;<br>    &lt;div class="container"&gt;<br>        &lt;div class="navbar-brand is-flex-center"&gt;<br>          &lt;!--以下是新插入的块 --&gt;<br><span class="hljs-addition">+                &lt;div class="is-hidden-mobile"&gt; </span><br><span class="hljs-addition">+                    &lt;script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"&gt;&lt;/script&gt;</span><br><span class="hljs-addition">+                &lt;/div&gt;</span><br></code></pre></td></tr></table></figure>
+
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="添加密码"><a href="#添加密码" class="headerlink" title="添加密码"></a>添加密码</h3><p>该功能由 <a href="https://github.com/MikeCoder/hexo-blog-encrypt" rel="external nofollow noreferrer">hexo-blog-encrypt</a> 插件提供，效果可见<a href="/posts/27073/">DUDES</a></p>
+<p>使用方法参阅<a href="https://github.com/MikeCoder/hexo-blog-encrypt/blob/master/ReadMe.zh.md" rel="external nofollow noreferrer">hexo-blog-encrypt官方文档</a>即可</p>
+<h3 id="黑暗模式"><a href="#黑暗模式" class="headerlink" title="黑暗模式"></a>黑暗模式</h3><blockquote>
+<p><a href="https://github.com/ppoffice/hexo-theme-icarus/issues/564" rel="external nofollow noreferrer">imaegoo：[tutorial] support night dark mode</a></p>
+</blockquote>
+<p>在命令行，进入博客的根目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 进入icarus目录</span><br><span class="hljs-built_in">cd</span> themes/icarus<br><span class="hljs-comment"># 添加远端仓库night</span><br>git remote add night https://github.com/imaegoo/hexo-theme-icarus.git<br><span class="hljs-comment"># 从远端仓库的night拉取night分支</span><br>git pull night night<br><span class="hljs-comment"># 查看并确认当前分支是master</span><br>git status<br><span class="hljs-comment"># 合并master分支和night分支，原master分支合并是不会有conflict的，如果有的话修一下</span><br>git merge night<br></code></pre></td></tr></table></figure>
+
+<p>现在博客的navbar中新出现了一个小灯泡图标，点一下就能看到黑暗模式效果了</p>
+<p>现在我们添加根据浏览器设置自动变为黑暗模式的代码，除了根据浏览器的配色模式，如果当晚/日，用户已经有与浏览器模式不同的选择，要遵循用户的选择 (即当晚浏览器是dark mode时，用户在博客内选择light mode，或相反)</p>
+<figure class="highlight diff"><figcaption><span>/source/js/night.js</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/source/js/night.js" rel="external nofollow noreferrer">night.js</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-addition">+ let mode = window.matchMedia('(prefers-color-scheme: dark)').matches;</span><br><span class="hljs-addition">+ if(mode.toString() != localStorage.getItem('current'))&#123;</span><br><span class="hljs-addition">+    localStorage.setItem('switched', 'false');</span><br><span class="hljs-addition">+    localStorage.setItem('current', window.matchMedia('(prefers-color-scheme: dark)').matches);</span><br><span class="hljs-addition">+ &#125;</span><br><span class="hljs-addition">+ if(localStorage.getItem('switched') != 'true')&#123;</span><br><span class="hljs-addition">+    isNight = window.matchMedia('(prefers-color-scheme: dark)').matches;</span><br><span class="hljs-addition">+ &#125;</span><br>findNightNav();<br>applyNight(isNight);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>js获取浏览器颜色模式代码：<code>window.matchMedia(&#39;(prefers-color-scheme: dark)&#39;).matches</code></p>
+</blockquote>
+<h3 id="related-post-widget"><a href="#related-post-widget" class="headerlink" title="related post widget"></a>related post widget</h3><ul>
+<li>在每篇博文增加一个widget，展示和这篇文章有相同tag的文章列表</li>
+</ul>
+<ol>
+<li>添加文件<code>layout/widget/related_posts.ejs</code></li>
+</ol>
+<figure class="highlight js"><figcaption><span>layout/widget/related_posts.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/widget/related_posts.ejs" rel="external nofollow noreferrer">related_posts </a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;% <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">build_list</span>(<span class="hljs-params">tags,post</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> flag = <span class="hljs-literal">true</span>;<br>    <span class="hljs-keyword">return</span> tags.map(<span class="hljs-function"><span class="hljs-params">tag</span> =&gt;</span> &#123;<br>        <span class="hljs-keyword">let</span> result =<span class="hljs-string">''</span>;<br>        post.tags.map(<span class="hljs-function"><span class="hljs-params">ptag</span> =&gt;</span> &#123;<br>            <span class="hljs-keyword">if</span>( ptag.name === tag.name &amp;&amp; post.title != page.title &amp;&amp; flag === <span class="hljs-literal">true</span>)&#123;<br>                <span class="hljs-keyword">if</span> (get_config(<span class="hljs-string">'article.thumbnail'</span>)=== <span class="hljs-literal">true</span> )&#123;<br>                    result+= <span class="hljs-string">`&lt;article class="media"&gt; &lt;a href="<span class="hljs-subst">$&#123;url_for(post.link ? post.link : post.path)&#125;</span>" class="media-left"&gt;<br>                        &lt;p class="image is-64x64"&gt;<br>                            &lt;img class="thumbnail" src="<span class="hljs-subst">$&#123;get_thumbnail(post)&#125;</span>" alt="<span class="hljs-subst">$&#123;post.title&#125;</span>"&gt;<br>                        &lt;/p&gt;<br>                    &lt;/a&gt;`</span>;<br>                &#125;<br>                result+=<span class="hljs-string">`&lt;div class="media-content"&gt;<br>                    &lt;div class="content"&gt;<br>                        &lt;div&gt;&lt;time class="has-text-grey is-size-7 is-uppercase" datetime="<span class="hljs-subst">$&#123;date_xml(post.date)&#125;</span>"&gt;<span class="hljs-subst">$&#123;date(post.date)&#125;</span>&lt;/time&gt;&lt;/div&gt;<br>                        &lt;a href="<span class="hljs-subst">$&#123;url_for((post.link?post.link:post.path))&#125;</span>" class="title has-link-black-ter is-size-6 has-text-weight-normal"&gt;<span class="hljs-subst">$&#123;post.title&#125;</span>&lt;/a&gt;<br>                    &lt;/div&gt;<br>                &lt;/div&gt;<br>            &lt;/article&gt;`</span>;<br>            flag = <span class="hljs-literal">false</span>;<br>            <span class="hljs-keyword">return</span> result;<br>            &#125;<br>            <span class="hljs-keyword">return</span> result;<br>        &#125;)<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;).join(<span class="hljs-string">''</span>);<br>&#125;<br>%&gt;<br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card widget"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card-content"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"menu-label"</span>&gt;</span><br>            related posts<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">%</span> <span class="hljs-attr">site.posts.forEach</span>(<span class="hljs-attr">post</span> =&gt;</span> &#123; %&gt; <br>            <span class="hljs-tag">&lt;<span class="hljs-name">%-</span> <span class="hljs-attr">build_list</span>(<span class="hljs-attr">page.tags</span> , <span class="hljs-attr">post</span>) %&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">%</span> &#125;) %&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<p>同目录下添加渲染绑定js文件<code>related_posts.locals.js</code>，使该widget仅对posts页面生效</p>
+<figure class="highlight js"><figcaption><span>related_posts.locals.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">module</span>.exports = <span class="hljs-function">(<span class="hljs-params">ctx, locals</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> &#123; layout, content &#125; = ctx.page;<br>    <span class="hljs-keyword">const</span> &#123; get_config &#125; = ctx;<br>    <span class="hljs-keyword">if</span> (layout !== <span class="hljs-string">'page'</span> &amp;&amp; layout !== <span class="hljs-string">'post'</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.assign(locals, &#123; content &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在<code>_config.yml</code>中，widget下添加related_posts</p>
+<figure class="highlight diff"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs diff">widget:<br><span class="hljs-addition">+    -</span><br><span class="hljs-addition">+        type: recent_posts</span><br><span class="hljs-addition">+        position: left</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><h3 id="修改分栏比例"><a href="#修改分栏比例" class="headerlink" title="修改分栏比例"></a>修改分栏比例</h3><blockquote>
+<p>参考文章：</p>
+<ul>
+<li><a href="https://bulma.zcopy.site/documentation/" rel="external nofollow noreferrer">bulma框架中文文档</a></li>
+<li><a href="https://lqwang.net/5.html" rel="external nofollow noreferrer">Hexo&amp;icarus主题修改</a></li>
+<li>我在主题修改中把比例配置抽取到_config.yml中了，可见<a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne" rel="external nofollow noreferrer">GitHub仓库</a></li>
+</ul>
+</blockquote>
+<ul>
+<li>原本icarus最大化后三栏居中，两侧会有很宽的空白，我想消灭这个空白；</li>
+<li>我想实现的展示逻辑是，屏幕宽度足够时，首页显示三栏，博文页显示两栏；如果屏幕宽度再增加，则都显示三栏。以下把profile\link\recent_poat\tag\archive这几个widget分类为个人资料栏(统称profile栏)，top\tagcloud\music\map分类为目录工具栏(统称目录栏)，中间的最大的那一栏统称博文栏。目录栏在博文页居左，个人资料栏在首页居左。</li>
+<li>首先是icarus主题的<code>_config.yml</code>，加入以下配置。相关配置含义之后会做解释。我们的网页最大化后两侧宽阔的白边主要就是由于原来的配置里每一栏最后相加之和不是12(bulma的12格布局)，没有占满整个屏幕。</li>
+</ul>
+<figure class="highlight yml"><figcaption><span>_config.yml</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/_config.yml" rel="external nofollow noreferrer">_config.yml</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">proportion:</span><br>    <span class="hljs-attr">homepage:</span> <span class="hljs-comment"># 非博文页</span><br>        <span class="hljs-attr">sidebar:</span> <span class="hljs-string">'is-one-third-tablet is-3-desktop is-3-widescreen is-one-fifth-fullhd'</span><br>        <span class="hljs-attr">article:</span> <span class="hljs-string">'is-two-thirds-tablet is-6-desktop is-6-widescreen is-5-fullhd'</span><br>    <span class="hljs-attr">post:</span> <span class="hljs-comment">#博文页面</span><br>        <span class="hljs-attr">sidebar:</span> <span class="hljs-string">'is-one-third-tablet is-3-desktop is-one-fifth-widescreen is-one-fifth-fullhd'</span><br>        <span class="hljs-attr">article:</span> <span class="hljs-string">'is-two-thirds-tablet is-9-desktop is-three-fifths-widescreen is-three-fifths-fullhd'</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>对ejs文件的改动主要涉及三个文件<code>layout/layout.ejs</code> <code>layout/common/widget.ejs</code>以及<code>source/css/style.styl</code><br>   |– icarus</p>
+<pre><code>|-- layout
+|   |-- [layout.ejs](https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/layout.ejs)
+|   |-- common    
+|   |   |-- [widget.ejs](https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/common/widget.ejs)
+|-- source
+    |-- css
+    |   |-- [style.styl](https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/source/css/style.styl)</code></pre><ol>
+<li><p><code>style.styl</code>：先说css文件，因为通过这个文件我们能更好的理解bulma框架。bulma框架自动根据屏幕大小对照我们的预设适配不同比例的页面：mobile-手机/tablet-平板/desktop-pc/widescreen-全屏/fullhd-全屏。至于不同屏幕对应哪个大小，我们可以采用icarus原有的方案，也可以用更为严格的方案：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs scss">gap = 64px<br>screen-tablet = 769px<br>screen-desktop = 1088pxs<br>screen-widescreen = 1280px<br>screen-fullhd = 1472px<br></code></pre></td></tr></table></figure>
+
+<p>根据我的经验，使用13inch的mbp，按照icarus原有的方案，屏幕的1/3是手机模式，屏幕的2/3是平板(tablet)模式，大于屏幕的2/3是pc(desktop)模式，大于屏幕的8/9是全屏(widescreen)模式</p>
+</li>
+<li><p><code>layout.ejs</code>：更改控制博文栏占页面比例的函数<code>main_column_class()</code>：</p>
+<figure class="highlight js"><figcaption><span>layout/layout.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/layout.ejs" rel="external nofollow noreferrer">layout.ejs</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;% <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main_column_class</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">switch</span> (column_count()) &#123;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<br>      <span class="hljs-keyword">return</span> <span class="hljs-string">'is-12'</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<br>      <span class="hljs-keyword">return</span> <span class="hljs-string">'is-8-tablet is-8-desktop is-8-widescreen'</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:<br>      <span class="hljs-keyword">if</span>(is_post() === <span class="hljs-literal">false</span>)&#123;<br>        <span class="hljs-keyword">return</span> get_config(<span class="hljs-string">'proportion.homepage.article'</span>);<br>      &#125;<br>      <span class="hljs-keyword">else</span>&#123;<br>        <span class="hljs-keyword">return</span> get_config(<span class="hljs-string">'proportion.post.article'</span>);<br>      &#125;<br>   &#125;<br>   <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>;<br>&#125; %&gt;<br></code></pre></td></tr></table></figure>
+
+<p><code>_config.yml</code>中对应设置含义：当存在三栏的配置时，如果屏幕大于平板小于pc，博文栏占2/3；如果屏幕大于pc小于全屏，对于博文页，博文栏占9/12(即3/4)，对于非博文页，博文栏占6/12(即1/2)；如果屏幕大于全屏，博文栏占3/5；fullhd以此类推</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js">proportion:<br>    homepage:<br>        article: <span class="hljs-string">'is-two-thirds-tablet is-6-desktop is-6-widescreen is-5-fullhd'</span><br>    <span class="hljs-attr">post</span>:<br>        article: <span class="hljs-string">'is-two-thirds-tablet is-9-desktop is-three-fifths-widescreen is-three-fifths-fullhd'</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>layout/common/widget.ejs</code></p>
+<ol>
+<li>更改控制边栏占页面比例的函数<code>side_column_class()</code>：</li>
+</ol>
+<figure class="highlight js"><figcaption><span>layout/common/widget.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/common/widget.ejs" rel="external nofollow noreferrer">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js">_&lt;% <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">side_column_class</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">switch</span> (column_count()) &#123;<br>        <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">'is-4-tablet is-4-desktop is-3-widescreen'</span>;<br>        <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:<br>             <span class="hljs-keyword">if</span>(is_post() === <span class="hljs-literal">false</span>)&#123;<br>                <span class="hljs-keyword">return</span> get_config(<span class="hljs-string">'proportion.homepage.sidebar'</span>);<br>            &#125;<br>            <span class="hljs-keyword">else</span>&#123;<br>                <span class="hljs-keyword">return</span> get_config(<span class="hljs-string">'proportion.post.sidebar'</span>);<br>            &#125;<br>    &#125;<br> <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>;<br>&#125; %&gt;<br></code></pre></td></tr></table></figure>
+
+<p>  <code>_config.yml</code>中对应设置含义：当存在三栏的配置时，当屏幕大于平板小于pc，仅显示左侧栏，占1/3，当屏幕大于pc小于全屏，博文页仅显示左侧栏，占3/12，非博文页显示左右两栏，各占3/12；以此类推</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">proportion:</span><br>    <span class="hljs-attr">homepage:</span><br>        <span class="hljs-attr">sidebar:</span> <span class="hljs-string">'is-one-third-tablet is-3-desktop is-3-widescreen is-one-fifth-fullhd'</span><br>    <span class="hljs-attr">post:</span><br>        <span class="hljs-attr">sidebar:</span> <span class="hljs-string">'is-one-third-tablet is-3-desktop is-one-fifth-widescreen is-one-fifth-fullhd'</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>更改控制模块可见性的函数<code>visibility_class()</code>：如果页面不是博文页，当屏幕小于或等于平板时，仅显示左侧栏，当屏幕大于平板时，左右侧栏都显示；如果页面是博文页，当屏幕小于或等于PC大小时，仅显示左侧栏，当屏幕大于pc时，左右侧栏都显示</li>
+</ol>
+<figure class="highlight js"><figcaption><span>layout/common/widget.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/common/widget.ejs" rel="external nofollow noreferrer">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;% <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">visibility_class</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">if</span>(is_post()===<span class="hljs-literal">false</span> &amp;&amp; column_count() === <span class="hljs-number">3</span> &amp;&amp; position === <span class="hljs-string">'right'</span>)&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">'is-hidden-touch'</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span>(is_post()===<span class="hljs-literal">true</span> &amp;&amp; column_count() === <span class="hljs-number">3</span> &amp;&amp; position === <span class="hljs-string">'left'</span>)&#123;<br>     <span class="hljs-keyword">return</span> <span class="hljs-string">'is-hidden-touch  is-hidden-desktop-only'</span>;<br>    &#125;<br> <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>;<br>&#125; %&gt;<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>更改控制侧栏输出顺序的函数<code>order_class()</code>：当页面是博文页，目录栏在左侧，profile栏在右侧；当页面不是博文页，profile栏在左侧，目录栏在右侧</li>
+</ol>
+<figure class="highlight js"><figcaption><span>layout/common/widget.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/common/widget.ejs" rel="external nofollow noreferrer">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;% <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">order_class</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">if</span>(is_post() === <span class="hljs-literal">true</span>)&#123;<br>        <span class="hljs-keyword">return</span> position === <span class="hljs-string">'left'</span> ? <span class="hljs-string">'has-order-3'</span> : <span class="hljs-string">'has-order-1'</span>;<br>    &#125;<br> <span class="hljs-keyword">else</span>&#123;<br>        <span class="hljs-keyword">return</span> position === <span class="hljs-string">'right'</span> ? <span class="hljs-string">'has-order-3'</span> : <span class="hljs-string">'has-order-1'</span>;<br> &#125;<br>&#125; %&gt;<br></code></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>更改主函数，大概从第27行开始，做下述更改。这里函数原本的意思是，在屏幕小于全屏时，将右侧栏合并到左侧栏显示。我们更改为，当页面不是博文页且屏幕大小小于pc时，将右侧栏合并到左侧栏</li>
+</ol>
+<figure class="highlight diff"><figcaption><span>layout/common/widget.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/common/widget.ejs" rel="external nofollow noreferrer">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-deletion">-    &lt;% if (position === 'left') &#123; %&gt;</span><br><span class="hljs-addition">+	  &lt;% if (position === 'left' &amp;&amp; is_post() === false ) &#123; %&gt;</span><br><span class="hljs-deletion">-      &lt;div class="column-right-shadow is-hidden-widescreen &lt;%= sticky_class('right') %&gt;"&gt;</span><br><span class="hljs-addition">+      &lt;div class="column-right-shadow is-hidden-desktop"&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>至于说手机端的情况，反正只有一栏，保持原来的设置不变就好了，但是原来的设置中手机端首页是先显示博文再显示profile等widget，而我希望手机端的首页先展示profile的widget，这个非常容易，在<code>layout/layout.ejs</code>中</p>
+<figure class="highlight js"><figcaption><span>layout/layout.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/layout.ejs" rel="external nofollow noreferrer">layout.ejs</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;%-  _partial(<span class="hljs-string">'common/widget'</span>, &#123; <span class="hljs-attr">position</span>: <span class="hljs-string">'left'</span> &#125;) %&gt;<br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"column &lt;%= main_column_class() %&gt; has-order-2 column-main"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">%-</span> <span class="hljs-attr">body</span> %&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>&lt;%-  _partial(<span class="hljs-string">'common/widget'</span>, &#123; <span class="hljs-attr">position</span>: <span class="hljs-string">'right'</span> &#125;) %&gt;<br></code></pre></td></tr></table></figure>
+
+<p>这三行，如果第二行放在最前，手机端首页就先显示博文索引再显示所有widget，如果第一行放在前，手机端首页就先显示属性为left的widget，再显示属性为right的widget，最后显示博文索引。以此类推。</p>
+<p>同时，如果手机端进入除了首页之外的其他主页(目录页归档页等)，profile widget也会被放在最前，我们并不需要在这些页面展示profile wideget，因此，在<code>layout/common/widget.ejs</code>中，在<code>visibility()</code>函数中添加以下选择语句：</p>
+<figure class="highlight js"><figcaption><span>layout/common/widget.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/common/widget.ejs" rel="external nofollow noreferrer">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">if</span>(is_home()===<span class="hljs-literal">false</span> &amp;&amp; is_post()===<span class="hljs-literal">false</span>)&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">'is-hidden-mobile'</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="时间轴展示目录页"><a href="#时间轴展示目录页" class="headerlink" title="时间轴展示目录页"></a>时间轴展示目录页</h3><ul>
+<li><p>原生的icarus这两页的展示方式与homepage一致，依次展示按块展示每篇博客的标题和简介。这样的展示效率并不高。我希望把这两页的展示方式替换为和存档archive页相同的时间轴显示</p>
+</li>
+<li><p>我们要用到的文件有：<br>|– includes<br>|   |– generators<br>|   |   |– <a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/includes/generators/category.js" rel="external nofollow noreferrer">category.js</a><br>|   |   |– <a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/includes/generators/tag.js" rel="external nofollow noreferrer">tag.js</a><br>|– layout<br>|   |– archive.ejs<br>|   |– <a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/custom_cat.ejs" rel="external nofollow noreferrer">custom_cat.ejs</a><br>|   |– <a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/custom_tag.ejs" rel="external nofollow noreferrer">custom_tag.ejs</a></p>
+</li>
+</ul>
+<ol>
+<li><p>修改目录页生成器<code>/includes/generators/category.js</code>：在第23行，把默认输出页面样式的archive排到最前即可</p>
+  <figure class="highlight diff"><figcaption><span>includes/generators/category.js</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/includes/generators/category.js" rel="external nofollow noreferrer">category.js </a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-deletion">- layout: ['category', 'archive', 'index'],</span><br><span class="hljs-addition">+ layout: ['archive', 'category', 'index'],</span><br></code></pre></td></tr></table></figure>
+
+<p>  这样修改后，进入目录页，比如<a href="/categories/Code/Guide/">Code/Guide</a>后，页面就会按照时间轴显示该分类下所有文章，但是时间轴的标签依旧是2020\2019，而且文章的信息只有日期似乎有些寡淡了，如果我们想展示文章字数/展示文章阅读人数/让标签显示分类的名称呢？</p>
+<p>  <img src="Screenshot2020-03-0823.50.38.png" alt="code/guide目录页示意图"></p>
+<p>  其实非常简单。我们在layout文件夹下，新建一个文件<code>custom_cat.ejs</code></p>
+<ol>
+<li><p>复制<code>archive.ejs</code>中的代码到<code>custom_cat.ejs</code></p>
+</li>
+<li><p>修改时间轴标签为分类名称：第六行，进行替换</p>
+  <figure class="highlight diff"><figcaption><span>layout/custom_cat.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/custom_cat.ejs" rel="external nofollow noreferrer">custom_cat.ejs</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs diff">&lt;h3 class="tag is-link"&gt;<br><span class="hljs-deletion">-   &lt;%= month === null ? year : time.locale(get_config('language', 'en')).format('MMMM YYYY') %&gt;</span><br><span class="hljs-addition">+   &lt;%= page.category %&gt;</span><br>&lt;/h3&gt;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>显示文章的字数和估计阅读时间：在第十九行的<code>class=content</code>块的<code>&lt;time&gt;</code>标签中，添加<code>&lt;span&gt;</code>块</p>
+  <figure class="highlight diff"><figcaption><span>layout/custom_cat.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/custom_cat.ejs" rel="external nofollow noreferrer">custom_cat.ejs</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs diff">&lt;div class="content"&gt;<br>    &lt;time class="has-text-grey is-size-7 is-block is-uppercase" datetime="&lt;%= date_xml(post.date) %&gt;"&gt;&lt;%= date(post.date) %&gt;<br><span class="hljs-addition">+       &lt;span&gt;</span><br><span class="hljs-addition">+          &amp;nbsp;&amp;nbsp;&amp;nbsp;</span><br><span class="hljs-addition">+          &lt;% const words = word_count(post._content); %&gt;</span><br><span class="hljs-addition">+          &lt;% const time = duration((words / 150.0) * 60, 'seconds') %&gt;</span><br><span class="hljs-addition">+          &lt;%= `$&#123; time.locale(get_config('language', 'en')).humanize() &#125; $&#123; __('article.read')&#125; ($&#123; __('article.about') &#125; $&#123; words &#125; $&#123; __('article.words') &#125;)` %&gt;</span><br><span class="hljs-addition">+       &lt;/span&gt;</span><br>    &lt;/time&gt;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>添加阅读次数。</p>
+<p>  尽管busuanzi十分方便，但是它不支持在目录页显示每篇文章的阅读量(=_=就是一个API)，所以我们要换用一个新的页面统计工具，为防止此部分篇章过长，相关配置将放到本文的<a href="https://www.githang.com/2019/05/30/hexo-article-reading-statistics-based-on-leancloud/" rel="external nofollow noreferrer">阅读量统计替换</a>部分。</p>
+  <div class="tip">
+      以下代码未通过测试，请勿使用
+  </div>
+
+<p>  在<code>custom_cat.ejs</code>的第四十行左右，进行以下内容的添加</p>
+  <figure class="highlight js"><figcaption><span>layout/custom_cat.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/custom_cat.ejs" rel="external nofollow noreferrer">custom_cat.ejs</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;% <span class="hljs-keyword">if</span> (post.categories &amp;&amp; post.categories.length) &#123; %&gt;<br>  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"level-item is-size-7 is-uppercase"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">%-</span> <span class="hljs-attr">list_categories</span>(<span class="hljs-attr">post.categories</span>, &#123;<br>        <span class="hljs-attr">class:</span> '<span class="hljs-attr">has-link-grey</span> ',<br>        <span class="hljs-attr">show_count:</span> <span class="hljs-attr">false</span>,<br>        <span class="hljs-attr">style:</span> '<span class="hljs-attr">none</span>',<br>        <span class="hljs-attr">separator:</span> ' / '<br>    &#125;) %&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>&lt;% &#125; %&gt;<br> &lt;% <span class="hljs-keyword">if</span> (has_config(<span class="hljs-string">'comment.appID'</span>) &amp;&amp; get_config(<span class="hljs-string">'comment.type'</span>) === <span class="hljs-string">'valine'</span>) &#123; %&gt;<br>   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"level-item has-text-grey is-size-7 is-uppercase"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"far fa-eye"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">%-</span> <span class="hljs-attr">_p</span>('<span class="hljs-attr">plugin.visit</span>', '&lt;<span class="hljs-attr">span</span> <span class="hljs-attr">data-hk-page</span>=<span class="hljs-string">"post.url"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-spinner fa-spin"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>') %&gt;<br>	<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br>&lt;% &#125; %&gt;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>再次修改目录页生成器<code>category.js</code></p>
+  <figure class="highlight js"><figcaption><span>includes/generators/category.js</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/includes/generators/category.js" rel="external nofollow noreferrer">category.js </a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">layout: [<span class="hljs-string">'custom_cat'</span>, <span class="hljs-string">'category'</span>, <span class="hljs-string">'index'</span>],<br></code></pre></td></tr></table></figure>
+
+<p>完成!🤩</p>
+<div align="center">
+  <img src="Screenshot2020-03-0900.17.54.png" alt="最终效果" style="zoom:50%;" />
+</div>
+
+<p>​     </p>
+</li>
+</ol>
+</li>
+<li><p>用相似的方法，我们修改tag页</p>
+<ol>
+<li>添加生成器<code>/includes/generators/tag.js</code>。具体内容可参考<a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/includes/generators/tag.js" rel="external nofollow noreferrer">tag.js</a></li>
+<li>添加<code>layout/custom_tag</code>。内容可参考 <a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/custom_tag.ejs" rel="external nofollow noreferrer">custom_tag.ejs</a></li>
+</ol>
+<blockquote>
+<p>这里说明一下，这里标签的修改只做了最简单的替换，我并没有去动archive里原本的生成函数，所以时间轴的逻辑依然是按照时间顺序排列，按照年份分区。如果希望能修改为按照分类的子目录分区–我尝试了hexo提供的<code>category.parent</code> <code>category.children</code>等重构函数，但遇到了几个异常抛出。这个bug先留一下吧。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="categories页合并tags页"><a href="#categories页合并tags页" class="headerlink" title="categories页合并tags页"></a>categories页合并tags页</h3><figure class="highlight diff"><figcaption><span>layout/layout.ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/layout.ejs" rel="external nofollow noreferrer">layout.ejs</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs diff">    &lt;section class="section"&gt;<br>        &lt;div&gt;<br>            &lt;div class="columns is-centered"&gt;<br>                &lt;div class="column &lt;%= main_column_class() %&gt; has-order-2 column-main"&gt;<br>                    &lt;%- body %&gt;<br><span class="hljs-addition">+                    &lt;% if (is_categories() === true) &#123; %&gt;</span><br><span class="hljs-addition">+                        &lt;%- _partial('tags') %&gt;</span><br><span class="hljs-addition">+                        &lt;%- _partial('archive') %&gt;</span><br><span class="hljs-addition">+                    &lt;% &#125; %&gt;</span><br><span class="hljs-addition">+                    &lt;% if (is_tags() === true) &#123; %&gt;</span><br><span class="hljs-addition">+                        &lt;%- _partial('categories') %&gt;</span><br><span class="hljs-addition">+                        &lt;%- _partial('archive') %&gt;</span><br><span class="hljs-addition">+                    &lt;% &#125; %&gt;</span><br>                &lt;/div&gt;<br>                &lt;%-  _partial('common/widget', &#123; position: 'left' &#125;) %&gt;<br>                &lt;%-  _partial('common/widget', &#123; position: 'right' &#125;) %&gt;<br>            &lt;/div&gt;<br>        &lt;/div&gt;<br>    &lt;/section&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="警告块"><a href="#警告块" class="headerlink" title="警告块"></a>警告块</h3><p>在<code>source/css/style.styl</code>中添加如下样式：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-comment">/* ---------------------------------<br> *        Add tip block<br> * --------------------------------- */</span><br><span class="hljs-selector-class">.content</span> <span class="hljs-selector-class">.tip</span> &#123;<br>    <span class="hljs-attribute">position</span>: relative;<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">2em</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">12px</span> <span class="hljs-number">24px</span> <span class="hljs-number">12px</span> <span class="hljs-number">30px</span>;<br>    <span class="hljs-attribute">border-left</span>: <span class="hljs-number">4px</span> solid <span class="hljs-number">#f66</span>;<br>    <span class="hljs-attribute">border-top-right-radius</span>: <span class="hljs-number">2px</span>;<br>    <span class="hljs-attribute">border-bottom-right-radius</span>: <span class="hljs-number">2px</span>;<br>    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#f6f8fa</span>;<br>&#125;<br><span class="hljs-selector-class">.content</span> <span class="hljs-selector-class">.tip</span><span class="hljs-selector-pseudo">:before</span> &#123;<br>    <span class="hljs-attribute">content</span>: <span class="hljs-string">"!"</span>;<br>    <span class="hljs-attribute">position</span>: absolute;<br>    <span class="hljs-attribute">top</span>: <span class="hljs-number">14px</span>;<br>    <span class="hljs-attribute">left</span>: -<span class="hljs-number">12px</span>;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">20px</span>;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">20px</span>;<br>    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">100%</span>;<br>    <span class="hljs-attribute">font-family</span>: Dosis, <span class="hljs-string">"Source Sans Pro"</span>, <span class="hljs-string">"Helvetica Neue"</span>, Arial, sans-serif;<br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">14px</span>;<br>    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">20px</span>;<br>    <span class="hljs-attribute">font-weight</span>: bold;<br>    <span class="hljs-attribute">text-align</span>: center;<br>    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#f66</span>;<br>    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;<br>&#125;<br><span class="hljs-selector-class">.content</span> <span class="hljs-selector-class">.tip</span> <span class="hljs-selector-tag">br</span> &#123; <span class="hljs-attribute">display</span>: none; &#125;<br></code></pre></td></tr></table></figure>
+
+<p>在写作时，使用以下代码即可</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tip"</span>&gt;</span><br>  这里是警告块内容<br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<div class="tip">
+  这里是警告块内容
+</div>
+### 页末版权
+
+<ol>
+<li>在<code>layout/common</code>下添加文件<code>copyright.ejs</code>。内容可参考<a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/common/copyright.ejs" rel="external nofollow noreferrer">copyright.ejs</a></li>
+<li>在<code>source/css</code>下添加文件<code>copyright.styl</code>。内容可参考<a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/source/css/copyright.styl" rel="external nofollow noreferrer">copyright.styl</a>。其中提供两种样式：<code>my-post-copyright</code>和<code>post-copyright</code></li>
+<li>在<code>source/css/style.styl</code>中导入<code>copyright.styl</code><figure class="highlight scss"><figcaption><span>source/css/style.styl</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-comment">/* ---------------------------------<br> *        Add Copyright CSS<br> * --------------------------------- */</span><br><span class="hljs-keyword">@import</span> copyright<br></code></pre></td></tr></table></figure></li>
+<li>在<code>layout/common/article.ejs</code>中插入<code>copyright.ejs</code><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs diff">&lt;div class="content"&gt;<br>    &lt;%- index &amp;&amp; post.excerpt ? post.excerpt : post.content %&gt;<br>&lt;/div&gt;<br><span class="hljs-addition">+   &lt;% if (is_post()===true) &#123; %&gt;</span><br><span class="hljs-addition">+       &lt;%- _partial('common/copyright') %&gt;</span><br><span class="hljs-addition">+   &lt;% &#125; %&gt;</span><br>&lt;% if (!index &amp;&amp; post.tags &amp;&amp; post.tags.length) &#123; %&gt;<br></code></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="Valine-头像"><a href="#Valine-头像" class="headerlink" title="Valine 头像"></a><a href="https://valine.js.org/avatar.html" rel="external nofollow noreferrer">Valine 头像</a></h3><div class="tip">
+  icarus3已修复此bug
+</div>
+
+<ul>
+<li><p>icarus原生配置中没有默认的Valine头像值</p>
+</li>
+<li><p>打开<code>icarus/layout/comment/valine.ejs</code>，插入avatar的配置信息</p>
+  <figure class="highlight diff"><figcaption><span>layout/comment/valine ejs</span><a href="https://github.com/Anne416wu/hexo-theme-icarus/blob/anne/layout/comment/valine" rel="external nofollow noreferrer">valine</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs diff"> &lt;script&gt;<br>    new Valine(&#123;<br>        el: '#valine-thread' ,<br><span class="hljs-addition">+        avatar: 'retro',</span><br>        notify: &lt;%= get_config('comment.notify') %&gt; ,<br>        verify: &lt;%= get_config('comment.verify') %&gt; ,<br>        app_id: '&lt;%= get_config('comment.app_id') %&gt;',<br>        app_key: '&lt;%= get_config('comment.app_key') %&gt;',<br>        placeholder: '&lt;%= get_config('comment.placeholder') %&gt;',<br>  &#125;);<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>评论默认头像将会变为八位像素复古头像，如果用户在gravatar注册过，则会显示注册的绑定头像</p>
+</li>
+<li><p>Valine更多默认头像设置参考<a href="https://valine.js.org/avatar.html" rel="external nofollow noreferrer">Valine头像配置</a></p>
+</li>
+</ul>
+<h2 id="数据统计和优化"><a href="#数据统计和优化" class="headerlink" title="数据统计和优化"></a>数据统计和优化</h2><h3 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h3><blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/35400128" rel="external nofollow noreferrer">知乎专栏：hexo博客搭建（五）SEO优化</a></p>
+</blockquote>
+<h3 id="评论邮件回执"><a href="#评论邮件回执" class="headerlink" title="评论邮件回执"></a>评论邮件回执</h3><blockquote>
+<p><a href="https://deserts.io/valine-admin-document/" rel="external nofollow noreferrer">Valine Admin 配置手册</a></p>
+</blockquote>
+<h3 id="修改阅读量统计服务为leancloud"><a href="#修改阅读量统计服务为leancloud" class="headerlink" title="修改阅读量统计服务为leancloud"></a>修改阅读量统计服务为leancloud</h3><p><span id="leancloud"></span></p>
+<blockquote>
+<p>参考文章</p>
+<p><a href="https://www.githang.com/2019/05/30/hexo-article-reading-statistics-based-on-leancloud/" rel="external nofollow noreferrer">https://www.githang.com/2019/05/30/hexo-article-reading-statistics-based-on-leancloud/</a></p>
+<p><a href="https://jerryzou.com/posts/introduction-to-hit-kounter-lc/" rel="external nofollow noreferrer">https://jerryzou.com/posts/introduction-to-hit-kounter-lc/</a></p>
+<p><a href="https://github.com/bulandent/hexo-theme-bubuzou/blob/master/doc/doc-zh.md" rel="external nofollow noreferrer">https://github.com/bulandent/hexo-theme-bubuzou/blob/master/doc/doc-zh.md</a></p>
+</blockquote>
+<p>因为我们在配置Valine时已经注册了leancloud，所以这里就以leancloud为例。</p>
+<div class="tobecontinues">
+------ to be continued ------
+</div>
+### 添加ads
+
+<p><a href="https://donlex.cn/archives/6102cfc3.html" rel="external nofollow noreferrer">Hexo接入Google AdSense广告</a></p>
+<h3 id="Gulp压缩"><a href="#Gulp压缩" class="headerlink" title="Gulp压缩"></a>Gulp压缩</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install gulp --save<br>npm install gulp-minify-css --save<br>npm install gulp-uglify --save<br>npm install gulp-htmlmin --save<br>npm install gulp-htmlclean --save<br>npm install gulp-imagemin --save<br></code></pre></td></tr></table></figure>
+
+<div class="tip">
+  gulp-imagemin 模块有问题
+</div>
+添加Gulpfile
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp'</span>);<br><span class="hljs-keyword">var</span> minifycss = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-minify-css'</span>);<br><span class="hljs-keyword">var</span> uglify = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-uglify'</span>);<br><span class="hljs-keyword">var</span> htmlmin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-htmlmin'</span>);<br><span class="hljs-keyword">var</span> htmlclean = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-htmlclean'</span>);<br><span class="hljs-keyword">var</span> imagemin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-imagemin'</span>);<br><span class="hljs-keyword">var</span> babel = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-babel'</span>);<br><span class="hljs-comment">// gulp-babel 取消严格模式方法("use strict")</span><br><span class="hljs-keyword">var</span> removeUseStrict = <span class="hljs-built_in">require</span>(<span class="hljs-string">"gulp-remove-use-strict"</span>);<br><br><span class="hljs-comment">// 压缩css文件</span><br>gulp.task(<span class="hljs-string">'minify-css'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">done</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">'./public/**/*.css'</span>)<br>        .pipe(minifycss())<br>        .pipe(gulp.dest(<span class="hljs-string">'./public'</span>));<br>    done();<br>&#125;);<br><br><span class="hljs-comment">// 压缩html文件</span><br>gulp.task(<span class="hljs-string">'minify-html'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">done</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">'./public/**/*.html'</span>)<br>        .pipe(htmlclean())<br>        .pipe(htmlmin(&#123;<br>            <span class="hljs-attr">removeComments</span>: <span class="hljs-literal">true</span>,<br>            <span class="hljs-attr">minifyJS</span>: <span class="hljs-literal">true</span>,<br>            <span class="hljs-attr">minifyCSS</span>: <span class="hljs-literal">true</span>,<br>            <span class="hljs-attr">minifyURLs</span>: <span class="hljs-literal">true</span>,<br>        &#125;))<br>        .pipe(gulp.dest(<span class="hljs-string">'./public'</span>));<br>    done();<br>&#125;);<br><br><span class="hljs-comment">// 压缩js文件</span><br>gulp.task(<span class="hljs-string">'minify-js'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">done</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> gulp.src([<span class="hljs-string">'./public/**/*.js'</span>, <span class="hljs-string">'!./public/**/*.min.js'</span>])<br>        .pipe(babel(&#123;<br>            <span class="hljs-comment">//将ES6代码转译为可执行的JS代码</span><br>            <span class="hljs-attr">presets</span>: [<span class="hljs-string">'es2015'</span>] <span class="hljs-comment">// es5检查机制</span><br>        &#125;))<br>        .pipe(uglify())<br>        .pipe(removeUseStrict()) <span class="hljs-comment">//取消严格模式方法("use strict")</span><br>        .pipe(gulp.dest(<span class="hljs-string">'./public'</span>));<br>    done();<br>&#125;);<br><br><span class="hljs-comment">// 压缩 public/images 目录内图片(Version&lt;3)</span><br><span class="hljs-comment">// gulp.task('minify-images', function () &#123;</span><br><span class="hljs-comment">//     gulp.src('./public/images/**/*.*')</span><br><span class="hljs-comment">//         .pipe(imagemin(&#123;</span><br><span class="hljs-comment">//             optimizationLevel: 5, //类型：Number  默认：3  取值范围：0-7（优化等级）</span><br><span class="hljs-comment">//             progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片</span><br><span class="hljs-comment">//             interlaced: false, //类型：Boolean 默认：false 隔行扫描gif进行渲染</span><br><span class="hljs-comment">//             multipass: false, //类型：Boolean 默认：false 多次优化svg直到完全优化</span><br><span class="hljs-comment">//         &#125;))</span><br><span class="hljs-comment">//         .pipe(gulp.dest('./public/images'));</span><br><span class="hljs-comment">// &#125;);</span><br><br><span class="hljs-comment">// 压缩 public/images 目录内图片(Version&gt;3)</span><br>gulp.task(<span class="hljs-string">'minify-images'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">done</span>) </span>&#123;<br>    gulp.src(<span class="hljs-string">'./public/images/**/*.*'</span>)<br>        .pipe(imagemin([<br>            imagemin.gifsicle(&#123;<span class="hljs-attr">interlaced</span>: <span class="hljs-literal">true</span>&#125;),<br>            imagemin.jpegtran(&#123;<span class="hljs-attr">progressive</span>: <span class="hljs-literal">true</span>&#125;),<br>            imagemin.optipng(&#123;<span class="hljs-attr">optimizationLevel</span>: <span class="hljs-number">5</span>&#125;),<br>            imagemin.svgo(&#123;<br>                <span class="hljs-attr">plugins</span>: [<br>                    &#123;<span class="hljs-attr">removeViewBox</span>: <span class="hljs-literal">true</span>&#125;,<br>                    &#123;<span class="hljs-attr">cleanupIDs</span>: <span class="hljs-literal">false</span>&#125;<br>                ]<br>            &#125;)<br>        ]))<br>        .pipe(gulp.dest(<span class="hljs-string">'./public/images'</span>));<br>    done();<br>&#125;);<br><br><span class="hljs-comment">//4.0以前的写法 </span><br><span class="hljs-comment">//gulp.task('default', [</span><br><span class="hljs-comment">//  'minify-html', 'minify-css', 'minify-js', 'minify-images'</span><br><span class="hljs-comment">//]);</span><br><span class="hljs-comment">//4.0以后的写法</span><br><span class="hljs-comment">// 执行 gulp 命令时执行的任务</span><br>gulp.task(<span class="hljs-string">'default'</span>, gulp.series(gulp.parallel(<span class="hljs-string">'minify-html'</span>, <span class="hljs-string">'minify-css'</span>, <span class="hljs-string">'minify-js'</span>)), <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"----------gulp Finished----------"</span>);<br>    <span class="hljs-comment">// Do something after a, b, and c are finished.</span><br>&#125;);<br></code></pre></td></tr></table></figure>
+        </div>
+        
+            <div class="my_post_copyright">
+    <div style="text-align:center" class="menu-label">------ copyright ------</div>
+    <p style="text-align:center" class="menu-label"> 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank"><i class="fab fa-creative-commons" style="color:#29a329"></a></i> 许可协议</p>  
+
+    <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+    <div class="has-text-grey is-size-7 is-block">
+    <p><span>title:</span><a href="/posts/65512/">Hexo搭建个人博客：装修</a></p>
+    <p><span>author:</span><a href="/">Anne416wu</a></p>
+    <p>
+        <span>link:</span><a href="/posts/65512/" title="Hexo搭建个人博客：装修 - Annewqx">https://www.annewqx.top/posts/65512/</a>
+        <span class="copy-path"  title="Click to Copy Link"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/65512/"  aria-label="复制成功！"></i></span>
+    </p>
+    <p><span>publish time:</span>2020-02-25</p>
+    <p><span>update time:</span>2022-04-22</p>
+    </div>
+</div>
+<!-- <ul class="post-copyright">
+    <li><strong>本文标题：</strong><a href="https://www.annewqx.top/posts/65512/">Hexo搭建个人博客：装修</a></li>
+     <li><strong>本文作者：</strong><a href="https://www.annewqx.top">Anne416wu</a></li>
+    <li><strong>本文链接：</strong><a href="https://www.annewqx.top/posts/65512/">https://www.annewqx.top/posts/65512/</a></li>
+    <li><strong>发布时间：</strong>2020-02-25</li>
+    <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+    </li>
+</ul> -->
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+        clipboard.on('success', function(){
+            swal({   
+                title: "",   
+                text: '复制成功',
+                icon: "success", 
+                showConfirmButton: true
+            });
+         });
+    });  
+</script>
+
+        
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <!-- <span class="is-size-6 has-text-grey has-mr-7">#</span> -->
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/JavaScript/" rel="tag">JavaScript</a>,&nbsp;<a class="has-link-grey -link" href="/tags/hexo/" rel="tag">hexo</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧，或者点一下广告也行↓</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/Alipay.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechatpay.jpg" alt="微信"></div>
+</a>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
+    <span class="icon is-small">
+        <i class="fab fa-paypal"></i>
+    </span>
+    <span>Paypal</span>
+</a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form">
+    <input type="hidden" name="cmd" value="_donations" />
+    <input type="hidden" name="business" value="86BR8FGECVEYE" />
+    <input type="hidden" name="currency_code" value="USD" />
+</form>
+
+                
+        </div>
+    </div>
+</div>
+<div class="card widget">
+  <div class="card-content">
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <!-- cross -->
+     <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-6929188339121540"
+          data-ad-slot="5334530389"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+     <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+     </script>
+  </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/2210/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">使用Caddy替换Nginx运行网站</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/65182/">
+                <span class="level-item">Hexo搭建个人博客：部署</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        avatar: 'retro',
+        notify: true ,
+        verify: false ,
+        app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
+        app_key: '20OYVeUwaMoaoYEp1JhHnBmu',
+        placeholder: 'Leave a comment',
+    });
+</script>
+
+    </div>
+</div>
+
+                    
+                    
+                </div>
+                
+
+
+
+
+
+<div class="column is-one-third-tablet is-3-desktop is-one-fifth-widescreen is-one-fifth-fullhd is-hidden-touch  is-hidden-desktop-only has-order-3 column-left ">    
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/avatar.png" alt="Anne Wu">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Anne Wu
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Anne416Wu
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Beijing, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            31
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            7
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            28
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener external nofollow noreferrer">
+                <i class="fas fa-rss"></i>&nbsp
+                订阅我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Twitter" href="https://twitter.com/annewqx">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Weibo" href="http://weibo.com/5204863560">
+                
+                <i class="fab fa-weibo"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Zhihu" href="https://www.zhihu.com/people/anne-wu-7">
+                
+                <i class="fab fa-zhihu"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Music" href="https://music.163.com/#/user/home?id=122741706">
+                
+                <i class="fa fa-music"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Steam" href="https://steamcommunity.com/profiles/76561198797448390/">
+                
+                <i class="fab fa-steam"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41844395" target="_blank" rel="noopener external nofollow noreferrer">
+                    <span class="level-left">
+                        <span class="level-item">CSDN</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.csdn.net</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.annewqx.top" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Domain</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.annewqx.top</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://anne416wu.github.io" target="_blank" rel="noopener external nofollow noreferrer">
+                    <span class="level-left">
+                        <span class="level-item">GITHUB.IO</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">anne416wu.github.io</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/40079/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/sonarquebe.png" alt="MacOS下通过docker安装和运行SonarQube">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2022-04-22T14:28:41.000Z">2022-04-22</time></div>
+                    <a href="/posts/40079/" class="title has-link-black-ter is-size-6 has-text-weight-normal">MacOS下通过docker安装和运行SonarQube</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/guide/">guide</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/37733/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/ecmascript.jpeg" alt="ES6+对比">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2022-01-24T06:05:27.000Z">2022-01-24</time></div>
+                    <a href="/posts/37733/" class="title has-link-black-ter is-size-6 has-text-weight-normal">ES6+对比</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/note/">note</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/34831/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/react.jpeg" alt="react学习笔记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2022-01-18T02:23:48.000Z">2022-01-18</time></div>
+                    <a href="/posts/34831/" class="title has-link-black-ter is-size-6 has-text-weight-normal">react学习笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/note/">note</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/30803/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/react-native.png" alt="react native 项目环境搭建">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2022-01-10T05:29:29.000Z">2022-01-10</time></div>
+                    <a href="/posts/30803/" class="title has-link-black-ter is-size-6 has-text-weight-normal">react native 项目环境搭建</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/guide/">guide</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/38332/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="使用Vue2+ElementUI+scss开发在线问卷页面">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2021-10-22T01:40:18.000Z">2021-10-22</time></div>
+                    <a href="/posts/38332/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用Vue2+ElementUI+scss开发在线问卷页面</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/report/">report</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/code/">
+            <span class="level-start">
+                <span class="level-item">code</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">30</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/code/course/">
+            <span class="level-start">
+                <span class="level-item">course</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/code/guide/">
+            <span class="level-start">
+                <span class="level-item">guide</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">9</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/code/note/">
+            <span class="level-start">
+                <span class="level-item">note</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/code/report/">
+            <span class="level-start">
+                <span class="level-item">report</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">10</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/life/">
+            <span class="level-start">
+                <span class="level-item">life</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/life/fragments/">
+            <span class="level-start">
+                <span class="level-item">fragments</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ElementUI/">
+                        <span class="tag">ElementUI</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JavaScript/">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SonarQube/">
+                        <span class="tag">SonarQube</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TypeScript/">
+                        <span class="tag">TypeScript</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/VPS/">
+                        <span class="tag">VPS</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/anaconda/">
+                        <span class="tag">anaconda</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/caddy/">
+                        <span class="tag">caddy</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/haskell/">
+                        <span class="tag">haskell</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ios/">
+                        <span class="tag">ios</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/markdown/">
+                        <span class="tag">markdown</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nginx/">
+                        <span class="tag">nginx</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/python/">
+                        <span class="tag">python</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/react/">
+                        <span class="tag">react</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/scss/">
+                        <span class="tag">scss</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ssh/">
+                        <span class="tag">ssh</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue/">
+                        <span class="tag">vue</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">
+                        <span class="tag">人工智能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/">
+                        <span class="tag">密码学</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="tag">操作系统</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">
+                        <span class="tag">科学上网</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/">
+                        <span class="tag">终端命令</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                        <span class="tag">编译原理</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
+                        <span class="tag">网络安全</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="tag">计算机网络</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">
+                        <span class="tag">软件测试</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2022/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2022</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2022/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2022</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2021/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2021</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+  <div class="card-content">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Cube -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6929188339121540"
+         data-ad-slot="7652135170"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+    
+    
+    
+</div>
+
+                
+
+
+
+
+
+<div class="column is-one-third-tablet is-3-desktop is-one-fifth-widescreen is-one-fifth-fullhd  has-order-1 column-right is-sticky">    
+    
+        
+
+    <div class="card widget "  id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#先决条件">
+        <span class="has-mr-6">1</span>
+        <span>先决条件</span>
+        </a></li><li>
+        <a class="is-flex" href="#功能">
+        <span class="has-mr-6">2</span>
+        <span>功能</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#访客地球">
+        <span class="has-mr-6">2.1</span>
+        <span>访客地球</span>
+        </a></li><li>
+        <a class="is-flex" href="#网易云音乐">
+        <span class="has-mr-6">2.2</span>
+        <span>网易云音乐</span>
+        </a></li><li>
+        <a class="is-flex" href="#人体时钟">
+        <span class="has-mr-6">2.3</span>
+        <span>人体时钟</span>
+        </a></li><li>
+        <a class="is-flex" href="#添加密码">
+        <span class="has-mr-6">2.4</span>
+        <span>添加密码</span>
+        </a></li><li>
+        <a class="is-flex" href="#黑暗模式">
+        <span class="has-mr-6">2.5</span>
+        <span>黑暗模式</span>
+        </a></li><li>
+        <a class="is-flex" href="#related-post-widget">
+        <span class="has-mr-6">2.6</span>
+        <span>related post widget</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#布局">
+        <span class="has-mr-6">3</span>
+        <span>布局</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#修改分栏比例">
+        <span class="has-mr-6">3.1</span>
+        <span>修改分栏比例</span>
+        </a></li><li>
+        <a class="is-flex" href="#时间轴展示目录页">
+        <span class="has-mr-6">3.2</span>
+        <span>时间轴展示目录页</span>
+        </a></li><li>
+        <a class="is-flex" href="#categories页合并tags页">
+        <span class="has-mr-6">3.3</span>
+        <span>categories页合并tags页</span>
+        </a></li><li>
+        <a class="is-flex" href="#警告块">
+        <span class="has-mr-6">3.4</span>
+        <span>警告块</span>
+        </a></li><li>
+        <a class="is-flex" href="#Valine-头像">
+        <span class="has-mr-6">3.5</span>
+        <span>Valine 头像</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#数据统计和优化">
+        <span class="has-mr-6">4</span>
+        <span>数据统计和优化</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#SEO优化">
+        <span class="has-mr-6">4.1</span>
+        <span>SEO优化</span>
+        </a></li><li>
+        <a class="is-flex" href="#评论邮件回执">
+        <span class="has-mr-6">4.2</span>
+        <span>评论邮件回执</span>
+        </a></li><li>
+        <a class="is-flex" href="#修改阅读量统计服务为leancloud">
+        <span class="has-mr-6">4.3</span>
+        <span>修改阅读量统计服务为leancloud</span>
+        </a></li><li>
+        <a class="is-flex" href="#Gulp压缩">
+        <span class="has-mr-6">4.4</span>
+        <span>Gulp压缩</span>
+        </a></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            related posts
+        </h3>
+         
+            
+         
+            
+         
+            
+         
+            <article class="media"> <a href="/posts/2727/" class="media-left">
+                        <p class="image is-64x64">
+                            <img class="thumbnail" src="/gallery/thumbnails/hexo-cover.png" alt="Hexo搭建个人博客：入门">
+                        </p>
+                    </a><div class="media-content">
+                    <div class="content">
+                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-21T16:00:00.000Z">2020-02-22</time></div>
+                        <a href="/posts/2727/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo搭建个人博客：入门</a>
+                    </div>
+                </div>
+            </article>
+         
+            
+         
+            <article class="media"> <a href="/posts/65182/" class="media-left">
+                        <p class="image is-64x64">
+                            <img class="thumbnail" src="/gallery/thumbnails/Nginx.jpg" alt="Hexo搭建个人博客：部署">
+                        </p>
+                    </a><div class="media-content">
+                    <div class="content">
+                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-24T05:53:24.000Z">2020-02-24</time></div>
+                        <a href="/posts/65182/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo搭建个人博客：部署</a>
+                    </div>
+                </div>
+            </article>
+         
+            <article class="media"> <a href="/posts/27751/" class="media-left">
+                        <p class="image is-64x64">
+                            <img class="thumbnail" src="/gallery/thumbnails/plant.jpg" alt="Hexo搭建个人博客：主题比较">
+                        </p>
+                    </a><div class="media-content">
+                    <div class="content">
+                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-22T16:00:00.000Z">2020-02-23</time></div>
+                        <a href="/posts/27751/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo搭建个人博客：主题比较</a>
+                    </div>
+                </div>
+            </article>
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            <article class="media"> <a href="/posts/37733/" class="media-left">
+                        <p class="image is-64x64">
+                            <img class="thumbnail" src="/gallery/thumbnails/ecmascript.jpeg" alt="ES6+对比">
+                        </p>
+                    </a><div class="media-content">
+                    <div class="content">
+                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2022-01-24T06:05:27.000Z">2022-01-24</time></div>
+                        <a href="/posts/37733/" class="title has-link-black-ter is-size-6 has-text-weight-normal">ES6+对比</a>
+                    </div>
+                </div>
+            </article>
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            <article class="media"> <a href="/posts/40079/" class="media-left">
+                        <p class="image is-64x64">
+                            <img class="thumbnail" src="/gallery/thumbnails/sonarquebe.png" alt="MacOS下通过docker安装和运行SonarQube">
+                        </p>
+                    </a><div class="media-content">
+                    <div class="content">
+                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2022-04-22T14:28:41.000Z">2022-04-22</time></div>
+                        <a href="/posts/40079/" class="title has-link-black-ter is-size-6 has-text-weight-normal">MacOS下通过docker安装和运行SonarQube</a>
+                    </div>
+                </div>
+            </article>
+         
+            
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/ElementUI/" style="font-size: 10px;">ElementUI</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/SonarQube/" style="font-size: 10px;">SonarQube</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/anaconda/" style="font-size: 10px;">anaconda</a> <a href="/tags/caddy/" style="font-size: 10px;">caddy</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 13.33px;">react</a> <a href="/tags/scss/" style="font-size: 10px;">scss</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a> <a href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/" style="font-size: 13.33px;">终端命令</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 20px;">编译原理</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 13.33px;">网络安全</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">软件测试</a>
+    </div>
+</div>
+    
+        <iframe
+  class="card widget"
+  height="400"
+  width="100%"
+  src="https://music.163.com/outchain/player?type=0&id=4878237788&auto=0&height=430"
+></iframe>
+
+    
+        <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=53u8jvixw8q&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+
+    
+        <div class="card widget">
+    <div class="card-content" height=200 width=100
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- homead2 -->
+        <ins class="adsbygoogle"
+            style="display:inline-block;width:250px;height:200px"
+            data-ad-client="ca-pub-6929188339121540"
+            data-ad-slot="8095112019"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    </div>
+  </div>
+    
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img class="logo-img" src="/images/logo.svg" alt="Hexo搭建个人博客：装修" height="28" />
+                    <img class="logo-img-dark" src="/images/logo_dark.png" alt="Hexo搭建个人博客：装修" height="28" />
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2022 Anne416wu&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener external nofollow noreferrer">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>个访客
+                </span>
+                <span id="busuanzi_container_site_pv">
+                    <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                    
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                    
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <!-- <script>
+        var uv = document.getElementById("busuanzi_value_site_uv")
+        var pv = document.getElementById("busuanzi_value_site_pv")
+        uv.innerText = patseInt(uv.value) + 30
+        pv.innerText = patseInt(pv.value) + 5
+    </script>  -->
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://www.annewqx.top',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noreferrer">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="回到顶端" href="javascript:;" rel="external nofollow noreferrer">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

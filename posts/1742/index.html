@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=1"
+/>
+
+<title>编译原理与设计-Lab5-语法分析实验 - Annewqx</title>
+
+<meta
+  name="google-site-verification"
+  content="GvExXP5gCEjttN6mUpfkSVS0rn_Vbyw5KKRRhqI2jnU"
+/>
+<script
+  data-ad-client="ca-pub-6929188339121540"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+
+ <meta name="description" content="选择 C 语言的一个子集，基于 BIT-MiniCC 构建 C 语法子集的语法分 析器，该语法分析器能够读入词法分析器输出的存储在文件中的属性字符流，进 行语法分析并进行错误处理，如果输入正确时输出 JSON 格式的语法树，输入不正确时报告语法错误。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译原理与设计-Lab5-语法分析实验">
+<meta property="og:url" content="https://www.annewqx.top/posts/1742/index.html">
+<meta property="og:site_name" content="Annewqx">
+<meta property="og:description" content="选择 C 语言的一个子集，基于 BIT-MiniCC 构建 C 语法子集的语法分 析器，该语法分析器能够读入词法分析器输出的存储在文件中的属性字符流，进 行语法分析并进行错误处理，如果输入正确时输出 JSON 格式的语法树，输入不正确时报告语法错误。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.annewqx.top/images/og_image.png">
+<meta property="article:published_time" content="2020-04-14T13:08:30.000Z">
+<meta property="article:modified_time" content="2022-04-22T14:34:40.974Z">
+<meta property="article:author" content="Anne416wu">
+<meta property="article:tag" content="编译原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.annewqx.top/images/og_image.png">  
+<link rel="canonical" href="https://annewqx.top/" />
+ 
+<link
+  rel="alternative"
+  href="atom.xml"
+  title="编译原理与设计-Lab5-语法分析实验"
+  type="application/atom+xml"
+/>
+ 
+<link
+  rel="apple-touch-icon"
+  sizes="128x128"
+  href="/images/favicon-64px.png"
+/>
+ 
+<link rel="icon" sizes="32x32" href="/images/favicon-64px.png" />
+ 
+<link
+  rel="mask-icon"
+  href="/images/favicon-64px.png"
+  color="{{ theme.android_chrome_color }}"
+/>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css"> <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"> <link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atelier-seaside-light.css">  
+
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+ 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+ 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+ 
+ 
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+ 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158871764-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-158871764-1');
+</script> 
+ 
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2579115,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script> 
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script> 
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- 不蒜子计数初始值纠正 -->
+   <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body class="is-3-column">
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
+    <nav class="navbar navbar-main">
+  <div class="container">
+    <div class="navbar-brand is-flex-center">
+      <!-- <div class="is-hidden-mobile">
+                <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script>
+            </div> -->
+      <a class="navbar-item navbar-logo" href="/">
+        
+        <img
+          class="logo-img"
+          src="/images/logo.svg"
+          alt="编译原理与设计-Lab5-语法分析实验"
+          height="28"
+        />
+        <img
+          class="logo-img-dark"
+          src="/images/logo_dark.png"
+          alt="编译原理与设计-Lab5-语法分析实验"
+          height="28"
+        />
+        
+      </a>
+    </div>
+    <div class="navbar-menu is-flex-wrap is-flex-center">
+      
+      <div class="navbar-start">
+        
+        <a
+          class="navbar-item"
+          href="/"
+          >Home</a
+        >
+        
+        <a
+          class="navbar-item"
+          href="/categories/code"
+          >Code</a
+        >
+        
+        <a
+          class="navbar-item"
+          href="/categories/life"
+          >Life</a
+        >
+        
+        <a
+          class="navbar-item"
+          href="/categories"
+          >Categories</a
+        >
+        
+        <a
+          class="navbar-item"
+          href="/archives"
+          >Archives</a
+        >
+        
+        <a
+          class="navbar-item"
+          href="/about"
+          >Comment</a
+        >
+        
+      </div>
+      
+      <div class="navbar-end">
+        <a
+          class="navbar-item night"
+          id="night-nav"
+          title="Night Mode"
+          href="javascript:;"
+        >
+          <i class="fas fa-moon" id="night-icon"></i>
+        </a>
+         
+        <a
+          class="navbar-item"
+          target="_blank"
+          rel="noopener"
+          title="Download on GitHub"
+          href="https://github.com/anne416wu"
+        >
+          
+          <i class="fab fa-github"></i>
+          
+        </a>
+        
+        <a
+          class="navbar-item"
+          target="_blank"
+          rel="noopener"
+          title="RSS"
+          href="/atom.xml"
+        >
+          
+          <i class="fas fa-rss"></i>
+          
+        </a>
+          
+        <a
+          class="navbar-item is-hidden-tablet catalogue"
+          title="目录"
+          href="javascript:;"
+        >
+          <i class="fas fa-list-ul"></i>
+        </a>
+         
+        <a
+          class="navbar-item search"
+          title="搜索"
+          href="javascript:;"
+        >
+          <i class="fas fa-search"></i>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+    
+    <section class="section">
+        <div>
+            <div class="columns is-centered is-variable is-2">
+                <div class="column is-two-thirds-tablet is-9-desktop is-7-widescreen is-three-fifths-fullhd has-order-2 column-main">
+                    
+<div class="card">
+    
+    <div class="card-content article ">
+       <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+            <i class="fas fa-angle-double-right"></i>编译原理与设计-Lab5-语法分析实验
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2020-04-14T13:08:30.000Z">2020-04-14</time> -->
+                <time class="level-item has-text-grey" datetime="2020-04-14T13:08:30.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-04-14</time>
+                
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2022-04-22T14:34:40.974Z"><i class="far fa-calendar-check">&nbsp;</i>2022-04-22</time>
+                
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/code/">code</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/code/report/">report</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6 分钟 读完 (大约 965 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <!-- <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                编译原理与设计-Lab5-语法分析实验
+            
+        </h1> -->
+        <div class="content">
+            <p>选择 C 语言的一个子集，基于 BIT-MiniCC 构建 C 语法子集的语法分 析器，该语法分析器能够读入词法分析器输出的存储在文件中的属性字符流，进 行语法分析并进行错误处理，如果输入正确时输出 JSON 格式的语法树，输入不正确时报告语法错误。</p>
+<a id="more"></a>
+
+<h2 id="实现的具体过程和步骤"><a href="#实现的具体过程和步骤" class="headerlink" title="实现的具体过程和步骤"></a>实现的具体过程和步骤</h2><h3 id="1-定义C语言子集"><a href="#1-定义C语言子集" class="headerlink" title="1 定义C语言子集"></a>1 定义C语言子集</h3><blockquote>
+<p>参照后续给出的文法，扩充定义自己希望实现的 C 语言语法子集。参考文法只给出了函数定义以及简单的表达式相关的文法。局部变量声明、分支语 句以及循环语句等需要自己进行扩充。采用自顶向下的分析方法时，不能有左递归，避免文法产生式的多个候选式存在公共因子。如果出现左递归或者公共因子， 则可以通过文法等价变换进行消除。</p>
+</blockquote>
+<h4 id="1-根据C11的语法规则编写C语言子集"><a href="#1-根据C11的语法规则编写C语言子集" class="headerlink" title="1 根据C11的语法规则编写C语言子集"></a>1 根据C11的语法规则编写C语言子集</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><code class="hljs c">statement<br>    :   labeledStatement<br>    |   compoundStatement<br>    |   expressionStatement<br>    |   selectionStatement<br>    |   iterationStatement<br>    |   jumpStatement<br>    ;<br>assignmentOperator<br>    :   '=' | '*=' | '/=' | '%=' | '+=' | '-=' | '&lt;&lt;=' | '&gt;&gt;=' | '&amp;=' | '^=' | '|='<br>    ;<br>expressionStatement<br>    :   expression? ';'<br>    ;<br>expression<br>    :   assignmentExpression<br>    |   expression ',' assignmentExpression<br>    ;<br>compoundStatement<br>    :   '&#123;' blockItemList? '&#125;'<br>    ;<br>iterationStatement<br>    :   'while' '(' expression ')' statement<br>    |   'do' statement 'while' '(' expression ')' ';'<br>    |   'for' '(' expression? ';' expression? ';' expression? ')' statement<br>    |   'for' '(' declaration expression? ';' expression? ')' statement<br>    ;<br>selectionStatement<br>    :   'if' '(' expression ')' statement ('else' statement)?<br>    |   'switch' '(' expression ')' statement<br>    ;<br>jumpStatement<br>    :   'goto' Identifier ';'<br>    |   'continue' ';'<br>    |   'break' ';'<br>    |   'return' expression? ';'<br>    |   'goto' unaryExpression ';' // GCC extension<br>    ;<br>labeledStatement<br>    :   Identifier ':' statement<br>    |   'case' constantExpression ':' statement<br>    |   'default' ':' statement<br>    ;<br>	<br>	// 局部变量声明<br>declarationList<br>    :   declaration<br>    |   declarationList declaration<br>    ;<br>declarationSpecifier<br>    :   storageClassSpecifier<br>    |   typeSpecifier<br>    |   typeQualifier<br>    |   functionSpecifier<br>    |   alignmentSpecifier<br>    ;<br>initDeclaratorList<br>    :   initDeclarator<br>    |   initDeclaratorList ',' initDeclarator<br>    ;<br>initDeclarator<br>    :   declarator<br>    |   declarator '=' initializer<br>    ;<br>declarator<br>    :   pointer? directDeclarator gccDeclaratorExtension*<br>    ;<br>directDeclarator<br>    :   Identifier<br>    |   '(' declarator ')'<br>    ;<br>storageClassSpecifier<br>    :   'typedef'<br>    |   'extern'<br>    |   'static'<br>    |   '_Thread_local'<br>    |   'auto'<br>    |   'register'<br>    ;<br>typeSpecifier<br>    :   ('void'<br>    |   'char'<br>    |   'short'<br>    |   'int'<br>    |   'long'<br>    |   'float'<br>    |   'double'<br>    |   'signed'<br>    |   'unsigned'<br>    |   '_Bool'<br>    ;<br>typeQualifier<br>    :   'const'<br>    ;<br>pointer<br>    :   '*' typeQualifierList?<br>    ;<br>initializer<br>    :   assignmentExpression<br>    |   '&#123;' initializerList '&#125;'<br>    |   '&#123;' initializerList ',' '&#125;'<br>    ;<br>initializerList<br>    :   designation? initializer<br>    |   initializerList ',' designation? initializer<br>    ;<br>assignmentExpression<br>    :   conditionalExpression<br>    |   unaryExpression assignmentOperator assignmentExpression<br>    ;<br>// 赋值语句<br>conditionalExpression<br>    :   logicalOrExpression ('?' expression ':' conditionalExpression)?<br>    ;<br>logicalAndExpression<br>    :   inclusiveOrExpression<br>    |   logicalAndExpression '&amp;&amp;' inclusiveOrExpression<br>    ;<br>logicalOrExpression<br>    :   logicalAndExpression<br>    |   logicalOrExpression '||' logicalAndExpression<br>    ;<br>unaryExpression<br>    :   postfixExpression<br>    |   '++' unaryExpression<br>    |   '--' unaryExpression<br>    |   unaryOperator castExpression<br>    |   'sizeof' unaryExpression<br>    |   'sizeof' '(' typeName ')'<br>    ;<br>unaryOperator<br>    :   '&amp;' | '*' | '+' | '-' | '~' | '!'<br>    ;<br>constantExpression<br>    :   conditionalExpression<br>    ;<br>expression<br>    :   assignmentExpression<br>    |   expression ',' assignmentExpression<br>    ;<br>postfixExpression<br>    :   primaryExpression<br>    |   postfixExpression '[' expression ']'<br>    |   postfixExpression '(' argumentExpressionList? ')'<br>    |   postfixExpression '.' Identifier<br>    |   postfixExpression '-&gt;' Identifier<br>    |   postfixExpression '++'<br>    |   postfixExpression '--'<br>    ;<br></code></pre></td></tr></table></figure>
+
+<h4 id="2-消除左递归"><a href="#2-消除左递归" class="headerlink" title="2 消除左递归"></a>2 消除左递归</h4><ul>
+<li><p>expression</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c">expression<br>    :   assignmentExpression<br>    |   expression <span class="hljs-string">','</span> assignmentExpression<br>    ;<br></code></pre></td></tr></table></figure>
+
+<p>  exp本身不符合LL(0)文法规则，需要消除左递归，消除后expression和expression+分别对应</p>
+</li>
+<li><p>assignmentExpression</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c">assignmentExpression<br>    :   conditionalExpression<br>    |   unaryExpression assignmentOperator assignmentExpression<br>    ;<br></code></pre></td></tr></table></figure>
+
+<p>  conditionalExpression的FIRST几核中包含了unaryExpression的FIRST集合，不符合LL(0)文法规法。BITMiniCC中，对于ASTBinaryExpression节点：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> ASTToken op;<br><span class="hljs-keyword">public</span> ASTExpression expr1;<br><span class="hljs-keyword">public</span> ASTExpression expr2;<br></code></pre></td></tr></table></figure>
+
+<p>  分别对应assignmentOperator，unaryExpression，assignmentExpression</p>
+</li>
+<li><p>postfixExpression</p>
+  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c">postfixExpression<br>    :   primaryExpression<br>    |   postfixExpression '[' expression ']'<br>    |   postfixExpression '(' argumentExpressionList? ')'<br>    |   postfixExpression '.' Identifier<br>    |   postfixExpression '-&gt;' Identifier<br>    |   postfixExpression '++'<br>    |   postfixExpression '--'<br>    ;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>argumentExpressionList</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c">argumentExpressionList<br>    :   assignmentExpression<br>    |   argumentExpressionList <span class="hljs-string">','</span> assignmentExpression<br>    ;<br></code></pre></td></tr></table></figure>
+
+<p>  简化为只有一个参数</p>
+</li>
+</ul>
+<h3 id="2-JAVA实现语法分析器"><a href="#2-JAVA实现语法分析器" class="headerlink" title="2 JAVA实现语法分析器"></a>2 JAVA实现语法分析器</h3><blockquote>
+<p>从递归下降分析方法、LL(1)分析方法、LR 分析方法中选择一种算法， 基于 BIT-MiniCC 设计并实现语法分析器。可以使用 ANTLR，也可以手动编码实现。语法分析的输入为词法分析的输 出，因此语法分析器首先要读入 xxx.tokens 文件;在分析的过程中构建语法树。</p>
+</blockquote>
+<h3 id="3-将语法树输出为-JSON-文件"><a href="#3-将语法树输出为-JSON-文件" class="headerlink" title="3 将语法树输出为 JSON 文件"></a>3 将语法树输出为 JSON 文件</h3><p>未完成</p>
+<h2 id="运行效果截图"><a href="#运行效果截图" class="headerlink" title="运行效果截图"></a>运行效果截图</h2><ol>
+<li><p>test0</p>
+<p> <img src="Screenshot2020-04-16%2000.10.22.png" alt="Example"></p>
+</li>
+<li><p>test1</p>
+<p> <img src="Screenshot2020-04-16%2000.17.47.png" alt="Screenshot2020-04-16 00.17.47"></p>
+<p> 放大</p>
+<p> <img src="Screenshot2020-04-16%2000.15.33.png" alt="Screenshot2020-04-16 00.15.33"></p>
+</li>
+<li><p>test2</p>
+<p> <img src="Screenshot2020-04-16%2000.25.24.png" alt="Screenshot2020-04-16 00.25.24"></p>
+</li>
+<li><p>test3</p>
+<p> <img src="Screenshot2020-04-16%2000.27.54.png" alt="Screenshot2020-04-16 00.27.54"></p>
+</li>
+</ol>
+<h2 id="实验心得体会"><a href="#实验心得体会" class="headerlink" title="实验心得体会"></a>实验心得体会</h2><ul>
+<li>这次实验对我来说是前所未有的挑战，看懂框架的文法、参照框架和C语言标准实现语法分析器，在编程能力、数据结构、文法基本理解各方面上都有很大的挑战。</li>
+<li>首先是对知识的运用，知识基础之薄弱在应用时原形毕露，</li>
+<li>在编码过程我遇到了很多问题，反复调试了很多次都无法正确的运行。树生成失败，空指针，对象初始化等等问题层出不穷，一方面是本身对于框架的研究不够，另一方面也是没有严谨编程习惯</li>
+<li>这次实验我投入的时间和精力并不足以达到完成这个实验的要求</li>
+</ul>
+
+        </div>
+        
+            <div class="my_post_copyright">
+    <div style="text-align:center" class="menu-label">------ copyright ------</div>
+    <p style="text-align:center" class="menu-label"> 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank"><i class="fab fa-creative-commons" style="color:#29a329"></a></i> 许可协议</p>  
+
+    <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+    <div class="has-text-grey is-size-7 is-block">
+    <p><span>title:</span><a href="/posts/1742/">编译原理与设计-Lab5-语法分析实验</a></p>
+    <p><span>author:</span><a href="/">Anne416wu</a></p>
+    <p>
+        <span>link:</span><a href="/posts/1742/" title="编译原理与设计-Lab5-语法分析实验 - Annewqx">https://www.annewqx.top/posts/1742/</a>
+        <span class="copy-path"  title="Click to Copy Link"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/1742/"  aria-label="复制成功！"></i></span>
+    </p>
+    <p><span>publish time:</span>2020-04-14</p>
+    <p><span>update time:</span>2022-04-22</p>
+    </div>
+</div>
+<!-- <ul class="post-copyright">
+    <li><strong>本文标题：</strong><a href="https://www.annewqx.top/posts/1742/">编译原理与设计-Lab5-语法分析实验</a></li>
+     <li><strong>本文作者：</strong><a href="https://www.annewqx.top">Anne416wu</a></li>
+    <li><strong>本文链接：</strong><a href="https://www.annewqx.top/posts/1742/">https://www.annewqx.top/posts/1742/</a></li>
+    <li><strong>发布时间：</strong>2020-04-14</li>
+    <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+    </li>
+</ul> -->
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+        clipboard.on('success', function(){
+            swal({   
+                title: "",   
+                text: '复制成功',
+                icon: "success", 
+                showConfirmButton: true
+            });
+         });
+    });  
+</script>
+
+        
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <!-- <span class="is-size-6 has-text-grey has-mr-7">#</span> -->
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧，或者点一下广告也行↓</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/Alipay.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechatpay.jpg" alt="微信"></div>
+</a>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
+    <span class="icon is-small">
+        <i class="fab fa-paypal"></i>
+    </span>
+    <span>Paypal</span>
+</a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form">
+    <input type="hidden" name="cmd" value="_donations" />
+    <input type="hidden" name="business" value="86BR8FGECVEYE" />
+    <input type="hidden" name="currency_code" value="USD" />
+</form>
+
+                
+        </div>
+    </div>
+</div>
+<div class="card widget">
+  <div class="card-content">
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <!-- cross -->
+     <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-6929188339121540"
+          data-ad-slot="5334530389"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+     <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+     </script>
+  </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/38332/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">使用Vue2+ElementUI+scss开发在线问卷页面</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/4542/">
+                <span class="level-item">密码学应用和加密货币实践</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        avatar: 'retro',
+        notify: true ,
+        verify: false ,
+        app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
+        app_key: '20OYVeUwaMoaoYEp1JhHnBmu',
+        placeholder: 'Leave a comment',
+    });
+</script>
+
+    </div>
+</div>
+
+                    
+                    
+                </div>
+                
+
+
+
+
+
+<div class="column is-one-third-tablet is-3-desktop is-one-fifth-widescreen is-one-fifth-fullhd is-hidden-touch  is-hidden-desktop-only has-order-3 column-left ">    
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/avatar.png" alt="Anne Wu">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Anne Wu
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Anne416Wu
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Beijing, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            31
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            7
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            28
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/anne416wu" target="_blank" rel="noopener external nofollow noreferrer">
+                <i class="fas fa-rss"></i>&nbsp
+                订阅我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Twitter" href="https://twitter.com/annewqx">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Weibo" href="http://weibo.com/5204863560">
+                
+                <i class="fab fa-weibo"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Zhihu" href="https://www.zhihu.com/people/anne-wu-7">
+                
+                <i class="fab fa-zhihu"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Music" href="https://music.163.com/#/user/home?id=122741706">
+                
+                <i class="fa fa-music"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Steam" href="https://steamcommunity.com/profiles/76561198797448390/">
+                
+                <i class="fab fa-steam"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41844395" target="_blank" rel="noopener external nofollow noreferrer">
+                    <span class="level-left">
+                        <span class="level-item">CSDN</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.csdn.net</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.annewqx.top" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Domain</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.annewqx.top</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://anne416wu.github.io" target="_blank" rel="noopener external nofollow noreferrer">
+                    <span class="level-left">
+                        <span class="level-item">GITHUB.IO</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">anne416wu.github.io</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/40079/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/sonarquebe.png" alt="MacOS下通过docker安装和运行SonarQube">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2022-04-22T14:28:41.000Z">2022-04-22</time></div>
+                    <a href="/posts/40079/" class="title has-link-black-ter is-size-6 has-text-weight-normal">MacOS下通过docker安装和运行SonarQube</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/guide/">guide</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/37733/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/ecmascript.jpeg" alt="ES6+对比">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2022-01-24T06:05:27.000Z">2022-01-24</time></div>
+                    <a href="/posts/37733/" class="title has-link-black-ter is-size-6 has-text-weight-normal">ES6+对比</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/note/">note</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/34831/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/react.jpeg" alt="react学习笔记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2022-01-18T02:23:48.000Z">2022-01-18</time></div>
+                    <a href="/posts/34831/" class="title has-link-black-ter is-size-6 has-text-weight-normal">react学习笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/note/">note</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/30803/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/react-native.png" alt="react native 项目环境搭建">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2022-01-10T05:29:29.000Z">2022-01-10</time></div>
+                    <a href="/posts/30803/" class="title has-link-black-ter is-size-6 has-text-weight-normal">react native 项目环境搭建</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/guide/">guide</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/38332/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="使用Vue2+ElementUI+scss开发在线问卷页面">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2021-10-22T01:40:18.000Z">2021-10-22</time></div>
+                    <a href="/posts/38332/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用Vue2+ElementUI+scss开发在线问卷页面</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/report/">report</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/code/">
+            <span class="level-start">
+                <span class="level-item">code</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">30</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/code/course/">
+            <span class="level-start">
+                <span class="level-item">course</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/code/guide/">
+            <span class="level-start">
+                <span class="level-item">guide</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">9</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/code/note/">
+            <span class="level-start">
+                <span class="level-item">note</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/code/report/">
+            <span class="level-start">
+                <span class="level-item">report</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">10</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/life/">
+            <span class="level-start">
+                <span class="level-item">life</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/life/fragments/">
+            <span class="level-start">
+                <span class="level-item">fragments</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ElementUI/">
+                        <span class="tag">ElementUI</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JavaScript/">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SonarQube/">
+                        <span class="tag">SonarQube</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TypeScript/">
+                        <span class="tag">TypeScript</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/VPS/">
+                        <span class="tag">VPS</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/anaconda/">
+                        <span class="tag">anaconda</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/caddy/">
+                        <span class="tag">caddy</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/haskell/">
+                        <span class="tag">haskell</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ios/">
+                        <span class="tag">ios</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/markdown/">
+                        <span class="tag">markdown</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nginx/">
+                        <span class="tag">nginx</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/python/">
+                        <span class="tag">python</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/react/">
+                        <span class="tag">react</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/scss/">
+                        <span class="tag">scss</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ssh/">
+                        <span class="tag">ssh</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue/">
+                        <span class="tag">vue</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">
+                        <span class="tag">人工智能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/">
+                        <span class="tag">密码学</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="tag">操作系统</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">
+                        <span class="tag">科学上网</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/">
+                        <span class="tag">终端命令</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                        <span class="tag">编译原理</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
+                        <span class="tag">网络安全</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="tag">计算机网络</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">
+                        <span class="tag">软件测试</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2022/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2022</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2022/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2022</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2021/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2021</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+  <div class="card-content">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Cube -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6929188339121540"
+         data-ad-slot="7652135170"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+    
+    
+    
+</div>
+
+                
+
+
+
+
+
+<div class="column is-one-third-tablet is-3-desktop is-one-fifth-widescreen is-one-fifth-fullhd  has-order-1 column-right is-sticky">    
+    
+        
+
+    <div class="card widget "  id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#实现的具体过程和步骤">
+        <span class="has-mr-6">1</span>
+        <span>实现的具体过程和步骤</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-定义C语言子集">
+        <span class="has-mr-6">1.1</span>
+        <span>1 定义C语言子集</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-根据C11的语法规则编写C语言子集">
+        <span class="has-mr-6">1.1.1</span>
+        <span>1 根据C11的语法规则编写C语言子集</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-消除左递归">
+        <span class="has-mr-6">1.1.2</span>
+        <span>2 消除左递归</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#2-JAVA实现语法分析器">
+        <span class="has-mr-6">1.2</span>
+        <span>2 JAVA实现语法分析器</span>
+        </a></li><li>
+        <a class="is-flex" href="#3-将语法树输出为-JSON-文件">
+        <span class="has-mr-6">1.3</span>
+        <span>3 将语法树输出为 JSON 文件</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#运行效果截图">
+        <span class="has-mr-6">2</span>
+        <span>运行效果截图</span>
+        </a></li><li>
+        <a class="is-flex" href="#实验心得体会">
+        <span class="has-mr-6">3</span>
+        <span>实验心得体会</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            related posts
+        </h3>
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            <article class="media"> <a href="/posts/53125/" class="media-left">
+                        <p class="image is-64x64">
+                            <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab1-语言认知实验">
+                        </p>
+                    </a><div class="media-content">
+                    <div class="content">
+                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
+                        <a href="/posts/53125/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab1-语言认知实验</a>
+                    </div>
+                </div>
+            </article>
+         
+            <article class="media"> <a href="/posts/673/" class="media-left">
+                        <p class="image is-64x64">
+                            <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab2-编译器认知实验">
+                        </p>
+                    </a><div class="media-content">
+                    <div class="content">
+                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-03T10:02:04.000Z">2020-03-03</time></div>
+                        <a href="/posts/673/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab2-编译器认知实验</a>
+                    </div>
+                </div>
+            </article>
+         
+            <article class="media"> <a href="/posts/62214/" class="media-left">
+                        <p class="image is-64x64">
+                            <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab3-词法分析实验">
+                        </p>
+                    </a><div class="media-content">
+                    <div class="content">
+                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-15T10:07:08.000Z">2020-03-15</time></div>
+                        <a href="/posts/62214/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab3-词法分析实验</a>
+                    </div>
+                </div>
+            </article>
+         
+            
+         
+            
+         
+            <article class="media"> <a href="/posts/33846/" class="media-left">
+                        <p class="image is-64x64">
+                            <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab4-文法设计实验">
+                        </p>
+                    </a><div class="media-content">
+                    <div class="content">
+                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-23T07:05:17.000Z">2020-03-23</time></div>
+                        <a href="/posts/33846/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab4-文法设计实验</a>
+                    </div>
+                </div>
+            </article>
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/ElementUI/" style="font-size: 10px;">ElementUI</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/SonarQube/" style="font-size: 10px;">SonarQube</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/anaconda/" style="font-size: 10px;">anaconda</a> <a href="/tags/caddy/" style="font-size: 10px;">caddy</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 13.33px;">react</a> <a href="/tags/scss/" style="font-size: 10px;">scss</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a> <a href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/" style="font-size: 13.33px;">终端命令</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 20px;">编译原理</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 13.33px;">网络安全</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">软件测试</a>
+    </div>
+</div>
+    
+        <iframe
+  class="card widget"
+  height="400"
+  width="100%"
+  src="https://music.163.com/outchain/player?type=0&id=4878237788&auto=0&height=430"
+></iframe>
+
+    
+        <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=53u8jvixw8q&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+
+    
+        <div class="card widget">
+    <div class="card-content" height=200 width=100
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- homead2 -->
+        <ins class="adsbygoogle"
+            style="display:inline-block;width:250px;height:200px"
+            data-ad-client="ca-pub-6929188339121540"
+            data-ad-slot="8095112019"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    </div>
+  </div>
+    
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img class="logo-img" src="/images/logo.svg" alt="编译原理与设计-Lab5-语法分析实验" height="28" />
+                    <img class="logo-img-dark" src="/images/logo_dark.png" alt="编译原理与设计-Lab5-语法分析实验" height="28" />
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2022 Anne416wu&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener external nofollow noreferrer">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>个访客
+                </span>
+                <span id="busuanzi_container_site_pv">
+                    <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                    
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                    
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <!-- <script>
+        var uv = document.getElementById("busuanzi_value_site_uv")
+        var pv = document.getElementById("busuanzi_value_site_pv")
+        uv.innerText = patseInt(uv.value) + 30
+        pv.innerText = patseInt(pv.value) + 5
+    </script>  -->
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://www.annewqx.top',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noreferrer">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="回到顶端" href="javascript:;" rel="external nofollow noreferrer">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
