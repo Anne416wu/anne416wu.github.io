@@ -32,7 +32,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.annewqx.top/gallery/thumbnails/sonarquebe.jpg">
 <meta property="article:published_time" content="2022-04-22T14:28:41.000Z">
-<meta property="article:modified_time" content="2022-05-12T01:36:55.413Z">
+<meta property="article:modified_time" content="2022-07-20T06:35:28.345Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="SonarQube TypeScript">
 <meta name="twitter:card" content="summary">
@@ -253,7 +253,7 @@
                 <!-- <time class="level-item has-text-grey" datetime="2022-04-22T14:28:41.000Z">2022-04-22</time> -->
                 <time class="level-item has-text-grey" datetime="2022-04-22T14:28:41.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2022-04-22</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2022-05-12T01:36:55.413Z"><i class="far fa-calendar-check">&nbsp;</i>2022-05-12</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2022-07-20T06:35:28.345Z"><i class="far fa-calendar-check">&nbsp;</i>2022-07-20</time>
                 
                 
                 <div class="level-item">
@@ -264,7 +264,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    11 分钟 读完 (大约 1593 个字)
+                    11 分钟 读完 (大约 1582 个字)
                 </span>
                 
                 
@@ -304,10 +304,10 @@
 <h2 id="2-安装并运行数据库"><a href="#2-安装并运行数据库" class="headerlink" title="2 安装并运行数据库"></a>2 安装并运行数据库</h2><p>网上教程也有使用MySQL等数据库的，此处按照本文所参考的教程，使用<a href="http://postgres.cn/v2/home" rel="external nofollow noreferrer">postgreSQL数据库：世界上最先进的开源关系型数据库</a></p>
 <ol>
 <li><p>拉取postgres镜像。进入终端，输入命令：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker pull postgres<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker pull postgres<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>运行镜像容器</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run --name db -e POSTGRES_USER=sonar -e POSTGRES_PASSWORD=sonar -d postgres<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run --name db -e POSTGRES_USER=sonar -e POSTGRES_PASSWORD=sonar -d postgres<br></code></pre></td></tr></table></figure>
 
 <ul>
 <li><p><code>--name</code>： 容器名称，此处取名为db</p>
@@ -325,7 +325,7 @@
 </li>
 <li><p><code>-d</code>： 后台运行容器，并返回容器ID</p>
 <p>完成后，docker desktop的containers下出现名为db的容器，且正在运行。</p>
-<p><img src="https://gitee.com/annewu/pics/raw/master/uPic/20220422/bsSbcC.png" alt="创建数据库镜像容器"></p>
+<p><img src="https://s2.loli.net/2022/07/20/EveGXMDm6fQ75l2.png" alt="创建数据库镜像容器"></p>
 </li>
 </ul>
 </li>
@@ -339,7 +339,7 @@
 <p>但是因为我们使用m1芯片为arm64架构，这两种方法下载并运行的镜像可能会遇到问题，因此，我们换用<a href="https://stackoverflow.com/questions/66482075/docker-apple-silicon-m1-preview-sonarqube-no-matching-manifest-for-linux-arm6" rel="external nofollow noreferrer">以下解决方案</a>：</p>
 </li>
 <li><p>拉取SonarQube源码，自行编译为镜像并使用</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># download 下载，也可通过官网下载</span><br>git <span class="hljs-built_in">clone</span> https://github.com/SonarSource/docker-sonarqube<br><span class="hljs-built_in">cd</span> docker-sonarqube/9/community<br><span class="hljs-comment">#build</span><br>docker build -t sonarqube-arm .<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># download 下载，也可通过官网下载</span><br>git <span class="hljs-built_in">clone</span> https://github.com/SonarSource/docker-sonarqube<br><span class="hljs-built_in">cd</span> docker-sonarqube/9/community<br><span class="hljs-comment">#build</span><br>docker build -t sonarqube-arm .<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>直接docker拉取社区已编译好的arm-sonarqube</p>
 <ol>
@@ -349,10 +349,8 @@
 </li>
 </ul>
 </li>
-</ol>
-<ol start="2">
 <li><p>启动sonar，并连接到数据库</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run --name sonar --link db -e SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar -e SONARQUBE_JDBC_USERNAME=sonar -e SONARQUBE_JDBC_PASSWORD=sonar -p 9000:9000 -d sonarqube<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run --name sonar --link db -e SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar -e SONARQUBE_JDBC_USERNAME=sonar -e SONARQUBE_JDBC_PASSWORD=sonar -p 9000:9000 -d sonarqube<br></code></pre></td></tr></table></figure>
 
 <ul>
 <li><p><code>--name</code>：容器名称，此处取名为sonar</p>
@@ -367,22 +365,22 @@
 <li><p><code>-p</code>： 指定端口映射，格式为：主机(宿主)端口:容器端口</p>
 </li>
 <li><p><code>-d</code>：镜像名称，此处我们需要把sonarqube替换为我们所拉取的<code>arm-sonarqube</code>对应的名称或IMAGE ID。使用<code>docker image ls</code>命令可以查看到。</p>
-<p>  <img src="https://gitee.com/annewu/pics/raw/master/uPic/20220422/wYIal2.png" alt="img"></p>
+<p>  <img src="https://s2.loli.net/2022/07/20/sjFx4yzJ7a98QLh.jpg" alt="img"></p>
 </li>
 </ul>
 </li>
 <li><p>在docker desktop中查看</p>
-<p> <img src="https://gitee.com/annewu/pics/raw/master/uPic/20220422/xVy7Cy.png" alt="运行效果"></p>
+<p> <img src="https://s2.loli.net/2022/07/20/1vx73nw5Yp4ILV2.jpg" alt="运行效果"></p>
 </li>
 <li><p>在浏览器中，访问<a href="http://localhost:9000/" rel="external nofollow noreferrer">http://localhost:9000</a>，默认用户名admin，密码admin(对于SonarQube9)</p>
 </li>
 <li><p>新建项目，根据需要选择云端导入或manually手动(本地项目选择手动)。</p>
-<p> <img src="https://gitee.com/annewu/pics/raw/master/uPic/20220422/AunUjX.png" alt="新建项目"></p>
+<p> <img src="https://s2.loli.net/2022/07/20/9svOnVZbfHatzGJ.jpg" alt="新建项目"></p>
 <p> 输入项目名和项目钥，随意。</p>
- <img src="https://gitee.com/annewu/pics/raw/master/uPic/20220422/O8hqBn.png" style="zoom:55%;" />
+<img title="" src="https://s2.loli.net/2022/07/20/ANpt98omXT47eCS.jpg" alt="" style="zoom:55%;">
 
 <p> 输入你自己的token并生成，点击继续后输入项目的信息，sonar将返回给你一串sonar-scanner命令。复制。</p>
-<p> <img src="https://gitee.com/annewu/pics/raw/master/uPic/20220422/NwUH0a.png" alt="运行"></p>
+<p> <img src="https://s2.loli.net/2022/07/20/RSqCwnp7DTg3J8P.jpg" alt="运行"></p>
 </li>
 </ol>
 <h2 id="4-安装sonar-scanner并运行扫描"><a href="#4-安装sonar-scanner并运行扫描" class="headerlink" title="4 安装sonar-scanner并运行扫描"></a>4 安装sonar-scanner并运行扫描</h2><p> 通过<code>brew install sonar-scanner即可</code></p>
@@ -403,7 +401,7 @@
         <span class="copy-path"  title="Click to Copy Link"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/40079/"  aria-label="复制成功！"></i></span>
     </p>
     <p><span>publish time:</span>2022-04-22</p>
-    <p><span>update time:</span>2022-05-12</p>
+    <p><span>update time:</span>2022-07-20</p>
     </div>
 </div>
 <!-- <ul class="post-copyright">
@@ -593,7 +591,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            31
+                            30
                         </p>
                     </a>
                 </div>
@@ -839,7 +837,7 @@
                 <span class="level-item">code</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">30</span>
+                <span class="level-item tag">29</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/code/course/">
@@ -871,7 +869,7 @@
                 <span class="level-item">report</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">10</span>
+                <span class="level-item tag">9</span>
             </span>
         </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/life/">
@@ -1070,7 +1068,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
                         <span class="tag">网络安全</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1151,7 +1149,7 @@
                     <span class="level-item">三月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">9</span>
+                    <span class="level-item tag">8</span>
                 </span>
             </a>
         </li>
@@ -1287,6 +1285,8 @@
             related posts
         </h3>
          
+            
+         
             <article class="media"> <a href="/posts/2727/" class="media-left">
                         <p class="image is-64x64">
                             <img class="thumbnail" src="/gallery/thumbnails/hexo-cover.png" alt="Hexo搭建个人博客：入门">
@@ -1299,7 +1299,17 @@
                 </div>
             </article>
          
-            
+            <article class="media"> <a href="/posts/27751/" class="media-left">
+                        <p class="image is-64x64">
+                            <img class="thumbnail" src="/gallery/thumbnails/plant.jpg" alt="Hexo搭建个人博客：主题比较">
+                        </p>
+                    </a><div class="media-content">
+                    <div class="content">
+                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-22T16:00:00.000Z">2020-02-23</time></div>
+                        <a href="/posts/27751/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo搭建个人博客：主题比较</a>
+                    </div>
+                </div>
+            </article>
          
             
          
@@ -1317,17 +1327,23 @@
          
             
          
-            <article class="media"> <a href="/posts/27751/" class="media-left">
-                        <p class="image is-64x64">
-                            <img class="thumbnail" src="/gallery/thumbnails/plant.jpg" alt="Hexo搭建个人博客：主题比较">
-                        </p>
-                    </a><div class="media-content">
-                    <div class="content">
-                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-22T16:00:00.000Z">2020-02-23</time></div>
-                        <a href="/posts/27751/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo搭建个人博客：主题比较</a>
-                    </div>
-                </div>
-            </article>
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
          
             
          
@@ -1368,26 +1384,6 @@
             
          
             
-         
-            
-         
-            
-         
-            
-         
-            
-         
-            
-         
-            
-         
-            
-         
-            
-         
-            
-         
-            
         
     </div>
 </div>
@@ -1397,7 +1393,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/ElementUI/" style="font-size: 10px;">ElementUI</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/SonarQube/" style="font-size: 10px;">SonarQube</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/anaconda/" style="font-size: 10px;">anaconda</a> <a href="/tags/caddy/" style="font-size: 10px;">caddy</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 13.33px;">react</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a> <a href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/" style="font-size: 13.33px;">终端命令</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 20px;">编译原理</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 13.33px;">网络安全</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">软件测试</a>
+        <a href="/tags/ElementUI/" style="font-size: 10px;">ElementUI</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/SonarQube/" style="font-size: 10px;">SonarQube</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/anaconda/" style="font-size: 10px;">anaconda</a> <a href="/tags/caddy/" style="font-size: 10px;">caddy</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 13.33px;">react</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a> <a href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/" style="font-size: 13.33px;">终端命令</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 20px;">编译原理</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 10px;">网络安全</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">软件测试</a>
     </div>
 </div>
     
