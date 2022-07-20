@@ -408,9 +408,9 @@
       
         <tags>
             
-            <tag> nginx </tag>
-            
             <tag> caddy </tag>
+            
+            <tag> nginx </tag>
             
         </tags>
       
