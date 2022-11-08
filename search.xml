@@ -439,9 +439,9 @@
       
         <tags>
             
-            <tag> caddy </tag>
-            
             <tag> nginx </tag>
+            
+            <tag> caddy </tag>
             
         </tags>
       
