@@ -22,7 +22,6 @@
   async
   src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
 ></script>
-
  <meta name="description" content="常用的Conda命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Anaconda的环境管理">
@@ -32,7 +31,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.annewqx.top/images/og_image.png">
 <meta property="article:published_time" content="2019-12-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-03-23T14:00:10.400Z">
+<meta property="article:modified_time" content="2022-11-08T08:12:15.351Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="python anaconda">
 <meta name="twitter:card" content="summary">
@@ -59,7 +58,7 @@
   href="/images/favicon-64px.png"
   color="{{ theme.android_chrome_color }}"
 />
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css"> <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"> <link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atelier-seaside-light.css">  
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css"> <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.13.0/css/all.css"> <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oxanium:wght@300;400;600&family=Roboto+Mono"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atelier-seaside-light.css">  
 
 <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
  
@@ -247,7 +246,7 @@
                 <!-- <time class="level-item has-text-grey" datetime="2019-12-12T16:00:00.000Z">2019-12-13</time> -->
                 <time class="level-item has-text-grey" datetime="2019-12-12T16:00:00.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2019-12-13</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-23T14:00:10.400Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-23</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2022-11-08T08:12:15.351Z"><i class="far fa-calendar-check">&nbsp;</i>2022-11-08</time>
                 
                 
                 <div class="level-item">
@@ -292,6 +291,7 @@
 <p>Conda的包管理就比较好理解了，这部分功能与<br>pip<br>类似。<br>例如，如果需要安装scipy：</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装scipy</span><br>conda install scipy<br><span class="hljs-comment"># conda会从从远程搜索scipy的相关信息和依赖项目，对于python 3.4，conda会同时安装numpy和mkl（运算加速的库）</span><br><span class="hljs-comment"># 查看已经安装的packages</span><br>conda list<br><span class="hljs-comment"># 最新版的conda是从site-packages文件夹中搜索已经安装的包，不依赖于pip，因此可以显示出通过各种方式安装的包</span><br><span class="hljs-comment"># 安装scipy</span><br>conda install scipy<br><span class="hljs-comment"># conda会从从远程搜索scipy的相关信息和依赖项目，对于python 3.4，conda会同时安装numpy和mkl（运算加速的库）</span><br><span class="hljs-comment"># 查看已经安装的packages</span><br>conda list<br><span class="hljs-comment"># 最新版的conda是从site-packages文件夹中搜索已经安装的包，不依赖于pip，因此可以显示出通过各种方式安装的包</span><br><span class="hljs-comment">### conda的一些常用操作如下：</span><br><span class="hljs-comment"># 查看当前环境下已安装的包</span><br>conda list<br><span class="hljs-comment"># 查看某个指定环境的已安装包</span><br>conda list -n python34<br><span class="hljs-comment"># 查找package信息</span><br>conda search numpy<br><span class="hljs-comment"># 安装package</span><br>conda install -n python34 numpy<br><span class="hljs-comment"># 如果不用-n指定环境名称，则被安装在当前活跃环境</span><br><span class="hljs-comment"># 也可以通过-c指定通过某个channel安装</span><br><span class="hljs-comment"># 更新package</span><br>conda update -n python34 numpy<br><span class="hljs-comment"># 删除package</span><br>conda remove -n python34 numpy<br><span class="hljs-comment"># 查看当前环境下已安装的包</span><br>conda list<br><span class="hljs-comment"># 查看某个指定环境的已安装包</span><br>conda list -n python34<br><span class="hljs-comment"># 查找package信息</span><br>conda search numpy<br><span class="hljs-comment"># 安装package</span><br>conda install -n python34 numpy<br><span class="hljs-comment"># 如果不用-n指定环境名称，则被安装在当前活跃环境</span><br><span class="hljs-comment"># 也可以通过-c指定通过某个channel安装</span><br><span class="hljs-comment"># 更新package</span><br>conda update -n python34 numpy<br><span class="hljs-comment"># 删除package</span><br>conda remove -n python34 numpy<br><span class="hljs-comment">### 前面已经提到，conda将conda、python等都视为package，因此，完全可以使用conda来管理conda和python的版本，例如</span><br><span class="hljs-comment"># 更新conda，保持conda最新</span><br>conda update conda<br><span class="hljs-comment"># 更新anaconda</span><br>conda update anaconda<br><span class="hljs-comment"># 更新python</span><br>conda update python<br><span class="hljs-comment"># 假设当前环境是python 3.4, conda会将python升级为3.4.x系列的当前最新版本</span><br><span class="hljs-comment">### 补充：如果创建新的python环境，比如3.4，运行</span><br><span class="hljs-comment">### conda create -n python34 python=3.4</span><br><span class="hljs-comment">### 之后，conda仅安装python 3.4相关的必须项，如python, pip等，如果希望该环境像默认环境那样，安装anaconda集合包，只需要：</span><br><span class="hljs-comment"># 在当前环境下安装anaconda包集合</span><br>conda install anaconda<br><span class="hljs-comment"># 结合创建环境的命令，以上操作可以合并为</span><br>conda create -n python34 python=3.4 anaconda<br><span class="hljs-comment"># 也可以不用全部安装，根据需求安装自己需要的package即可</span><br><span class="hljs-comment"># 在当前环境下安装anaconda包集合</span><br>conda install anaconda<br><span class="hljs-comment"># 结合创建环境的命令，以上操作可以合并为</span><br>conda create -n python34 python=3.4 anaconda<br><span class="hljs-comment"># 也可以不用全部安装，根据需求安装自己需要的package即可</span><br><span class="hljs-comment"># 设置国内镜像</span><br><span class="hljs-comment">### 如果需要安装很多packages，你会发现conda下载的速度经常很慢，因为Anaconda.org的服务器在国外。所幸的是，清华TUNA镜像源有Anaconda仓库的镜像，我们将其加入conda的配置即可：</span><br><span class="hljs-comment"># 添加Anaconda的TUNA镜像</span><br>conda config —add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/<br><span class="hljs-comment"># TUNA的help中镜像地址加有引号，需要去掉</span><br><span class="hljs-comment"># 设置搜索时显示通道地址</span><br>conda config —<span class="hljs-built_in">set</span> show_channel_urls yes<br><span class="hljs-comment"># 添加Anaconda的TUNA镜像</span><br>conda config —add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/<br><span class="hljs-comment"># TUNA的help中镜像地址加有引号，需要去掉</span><br><span class="hljs-comment"># 设置搜索时显示通道地址</span><br>conda config —<span class="hljs-built_in">set</span> show_channel_urls yes<br></code></pre></td></tr></table></figure>
+
 <blockquote>
 <p>执行完上述命令后，会生成<br>~/.condarc<br>(Linux/Mac)或<br>C:UsersUSER_NAME.condarc<br>文件，记录着我们对conda的配置，直接手动创建、编辑该文件是相同的效果。</p>
 </blockquote>
@@ -311,7 +311,7 @@
         <span class="copy-path"  title="Click to Copy Link"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/52525/"  aria-label="复制成功！"></i></span>
     </p>
     <p><span>publish time:</span>2019-12-13</p>
-    <p><span>update time:</span>2020-03-23</p>
+    <p><span>update time:</span>2022-11-08</p>
     </div>
 </div>
 <!-- <ul class="post-copyright">
@@ -322,7 +322,7 @@
     <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
     </li>
 </ul> -->
-<script> 
+<!-- <script> 
     var clipboard = new Clipboard('.fa-clipboard');
     $(".fa-clipboard").click(function(){
         clipboard.on('success', function(){
@@ -334,7 +334,7 @@
             });
          });
     });  
-</script>
+</script> -->
 
         
         
@@ -443,19 +443,19 @@
         <h3 class="title is-5 has-text-weight-normal">评论</h3>
         
 <div id="valine-thread" class="content"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/valine/1.5.1/Valine.min.js"></script>
 <script>
-    new Valine({
-        el: '#valine-thread' ,
-        avatar: 'retro',
-        notify: true ,
-        verify: false ,
-        app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
-        app_key: '20OYVeUwaMoaoYEp1JhHnBmu',
-        placeholder: 'Leave a comment',
-    });
+  new Valine({
+      el: '#valine-thread' ,
+      avatar: '',
+      notify: true ,
+      verify: false ,
+      app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
+      app_key: '20OYVeUwaMoaoYEp1JhHnBmu',
+      placeholder: 'Leave a comment',
+  });
 </script>
+
 
     </div>
 </div>
@@ -508,7 +508,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            31
+                            32
                         </p>
                     </a>
                 </div>
@@ -520,7 +520,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            7
+                            9
                         </p>
                     </a>
                 </div>
@@ -532,7 +532,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            26
+                            28
                         </p>
                     </a>
                 </div>
@@ -644,6 +644,25 @@
         
         <article class="media">
             
+            <a href="/posts/51261/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="note-weixin-miniprogram">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2022-07-25T01:46:21.000Z">2022-07-25</time></div>
+                    <a href="/posts/51261/" class="title has-link-black-ter is-size-6 has-text-weight-normal">note-weixin-miniprogram</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Note/">Note</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/posts/40079/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/gallery/thumbnails/sonarquebe.jpg" alt="MacOS下通过docker安装和运行SonarQube">
@@ -718,25 +737,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/38332/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="使用Vue2+ElementUI+scss开发在线问卷页面">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2021-10-22T01:40:18.000Z">2021-10-22</time></div>
-                    <a href="/posts/38332/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用Vue2+ElementUI+scss开发在线问卷页面</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/report/">report</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -749,6 +749,22 @@
             </h3>
             <ul class="menu-list">
             <li>
+        <a class="level is-marginless" href="/categories/Code/">
+            <span class="level-start">
+                <span class="level-item">Code</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Code/Note/">
+            <span class="level-start">
+                <span class="level-item">Note</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/code/">
             <span class="level-start">
                 <span class="level-item">code</span>
@@ -922,13 +938,20 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/react/">
                         <span class="tag">react</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/ssh/">
                         <span class="tag">ssh</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/taro/">
+                        <span class="tag">taro</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -950,6 +973,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/">
                         <span class="tag">密码学</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+                        <span class="tag">小程序</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1015,6 +1045,17 @@
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2022/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2022</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2022/04/">
@@ -1255,6 +1296,8 @@
             
          
             
+         
+            
         
     </div>
 </div>
@@ -1264,7 +1307,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/ElementUI/" style="font-size: 10px;">ElementUI</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/SonarQube/" style="font-size: 10px;">SonarQube</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/anaconda/" style="font-size: 10px;">anaconda</a> <a href="/tags/caddy/" style="font-size: 10px;">caddy</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 13.33px;">react</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a> <a href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/" style="font-size: 13.33px;">终端命令</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 20px;">编译原理</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 13.33px;">网络安全</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">软件测试</a>
+        <a href="/tags/ElementUI/" style="font-size: 10px;">ElementUI</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/SonarQube/" style="font-size: 10px;">SonarQube</a> <a href="/tags/VPS/" style="font-size: 12.5px;">VPS</a> <a href="/tags/anaconda/" style="font-size: 10px;">anaconda</a> <a href="/tags/caddy/" style="font-size: 10px;">caddy</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/hexo/" style="font-size: 17.5px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 12.5px;">nginx</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">小程序</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 12.5px;">科学上网</a> <a href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/" style="font-size: 12.5px;">终端命令</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 20px;">编译原理</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 12.5px;">网络安全</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">软件测试</a>
     </div>
 </div>
     

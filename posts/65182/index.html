@@ -22,7 +22,6 @@
   async
   src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
 ></script>
-
  <meta name="description" content="通过创建远端git仓库，将本地的hexo博客部署到远端服务器并通过Nginx服务运行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo搭建个人博客：部署">
@@ -32,7 +31,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.annewqx.top/gallery/thumbnails/Nginx.jpg">
 <meta property="article:published_time" content="2020-02-24T05:53:24.000Z">
-<meta property="article:modified_time" content="2022-04-22T16:24:04.179Z">
+<meta property="article:modified_time" content="2022-07-25T01:47:37.882Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="hexo deploy vps 博客 部署 服务器 域名">
 <meta name="twitter:card" content="summary">
@@ -59,7 +58,7 @@
   href="/images/favicon-64px.png"
   color="{{ theme.android_chrome_color }}"
 />
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css"> <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"> <link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atelier-seaside-light.css">  
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css"> <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.13.0/css/all.css"> <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oxanium:wght@300;400;600&family=Roboto+Mono"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atelier-seaside-light.css">  
 
 <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
  
@@ -253,7 +252,7 @@
                 <!-- <time class="level-item has-text-grey" datetime="2020-02-24T05:53:24.000Z">2020-02-24</time> -->
                 <time class="level-item has-text-grey" datetime="2020-02-24T05:53:24.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-02-24</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2022-04-22T16:24:04.179Z"><i class="far fa-calendar-check">&nbsp;</i>2022-04-23</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2022-07-25T01:47:37.882Z"><i class="far fa-calendar-check">&nbsp;</i>2022-07-25</time>
                 
                 
                 <div class="level-item">
@@ -296,7 +295,7 @@
 <li>本地需要的相关环境：git、nodejs、hexo、ssh-key，相关文章见<a href="/posts/2727/">hexo博客搭建入门</a></li>
 </ul>
 <h2 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h2><p>使用root身份登录服务器<code>ssh root@IP</code></p>
-<h3 id="创建网站目录"><a href="#创建网站目录" class="headerlink" title="创建网站目录"></a>创建网站目录</h3>   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建网站文件夹</span><br>sudo mkdir /var/www/blog<br></code></pre></td></tr></table></figure>
+<h3 id="创建网站目录"><a href="#创建网站目录" class="headerlink" title="创建网站目录"></a>创建网站目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建网站文件夹</span><br>sudo mkdir /var/www/blog<br></code></pre></td></tr></table></figure>
 
 <h3 id="安装配置git"><a href="#安装配置git" class="headerlink" title="安装配置git"></a>安装配置git</h3><ol start="2">
 <li><p>安装git<code>sudo yum install git</code></p>
@@ -308,12 +307,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 设置文件可写</span><br>chmod 740 /etc/sudoers<br><span class="hljs-comment"># 编辑用户配置文件</span><br>vim /etc/sudoers<br></code></pre></td></tr></table></figure>
 
 <p>找到<code>root    ALL=(ALL) ALL</code>，换行添加<code>git     ALL=(ALL) ALL</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 修改回文件权限</span><br>chmod 440 /etc/sudoers<br>su git				<span class="hljs-comment"># 切换到git用户</span><br><span class="hljs-built_in">cd</span> /home/git		<span class="hljs-comment"># 切换到git用户目录</span><br>mkdir blog.git 	 <span class="hljs-comment"># 创建git仓库文件夹，以blog.git为例</span><br><span class="hljs-built_in">cd</span> blog.git	  	<span class="hljs-comment"># 进入仓库目录</span><br>git init --bare	 <span class="hljs-comment"># 使用--bare参数初始化为裸仓库</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 修改回文件权限</span><br>chmod 440 /etc/sudoers<br>su git                <span class="hljs-comment"># 切换到git用户</span><br><span class="hljs-built_in">cd</span> /home/git        <span class="hljs-comment"># 切换到git用户目录</span><br>mkdir blog.git      <span class="hljs-comment"># 创建git仓库文件夹，以blog.git为例</span><br><span class="hljs-built_in">cd</span> blog.git          <span class="hljs-comment"># 进入仓库目录</span><br>git init --bare     <span class="hljs-comment"># 使用--bare参数初始化为裸仓库</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>确认文件夹权限</p>
-<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 确认文件夹权限</span><br>sudo chown git:git -R /var/www/blog<br>sudo chown git:git -R /home/git/blog.git<br><span class="hljs-comment"># 查看这两个文件夹是不是都属于git:git</span><br>ll /home/git/<br>ll /var/www/<br></code></pre></td></tr></table></figure></code></pre></li>
-<li><p>配置Git hooks</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /home/git/blog.git/hooks		<span class="hljs-comment"># 切换到hooks目录下</span><br>vim post-receive					 <span class="hljs-comment"># 创建文件</span><br></code></pre></td></tr></table></figure>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 确认文件夹权限</span><br>sudo chown git:git -R /var/www/blog<br>sudo chown git:git -R /home/git/blog.git<br><span class="hljs-comment"># 查看这两个文件夹是不是都属于git:git</span><br>ll /home/git/<br>ll /var/www/<br></code></pre></td></tr></table></figure></code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs plain"><br>6. 配置Git hooks<br>   <br>   &#96;&#96;&#96;bash<br>   cd &#x2F;home&#x2F;git&#x2F;blog.git&#x2F;hooks        # 切换到hooks目录下<br>   vim post-receive                     # 创建文件<br></code></pre></td></tr></table></figure>
 
 <p>复制下面的内容到post-receive中：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br>GIT_REPO=/home/git/blog.git<br>TMP_GIT_CLONE=/tmp/blog<br>PUBLIC_WWW=/var/www/blog<br>rm -rf <span class="hljs-variable">$&#123;TMP_GIT_CLONE&#125;</span><br>git <span class="hljs-built_in">clone</span> <span class="hljs-variable">$GIT_REPO</span> <span class="hljs-variable">$TMP_GIT_CLONE</span><br>rm -rf <span class="hljs-variable">$&#123;PUBLIC_WWW&#125;</span>/*<br>cp -rf <span class="hljs-variable">$&#123;TMP_GIT_CLONE&#125;</span>/* <span class="hljs-variable">$&#123;PUBLIC_WWW&#125;</span><br></code></pre></td></tr></table></figure>
@@ -332,14 +329,14 @@
 <li><p>复制<code>cat ~/.ssh/id_rsa.pub</code>的内容</p>
 </li>
 <li><p>ssh连接到服务器，配置ssh秘钥登录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /home/git				<span class="hljs-comment"># 切换到git用户目录</span><br>mkdir .ssh				  <span class="hljs-comment"># 创建.ssh目录</span><br>sudo vim .ssh/authorized_keys<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /home/git                <span class="hljs-comment"># 切换到git用户目录</span><br>mkdir .ssh                  <span class="hljs-comment"># 创建.ssh目录</span><br>sudo vim .ssh/authorized_keys<br></code></pre></td></tr></table></figure>
 
 <p>将复制的本地公钥粘贴到到<code>authorized_keys</code>文件中，</p>
 <p>编辑登录配置<code>sudo vim /etc/ssh/sshd_config</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#禁用密码验证</span><br>PasswordAuthentication no<br><span class="hljs-comment">#启用密钥验证</span><br>RSAAuthentication yes<br>PubkeyAuthentication yes<br></code></pre></td></tr></table></figure>
 
 <p>重启ssh服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">su root		<span class="hljs-comment"># 或者exit也可以退出到root用户</span><br>service sshd restart<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">su root        <span class="hljs-comment"># 或者exit也可以退出到root用户</span><br>service sshd restart<br></code></pre></td></tr></table></figure>
 
 <p>验证git用户能否使用ssh免密登录服务器：在本地终端，输入<code>ssh git@IP</code></p>
 <p>如果出现<code>permission denied</code>的的话，可能是权限问题</p>
@@ -349,8 +346,6 @@
   注意 .ssh 目录与 authorized_keys 的拥有者都必须是你创建的那个用户。比如我创建了一个叫 wanghao 的用户，寻它应该是 .ssh 与 authorized_keys 的拥有者，并且必须要设置合适的权限：
 </div>
 
-
-
 </li>
 </ol>
 <h3 id="安装和配置nginx"><a href="#安装和配置nginx" class="headerlink" title="安装和配置nginx"></a>安装和配置nginx</h3><blockquote>
@@ -359,6 +354,7 @@
 <ol>
 <li><p>root用户身份登录到服务器</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 添加nginx到yum源</span><br>sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm<br><span class="hljs-comment"># 安装nginx</span><br>sudo yum install -y nginx<br><span class="hljs-comment"># 启动nginx</span><br>sudo systemctl start nginx.service<br><span class="hljs-comment"># 设置开机启动</span><br>sudo systemctl <span class="hljs-built_in">enable</span> -n nginx.service<br></code></pre></td></tr></table></figure>
+
 <p>在浏览器输入服务器IP地址，如果出现403 FORBIDDEN页面则说明nginx启动成功；</p>
 <p>如果浏览器提示无法链接，请检查防火墙是否开启，如果开启</p>
 <ul>
@@ -375,7 +371,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /etc/nginx/conf.d<br>sudo cp default.conf default.bak<span class="hljs-comment">#备份</span><br>sudo vim default.conf<br></code></pre></td></tr></table></figure>
 
 <p>配置文件参考</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs json">server &#123;<br>    listen       80;<br>    server_name  localhost;<br>    root /var/www/blog;				// 网站根目录<br>    server_name annewqx.top www.annewqx.top;	// 域名，没有可跳过<br>	 access_log  /var/log/nginx/blog_access.log;<br>	 error_log   /var/log/nginx/blog_error.log;<br>	 error_page 404 =  /404.html;<br><br>    location / &#123;<br>        root   /var/www/blog;<br>        index  index.html index.htm;<br>    &#125;<br>    location / &#123;<br>	 		root /var/www/blog;<br>	 		if (-f $request_filename) &#123;<br>	 		rewrite ^/(.*)$  /$1 break;<br>	 		&#125;<br>	 &#125;<br>	 location /nginx_status &#123;<br>	 	  stub_status on;<br>		  access_log off;<br>	 &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs json">server &#123;<br>    listen       80;<br>    server_name  localhost;<br>    root /var/www/blog;                // 网站根目录<br>    server_name annewqx.top www.annewqx.top;    // 域名，没有可跳过<br>     access_log  /var/log/nginx/blog_access.log;<br>     error_log   /var/log/nginx/blog_error.log;<br>     error_page 404 =  /404.html;<br><br>    location / &#123;<br>        root   /var/www/blog;<br>        index  index.html index.htm;<br>    &#125;<br>    location / &#123;<br>             root /var/www/blog;<br>             if (-f $request_filename) &#123;<br>             rewrite ^/(.*)$  /$1 break;<br>             &#125;<br>     &#125;<br>     location /nginx_status &#123;<br>           stub_status on;<br>          access_log off;<br>     &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>nginx -s reload</code> 重启nginx</p>
 </li>
@@ -383,7 +379,7 @@
 <h2 id="本地操作"><a href="#本地操作" class="headerlink" title="本地操作"></a>本地操作</h2><ul>
 <li>打开本地博客根目录下的_config.yml文件，找到最后的deploy配置，添加：</li>
 </ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># Deployment</span><br><span class="hljs-attr">deploy:</span><br><span class="hljs-comment"># github.io</span><br><span class="hljs-bullet">-</span>  <span class="hljs-attr">type:</span> <span class="hljs-string">'git'</span><br>   <span class="hljs-attr">repo:</span> <span class="hljs-string">https://github.com/anne416wu/anne416wu.github.io.git</span> <br><span class="hljs-comment"># VPS</span><br><span class="hljs-string">-</span>	 <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>	 <span class="hljs-attr">repo:</span> <span class="hljs-string">git@VPS的IP:blog.git</span><br>   <span class="hljs-attr">branch:</span> <span class="hljs-string">master</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># Deployment</span><br><span class="hljs-attr">deploy:</span><br><span class="hljs-comment"># github.io</span><br><span class="hljs-bullet">-</span>  <span class="hljs-attr">type:</span> <span class="hljs-string">'git'</span><br>   <span class="hljs-attr">repo:</span> <span class="hljs-string">https://github.com/anne416wu/anne416wu.github.io.git</span> <br><span class="hljs-comment"># VPS</span><br><span class="hljs-bullet">-</span>     <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>     <span class="hljs-attr">repo:</span> <span class="hljs-string">git@VPS的IP:blog.git</span><br>   <span class="hljs-attr">branch:</span> <span class="hljs-string">master</span><br></code></pre></td></tr></table></figure>
 
 <p>至此,hexo三联就可以把博客部署到vps了。可以在浏览器输入服务器的IP地址查看。</p>
 <p>如果想要通过域名访问,则需要自己在域名管理那里修改解析的线路使得域名解析指向vps服务器的ip</p>
@@ -445,7 +441,7 @@
         <span class="copy-path"  title="Click to Copy Link"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/65182/"  aria-label="复制成功！"></i></span>
     </p>
     <p><span>publish time:</span>2020-02-24</p>
-    <p><span>update time:</span>2022-04-23</p>
+    <p><span>update time:</span>2022-07-25</p>
     </div>
 </div>
 <!-- <ul class="post-copyright">
@@ -456,7 +452,7 @@
     <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
     </li>
 </ul> -->
-<script> 
+<!-- <script> 
     var clipboard = new Clipboard('.fa-clipboard');
     $(".fa-clipboard").click(function(){
         clipboard.on('success', function(){
@@ -468,7 +464,7 @@
             });
          });
     });  
-</script>
+</script> -->
 
         
         
@@ -577,19 +573,19 @@
         <h3 class="title is-5 has-text-weight-normal">评论</h3>
         
 <div id="valine-thread" class="content"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/valine/1.5.1/Valine.min.js"></script>
 <script>
-    new Valine({
-        el: '#valine-thread' ,
-        avatar: 'retro',
-        notify: true ,
-        verify: false ,
-        app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
-        app_key: '20OYVeUwaMoaoYEp1JhHnBmu',
-        placeholder: 'Leave a comment',
-    });
+  new Valine({
+      el: '#valine-thread' ,
+      avatar: '',
+      notify: true ,
+      verify: false ,
+      app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
+      app_key: '20OYVeUwaMoaoYEp1JhHnBmu',
+      placeholder: 'Leave a comment',
+  });
 </script>
+
 
     </div>
 </div>
@@ -642,7 +638,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            31
+                            32
                         </p>
                     </a>
                 </div>
@@ -654,7 +650,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            7
+                            9
                         </p>
                     </a>
                 </div>
@@ -666,7 +662,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            26
+                            28
                         </p>
                     </a>
                 </div>
@@ -778,6 +774,25 @@
         
         <article class="media">
             
+            <a href="/posts/51261/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="note-weixin-miniprogram">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2022-07-25T01:46:21.000Z">2022-07-25</time></div>
+                    <a href="/posts/51261/" class="title has-link-black-ter is-size-6 has-text-weight-normal">note-weixin-miniprogram</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Note/">Note</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/posts/40079/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/gallery/thumbnails/sonarquebe.jpg" alt="MacOS下通过docker安装和运行SonarQube">
@@ -852,25 +867,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/38332/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="使用Vue2+ElementUI+scss开发在线问卷页面">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2021-10-22T01:40:18.000Z">2021-10-22</time></div>
-                    <a href="/posts/38332/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用Vue2+ElementUI+scss开发在线问卷页面</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/report/">report</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -883,6 +879,22 @@
             </h3>
             <ul class="menu-list">
             <li>
+        <a class="level is-marginless" href="/categories/Code/">
+            <span class="level-start">
+                <span class="level-item">Code</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Code/Note/">
+            <span class="level-start">
+                <span class="level-item">Note</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/code/">
             <span class="level-start">
                 <span class="level-item">code</span>
@@ -1056,13 +1068,20 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/react/">
                         <span class="tag">react</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/ssh/">
                         <span class="tag">ssh</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/taro/">
+                        <span class="tag">taro</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1084,6 +1103,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/">
                         <span class="tag">密码学</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+                        <span class="tag">小程序</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1149,6 +1175,17 @@
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2022/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2022</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2022/04/">
@@ -1362,6 +1399,10 @@
          
             
          
+            
+         
+            
+         
             <article class="media"> <a href="/posts/2727/" class="media-left">
                         <p class="image is-64x64">
                             <img class="thumbnail" src="/gallery/thumbnails/hexo-cover.png" alt="Hexo搭建个人博客：入门">
@@ -1374,9 +1415,17 @@
                 </div>
             </article>
          
-            
-         
-            
+            <article class="media"> <a href="/posts/65512/" class="media-left">
+                        <p class="image is-64x64">
+                            <img class="thumbnail" src="/gallery/thumbnails/desert.png" alt="Hexo搭建个人博客：装修">
+                        </p>
+                    </a><div class="media-content">
+                    <div class="content">
+                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-25T12:29:31.000Z">2020-02-25</time></div>
+                        <a href="/posts/65512/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo搭建个人博客：装修</a>
+                    </div>
+                </div>
+            </article>
          
             <article class="media"> <a href="/posts/27751/" class="media-left">
                         <p class="image is-64x64">
@@ -1392,6 +1441,8 @@
          
             
          
+            
+         
             <article class="media"> <a href="/posts/2210/" class="media-left">
                         <p class="image is-64x64">
                             <img class="thumbnail" src="/gallery/thumbnails/caddy.png" alt="使用Caddy替换Nginx运行网站">
@@ -1400,18 +1451,6 @@
                     <div class="content">
                         <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-01T05:54:39.000Z">2020-03-01</time></div>
                         <a href="/posts/2210/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用Caddy替换Nginx运行网站</a>
-                    </div>
-                </div>
-            </article>
-         
-            <article class="media"> <a href="/posts/65512/" class="media-left">
-                        <p class="image is-64x64">
-                            <img class="thumbnail" src="/gallery/thumbnails/desert.png" alt="Hexo搭建个人博客：装修">
-                        </p>
-                    </a><div class="media-content">
-                    <div class="content">
-                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-25T12:29:31.000Z">2020-02-25</time></div>
-                        <a href="/posts/65512/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo搭建个人博客：装修</a>
                     </div>
                 </div>
             </article>
@@ -1470,7 +1509,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/ElementUI/" style="font-size: 10px;">ElementUI</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/SonarQube/" style="font-size: 10px;">SonarQube</a> <a href="/tags/VPS/" style="font-size: 13.33px;">VPS</a> <a href="/tags/anaconda/" style="font-size: 10px;">anaconda</a> <a href="/tags/caddy/" style="font-size: 10px;">caddy</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 13.33px;">react</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 13.33px;">科学上网</a> <a href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/" style="font-size: 13.33px;">终端命令</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 20px;">编译原理</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 13.33px;">网络安全</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">软件测试</a>
+        <a href="/tags/ElementUI/" style="font-size: 10px;">ElementUI</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/SonarQube/" style="font-size: 10px;">SonarQube</a> <a href="/tags/VPS/" style="font-size: 12.5px;">VPS</a> <a href="/tags/anaconda/" style="font-size: 10px;">anaconda</a> <a href="/tags/caddy/" style="font-size: 10px;">caddy</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/hexo/" style="font-size: 17.5px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 12.5px;">nginx</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">小程序</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 12.5px;">科学上网</a> <a href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/" style="font-size: 12.5px;">终端命令</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 20px;">编译原理</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 12.5px;">网络安全</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">软件测试</a>
     </div>
 </div>
     
