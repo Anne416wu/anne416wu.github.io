@@ -22,6 +22,7 @@
   async
   src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
 ></script>
+
  <meta name="description" content="基于icarus主题的Hexo博客装修。本文将介绍除了icarus在_config.yml中提供的功能以外，通过修改其源代码实现的其他扩展功能，页面文件样式的进一步美化等。属于深度定制自己的主题，需要基础的CSS和HTML知识。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo搭建个人博客：装修">
@@ -58,7 +59,7 @@
   href="/images/favicon-64px.png"
   color="{{ theme.android_chrome_color }}"
 />
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css"> <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.13.0/css/all.css"> <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oxanium:wght@300;400;600&family=Roboto+Mono"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atelier-seaside-light.css">  
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css"> <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.13.0/css/all.css"> <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atelier-seaside-light.css">  
 
 <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
  
@@ -762,11 +763,12 @@
         <h3 class="title is-5 has-text-weight-normal">评论</h3>
         
 <div id="valine-thread" class="content"></div>
-<script src="https://cdn.bootcdn.net/ajax/libs/valine/1.5.1/Valine.min.js"></script>
+<script type="text/javascript" src="/js/valine.js"></script>
+
 <script>
   new Valine({
       el: '#valine-thread' ,
-      avatar: '',
+      avatar: 'retro',
       notify: true ,
       verify: false ,
       app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
@@ -1626,6 +1628,8 @@
          
             
          
+            
+         
             <article class="media"> <a href="/posts/2727/" class="media-left">
                         <p class="image is-64x64">
                             <img class="thumbnail" src="/gallery/thumbnails/hexo-cover.png" alt="Hexo搭建个人博客：入门">
@@ -1634,20 +1638,6 @@
                     <div class="content">
                         <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-21T16:00:00.000Z">2020-02-22</time></div>
                         <a href="/posts/2727/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo搭建个人博客：入门</a>
-                    </div>
-                </div>
-            </article>
-         
-            
-         
-            <article class="media"> <a href="/posts/65182/" class="media-left">
-                        <p class="image is-64x64">
-                            <img class="thumbnail" src="/gallery/thumbnails/Nginx.jpg" alt="Hexo搭建个人博客：部署">
-                        </p>
-                    </a><div class="media-content">
-                    <div class="content">
-                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-24T05:53:24.000Z">2020-02-24</time></div>
-                        <a href="/posts/65182/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo搭建个人博客：部署</a>
                     </div>
                 </div>
             </article>
@@ -1664,9 +1654,17 @@
                 </div>
             </article>
          
-            
-         
-            
+            <article class="media"> <a href="/posts/65182/" class="media-left">
+                        <p class="image is-64x64">
+                            <img class="thumbnail" src="/gallery/thumbnails/Nginx.jpg" alt="Hexo搭建个人博客：部署">
+                        </p>
+                    </a><div class="media-content">
+                    <div class="content">
+                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-24T05:53:24.000Z">2020-02-24</time></div>
+                        <a href="/posts/65182/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo搭建个人博客：部署</a>
+                    </div>
+                </div>
+            </article>
          
             
          
@@ -1687,6 +1685,10 @@
                     </div>
                 </div>
             </article>
+         
+            
+         
+            
          
             
          

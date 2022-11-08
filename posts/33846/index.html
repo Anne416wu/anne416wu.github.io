@@ -22,6 +22,7 @@
   async
   src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
 ></script>
+
  <meta name="description" content="阅读C11-C规范标准文件并按照规范选择C语言子集，使用BNF文法描述。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译原理与设计-Lab4-文法设计实验">
@@ -58,7 +59,7 @@
   href="/images/favicon-64px.png"
   color="{{ theme.android_chrome_color }}"
 />
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css"> <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.13.0/css/all.css"> <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oxanium:wght@300;400;600&family=Roboto+Mono"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atelier-seaside-light.css">  
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css"> <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.13.0/css/all.css"> <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atelier-seaside-light.css">  
 
 <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
  
@@ -496,11 +497,12 @@
         <h3 class="title is-5 has-text-weight-normal">评论</h3>
         
 <div id="valine-thread" class="content"></div>
-<script src="https://cdn.bootcdn.net/ajax/libs/valine/1.5.1/Valine.min.js"></script>
+<script type="text/javascript" src="/js/valine.js"></script>
+
 <script>
   new Valine({
       el: '#valine-thread' ,
-      avatar: '',
+      avatar: 'retro',
       notify: true ,
       verify: false ,
       app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
@@ -1372,18 +1374,6 @@
          
             
          
-            <article class="media"> <a href="/posts/53125/" class="media-left">
-                        <p class="image is-64x64">
-                            <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab1-语言认知实验">
-                        </p>
-                    </a><div class="media-content">
-                    <div class="content">
-                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
-                        <a href="/posts/53125/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab1-语言认知实验</a>
-                    </div>
-                </div>
-            </article>
-         
             <article class="media"> <a href="/posts/673/" class="media-left">
                         <p class="image is-64x64">
                             <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab2-编译器认知实验">
@@ -1396,19 +1386,17 @@
                 </div>
             </article>
          
-            <article class="media"> <a href="/posts/1742/" class="media-left">
+            <article class="media"> <a href="/posts/53125/" class="media-left">
                         <p class="image is-64x64">
-                            <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab5-语法分析实验">
+                            <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab1-语言认知实验">
                         </p>
                     </a><div class="media-content">
                     <div class="content">
-                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-14T13:08:30.000Z">2020-04-14</time></div>
-                        <a href="/posts/1742/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab5-语法分析实验</a>
+                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-19T16:00:00.000Z">2020-02-20</time></div>
+                        <a href="/posts/53125/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab1-语言认知实验</a>
                     </div>
                 </div>
             </article>
-         
-            
          
             <article class="media"> <a href="/posts/62214/" class="media-left">
                         <p class="image is-64x64">
@@ -1418,6 +1406,20 @@
                     <div class="content">
                         <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-15T10:07:08.000Z">2020-03-15</time></div>
                         <a href="/posts/62214/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab3-词法分析实验</a>
+                    </div>
+                </div>
+            </article>
+         
+            
+         
+            <article class="media"> <a href="/posts/1742/" class="media-left">
+                        <p class="image is-64x64">
+                            <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab5-语法分析实验">
+                        </p>
+                    </a><div class="media-content">
+                    <div class="content">
+                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-14T13:08:30.000Z">2020-04-14</time></div>
+                        <a href="/posts/1742/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab5-语法分析实验</a>
                     </div>
                 </div>
             </article>

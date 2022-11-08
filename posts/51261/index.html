@@ -22,6 +22,7 @@
   async
   src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
 ></script>
+
  <meta name="description" content="使用taro + react + vantUI 开发个人微信小程序中遇到的坑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="note-weixin-miniprogram">
@@ -58,7 +59,7 @@
   href="/images/favicon-64px.png"
   color="{{ theme.android_chrome_color }}"
 />
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css"> <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.13.0/css/all.css"> <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oxanium:wght@300;400;600&family=Roboto+Mono"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atelier-seaside-light.css">  
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css"> <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.13.0/css/all.css"> <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atelier-seaside-light.css">  
 
 <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
  
@@ -445,11 +446,12 @@
         <h3 class="title is-5 has-text-weight-normal">评论</h3>
         
 <div id="valine-thread" class="content"></div>
-<script src="https://cdn.bootcdn.net/ajax/libs/valine/1.5.1/Valine.min.js"></script>
+<script type="text/javascript" src="/js/valine.js"></script>
+
 <script>
   new Valine({
       el: '#valine-thread' ,
-      avatar: '',
+      avatar: 'retro',
       notify: true ,
       verify: false ,
       app_id: 'LvfbUQkJiiKl5IhpTv9Drhqe-gzGzoHsz',
@@ -1253,10 +1255,6 @@
          
             
          
-            
-         
-            
-         
             <article class="media"> <a href="/posts/30803/" class="media-left">
                         <p class="image is-64x64">
                             <img class="thumbnail" src="/gallery/thumbnails/react-native.png" alt="react native 项目环境搭建">
@@ -1268,6 +1266,10 @@
                     </div>
                 </div>
             </article>
+         
+            
+         
+            
          
             
          
