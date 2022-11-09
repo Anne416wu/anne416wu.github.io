@@ -32,7 +32,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.annewqx.top/gallery/thumbnails/v2ray.jpeg">
 <meta property="article:published_time" content="2020-03-02T11:05:16.000Z">
-<meta property="article:modified_time" content="2020-03-23T14:17:31.770Z">
+<meta property="article:modified_time" content="2022-11-09T08:02:18.721Z">
 <meta property="article:author" content="Anne416wu">
 <meta property="article:tag" content="vps vpn 服务器 科学上网 V2Ray">
 <meta name="twitter:card" content="summary">
@@ -253,7 +253,7 @@
                 <!-- <time class="level-item has-text-grey" datetime="2020-03-02T11:05:16.000Z">2020-03-02</time> -->
                 <time class="level-item has-text-grey" datetime="2020-03-02T11:05:16.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-03-02</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-23T14:17:31.770Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-23</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2022-11-09T08:02:18.721Z"><i class="far fa-calendar-check">&nbsp;</i>2022-11-09</time>
                 
                 
                 <div class="level-item">
@@ -393,9 +393,7 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">@@||example.com<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>详细语法规则</p>
-<figure class="highlight JavaScript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">=== 通配符支持 =&gt; *<br>*.example.com/ <br>代表 http:<span class="hljs-comment">//example.com http://233.example.com https://233.example.com https://666.example.com/233.mp4 全部走代理。</span><br>同时<span class="hljs-string">"*"</span>可省略，.example.com/ 与 *.example.com/ 效果是一样的<br> <br>=== 正则表达式支持<br>以 \ 开始和结束，\[\w]+:\/\/example.com\<br> <br>=== 例外规则 =&gt; @@<br>@@*.example.com/ 表示<span class="hljs-string">"@@"</span>后面的网址规则(*.example.com)不走代理<br>如：@@www.baidu.com 表示 www.baidu.com 不走代理<br> <br>=== 匹配地址开始和结尾规则 =&gt; |<br>|http:<span class="hljs-comment">//example.com、example.com| 分别表示 以http://example.com开始 和 以example.com结束 的地址</span><br>如：|http:<span class="hljs-comment">//233.com ，代表 http://233.com 开头的网址才会走代理，即 https://233.com http://1.233.com 都不会走代理</span><br>如：<span class="hljs-number">233.</span>com|，代表 <span class="hljs-number">233.</span>com 结尾的网站才会走代理，即 http:<span class="hljs-comment">//233.com https://233.com http://1.233.com 都会走带了，而 http://233.com/index.html 不会走代理。</span><br> <br>=== 全匹配规则 =&gt; ||<br>||example.com 则代表 http:<span class="hljs-comment">//example.com、https://example.com、ftp://example.com 等协议的地址全部走代理</span><br>如：||<span class="hljs-number">233.</span>com ，即 http:<span class="hljs-comment">//233.com、https://233.com、ftp://233.com 等地址全都走代理</span><br> <br>=== 注释规则 =&gt; !<br>!我是注释<span class="hljs-number">233</span><br>!我也是注释<span class="hljs-number">666</span><br></code></pre></td></tr></table></figure>
-
-</li>
+<figure class="highlight JavaScript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">=== 通配符支持 =&gt; *<br>*.example.com/ <br>代表 http:<span class="hljs-comment">//example.com http://233.example.com https://233.example.com https://666.example.com/233.mp4 全部走代理。</span><br>同时<span class="hljs-string">"*"</span>可省略，.example.com/ 与 *.example.com/ 效果是一样的<br><br>=== 正则表达式支持<br>以 \ 开始和结束，\[\w]+:\/\/example.com\<br><br>=== 例外规则 =&gt; @@<br>@@*.example.com/ 表示<span class="hljs-string">"@@"</span>后面的网址规则(*.example.com)不走代理<br>如：@@www.baidu.com 表示 www.baidu.com 不走代理<br><br>=== 匹配地址开始和结尾规则 =&gt; |<br>|http:<span class="hljs-comment">//example.com、example.com| 分别表示 以http://example.com开始 和 以example.com结束 的地址</span><br>如：|http:<span class="hljs-comment">//233.com ，代表 http://233.com 开头的网址才会走代理，即 https://233.com http://1.233.com 都不会走代理</span><br>如：<span class="hljs-number">233.</span>com|，代表 <span class="hljs-number">233.</span>com 结尾的网站才会走代理，即 http:<span class="hljs-comment">//233.com https://233.com http://1.233.com 都会走带了，而 http://233.com/index.html 不会走代理。</span><br><br>=== 全匹配规则 =&gt; ||<br>||example.com 则代表 http:<span class="hljs-comment">//example.com、https://example.com、ftp://example.com 等协议的地址全部走代理</span><br>如：||<span class="hljs-number">233.</span>com ，即 http:<span class="hljs-comment">//233.com、https://233.com、ftp://233.com 等地址全都走代理</span><br><br>=== 注释规则 =&gt; !<br>!我是注释<span class="hljs-number">233</span><br>!我也是注释<span class="hljs-number">666</span><br></code></pre></td></tr></table></figure></li>
 </ul>
 
         </div>
@@ -413,7 +411,7 @@
         <span class="copy-path"  title="Click to Copy Link"><i class="fa fa-clipboard" data-clipboard-text="https://www.annewqx.top/posts/30155/"  aria-label="复制成功！"></i></span>
     </p>
     <p><span>publish time:</span>2020-03-02</p>
-    <p><span>update time:</span>2020-03-23</p>
+    <p><span>update time:</span>2022-11-09</p>
     </div>
 </div>
 <!-- <ul class="post-copyright">
@@ -611,7 +609,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            32
+                            35
                         </p>
                     </a>
                 </div>
@@ -623,7 +621,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            9
+                            7
                         </p>
                     </a>
                 </div>
@@ -758,7 +756,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2022-07-25T01:46:21.000Z">2022-07-25</time></div>
                     <a href="/posts/51261/" class="title has-link-black-ter is-size-6 has-text-weight-normal">note-weixin-miniprogram</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Code/">Code</a> / <a class="has-link-grey -link" href="/categories/Code/Note/">Note</a>
+                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/note/">note</a>
                     </p>
                 </div>
             </div>
@@ -852,28 +850,12 @@
             </h3>
             <ul class="menu-list">
             <li>
-        <a class="level is-marginless" href="/categories/Code/">
-            <span class="level-start">
-                <span class="level-item">Code</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a><ul><li>
-        <a class="level is-marginless" href="/categories/Code/Note/">
-            <span class="level-start">
-                <span class="level-item">Note</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/code/">
             <span class="level-start">
                 <span class="level-item">code</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">30</span>
+                <span class="level-item tag">31</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/code/course/">
@@ -897,7 +879,7 @@
                 <span class="level-item">note</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">8</span>
+                <span class="level-item tag">9</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/code/report/">
@@ -913,15 +895,15 @@
                 <span class="level-item">life</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">4</span>
             </span>
         </a><ul><li>
-        <a class="level is-marginless" href="/categories/life/fragments/">
+        <a class="level is-marginless" href="/categories/life/dude/">
             <span class="level-start">
-                <span class="level-item">fragments</span>
+                <span class="level-item">dude</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">4</span>
             </span>
         </a></li></ul></li>
             </ul>
@@ -1287,7 +1269,7 @@
                     <span class="level-item">七月 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -1388,10 +1370,6 @@
          
             
          
-            
-         
-            
-         
             <article class="media"> <a href="/posts/9931/" class="media-left">
                         <p class="image is-64x64">
                             <img class="thumbnail" src="/images/thumbnail.svg" alt="VPS和Shadowsocks配置">
@@ -1403,6 +1381,16 @@
                     </div>
                 </div>
             </article>
+         
+            
+         
+            
+         
+            
+         
+            
+         
+            
          
             
          
