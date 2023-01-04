@@ -44,11 +44,11 @@
   </entry>
   
   <entry>
-    <title>note-weixin-miniprogram</title>
+    <title>使用taro开发个人微信小程序(未完成)</title>
     <link href="https://www.annewqx.top/posts/51261/"/>
     <id>https://www.annewqx.top/posts/51261/</id>
     <published>2022-07-25T01:46:21.000Z</published>
-    <updated>2022-11-09T07:29:11.090Z</updated>
+    <updated>2023-01-04T04:19:01.089Z</updated>
     
     <content type="html"><![CDATA[<p>使用taro + react + vantUI 开发个人微信小程序中遇到的坑<br>  <a id="more"></a></p><h1 id="微信小程序开发"><a href="#微信小程序开发" class="headerlink" title="微信小程序开发"></a>微信小程序开发</h1><h3 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h3><ul><li><p>darkmode配置，<code>theme.json</code>中引用的图片未被打包：</p><p>通过theme.json引用的图片会被项目认为未被使用，相关讨论可见<a href="https://github.com/NervJS/taro/issues/11267" rel="external nofollow noreferrer">taro github issue 11267</a>，使用taro配置命令的中的<a href="https://docs.taro.zone/docs/config-detail#copy" rel="external nofollow noreferrer">copy配置项</a>指定将需要的图片的文件输出到dist即可</p></li></ul><h3 id="云开发"><a href="#云开发" class="headerlink" title="云开发"></a>云开发</h3><blockquote><p>参考文档</p><ul><li><p>[微信开发官方文档](<a href="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/init.html" rel="external nofollow noreferrer">初始化 | 微信开放文档</a>)</p></li><li><p><a href="https://segmentfault.com/a/1190000041958555?utm_source=sf-similar-article" rel="external nofollow noreferrer">segmentFault思否指导</a></p></li><li><p><a href="https://taro-docs.jd.com/taro/docs/2.x/wxcloudbase/" rel="external nofollow noreferrer">taro小程序云开发模板</a></p></li></ul></blockquote><p>对于项目开发到一半发现需要云开发的情况，我们不需要按照taro给出的模板来构造项目</p><ol><li><p>在项目的根目录中新建cloud文件夹，并在<code>project</code></p></li><li><p>在微信开发者工具中看到该文件夹中</p></li></ol><ul><li><p>图表插件选择</p></li><li></li></ul>]]></content>
     
