@@ -282,11 +282,11 @@
 <h2 id="传输数据加密初探"><a href="#传输数据加密初探" class="headerlink" title="传输数据加密初探"></a>传输数据加密初探</h2><ul>
 <li>PPP协议的pap验证：明文传输验证的用户名和密码</li>
 </ul>
-<p><img src="image-20200329153012935.png" alt="image-20200329153012935"></p>
+<p><img src="/posts/4542/image-20200329153012935.png" alt="image-20200329153012935"></p>
 <ul>
 <li>PPP协议的chap验证：密文传输密码</li>
 </ul>
-<p><img src="image-20200329152934684.png" alt="image-20200329152934684"></p>
+<p><img src="/posts/4542/image-20200329152934684.png" alt="image-20200329152934684"></p>
 <h2 id="实践：发行虚拟货币"><a href="#实践：发行虚拟货币" class="headerlink" title="实践：发行虚拟货币"></a>实践：发行虚拟货币</h2><blockquote>
 <p>以太坊工具：<a href="https://ethfans.org/wikis/Ethereum-Geth-Mirror" rel="external nofollow noreferrer">https://ethfans.org/wikis/Ethereum-Geth-Mirror</a></p>
 <p>运行环境：macOS 10.15.4 / geth 1.8.3</p>
@@ -308,7 +308,7 @@
 <li><p>查看指定区块</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">eth.getBlock(0)<br></code></pre></td></tr></table></figure>
 
-<p> <img src="Screenshot2020-03-29%2016.38.27.png" alt="Screenshot2020-03-29 16.38.27"></p>
+<p> <img src="/posts/4542/Screenshot2020-03-29%2016.38.27.png" alt="Screenshot2020-03-29 16.38.27"></p>
 </li>
 <li><p>创建账户并查看</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">personal.newAccount(<span class="hljs-string">"pay"</span>)     <span class="hljs-comment"># 括号里是密码</span><br>personal.newAccount(<span class="hljs-string">"collect"</span>)<br>eth.accounts<br></code></pre></td></tr></table></figure>
@@ -316,7 +316,7 @@
 <li><p>模拟挖矿</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 设置挖矿地址，缺省则为第一个</span><br>eth.coinbase<br><span class="hljs-comment"># 查看账户余额</span><br>eth.getBalance(eth.accounts[0])<br><span class="hljs-comment"># 开始挖矿</span><br>miner.start()<br><span class="hljs-comment"># 结束挖矿：</span><br>miner.stop()<br><span class="hljs-comment"># 查看挖矿状态：</span><br>miner.getHashrate()<br></code></pre></td></tr></table></figure>
 
-<p> <img src="Screenshot2020-03-29%2016.51.21.png" alt="acounts[1]中余额增加"></p>
+<p> <img src="/posts/4542/Screenshot2020-03-29%2016.51.21.png" alt="acounts[1]中余额增加"></p>
 <blockquote>
 <p><a href="https://mp.weixin.qq.com/s/AB9vj1EzOgWT7JyryfQhDg?" rel="external nofollow noreferrer"><code>miner.start()</code>返回null：</a></p>
 <ul>
@@ -336,7 +336,7 @@
 <li><p>转账</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 解锁账户</span><br>personal.unlockAccount(eth.accounts[0], <span class="hljs-string">"pay"</span>)<br>personal.unlockAccount(eth.accounts[1], <span class="hljs-string">"collect"</span>)<br><span class="hljs-comment"># 转账</span><br>eth.sendTransaction(&#123;from: eth.accounts[0], to: eth.accounts[1], value: web3.toWei(1, <span class="hljs-string">"ether"</span>)&#125;)<br><span class="hljs-comment"># 查看交易</span><br>eth.pendingTransactions<br><span class="hljs-comment"># 继续挖矿，进而完成交易</span><br>miner.start()<br></code></pre></td></tr></table></figure>
 
-<p> <img src="Screenshot2020-03-29%2016.58.33.png" alt="accounts[1]中增加1个单位"></p>
+<p> <img src="/posts/4542/Screenshot2020-03-29%2016.58.33.png" alt="accounts[1]中增加1个单位"></p>
 </li>
 </ol>
 
@@ -553,7 +553,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            35
+                            36
                         </p>
                     </a>
                 </div>
@@ -577,7 +577,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            28
+                            30
                         </p>
                     </a>
                 </div>
@@ -689,6 +689,25 @@
         
         <article class="media">
             
+            <a href="/posts/57945/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/2023-barrage.png" alt="新年祈福弹幕墙">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2023-01-04T02:26:54.000Z">2023-01-04</time></div>
+                    <a href="/posts/57945/" class="title has-link-black-ter is-size-6 has-text-weight-normal">新年祈福弹幕墙</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/guide/">guide</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/posts/51261/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="note-weixin-miniprogram">
@@ -763,25 +782,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/30803/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/thumbnails/react-native.png" alt="react native 项目环境搭建">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2022-01-10T05:29:29.000Z">2022-01-10</time></div>
-                    <a href="/posts/30803/" class="title has-link-black-ter is-size-6 has-text-weight-normal">react native 项目环境搭建</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/guide/">guide</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -799,7 +799,7 @@
                 <span class="level-item">code</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">31</span>
+                <span class="level-item tag">32</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/code/course/">
@@ -815,7 +815,7 @@
                 <span class="level-item">guide</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">9</span>
+                <span class="level-item tag">10</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/code/note/">
@@ -930,8 +930,22 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/html/">
+                        <span class="tag">html</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/ios/">
                         <span class="tag">ios</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/js/">
+                        <span class="tag">js</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1074,6 +1088,17 @@
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2023/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2023</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2022/07/">
@@ -1333,6 +1358,8 @@
             
          
             
+         
+            
         
     </div>
 </div>
@@ -1342,7 +1369,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/ElementUI/" style="font-size: 10px;">ElementUI</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/SonarQube/" style="font-size: 10px;">SonarQube</a> <a href="/tags/VPS/" style="font-size: 12.5px;">VPS</a> <a href="/tags/anaconda/" style="font-size: 10px;">anaconda</a> <a href="/tags/caddy/" style="font-size: 10px;">caddy</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/hexo/" style="font-size: 17.5px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 12.5px;">nginx</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">小程序</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 12.5px;">科学上网</a> <a href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/" style="font-size: 12.5px;">终端命令</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 20px;">编译原理</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 12.5px;">网络安全</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">软件测试</a>
+        <a href="/tags/ElementUI/" style="font-size: 10px;">ElementUI</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/SonarQube/" style="font-size: 10px;">SonarQube</a> <a href="/tags/VPS/" style="font-size: 12.5px;">VPS</a> <a href="/tags/anaconda/" style="font-size: 10px;">anaconda</a> <a href="/tags/caddy/" style="font-size: 10px;">caddy</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/hexo/" style="font-size: 17.5px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 12.5px;">nginx</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">小程序</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 12.5px;">科学上网</a> <a href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/" style="font-size: 12.5px;">终端命令</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 20px;">编译原理</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 12.5px;">网络安全</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">软件测试</a>
     </div>
 </div>
     
@@ -1375,7 +1402,7 @@
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2022 Anne416wu&nbsp;
+                &copy; 2023 Anne416wu&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank" rel="noopener external nofollow noreferrer">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
                 

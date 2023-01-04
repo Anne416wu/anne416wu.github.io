@@ -315,13 +315,13 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -fdump-tree-all hello.c<br></code></pre></td></tr></table></figure>
 
 <p>生成的文件列表，使用<code>ls -ltr</code> 查看(按生成顺序倒序排列)</p>
-<img src="Screenshot2020-03-0321.36.26.png" alt="执行命令后产生的文件列表" />
+<img src="/posts/673/Screenshot2020-03-0321.36.26.png" alt="执行命令后产生的文件列表">
 
 <p>查看中间代码生成结果</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -fdump-rtl-all hello.c<br></code></pre></td></tr></table></figure>
 
 <p>生成的文件列表，使用<code>ls -ltr</code> 查看(按生成顺序倒序排列)</p>
-<img src="Screenshot2020-03-0321.37.11.png" alt="执行命令后产生的文件列表" style="zoom:33%;" />
+<img src="/posts/673/Screenshot2020-03-0321.37.11.png" alt="执行命令后产生的文件列表" style="zoom:33%;">
 
 
 </li>
@@ -349,7 +349,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">clang -ccc-print-phases test.c -c<br></code></pre></td></tr></table></figure>
 
 <p>终端的输出：</p>
-<img src="Screenshot2020-03-0321.59.14.png" alt="终端的输出"  />
+<img src="/posts/673/Screenshot2020-03-0321.59.14.png" alt="终端的输出">
 </li>
 <li><p>查看词法分析结果</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">clang test.c -fsyntax-only -Xclang -dump-tokens<br></code></pre></td></tr></table></figure>
@@ -358,35 +358,35 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">clang test.c  -fsyntax-only -Xclang -dump-raw-tokens<br></code></pre></td></tr></table></figure>
 
 <p>生成的结果：</p>
-<img src="Screenshot2020-03-0322.43.03.png" alt="终端的输出"  />
+<img src="/posts/673/Screenshot2020-03-0322.43.03.png" alt="终端的输出">
 </li>
 <li><p>查看语义分析结果</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">clang test.c -Xclang -ast-dump <span class="hljs-comment"># error link</span><br>clang -fsyntax-only -Xclang -ast-dump test.c<br></code></pre></td></tr></table></figure>
 
 <p>部分结果：</p>
-<img src="Screenshot2020-03-0322.44.20.png" alt="终端输出的末尾"  />
+<img src="/posts/673/Screenshot2020-03-0322.44.20.png" alt="终端输出的末尾">
 </li>
 <li><p>查看语义分析结果 2</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">clang test.c -Xclang -ast-view    <span class="hljs-comment"># clang: error: linker command failed with exit code 1 </span><br>clang test.c -fsyntax-only -Xclang -ast-view  <span class="hljs-comment"># 因为缺乏gv环境 此命令未能得到成功结果</span><br></code></pre></td></tr></table></figure>
 
 <p>部分结果：</p>
-<img src="Screenshot2020-03-0322.51.40.png" alt="终端的输出"  />
+<img src="/posts/673/Screenshot2020-03-0322.51.40.png" alt="终端的输出">
 </li>
 <li><p>查看编译优化的结果:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">clang test.c -S -mllvm -<span class="hljs-built_in">print</span>-after-all<br></code></pre></td></tr></table></figure>
 
 <p>部分结果：</p>
-<img src="Screenshot2020-03-0323.03.18.png" alt="终端输出的末尾"  />
+<img src="/posts/673/Screenshot2020-03-0323.03.18.png" alt="终端输出的末尾">
 </li>
 <li><p>查看生成的目标代码结果 Target code generation</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">clang –S test.c<br></code></pre></td></tr></table></figure>
 
 <p>生成的目标代码文件开头：</p>
-<img src="Screenshot2020-03-0323.07.04.png" alt="test.s文件"  />
+<img src="/posts/673/Screenshot2020-03-0323.07.04.png" alt="test.s文件">
 
 </li>
 </ul>
-<h2 id="运行结果分析"><a href="#运行结果分析" class="headerlink" title="运行结果分析"></a>运行结果分析</h2><p><img src="856214-20170831203214640-1792176674.png" alt="gcc编译全过程"></p>
+<h2 id="运行结果分析"><a href="#运行结果分析" class="headerlink" title="运行结果分析"></a>运行结果分析</h2><p><img src="/posts/673/856214-20170831203214640-1792176674.png" alt="gcc编译全过程"></p>
 <h3 id="GCC-运行结果分析"><a href="#GCC-运行结果分析" class="headerlink" title="GCC 运行结果分析"></a>GCC 运行结果分析</h3><blockquote>
 <p><a href="https://blog.csdn.net/njys1/article/details/53448558" rel="external nofollow noreferrer">GCC进行编译的大概步骤：</a></p>
 <p>词法分析 –&gt;  语法分析 –&gt;  生成语法树 –&gt; 高级gimple –&gt;  低级gimple  –&gt;  cfg  –&gt; ssa –&gt;RTL –&gt;目标代码(汇编代码)</p>
@@ -395,16 +395,16 @@
 <h4 id="预处理结果"><a href="#预处理结果" class="headerlink" title="预处理结果"></a>预处理结果</h4><ul>
 <li><p>运行<code>gcc -E hello.c –o hello.i</code>，将会产生 hello.i 文件，这就是 hello.c 经过预处理后的文件。原本4行的程序，经过预处理，得到了580行的预处理文件</p>
 <p>预处理文件开头：</p>
-<p><img src="Screenshot2020-03-0521.27.27.png" alt="预处理文件开头"></p>
+<p><img src="/posts/673/Screenshot2020-03-0521.27.27.png" alt="预处理文件开头"></p>
 <p>预处理文件结尾：</p>
-<p><img src="Screenshot2020-03-0521.28.30.png" alt="预处理文件结尾"></p>
+<p><img src="/posts/673/Screenshot2020-03-0521.28.30.png" alt="预处理文件结尾"></p>
 </li>
 <li><p>可以看到， hello.c 经过预处理后得到的 hello.i文件，除了原本的几行代码之外，还包含了很多额外的变量、函数等等，这些都是预处理器处理的结果。</p>
 </li>
 </ul>
 <h4 id="语法分析树"><a href="#语法分析树" class="headerlink" title="语法分析树"></a>语法分析树</h4><ul>
 <li><p>运行<code>gcc -fdump-tree-all hello.c</code>后，一共生成了22个文件，其命名格式均为<code>filename.c.&lt;num&gt;t.name</code></p>
-  <img src="Screenshot2020-03-0522.08.47-3423784.png" alt="语法分析树"  />
+  <img src="/posts/673/Screenshot2020-03-0522.08.47-3423784.png" alt="语法分析树">
 </li>
 <li><p>分析这22个文件内容(顺序为生成的先后顺序)：</p>
 <ul>
@@ -416,7 +416,7 @@
 <li>其余还有004t.gimple/006t.omplower/011t.cfg /049t.release_ssa 不与其他相同</li>
 </ul>
 </li>
-<li><p>以下重点对比源文件与004t.gimple/010(即007t.lower)/013的区别，其排序与生成顺序一致<br>  <img src="Screenshot2020-03-0520.38.22.png" alt="四个重要文件对比"></p>
+<li><p>以下重点对比源文件与004t.gimple/010(即007t.lower)/013的区别，其排序与生成顺序一致<br>  <img src="/posts/673/Screenshot2020-03-0520.38.22.png" alt="四个重要文件对比"></p>
 </li>
 </ul>
 <ol>
@@ -460,14 +460,14 @@
 <p>为每个变量增加一个版本号，用于数据流的优化，它的结构是跟低端gimple的结构相同的</p>
 </blockquote>
 <p>  如下cfs1与ssa的对比，变量int下多了一个版本号</p>
-<p><img src="Screenshot2020-03-0522.28.18.png" alt="cfs1与ssa"></p>
+<p><img src="/posts/673/Screenshot2020-03-0522.28.18.png" alt="cfs1与ssa"></p>
 </li>
 </ol>
 <h4 id="中间结果及目标代码"><a href="#中间结果及目标代码" class="headerlink" title="中间结果及目标代码"></a>中间结果及目标代码</h4><blockquote>
 <p>考虑到平台的通用性，gcc生成了一套通用的RTL结构，将在RTL的基础上转化为目标代码</p>
 </blockquote>
 <p>使用<code>gcc -fdump-tree-all hello.c</code> 查看生成的中间结果</p>
-<img src="Screenshot2020-03-0522.36.09.png" alt="生成的中间结果文件列表"  />
+<img src="/posts/673/Screenshot2020-03-0522.36.09.png" alt="生成的中间结果文件列表">
 
 <ul>
 <li><p>生成RTL</p>
@@ -480,13 +480,13 @@
 </ul>
 </li>
 <li><p>RTL生成目标代码，也就是汇编代码，<code>gcc -o hello.asm -S hello.c</code> 查看</p>
-<p>﻿<img src="Screenshot2020-03-0522.41.55.png" alt="hello.c源文件与hello.asm对比"></p>
+<p>﻿<img src="/posts/673/Screenshot2020-03-0522.41.55.png" alt="hello.c源文件与hello.asm对比"></p>
 </li>
 </ul>
-<h3 id="LLVM-运行结果分析"><a href="#LLVM-运行结果分析" class="headerlink" title="LLVM 运行结果分析"></a><a href="">LLVM 运行结果分析</a></h3><ul>
+<h3 id="LLVM-运行结果分析"><a href="#LLVM-运行结果分析" class="headerlink" title="LLVM 运行结果分析"></a><a href>LLVM 运行结果分析</a></h3><ul>
 <li><p>查看编译流程和阶段<code>clang -ccc-print-phases test.c -c</code></p>
 <p>返回的结果</p>
-<p><img src="Screenshot2020-03-0321.59.14.png" alt="终端的输出"></p>
+<p><img src="/posts/673/Screenshot2020-03-0321.59.14.png" alt="终端的输出"></p>
 <ul>
 <li>0：获得源代码<code>main.c</code>，c语言文件</li>
 <li>1：预处理阶段，做相应处理</li>
@@ -506,7 +506,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 词法分析1</span><br>clang -fsyntax-only -Xclang -dump-tokens test.c<br><span class="hljs-comment"># 词法分析2</span><br>clang test.c  -fsyntax-only -Xclang -dump-raw-tokens<br></code></pre></td></tr></table></figure>
 
 <p>图片中依次为词法分析1，词法分析2和源文件</p>
-<p><img src="Screenshot2020-03-0523.09.17.png" alt="词法分析1，词法分析2和源文件"></p>
+<p><img src="/posts/673/Screenshot2020-03-0523.09.17.png" alt="词法分析1，词法分析2和源文件"></p>
 <p>可以看到，-dump-raw-tokens仅仅输出我们编写的test.c的词法分析结果，而-dump-tokens输出还包括所有头文件的词法分析结果</p>
 </li>
 <li><p>语法分析</p>
@@ -514,22 +514,22 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 语法分析1</span><br>clang -fsyntax-only -Xclang -ast-dump test.c<br><span class="hljs-comment"># 语法分析2</span><br>clang test.c -fsyntax-only -Xclang -ast-view  <span class="hljs-comment"># 因为缺乏gv环境 此命令未能得到成功结果</span><br></code></pre></td></tr></table></figure>
 
 <p>下图依次是语法分析1得到的抽象语法树ast，语法分析2的得到的语法树生成图的源文件。test.c的源代码</p>
-<p><img src="Screenshot2020-03-0523.17.14.png" alt="ast"></p>
+<p><img src="/posts/673/Screenshot2020-03-0523.17.14.png" alt="ast"></p>
 </li>
 <li><p>这些步骤完成之后就要开始进行IR中间代码的生成了，代码生成器CodeGen会负责将语法树自顶向下遍历逐步翻译成LLVM IR，IR就是编译过程的前端的输出以及后端的输入；此步骤LLVM会去做些优化工作，在Xcode的编译设置里也可以设置优化的级别-01，-03，-0s等；</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看生成的IR中间代码</span><br>clang -S -fobjc-arc -emit-llvm main.m -o main.ll<br><span class="hljs-comment"># 查看LLVM编译优化的结果</span><br>clang test.c -S -mllvm -<span class="hljs-built_in">print</span>-after-all<br></code></pre></td></tr></table></figure>
 
 <p>下图依次为中间代码，LLVM编译优化的结果</p>
-<p><img src="Screenshot2020-03-0523.27.37.png" alt="中间代码及优化结果"></p>
+<p><img src="/posts/673/Screenshot2020-03-0523.27.37.png" alt="中间代码及优化结果"></p>
 </li>
 <li><p>生成汇编文件<code>clang –S test.c</code></p>
 <p>下图左为源文件，右为生成的汇编代码</p>
-<p><img src="Screenshot2020-03-0523.30.49.png" alt="源文件和汇编代码"></p>
+<p><img src="/posts/673/Screenshot2020-03-0523.30.49.png" alt="源文件和汇编代码"></p>
 </li>
 </ol>
 <h3 id="GCC-与-LLVM-对比分析"><a href="#GCC-与-LLVM-对比分析" class="headerlink" title="GCC 与 LLVM 对比分析"></a>GCC 与 LLVM 对比分析</h3><p>源文件均为C语言的hello world</p>
 <p>下图左为gcc生成的汇编文件，右为llvm生成的汇编文件</p>
-<p><img src="Screenshot2020-03-0523.31.58.png" alt="汇编文件对比"></p>
+<p><img src="/posts/673/Screenshot2020-03-0523.31.58.png" alt="汇编文件对比"></p>
 <h2 id="优化编译"><a href="#优化编译" class="headerlink" title="优化编译"></a>优化编译</h2><blockquote>
 <p><a href="https://blog.csdn.net/qq_31108501/article/details/51842166" rel="external nofollow noreferrer">gcc提供了从O0-O3以及Os这几种不同的优化级别供大家选择</a></p>
 <ul>
@@ -548,10 +548,10 @@
 <p>优化编译测试文件采用<a href="/posts/53125/">Lab1</a>中的快速排序代码</p>
 <h3 id="GCC优化编译"><a href="#GCC优化编译" class="headerlink" title="GCC优化编译"></a>GCC优化编译</h3><ul>
 <li><p>规模为50000的1000000以内的不重复随机数(算法效率$O(log_n))$</p>
-<img src="Screenshot2020-03-0523.55.03.png" alt="gcc优化编译1"  />
+<img src="/posts/673/Screenshot2020-03-0523.55.03.png" alt="gcc优化编译1">
 </li>
 <li><p>规模为50000的逆序排列(算法效率$O(n^2)$)</p>
-<img src="Screenshot2020-03-0523.57.14.png" alt="gcc优化编译2"  />
+<img src="/posts/673/Screenshot2020-03-0523.57.14.png" alt="gcc优化编译2">
 </li>
 <li><p>每组实验重复5次，最后运行时间取平均数，单位为ms</p>
 <table>
@@ -584,15 +584,15 @@
 </tr>
 </tbody></table>
 </li>
-<li><p>gcc四种优化编译效率对比<img src="Screenshot2020-03-0600.45.28.png" alt="gcc四种优化效率对比"></p>
+<li><p>gcc四种优化编译效率对比<img src="/posts/673/Screenshot2020-03-0600.45.28.png" alt="gcc四种优化效率对比"></p>
 </li>
 </ul>
 <h3 id="LLVM优化编译"><a href="#LLVM优化编译" class="headerlink" title="LLVM优化编译"></a>LLVM优化编译</h3><ul>
 <li><p>规模为50000的1000000以内的不重复随机数</p>
-<img src="Screenshot2020-03-0523.58.45.png" alt="lvmm优化编译1"  />
+<img src="/posts/673/Screenshot2020-03-0523.58.45.png" alt="lvmm优化编译1">
 </li>
 <li><p>规模为50000的逆序排列</p>
-<img src="Screenshot2020-03-0600.00.30.png" alt="lvmm优化编译2"  />
+<img src="/posts/673/Screenshot2020-03-0600.00.30.png" alt="lvmm优化编译2">
 </li>
 <li><p>每组实验重复5次，最后运行时间取平均数，单位为ms</p>
 <table>
@@ -627,8 +627,8 @@
 </li>
 </ul>
 <p>llvm四种优化编译效率对比</p>
-<p><img src="Screenshot2020-03-0600.51.28.png" alt="llvm四种优化编译效率对比"></p>
-<h3 id="GCC与LLVM优化编译效果对比"><a href="#GCC与LLVM优化编译效果对比" class="headerlink" title="GCC与LLVM优化编译效果对比"></a>GCC与LLVM优化编译效果对比</h3><p><img src="Screenshot2020-03-0600.52.06.png" alt="GCC与LLVM优化编译效果对比"></p>
+<p><img src="/posts/673/Screenshot2020-03-0600.51.28.png" alt="llvm四种优化编译效率对比"></p>
+<h3 id="GCC与LLVM优化编译效果对比"><a href="#GCC与LLVM优化编译效果对比" class="headerlink" title="GCC与LLVM优化编译效果对比"></a>GCC与LLVM优化编译效果对比</h3><p><img src="/posts/673/Screenshot2020-03-0600.52.06.png" alt="GCC与LLVM优化编译效果对比"></p>
 <ul>
 <li>可以看出，总体而言，llvm优化效率是优于gcc的</li>
 <li>面对快排这样的少循环多递归的情况，-O2的优化效率是不如-O1和-O3的</li>
@@ -859,7 +859,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            35
+                            36
                         </p>
                     </a>
                 </div>
@@ -883,7 +883,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            28
+                            30
                         </p>
                     </a>
                 </div>
@@ -995,6 +995,25 @@
         
         <article class="media">
             
+            <a href="/posts/57945/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/2023-barrage.png" alt="新年祈福弹幕墙">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2023-01-04T02:26:54.000Z">2023-01-04</time></div>
+                    <a href="/posts/57945/" class="title has-link-black-ter is-size-6 has-text-weight-normal">新年祈福弹幕墙</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/guide/">guide</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/posts/51261/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="note-weixin-miniprogram">
@@ -1069,25 +1088,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/30803/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/thumbnails/react-native.png" alt="react native 项目环境搭建">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2022-01-10T05:29:29.000Z">2022-01-10</time></div>
-                    <a href="/posts/30803/" class="title has-link-black-ter is-size-6 has-text-weight-normal">react native 项目环境搭建</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/guide/">guide</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1105,7 +1105,7 @@
                 <span class="level-item">code</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">31</span>
+                <span class="level-item tag">32</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/code/course/">
@@ -1121,7 +1121,7 @@
                 <span class="level-item">guide</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">9</span>
+                <span class="level-item tag">10</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/code/note/">
@@ -1236,8 +1236,22 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/html/">
+                        <span class="tag">html</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/ios/">
                         <span class="tag">ios</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/js/">
+                        <span class="tag">js</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1380,6 +1394,17 @@
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2023/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2023</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2022/07/">
@@ -1688,6 +1713,8 @@
          
             
          
+            
+         
             <article class="media"> <a href="/posts/53125/" class="media-left">
                         <p class="image is-64x64">
                             <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab1-语言认知实验">
@@ -1714,18 +1741,6 @@
                 </div>
             </article>
          
-            <article class="media"> <a href="/posts/33846/" class="media-left">
-                        <p class="image is-64x64">
-                            <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab4-文法设计实验">
-                        </p>
-                    </a><div class="media-content">
-                    <div class="content">
-                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-23T07:05:17.000Z">2020-03-23</time></div>
-                        <a href="/posts/33846/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab4-文法设计实验</a>
-                    </div>
-                </div>
-            </article>
-         
             <article class="media"> <a href="/posts/1742/" class="media-left">
                         <p class="image is-64x64">
                             <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab5-语法分析实验">
@@ -1734,6 +1749,18 @@
                     <div class="content">
                         <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-14T13:08:30.000Z">2020-04-14</time></div>
                         <a href="/posts/1742/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab5-语法分析实验</a>
+                    </div>
+                </div>
+            </article>
+         
+            <article class="media"> <a href="/posts/33846/" class="media-left">
+                        <p class="image is-64x64">
+                            <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab4-文法设计实验">
+                        </p>
+                    </a><div class="media-content">
+                    <div class="content">
+                        <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-23T07:05:17.000Z">2020-03-23</time></div>
+                        <a href="/posts/33846/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理与设计-Lab4-文法设计实验</a>
                     </div>
                 </div>
             </article>
@@ -1756,7 +1783,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/ElementUI/" style="font-size: 10px;">ElementUI</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/SonarQube/" style="font-size: 10px;">SonarQube</a> <a href="/tags/VPS/" style="font-size: 12.5px;">VPS</a> <a href="/tags/anaconda/" style="font-size: 10px;">anaconda</a> <a href="/tags/caddy/" style="font-size: 10px;">caddy</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/hexo/" style="font-size: 17.5px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 12.5px;">nginx</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">小程序</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 12.5px;">科学上网</a> <a href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/" style="font-size: 12.5px;">终端命令</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 20px;">编译原理</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 12.5px;">网络安全</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">软件测试</a>
+        <a href="/tags/ElementUI/" style="font-size: 10px;">ElementUI</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/SonarQube/" style="font-size: 10px;">SonarQube</a> <a href="/tags/VPS/" style="font-size: 12.5px;">VPS</a> <a href="/tags/anaconda/" style="font-size: 10px;">anaconda</a> <a href="/tags/caddy/" style="font-size: 10px;">caddy</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/hexo/" style="font-size: 17.5px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 12.5px;">nginx</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">小程序</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 12.5px;">科学上网</a> <a href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/" style="font-size: 12.5px;">终端命令</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 20px;">编译原理</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 12.5px;">网络安全</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">软件测试</a>
     </div>
 </div>
     
@@ -1789,7 +1816,7 @@
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2022 Anne416wu&nbsp;
+                &copy; 2023 Anne416wu&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank" rel="noopener external nofollow noreferrer">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
                 

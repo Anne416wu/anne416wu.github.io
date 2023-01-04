@@ -304,7 +304,7 @@
 </ul>
 <p>阅读关于一个程序设计语言的标准是一件非常痛苦的事情，C11-C标准规范的正文的长度大约有670页，阅读这样一份标准确实需要很多的时间。但这份规范所包涵的内容极广，无论是语言书写者阅读还是为语言设计提供参考都是一份和好的材料。</p>
 <p>在C11-C标准规范的p476开始，给出了C语言的句法规范总结<strong>Language syntax summary</strong> 。我们使用BNF描述C语言，依据的正是这个规范总结，规范总结中对于C语言的描述大概是下面这样:</p>
-<img src="Screenshot2020-03-2318.17.38.png" alt="分支语句" style="zoom:33%;" />
+<img src="/posts/33846/Screenshot2020-03-2318.17.38.png" alt="分支语句" style="zoom:33%;">
 
 <p>这个描述的意思是，对于分支语句，一共有三种格式if，if-else，switch。并且这个描述在语法上对每个格式里各部分组成进行了明确定义。之后按照语法规则得到的结构又被分割为一个个的token和词法分析。这就是一个分支语句。</p>
 <p>在C语言的标准规范中不仅仅针对语言本身，更明确了C语言源代码到转译为可执行程序的每一步，以及每一步里的数据结构，转换方法、存储进行了严格说明。C语言规范保证了语言的严谨性，尽力消除歧义。但这份规范中也存在较为宽泛的问题。比如说数据类型，它定义 long型数据长度不短于 int 型，short 型不长于 int 型。这会导致对于 int 型的变量，在 Turbo C 里面它占16位。 然而在VC 里面，一个整型变量却占有32位。在不同的开发平台上关于整型变量的定义不同，导致相同的程序在不同的编译器上运行 可能会有不同的解释 从而造成相同的程序在不同的平台上的运行结果也有可能是不同的。</p>
@@ -344,7 +344,7 @@
 </ol>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-string">iterationStatement</span><br>    <span class="hljs-string">:</span>   <span class="hljs-string">'while'</span> <span class="hljs-string">'('</span> <span class="hljs-string">expression</span> <span class="hljs-string">')'</span> <span class="hljs-string">statement</span><br>    <span class="hljs-string">|</span>   <span class="hljs-string">'do'</span> <span class="hljs-string">statement</span> <span class="hljs-string">'while'</span> <span class="hljs-string">'('</span> <span class="hljs-string">expression</span> <span class="hljs-string">')'</span> <span class="hljs-string">';'</span><br>    <span class="hljs-string">|</span>   <span class="hljs-string">'for'</span> <span class="hljs-string">'('</span> <span class="hljs-string">expression?</span> <span class="hljs-string">';'</span> <span class="hljs-string">expression?</span> <span class="hljs-string">';'</span> <span class="hljs-string">expression?</span> <span class="hljs-string">')'</span> <span class="hljs-string">statement</span><br>    <span class="hljs-string">|</span>   <span class="hljs-string">'for'</span> <span class="hljs-string">'('</span> <span class="hljs-string">declaration</span> <span class="hljs-string">expression?</span> <span class="hljs-string">';'</span> <span class="hljs-string">expression?</span> <span class="hljs-string">')'</span> <span class="hljs-string">statement</span><br>    <span class="hljs-string">;</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="具体实验"><a href="#具体实验" class="headerlink" title="具体实验"></a>具体实验</h3><p><img src="Screenshot2020-03-2317.29.39.png" alt="在IntelliJ使用ANTLR"></p>
+<h3 id="具体实验"><a href="#具体实验" class="headerlink" title="具体实验"></a>具体实验</h3><p><img src="/posts/33846/Screenshot2020-03-2317.29.39.png" alt="在IntelliJ使用ANTLR"></p>
 <h2 id="心得体会"><a href="#心得体会" class="headerlink" title="心得体会"></a>心得体会</h2><ul>
 <li>这次实验中，我难得有机会阅读了C语言的规范文件。对C语言的产生过程和前端的编译过程有了更深一步的认识，了解程序设计语言的演化过程和相关标准的制定过程，掌握文法的概念， 并能够使用文法对给定的语言进行描述；</li>
 <li>同时这次实验也进一步了加深我对C语言语法的理解，了解了一些不常使用的库函数或者过程，比如C语言多线程执行的过程。C语言的文法规则体现了C语言及其设计者的严谨性。</li>
@@ -563,7 +563,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            35
+                            36
                         </p>
                     </a>
                 </div>
@@ -587,7 +587,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            28
+                            30
                         </p>
                     </a>
                 </div>
@@ -699,6 +699,25 @@
         
         <article class="media">
             
+            <a href="/posts/57945/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/thumbnails/2023-barrage.png" alt="新年祈福弹幕墙">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2023-01-04T02:26:54.000Z">2023-01-04</time></div>
+                    <a href="/posts/57945/" class="title has-link-black-ter is-size-6 has-text-weight-normal">新年祈福弹幕墙</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/guide/">guide</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/posts/51261/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="note-weixin-miniprogram">
@@ -773,25 +792,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/30803/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/thumbnails/react-native.png" alt="react native 项目环境搭建">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2022-01-10T05:29:29.000Z">2022-01-10</time></div>
-                    <a href="/posts/30803/" class="title has-link-black-ter is-size-6 has-text-weight-normal">react native 项目环境搭建</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/code/">code</a> / <a class="has-link-grey -link" href="/categories/code/guide/">guide</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -809,7 +809,7 @@
                 <span class="level-item">code</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">31</span>
+                <span class="level-item tag">32</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/code/course/">
@@ -825,7 +825,7 @@
                 <span class="level-item">guide</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">9</span>
+                <span class="level-item tag">10</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/code/note/">
@@ -940,8 +940,22 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/html/">
+                        <span class="tag">html</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/ios/">
                         <span class="tag">ios</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/js/">
+                        <span class="tag">js</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1084,6 +1098,17 @@
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2023/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2023</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2022/07/">
@@ -1364,6 +1389,8 @@
          
             
          
+            
+         
             <article class="media"> <a href="/posts/53125/" class="media-left">
                         <p class="image is-64x64">
                             <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab1-语言认知实验">
@@ -1400,8 +1427,6 @@
                 </div>
             </article>
          
-            
-         
             <article class="media"> <a href="/posts/1742/" class="media-left">
                         <p class="image is-64x64">
                             <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理与设计-Lab5-语法分析实验">
@@ -1423,6 +1448,8 @@
             
          
             
+         
+            
         
     </div>
 </div>
@@ -1432,7 +1459,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/ElementUI/" style="font-size: 10px;">ElementUI</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/SonarQube/" style="font-size: 10px;">SonarQube</a> <a href="/tags/VPS/" style="font-size: 12.5px;">VPS</a> <a href="/tags/anaconda/" style="font-size: 10px;">anaconda</a> <a href="/tags/caddy/" style="font-size: 10px;">caddy</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/hexo/" style="font-size: 17.5px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 12.5px;">nginx</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">小程序</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 12.5px;">科学上网</a> <a href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/" style="font-size: 12.5px;">终端命令</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 20px;">编译原理</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 12.5px;">网络安全</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">软件测试</a>
+        <a href="/tags/ElementUI/" style="font-size: 10px;">ElementUI</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/SonarQube/" style="font-size: 10px;">SonarQube</a> <a href="/tags/VPS/" style="font-size: 12.5px;">VPS</a> <a href="/tags/anaconda/" style="font-size: 10px;">anaconda</a> <a href="/tags/caddy/" style="font-size: 10px;">caddy</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/haskell/" style="font-size: 10px;">haskell</a> <a href="/tags/hexo/" style="font-size: 17.5px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 12.5px;">nginx</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/taro/" style="font-size: 10px;">taro</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">小程序</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 12.5px;">科学上网</a> <a href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/" style="font-size: 12.5px;">终端命令</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 20px;">编译原理</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 12.5px;">网络安全</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">软件测试</a>
     </div>
 </div>
     
@@ -1465,7 +1492,7 @@
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2022 Anne416wu&nbsp;
+                &copy; 2023 Anne416wu&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank" rel="noopener external nofollow noreferrer">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
                 
